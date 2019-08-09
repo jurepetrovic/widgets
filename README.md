@@ -1,5 +1,10 @@
 # Widgets
 
+## Examples
+[Examples Index](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/index.html)
+- [Basic Leaderboard example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard.html)
+- [Competition Leaderboard example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard-competition.html)
+- [Achievement example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/achievements.html)
 
 ## Basic Leaderboard
 Adding a leaderboard widget to your website
