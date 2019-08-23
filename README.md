@@ -52,7 +52,7 @@ Adding a competition leaderboard widget to your website
 <div class="cl-competition-leaderboard-widget"></div>
 ```
 
-## Achievements
+## SSE Messaging
 SSE messaging widget - connects to a SSE channel and handles responses as JSON
 ```javascript
 var messageQueue = [];
