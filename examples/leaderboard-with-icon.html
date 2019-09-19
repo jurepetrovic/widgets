@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard example</title>
+    <script type="text/javascript" src="../leaderboards/leaderboard-basic.js"></script>
+    <style>
+        .simple-widget-icon-container{
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 100px;
+            height: 100px;
+            cursor:pointer;
+            display:none;
+        }
+        .simple-widget-icon{
+            box-sizing: border-box;
+            padding: 15px;
+            border: 1px solid #666666;
+            float: left;
+            border-radius: 50px;
+            width: 80px;
+            transition: all 0.2s ease;
+            background:#ffffff;
+            box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+        }
+        .simple-widget-icon img{
+            float: left;
+            width: 100%;
+            max-height: 50px;
+        }
+        .simple-widget-icon-container .simple-widget-icon:hover {
+            background:#f1f1f1;
+        }
+        .cl-leaderboard{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="simple-widget-icon-container">
+    <span class="simple-widget-icon">
+        <img src="images/trophy.svg" alt="Trophy" />
+    </span>
+</div>
+<div style="width:600px;margin:0 auto;">
+    <div class="cl-leaderboard"></div>
+</div>
+
+<script type="text/javascript" src="javascript/leaderboard-with-icon-example.js"></script>
+</body>
+</html>

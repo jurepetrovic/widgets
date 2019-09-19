@@ -302,7 +302,8 @@
 			pointsBackgroundColor: null,
 			contest: null,
 			apiURL: apiURL,
-			api: cLabs.api
+			api: cLabs.api,
+			autoStart: true
 		};
 		
 		if( typeof options !== "undefined" ){
@@ -666,7 +667,9 @@
 			}
 		};
 		
-		this.init();
+		if( this.settings.autoStart ) {
+			this.init();
+		}
 	};
 	
 	if(typeof window._clOptions !== "undefined"){
