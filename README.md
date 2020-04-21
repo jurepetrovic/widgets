@@ -1,7 +1,14 @@
+<p align="center">
+    <img width="600" src="https://www.competitionlabs.com/wp-content/uploads/2020/01/Logo-v4.svg"><br/>
+</p>
+
 # Widgets
+
+HTML/CSS and Vanilla JavaScript Competition Labs widgets
 
 ## Examples
 [Examples Index](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/index.html)
+- [Leaderboard V3 example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
 - [Basic Leaderboard example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard.html)
 - [Competition Leaderboard example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard-competition.html)
 - [Achievement example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/achievements.html)

@@ -1,0 +1,156 @@
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #515151;
+    -moz-osx-font-smoothing: grayscale;
+    padding:0;
+    margin:0;
+}
+* {
+    box-sizing: border-box;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+.demo-game-iframe{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+}
+
+.demo-game-login {
+    float: left;
+    width: 300px;
+    border: 1px solid
+    #eee;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    box-shadow: 1px 0 10px
+    rgba(0,0,0,0.1);
+    transform: translate(-50%,0);
+    display: none;
+    z-index: 100;
+}
+.demo-game-login .form-login {
+    float: left;
+    width: 100%;
+    padding: 25px 20px;
+}
+.demo-game-login .form-login .login-input {
+    float: left;
+    width: 100%;
+}
+.demo-game-login .form-login .login-input input {
+    float: left;
+    width: 100%;
+    line-height: 30px;
+    font-size: 14px;
+}
+.demo-game-login .form-login .login-submit {
+    float: left;
+    width: 100%;
+    padding: 15px 0 0 0;
+}
+.demo-game-login .submit-btn {
+    float: right;
+    background: #9cc96b;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 12px;
+    line-height: 1.42857;
+    transition: all 0.25s;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    touch-action: manipulation;
+    border: 1px solid transparent;
+}
+.logout {
+    display: none;
+    width: auto;
+    height: 22px;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    margin: 0;
+}
+.logout a {
+    float: right;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 10px;
+    text-transform: uppercase;
+    line-height: 20px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 2px 7px 2px 7px;
+    border: 1px solid #666666;
+    margin: 1px 0 0 0;
+    cursor: pointer;
+    background: rgba(0,0,0,0.4);
+    outline: 0;
+}
+
+.global-progress-indicator {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+}
+.global-progress-indicator .container {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 300px;
+    margin: 0 0 0 -150px;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+    padding: 15px 0;
+    background: #ffffff;
+}
+.global-progress-indicator .container h4{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 25px;
+    margin: 0 0 5px;
+    overflow: hidden;
+    padding: 0 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.global-progress-indicator .message-cont {
+    float: left;
+    width: 100%;
+}
+.global-progress-indicator .message-cont .info {
+    text-align: center;
+}
+
+.global-progress-indicator .preloader {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0 30px 0;
+}

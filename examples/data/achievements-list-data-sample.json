@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "time": "2020-04-21T13:54:15.399Z",
+    "totalRecordsFound": 5,
+    "skip": 0,
+    "limit": 20
+  },
+  "data": [{
+    "name": "CL test ACH",
+    "scheduling": {
+      "scheduleType": "Repeatedly",
+      "scheduleOccurrencesLimit": 1,
+      "every": [],
+      "startDate": "2019-02-13T16:50:00.000+0000",
+      "onlyAggregateOnActiveDays": false
+    },
+    "description": "a sdsa dasdasasda<br>",
+    "icon": "daeC22EBrGt8uv3Bd5lJ",
+    "deprecated": false,
+    "achievementLiveStatus": "Live",
+    "initialState": 0,
+    "id": "1",
+    "category": []
+  }, {
+    "name": "asd asd asd asd",
+    "scheduling": {
+      "scheduleType": "Once",
+      "scheduleOccurrencesLimit": 1,
+      "every": [],
+      "startDate": "2020-01-24T08:48:00.000+0000",
+      "onlyAggregateOnActiveDays": false
+    },
+    "description": "as das das d<br>",
+    "icon": "bKeC22EBrGt8uv3BUZn4",
+    "deprecated": false,
+    "achievementLiveStatus": "Live",
+    "initialState": 0,
+    "id": "2",
+    "category": []
+  }, {
+    "name": "achievement scoring test",
+    "scheduling": {
+      "scheduleType": "Repeatedly",
+      "scheduleOccurrencesLimit": 1,
+      "every": [],
+      "startDate": "2019-01-11T10:45:00.000+0000",
+      "onlyAggregateOnActiveDays": false
+    },
+    "description": "asd",
+    "icon": "daeC22EBrGt8uv3Bd5lJ",
+    "deprecated": false,
+    "achievementLiveStatus": "Live",
+    "initialState": 0,
+    "id": "3",
+    "category": []
+  }, {
+    "name": "hehe",
+    "scheduling": {
+      "scheduleType": "Once",
+      "scheduleOccurrencesLimit": 1,
+      "every": [],
+      "startDate": "2019-09-03T13:59:00.000+0000",
+      "onlyAggregateOnActiveDays": false
+    },
+    "description": "<p>gGgGgG g g<br></p>",
+    "icon": "daeC22EBrGt8uv3Bd5lJ",
+    "deprecated": false,
+    "achievementLiveStatus": "Live",
+    "initialState": 0,
+    "id": "4",
+    "category": ["test"]
+  }, {
+    "name": "ach - 4",
+    "scheduling": {
+      "scheduleType": "Once",
+      "scheduleOccurrencesLimit": 1,
+      "every": [],
+      "startDate": "2019-09-18T07:53:00.000+0000",
+      "onlyAggregateOnActiveDays": false
+    },
+    "description": "a sda asd<br>",
+    "icon": "daeC22EBrGt8uv3Bd5lJ",
+    "deprecated": false,
+    "achievementLiveStatus": "Live",
+    "initialState": 0,
+    "id": "5",
+    "category": []
+  }]
+}
