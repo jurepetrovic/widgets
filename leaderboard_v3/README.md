@@ -23,7 +23,7 @@ Our widget "out of the box" is a product that you can use immediately by placing
             <img width="250" src="https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/3.png" />
         </td>
         <td>
-            <img width="250" src="https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/2.png" />
+            <img width="214" src="https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/2.png" />
         </td>
         <td>
             <img width="250" src="https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/1.png" />
