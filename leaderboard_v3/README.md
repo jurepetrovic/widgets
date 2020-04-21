@@ -13,7 +13,7 @@ Our widget "out of the box" is a product that you can use immediately by placing
 
 
 <p align="center">
-    <img width="400" src="https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/images/widget_example.gif"><br/>
+    <img width="600" src="https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/widget_example.gif"><br/>
 </p>
 
 ## Adding widget to your website
