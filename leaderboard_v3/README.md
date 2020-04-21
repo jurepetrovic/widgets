@@ -11,9 +11,6 @@ Our widget "out of the box" is a product that you can use immediately by placing
 ## Examples
 [Examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
 
-
-![Leaderboard Widget Demo](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/widget_example.gif)
-
 ## Adding widget to your website
 ```html
 <script type="text/javascript">

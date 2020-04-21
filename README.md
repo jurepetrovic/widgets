@@ -13,7 +13,6 @@ HTML/CSS and Vanilla JavaScript Competition Labs widgets
 - [Competition Leaderboard example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard-competition.html)
 - [Achievement example - Click here](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/achievements.html)
 
-![Leaderboard Widget demo](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/widget_example.gif)
 
 ## Basic Leaderboard
 Adding a leaderboard widget to your website
