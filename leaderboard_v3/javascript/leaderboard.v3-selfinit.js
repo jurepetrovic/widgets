@@ -4100,7 +4100,9 @@
 				memberCompetitions: "/api/v1/:space/members/reference/:id/competitions",
 				memberCompetitionById: "/api/v1/:space/members/reference/:id/competition/:competitionId",
 				memberCompetitionOptIn: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin",
-				memberCompetitionOptInCheck: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin-check"
+				memberCompetitionOptInCheck: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin-check",
+
+				translationPath: ""
 			},
 			translation: {
 				time: {
@@ -4129,7 +4131,8 @@
 					rank: "Rank",
 					name: "Name",
 					points: "Points",
-					prize: "Prize"
+					prize: "Prize",
+					you: "You"
 				},
 				miniLeaderboard: {
 					highScore: "High Score",
@@ -5025,6 +5028,34 @@
 				}
 			});
 		};
+
+		this.loadWidgetTranslations = function( callback ){
+			var _this = this;
+
+			if( typeof _this.settings.uri.translationPath === "string" && _this.settings.uri.translationPath.length > 0 ) {
+				_this.settings.globalAjax.abort().getData({
+					type: "GET",
+					url: _this.settings.uri.gatewayDomain + _this.settings.uri.translationPath.replace(":language", _this.settings.language),
+					headers: {
+						"X-API-KEY": _this.settings.apiKey
+					},
+					success: function (response, dataObj, xhr) {
+						if (xhr.status === 200) {
+							var json = JSON.parse(response);
+
+							_this.settings.translation = mergeObjects(_this.settings.translation, json);
+
+							callback();
+
+						} else {
+							_this.log("no translation foound " + response);
+						}
+					}
+				});
+			}else{
+				callback();
+			}
+		};
 		
 		this.startup = function(){
 			var _this = this;
@@ -5403,31 +5434,33 @@
 
 			_this.loadStylesheet(function(){
 				_this.loadMember(function( member ){
+					_this.loadWidgetTranslations(function() {
 
-					if( _this.settings.miniScoreBoard === null ) {
-						_this.settings.notifications = new Notifications();
-						_this.settings.miniScoreBoard = new MiniScoreBoard({
-							active: true
-						});
-						_this.settings.mainWidget = new MainWidget();
-
-						_this.settings.notifications.settings.lbWidget = _this;
-						_this.settings.miniScoreBoard.settings.lbWidget = _this;
-						_this.settings.mainWidget.settings.lbWidget = _this;
-
-						_this.startup();
-						_this.eventListeners();
-					}else {
-						_this.settings.mainWidget.hide(function(){
-							_this.deactivateCompetitionsAndLeaderboards(function(){
-								_this.settings.miniScoreBoard.settings.active = true;
-								_this.settings.miniScoreBoard.settings.container.style.display = "block";
-								_this.startup();
+						if( _this.settings.miniScoreBoard === null ) {
+							_this.settings.notifications = new Notifications();
+							_this.settings.miniScoreBoard = new MiniScoreBoard({
+								active: true
 							});
-						});
+							_this.settings.mainWidget = new MainWidget();
+
+							_this.settings.notifications.settings.lbWidget = _this;
+							_this.settings.miniScoreBoard.settings.lbWidget = _this;
+							_this.settings.mainWidget.settings.lbWidget = _this;
+
+							_this.startup();
+							_this.eventListeners();
+						}else {
+							_this.settings.mainWidget.hide(function(){
+								_this.deactivateCompetitionsAndLeaderboards(function(){
+									_this.settings.miniScoreBoard.settings.active = true;
+									_this.settings.miniScoreBoard.settings.container.style.display = "block";
+									_this.startup();
+								});
+							});
 
 
-					}
+						}
+					});
 				});
 			});
 		};
