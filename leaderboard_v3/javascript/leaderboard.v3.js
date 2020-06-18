@@ -4079,7 +4079,7 @@
 			},
 			leaderboard: {
 				fullLeaderboardSize: 100,
-				refreshIntervalMillis: 3000,
+				refreshIntervalMillis: 5000,
 				refreshInterval: null,
 				refreshLbDataInterval: null,
 				leaderboardData: [],
@@ -4574,7 +4574,8 @@
 				url = _this.settings.uri.achievements.replace(":space", _this.settings.spaceName).replace(":id", _this.settings.memberId),
 				filters = [
 					"_limit=100",
-					"_include=rewards",
+					// include products to enable achievement filtering
+					"_include=rewards,products",
 					("_lang=" + _this.settings.language)
 				],
 				withGroups = false;
@@ -4598,12 +4599,16 @@
 					if( xhr.status === 200 ){
 						var jsonForAll = JSON.parse(response);
 						
+						// clear achievements list
 						_this.settings.achievements.list = [];
 						
+						/*
 						mapObject(jsonForAll.data, function(ach){
+							// here we add first achievements
 							_this.settings.achievements.list.push(ach);
 						});
-						
+						*/
+
 						if( withGroups ) {
 							checkAchievementsAjax.abort().getData({
 								type: "GET",
@@ -4616,7 +4621,11 @@
 										var json = JSON.parse(response);
 										
 										mapObject(json.data, function (ach) {
-											_this.settings.achievements.list.push(ach);
+
+											// we show the achievement only if it's active for the current game (product)
+											// _this.settings.gameId="55"
+											// ach.products = [{name: "Eddie Dundee", productGroups: ["gameart"], productRefId: "55", productType: "slot"}] 
+											_this.filterAchievementByProduct(ach, _this.settings.gameId, _this);
 										});
 										
 										if (typeof callback === "function") callback(_this.settings.achievements.list);
@@ -4626,15 +4635,38 @@
 									}
 								}
 							});
-						}else{
+
+						} else {
 							if (typeof callback === "function") callback( jsonForAll.data );
 						}
-					}else{
+
+					} else {
 						_this.log("failed to checkForAvailableAchievements " + response);
 					}
 				}
 			});
 		};
+
+		// filter achievement if enabled for current game
+		// we show the achievement only if it's active for the current game (product)
+		// _this.settings.gameId="55"
+		// ach.products = [{name: "Eddie Dundee", productGroups: ["gameart"], productRefId: "55", productType: "slot"}] 
+		this.filterAchievementByProduct = function (ach, gameid, self) {
+			
+			// no product filtering enabled in backoffice
+			if (ach.products.length == 0) {
+				self.settings.achievements.list.push(ach);
+			
+			// check if achievement enabled for this current game (product)
+			} else {
+				for (var prod of ach.products) {
+					if (prod.productRefId === self.settings.gameId) {
+						// add to achievements list
+						self.settings.achievements.list.push(ach);
+					}
+				}
+			} 
+		}
 
 		var getAchievementsAjax = new cLabs.Ajax();
 		this.getAchievement = function( achievementId, callback ){
