@@ -4049,7 +4049,7 @@
 			memberId: "",
 			groups: "",
 			gameId: "",
-			enforceGameLookup: false, // tournament lookup will include/exclude game only requests
+			enforceGameLookup: true, // tournament lookup will include/exclude game only requests
 			apiKey: "",
 			member: null,
 			competition: {
