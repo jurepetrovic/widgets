@@ -1,16 +1,1 @@
-<svg width="90" height="89" viewBox="0 0 90 89" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
-<path d="M4 52.9741L15.1186 12.4741L56.1186 2L86 31.3276L75.5763 72.5259L33.8814 83L4 52.9741Z" fill="#F84128"/>
-</g>
-<defs>
-<filter id="filter0_d" x="0" y="0" width="90" height="89" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-<feOffset dy="2"/>
-<feGaussianBlur stdDeviation="2"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-</filter>
-</defs>
-</svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="31.75mm" height="31.4mm" viewBox="0 0 90 89.01"><defs><style>.cls-1{fill:#ce200f;}</style></defs><path class="cls-1" d="M77.46,22.05,48.21,5.16a6.4,6.4,0,0,0-6.42,0L12.54,22.05a6.42,6.42,0,0,0-3.21,5.56V61.39A6.4,6.4,0,0,0,12.54,67L41.79,83.84a6.4,6.4,0,0,0,6.42,0L77.46,67a6.4,6.4,0,0,0,3.21-5.56V27.61A6.42,6.42,0,0,0,77.46,22.05Z"/></svg>
