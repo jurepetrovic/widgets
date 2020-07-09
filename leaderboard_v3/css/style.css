@@ -1062,10 +1062,13 @@
     float:left;
     width:100%;
     height:30px;
-    background:#2bb22e;
+    background:#254d7c;
     border-radius: 5px 5px 0 0;
     position: relative;
     z-index: 2;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.1);
+    margin-bottom: 6px;
+    margin-right: 6px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list{
     float:left;
@@ -1121,7 +1124,7 @@
     float:left;
     width:100%;
     height:42px;
-    background:#28a02a;
+    background:#14385f;
     position: relative;
     z-index: 2;
 }
@@ -1172,7 +1175,7 @@
     position:absolute;
     bottom:0;
     left:0;
-    background:#2bb22e;
+    background:#14385f;
     border-radius: 0 0 5px 5px;
     z-index: 2;
 }
@@ -1205,7 +1208,8 @@
     height:100%;
     z-index:1;
     padding:72px 0 22px 0;
-    background:#28a02a;
+    background:#14385f;
+    background-image: linear-gradient(to right,  #214671, #14385f);
     border-radius: 5px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header{
@@ -1259,7 +1263,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header-top-res{
     float:left;
     width:100%;
-    background:#0d980e;
+    background:#14385f;
     padding:0 30px;
     box-shadow: 0px 2px 0px  rgba(0, 0, 0, 0.3);
     border-radius: 0 0 5px 5px;
@@ -1742,11 +1746,6 @@
 
 
 
-
-
-
-
-
 /**
  * ****************************************
  * ********** Achievements Area ***********
@@ -1769,10 +1768,13 @@
     float: left;
     width: 100%;
     height: 30px;
-    background: #23b3dd;
+    background: #f3a52b;
     border-radius: 5px 5px 0 0;
     position: relative;
     z-index: 2;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.1);
+    margin-bottom: 6px;
+    margin-right: 6px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-label {
     float: left;
@@ -1812,7 +1814,7 @@
     float: left;
     width: 100%;
     height: 42px;
-    background: #00a1bd;
+    background: #db7718;
     position: relative;
     z-index: 2;
     display: none;
@@ -1825,7 +1827,8 @@
     height: 100%;
     z-index: 1;
     padding: 32px 0 22px 0;
-    background: #00a1bd;
+    background: #f09300;
+    background-image: linear-gradient(to right, #f3a52b, #f09300);
     border-radius: 5px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-list-body {
@@ -1845,7 +1848,7 @@
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container{
     position: absolute;
     height: calc(100% - 52px);
-    background: #00a1bd;
+    background: #db7718;
     top: 30px;
     left: -200px;
     width: 100%;
@@ -1936,7 +1939,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #23b3dd;
+    background: #f09300;
     border-radius: 0 0 5px 5px;
     z-index: 2;
 }
@@ -1952,7 +1955,7 @@
     float: left;
     width: 100%;
     min-height: 70px;
-    padding: 0 0 25px 0;
+    padding: 0 10px 25px 0;
     border-bottom: 1px solid #068aa2;
     margin: 0 0 10px 0;
 }
@@ -2001,17 +2004,21 @@
     position: relative;
     z-index: 1;
 }
+
+/* Progress bar outer border */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-cont {
     float: left;
     width: 100%;
-    background: #068aa2;
-    height: 13px;
+    background: #db7718;
+    height: 15px;
     border-radius: 5px;
 }
+
+/* Progress bar inside percentage */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar {
     float: left;
     width: 0;
-    height: 13px;
+    height: 15px;
     background: #ffffff;
     border-radius: 5px;
     transition: all 0.3s ease;
@@ -2025,6 +2032,17 @@
     padding: 0 6px;
     text-transform: uppercase;
 }
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-percent-number {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: uppercase;
+    display: inline;
+    margin: 5px, 5px, 5px, 5px;
+}
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more {
     float: left;
     text-align: center;
@@ -2033,7 +2051,7 @@
     top: -2px;
     right: 0;
     line-height: 25px;
-    background: #23b3dd;
+    background: #db7718;
     text-decoration: none;
     border-radius: 8px;
     box-shadow: 1px 3px 5px #666;
@@ -2043,7 +2061,7 @@
     transition: all 0.3s ease;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more:hover{
-    background: #29c2ef;
+    background: #f29b0f;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-item-img-wrapper {
     float: left;
@@ -2084,10 +2102,13 @@
     float: left;
     width: 100%;
     height: 30px;
-    background: #f18d32;
+    background: #799bd1;
     border-radius: 5px 5px 0 0;
     position: relative;
     z-index: 2;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.1);
+    margin-bottom: 6px;
+    margin-right: 6px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-header .cl-main-widget-reward-header-label {
     float: left;
@@ -2140,7 +2161,8 @@
     height: 100%;
     z-index: 1;
     padding: 36px 0 22px 0;
-    background: #e88229;
+    background: #6289c9;
+    background-image: linear-gradient(to right, #799bd1, #6289c9);
     border-radius: 5px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body {
@@ -2162,7 +2184,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #f18d32;
+    background: #6289c9;
     border-radius: 0 0 5px 5px;
     z-index: 2;
 }
@@ -2179,12 +2201,12 @@
     width: 100%;
     padding: 10px 15px 15px 15px;
     margin: 0;
-    border-bottom: 1px solid #c56008;
+    border-bottom: 1px solid #6289c9;
     transition: background-color 0.3s ease;
     cursor:pointer;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-item:hover {
-    background-color: #dd790c;
+    background-color: #496ca7;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-details-cont {
     float: left;
@@ -2230,14 +2252,14 @@
     font-weight: bold;
     position: relative;
     z-index: 1;
-    background: #cc6e09;
+    background: #6289c9;
     border-radius: 4px;
     cursor:pointer;
     transition: background-color 0.3s ease;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-accordion-label:hover {
-    background:#ab6d2a;
+    background:#496ca7;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-accordion-label::after {
     content:"+";
@@ -2323,7 +2345,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container{
     position: absolute;
     height: calc(100% - 52px);
-    background: #e88229;
+    background: #496ca7;
     top: 30px;
     left: -200px;
     width: 100%;
@@ -2409,7 +2431,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-winnings-container{
     float: left;
     width: 100%;
-    background:#cb6e09;
+    background:#799bd1;
     position: relative;
     z-index: 1;
 }
@@ -2457,7 +2479,7 @@
     color: #ffffff;
     right: 0;
     line-height: 22px;
-    background: #ff6d00;
+    background: #799bd1;
     text-decoration: none;
     border-radius: 5px;
     box-shadow: 0px 2px 3px #666;

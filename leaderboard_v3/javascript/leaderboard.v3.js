@@ -3522,6 +3522,7 @@
 				progressionWrapper = document.createElement("div"),
 				progressionCont = document.createElement("div"),
 				progressionBar = document.createElement("div"),
+				progressionPercent = document.createElement("div"),
 				moreButton = document.createElement("a"),
 				cpomntainsImage = (typeof ach.icon !== "undefined" && ach.icon.length > 0);
 			
@@ -3534,8 +3535,11 @@
 			progressionWrapper.setAttribute("class", "cl-ach-list-progression");
 			progressionCont.setAttribute("class", "cl-ach-list-progression-cont");
 			progressionBar.setAttribute("class", "cl-ach-list-progression-bar");
+			progressionPercent.setAttribute("class", "cl-ach-list-percent-number");
 			moreButton.setAttribute("class", "cl-ach-list-more");
 			
+			progressionPercent.innerHTML = "50%";
+
 			moreButton.dataset.id = ach.id;
 			moreButton.innerHTML = _this.settings.lbWidget.settings.translation.achievements.more;
 			moreButton.href = "javascript:void(0);";
@@ -3569,6 +3573,7 @@
 			
 			progressionCont.appendChild(progressionBar);
 			progressionWrapper.appendChild(progressionCont);
+			progressionWrapper.appendChild(progressionPercent);
 			progressionWrapper.appendChild(moreButton);
 			
 			
@@ -4049,7 +4054,7 @@
 			memberId: "",
 			groups: "",
 			gameId: "",
-			enforceGameLookup: true, // tournament lookup will include/exclude game only requests
+			enforceGameLookup: true, // tournament lookup will include/exclude game only requests - competition filtering
 			apiKey: "",
 			member: null,
 			competition: {
@@ -4162,7 +4167,7 @@
 					expiredRewards: "Expired Rewards"
 				},
 				global: {
-					copy: "Powered By CompetitionLabs"
+					copy: "" //"Powered By GameArt"
 				}
 			},
 			resources: [
@@ -4330,18 +4335,18 @@
 							callback();
 						}
 					}else{
-						_this.log("failed to checkForActiveCompetitions " + response);
+						_this.log("failed to checkForFinishedCompetitions " + response);
 					}
 				}
 			});
 		};
 		
-		this.prepareActiveCompetition = function( callback ){
+		this.prepareActiveCompetition = function(callback) {
 			var _this = this,
 				activeCompetition = null,
 				activeCompetitionId = null;
 
-			if( _this.settings.tournaments.activeCompetitionId !== null ){
+			if (_this.settings.tournaments.activeCompetitionId !== null) {
 
 				mapObject(_this.settings.tournaments.activeCompetitions, function( comp ){
 					if( comp.id === _this.settings.tournaments.activeCompetitionId ){
@@ -4360,39 +4365,48 @@
 				});
 
 
-				if( activeCompetition !== null ) {
+				if (activeCompetition !== null) {
 					activeCompetitionId = _this.settings.tournaments.activeCompetitionId;
-				}else{
+				
+				} else {
 					_this.settings.tournaments.activeCompetitionId = null;
 				}
 			}
 
-			if( activeCompetition === null && _this.settings.tournaments.activeCompetitions.length > 0 ){
+			if (activeCompetition === null && _this.settings.tournaments.activeCompetitions.length > 0 ) {
+
 				activeCompetition = _this.settings.tournaments.activeCompetitions[0];
 				activeCompetitionId = activeCompetition.id;
 				
-			}else if( activeCompetition === null && _this.settings.tournaments.readyCompetitions.length > 0 ){
+			} else if ( activeCompetition === null && _this.settings.tournaments.readyCompetitions.length > 0) {
+				
 				activeCompetition = _this.settings.tournaments.readyCompetitions[0];
 				activeCompetitionId = activeCompetition.id;
 			}
 			
-			if ( activeCompetitionId === null ) { // no active or ready competitions found
+			// no competitions found
+			if ( activeCompetitionId === null && _this.settings.tournaments.finishedCompetitions.length <= 0 ) { 
+				
+				// deactivation requires closing & opening of the mainWidget. 
 				_this.deactivateCompetitionsAndLeaderboards();
-			}else{
-				if( _this.settings.competition.activeCompetitionId !== activeCompetitionId && activeCompetitionId !== null ) {
+			
+			} else { 
+				
+				if ( _this.settings.competition.activeCompetitionId !== activeCompetitionId && activeCompetitionId !== null ) {
 					
 					_this.settings.competition.activeCompetition = activeCompetition;
-					_this.settings.competition.activeCompetitionId = activeCompetitionId;
-					
+					_this.settings.competition.activeCompetitionId = activeCompetitionId;	
 				}
 				
-				if( activeCompetitionId !== null ){
+				// load active competition
+				if (activeCompetitionId !== null) {
+
 					_this.loadActiveCompetition( function( json ){
-						
+					
 						_this.setActiveCompetition(json, callback);
-						
-					} );
-				}else if (typeof callback === "function") { callback(); }
+					});
+				
+				} else if (typeof callback === "function") { callback(); }
 			}
 			
 		};
