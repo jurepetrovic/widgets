@@ -98,4 +98,6 @@ resource based on the language setting and the "translationPath"
 * If the resource path is used as "translation_:language.json" the widget script will try to replace ":language" with the 
 current language  setting and load the translation dynamically from an external source, example:
 https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json
+
+* If translations are not required it is possible to disable them by changing "loadTranslations" setting to "false"
 ```
