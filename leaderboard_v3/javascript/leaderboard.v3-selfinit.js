@@ -5,7 +5,7 @@
 */
 (function() {
 	'use strict';
-	
+
 	if (!window.console) { window.console = function(){}; if (typeof XDomainRequest !== "undefined") { window.console.prototype.log = function(err){ throw new SyntaxError(err); }; window.console.prototype.warn = function(err){ throw new SyntaxError(err); }; window.console.prototype.error = function(err){ throw new SyntaxError(err); }; } }
 	try{Event.prototype.preventDefault||(Event.prototype.preventDefault=function(){this.returnValue=!1})}catch(err){console.log(err)}
 	try{Event.prototype.stopPropagation||(Event.prototype.stopPropagation=function(){this.cancelBubble=!0})}catch(err){console.log(err)}
@@ -27,9 +27,9 @@
 	try{!function(){var t;t="undefined"!=typeof module&&void 0!==module.exports?require("./pnglib"):window.PNGlib;var i=function(t,i){if("string"!=typeof t||t.length<15)throw"A hash of at least 15 characters is required.";this.defaults={background:[240,240,240,255],margin:.08,size:64,saturation:.7,brightness:.5,format:"png"},this.options="object"==typeof i?i:this.defaults,"number"==typeof arguments[1]&&(this.options.size=arguments[1]),arguments[2]&&(this.options.margin=arguments[2]),this.hash=t,this.background=this.options.background||this.defaults.background,this.size=this.options.size||this.defaults.size,this.format=this.options.format||this.defaults.format,this.margin=void 0!==this.options.margin?this.options.margin:this.defaults.margin;var s=parseInt(this.hash.substr(-7),16)/268435455,r=this.options.saturation||this.defaults.saturation,o=this.options.brightness||this.defaults.brightness;this.foreground=this.options.foreground||this.hsl2rgb(s,r,o)};i.prototype={background:null,foreground:null,hash:null,margin:null,size:null,format:null,image:function(){return this.isSvg()?new s(this.size,this.foreground,this.background):new t(this.size,this.size,256)},render:function(){var t,i,s=this.image(),r=this.size,o=Math.floor(r*this.margin),e=Math.floor((r-2*o)/5),n=Math.floor((r-5*e)/2),h=s.color.apply(s,this.background),a=s.color.apply(s,this.foreground);for(t=0;t<15;t++)i=parseInt(this.hash.charAt(t),16)%2?h:a,t<5?this.rectangle(2*e+n,t*e+n,e,e,i,s):t<10?(this.rectangle(1*e+n,(t-5)*e+n,e,e,i,s),this.rectangle(3*e+n,(t-5)*e+n,e,e,i,s)):t<15&&(this.rectangle(0*e+n,(t-10)*e+n,e,e,i,s),this.rectangle(4*e+n,(t-10)*e+n,e,e,i,s));return s},rectangle:function(t,i,s,r,o,e){var n,h;if(this.isSvg())e.rectangles.push({x:t,y:i,w:s,h:r,color:o});else for(n=t;n<t+s;n++)for(h=i;h<i+r;h++)e.buffer[e.index(n,h)]=o},hsl2rgb:function(t,i,s){return[255*(i=[s+=i*=s<.5?s:1-s,s-(t*=6)%1*i*2,s-=i*=2,s,s+t%1*i,s+i])[~~t%6],255*i[(16|t)%6],255*i[(8|t)%6]]},toString:function(t){return t?this.render().getDump():this.render().getBase64()},isSvg:function(){return this.format.match(/svg/i)}};var s=function(t,i,s){this.size=t,this.foreground=this.color.apply(this,i),this.background=this.color.apply(this,s),this.rectangles=[]};s.prototype={size:null,foreground:null,background:null,rectangles:null,color:function(t,i,s,r){var o=[t,i,s].map(Math.round);return o.push(r>=0&&r<=255?r/255:1),"rgba("+o.join(",")+")"},getDump:function(){var t,i,s,r=this.foreground,o=this.background,e=.005*this.size;for(i="<svg xmlns='http://www.w3.org/2000/svg' width='"+this.size+"' height='"+this.size+"' style='background-color:"+o+";'><g style='fill:"+r+"; stroke:"+r+"; stroke-width:"+e+";'>",t=0;t<this.rectangles.length;t++)(s=this.rectangles[t]).color!=o&&(i+="<rect  x='"+s.x+"' y='"+s.y+"' width='"+s.w+"' height='"+s.h+"'/>");return i+="</g></svg>"},getBase64:function(){if("function"==typeof btoa)return btoa(this.getDump());if(Buffer)return new Buffer(this.getDump(),"binary").toString("base64");throw"Cannot generate base64 output"}},"undefined"!=typeof module&&void 0!==module.exports?module.exports=i:window.Identicon=i}();}catch(e){}
 	// encoding
 	try{!function(n){function e(n,e,t){var f=0,b=[0],c="",s=null;if("UTF8"!==(c=t||"UTF8")&&"UTF16"!==c)throw"encoding must be UTF8 or UTF16";if("HEX"===e){if(0!=n.length%2)throw"srcString of HEX type must be in byte increments";s=a(n),f=s.binLen,b=s.value}else if("ASCII"===e||"TEXT"===e)s=r(n,c),f=s.binLen,b=s.value;else{if("B64"!==e)throw"inputFormat must be HEX, TEXT, ASCII, or B64";s=o(n),f=s.binLen,b=s.value}this.getHash=function(n,e,t,r){var a,o=null,c=b.slice(),s=f;if(3===arguments.length?"number"!=typeof t&&(r=t,t=1):2===arguments.length&&(t=1),t!==parseInt(t,10)||1>t)throw"numRounds must a integer >= 1";switch(e){case"HEX":o=w;break;case"B64":o=i;break;default:throw"format must be HEX or B64"}if("SHA-1"===n)for(a=0;a<t;a++)c=L(c,s),s=160;else if("SHA-224"===n)for(a=0;a<t;a++)c=P(c,s,n),s=224;else if("SHA-256"===n)for(a=0;a<t;a++)c=P(c,s,n),s=256;else if("SHA-384"===n)for(a=0;a<t;a++)c=P(c,s,n),s=384;else{if("SHA-512"!==n)throw"Chosen SHA variant is not supported";for(a=0;a<t;a++)c=P(c,s,n),s=512}return o(c,u(r))},this.getHMAC=function(n,e,t,s,l){var p,h,H,d,v=[],A=[];switch(p=null,s){case"HEX":s=w;break;case"B64":s=i;break;default:throw"outputFormat must be HEX or B64"}if("SHA-1"===t)h=64,d=160;else if("SHA-224"===t)h=64,d=224;else if("SHA-256"===t)h=64,d=256;else if("SHA-384"===t)h=128,d=384;else{if("SHA-512"!==t)throw"Chosen SHA variant is not supported";h=128,d=512}if("HEX"===e)H=(p=a(n)).binLen,p=p.value;else if("ASCII"===e||"TEXT"===e)H=(p=r(n,c)).binLen,p=p.value;else{if("B64"!==e)throw"inputFormat must be HEX, TEXT, ASCII, or B64";H=(p=o(n)).binLen,p=p.value}for(n=8*h,e=h/4-1,h<H/8?(p="SHA-1"===t?L(p,H):P(p,H,t))[e]&=4294967040:h>H/8&&(p[e]&=4294967040),h=0;h<=e;h+=1)v[h]=909522486^p[h],A[h]=1549556828^p[h];return s(t="SHA-1"===t?L(A.concat(L(v.concat(b),n+f)),n+d):P(A.concat(P(v.concat(b),n+f,t)),n+d,t),u(l))}}function t(n,e){this.a=n,this.b=e}function r(n,e){var t,r,a=[],o=[],w=0;if("UTF8"===e)for(r=0;r<n.length;r+=1)for(o=[],2048<(t=n.charCodeAt(r))?(o[0]=224|(61440&t)>>>12,o[1]=128|(4032&t)>>>6,o[2]=128|63&t):128<t?(o[0]=192|(1984&t)>>>6,o[1]=128|63&t):o[0]=t,t=0;t<o.length;t+=1)a[w>>>2]|=o[t]<<24-w%4*8,w+=1;else if("UTF16"===e)for(r=0;r<n.length;r+=1)a[w>>>2]|=n.charCodeAt(r)<<16-w%4*8,w+=2;return{value:a,binLen:8*w}}function a(n){var e,t,r=[],a=n.length;if(0!=a%2)throw"String of HEX type must be in byte increments";for(e=0;e<a;e+=2){if(t=parseInt(n.substr(e,2),16),isNaN(t))throw"String of HEX type contains invalid characters";r[e>>>3]|=t<<24-e%8*4}return{value:r,binLen:4*a}}function o(n){var e,t,r,a,o,w=[],i=0;if(-1===n.search(/^[a-zA-Z0-9=+\/]+$/))throw"Invalid character in base-64 string";if(e=n.indexOf("="),n=n.replace(/\=/g,""),-1!==e&&e<n.length)throw"Invalid '=' found in base-64 string";for(t=0;t<n.length;t+=4){for(o=n.substr(t,4),r=a=0;r<o.length;r+=1)a|=(e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".indexOf(o[r]))<<18-6*r;for(r=0;r<o.length-1;r+=1)w[i>>2]|=(a>>>16-8*r&255)<<24-i%4*8,i+=1}return{value:w,binLen:8*i}}function w(n,e){var t,r,a="",o=4*n.length;for(t=0;t<o;t+=1)r=n[t>>>2]>>>8*(3-t%4),a+="0123456789abcdef".charAt(r>>>4&15)+"0123456789abcdef".charAt(15&r);return e.outputUpper?a.toUpperCase():a}function i(n,e){var t,r,a,o="",w=4*n.length;for(t=0;t<w;t+=3)for(a=(n[t>>>2]>>>8*(3-t%4)&255)<<16|(n[t+1>>>2]>>>8*(3-(t+1)%4)&255)<<8|n[t+2>>>2]>>>8*(3-(t+2)%4)&255,r=0;4>r;r+=1)o=8*t+6*r<=32*n.length?o+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(a>>>6*(3-r)&63):o+e.b64Pad;return o}function u(n){var e={outputUpper:!1,b64Pad:"="};try{n.hasOwnProperty("outputUpper")&&(e.outputUpper=n.outputUpper),n.hasOwnProperty("b64Pad")&&(e.b64Pad=n.b64Pad)}catch(n){}if("boolean"!=typeof e.outputUpper)throw"Invalid outputUpper formatting option";if("string"!=typeof e.b64Pad)throw"Invalid b64Pad formatting option";return e}function f(n,e){return n<<e|n>>>32-e}function b(n,e){return n>>>e|n<<32-e}function c(n,e){var r=null;r=new t(n.a,n.b);return 32>=e?new t(r.a>>>e|r.b<<32-e&4294967295,r.b>>>e|r.a<<32-e&4294967295):new t(r.b>>>e-32|r.a<<64-e&4294967295,r.a>>>e-32|r.b<<64-e&4294967295)}function s(n,e){return 32>=e?new t(n.a>>>e,n.b>>>e|n.a<<32-e&4294967295):new t(0,n.a>>>e-32)}function l(n,e,t){return n^e^t}function p(n,e,t){return n&e^~n&t}function h(n,e,r){return new t(n.a&e.a^~n.a&r.a,n.b&e.b^~n.b&r.b)}function H(n,e,t){return n&e^n&t^e&t}function d(n,e,r){return new t(n.a&e.a^n.a&r.a^e.a&r.a,n.b&e.b^n.b&r.b^e.b&r.b)}function v(n){return b(n,2)^b(n,13)^b(n,22)}function A(n){var e=c(n,28),r=c(n,34);return n=c(n,39),new t(e.a^r.a^n.a,e.b^r.b^n.b)}function S(n){return b(n,6)^b(n,11)^b(n,25)}function g(n){var e=c(n,14),r=c(n,18);return n=c(n,41),new t(e.a^r.a^n.a,e.b^r.b^n.b)}function m(n){return b(n,7)^b(n,18)^n>>>3}function U(n){var e=c(n,1),r=c(n,8);return n=s(n,7),new t(e.a^r.a^n.a,e.b^r.b^n.b)}function E(n){return b(n,17)^b(n,19)^n>>>10}function T(n){var e=c(n,19),r=c(n,61);return n=s(n,6),new t(e.a^r.a^n.a,e.b^r.b^n.b)}function X(n,e){var t=(65535&n)+(65535&e);return((n>>>16)+(e>>>16)+(t>>>16)&65535)<<16|65535&t}function y(n,e,t,r){var a=(65535&n)+(65535&e)+(65535&t)+(65535&r);return((n>>>16)+(e>>>16)+(t>>>16)+(r>>>16)+(a>>>16)&65535)<<16|65535&a}function I(n,e,t,r,a){var o=(65535&n)+(65535&e)+(65535&t)+(65535&r)+(65535&a);return((n>>>16)+(e>>>16)+(t>>>16)+(r>>>16)+(a>>>16)+(o>>>16)&65535)<<16|65535&o}function C(n,e){var r,a,o;return r=(65535&n.b)+(65535&e.b),o=(65535&(a=(n.b>>>16)+(e.b>>>16)+(r>>>16)))<<16|65535&r,r=(65535&n.a)+(65535&e.a)+(a>>>16),new t((65535&(a=(n.a>>>16)+(e.a>>>16)+(r>>>16)))<<16|65535&r,o)}function F(n,e,r,a){var o,w,i;return o=(65535&n.b)+(65535&e.b)+(65535&r.b)+(65535&a.b),i=(65535&(w=(n.b>>>16)+(e.b>>>16)+(r.b>>>16)+(a.b>>>16)+(o>>>16)))<<16|65535&o,o=(65535&n.a)+(65535&e.a)+(65535&r.a)+(65535&a.a)+(w>>>16),new t((65535&(w=(n.a>>>16)+(e.a>>>16)+(r.a>>>16)+(a.a>>>16)+(o>>>16)))<<16|65535&o,i)}function x(n,e,r,a,o){var w,i,u;return w=(65535&n.b)+(65535&e.b)+(65535&r.b)+(65535&a.b)+(65535&o.b),u=(65535&(i=(n.b>>>16)+(e.b>>>16)+(r.b>>>16)+(a.b>>>16)+(o.b>>>16)+(w>>>16)))<<16|65535&w,w=(65535&n.a)+(65535&e.a)+(65535&r.a)+(65535&a.a)+(65535&o.a)+(i>>>16),new t((65535&(i=(n.a>>>16)+(e.a>>>16)+(r.a>>>16)+(a.a>>>16)+(o.a>>>16)+(w>>>16)))<<16|65535&w,u)}function L(n,e){var t,r,a,o,w,i,u,b,c,s=[],h=p,d=l,v=H,A=f,S=X,g=I,m=[1732584193,4023233417,2562383102,271733878,3285377520];for(n[e>>>5]|=128<<24-e%32,n[15+(e+65>>>9<<4)]=e,c=n.length,u=0;u<c;u+=16){for(t=m[0],r=m[1],a=m[2],o=m[3],w=m[4],b=0;80>b;b+=1)s[b]=16>b?n[b+u]:A(s[b-3]^s[b-8]^s[b-14]^s[b-16],1),i=20>b?g(A(t,5),h(r,a,o),w,1518500249,s[b]):40>b?g(A(t,5),d(r,a,o),w,1859775393,s[b]):60>b?g(A(t,5),v(r,a,o),w,2400959708,s[b]):g(A(t,5),d(r,a,o),w,3395469782,s[b]),w=o,o=a,a=A(r,30),r=t,t=i;m[0]=S(t,m[0]),m[1]=S(r,m[1]),m[2]=S(a,m[2]),m[3]=S(o,m[3]),m[4]=S(w,m[4])}return m}function P(n,e,r){var a,o,w,i,u,f,b,c,s,l,L,P,B,k,O,N,j,z,M,R,Z,q,D,G,J,K,Q=[],V=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298];if(l=[3238371032,914150663,812702999,4144912697,4290775857,1750603025,1694076839,3204075428],o=[1779033703,3144134277,1013904242,2773480762,1359893119,2600822924,528734635,1541459225],"SHA-224"===r||"SHA-256"===r)L=64,a=15+(e+65>>>9<<4),k=16,O=1,J=Number,N=X,j=y,z=I,M=m,R=E,Z=v,q=S,G=H,D=p,l="SHA-224"===r?l:o;else{if("SHA-384"!==r&&"SHA-512"!==r)throw"Unexpected error in SHA-2 implementation";L=80,a=31+(e+128>>>10<<5),k=32,O=2,N=C,j=F,z=x,M=U,R=T,Z=A,q=g,G=d,D=h,V=[new(J=t)(V[0],3609767458),new J(V[1],602891725),new J(V[2],3964484399),new J(V[3],2173295548),new J(V[4],4081628472),new J(V[5],3053834265),new J(V[6],2937671579),new J(V[7],3664609560),new J(V[8],2734883394),new J(V[9],1164996542),new J(V[10],1323610764),new J(V[11],3590304994),new J(V[12],4068182383),new J(V[13],991336113),new J(V[14],633803317),new J(V[15],3479774868),new J(V[16],2666613458),new J(V[17],944711139),new J(V[18],2341262773),new J(V[19],2007800933),new J(V[20],1495990901),new J(V[21],1856431235),new J(V[22],3175218132),new J(V[23],2198950837),new J(V[24],3999719339),new J(V[25],766784016),new J(V[26],2566594879),new J(V[27],3203337956),new J(V[28],1034457026),new J(V[29],2466948901),new J(V[30],3758326383),new J(V[31],168717936),new J(V[32],1188179964),new J(V[33],1546045734),new J(V[34],1522805485),new J(V[35],2643833823),new J(V[36],2343527390),new J(V[37],1014477480),new J(V[38],1206759142),new J(V[39],344077627),new J(V[40],1290863460),new J(V[41],3158454273),new J(V[42],3505952657),new J(V[43],106217008),new J(V[44],3606008344),new J(V[45],1432725776),new J(V[46],1467031594),new J(V[47],851169720),new J(V[48],3100823752),new J(V[49],1363258195),new J(V[50],3750685593),new J(V[51],3785050280),new J(V[52],3318307427),new J(V[53],3812723403),new J(V[54],2003034995),new J(V[55],3602036899),new J(V[56],1575990012),new J(V[57],1125592928),new J(V[58],2716904306),new J(V[59],442776044),new J(V[60],593698344),new J(V[61],3733110249),new J(V[62],2999351573),new J(V[63],3815920427),new J(3391569614,3928383900),new J(3515267271,566280711),new J(3940187606,3454069534),new J(4118630271,4000239992),new J(116418474,1914138554),new J(174292421,2731055270),new J(289380356,3203993006),new J(460393269,320620315),new J(685471733,587496836),new J(852142971,1086792851),new J(1017036298,365543100),new J(1126000580,2618297676),new J(1288033470,3409855158),new J(1501505948,4234509866),new J(1607167915,987167468),new J(1816402316,1246189591)],l="SHA-384"===r?[new J(3418070365,l[0]),new J(1654270250,l[1]),new J(2438529370,l[2]),new J(355462360,l[3]),new J(1731405415,l[4]),new J(41048885895,l[5]),new J(3675008525,l[6]),new J(1203062813,l[7])]:[new J(o[0],4089235720),new J(o[1],2227873595),new J(o[2],4271175723),new J(o[3],1595750129),new J(o[4],2917565137),new J(o[5],725511199),new J(o[6],4215389547),new J(o[7],327033209)]}for(n[e>>>5]|=128<<24-e%32,n[a]=e,K=n.length,P=0;P<K;P+=k){for(e=l[0],a=l[1],o=l[2],w=l[3],i=l[4],u=l[5],f=l[6],b=l[7],B=0;B<L;B+=1)Q[B]=16>B?new J(n[B*O+P],n[B*O+P+1]):j(R(Q[B-2]),Q[B-7],M(Q[B-15]),Q[B-16]),c=z(b,q(i),D(i,u,f),V[B],Q[B]),s=N(Z(e),G(e,a,o)),b=f,f=u,u=i,i=N(w,c),w=o,o=a,a=e,e=N(c,s);l[0]=N(e,l[0]),l[1]=N(a,l[1]),l[2]=N(o,l[2]),l[3]=N(w,l[3]),l[4]=N(i,l[4]),l[5]=N(u,l[5]),l[6]=N(f,l[6]),l[7]=N(b,l[7])}if("SHA-224"===r)n=[l[0],l[1],l[2],l[3],l[4],l[5],l[6]];else if("SHA-256"===r)n=l;else if("SHA-384"===r)n=[l[0].a,l[0].b,l[1].a,l[1].b,l[2].a,l[2].b,l[3].a,l[3].b,l[4].a,l[4].b,l[5].a,l[5].b];else{if("SHA-512"!==r)throw"Unexpected error in SHA-2 implementation";n=[l[0].a,l[0].b,l[1].a,l[1].b,l[2].a,l[2].b,l[3].a,l[3].b,l[4].a,l[4].b,l[5].a,l[5].b,l[6].a,l[6].b,l[7].a,l[7].b]}return n}"function"==typeof define&&(define.amd,1)?define(function(){return e}):"undefined"!=typeof exports?"undefined"!=typeof module&&module.exports?module.exports=exports=e:exports=e:n.jsSHA=e}(window);}catch(e){}
-	
-	
-	
+
+
+
 	// default domain
 	// var apiURL = "http://192.168.1.8:9998";
 	var apiURL = "http://app.local:9998";
@@ -54,7 +54,7 @@
 						exists = true;
 					}
 				});
-				
+
 				if( !exists ) {
 					var interval = setTimeout(function () {
 						mapObject(window._setTimeoutGlobalRepository, function (instance, key, count) {
@@ -62,25 +62,25 @@
 								window._setTimeoutGlobalRepository.splice(key, 1);
 							}
 						});
-						
+
 						if (typeof func === "function") {
 							func();
 						}
 					}, timer);
-					
+
 					window._setTimeoutGlobalRepository.push({
 						id: id,
 						func: func,
 						timer: timer,
 						interval: interval
 					});
-					
+
 					return interval;
 				}else{
 					throw new Error("setTimeoutGlobal - ID [" + id + "] already in use");
 				}
 			};
-			
+
 			var closeTimeout = function(){
 				if( window._setTimeoutGlobalRepository.length > 0 ){
 					mapObject(window._setTimeoutGlobalRepository, function(instance, key, count){
@@ -91,25 +91,25 @@
 					});
 				}
 			};
-			
+
 			var reEnableTimeouts = function(){
 				if( window._setTimeoutGlobalRepository.length > 0 ){
 					var tmp = [];
 					mapObject(window._setTimeoutGlobalRepository, function(instance, key, count){
 						tmp.push(instance);
 					});
-					
+
 					window._setTimeoutGlobalRepository = [];
 					mapObject(tmp, function(instance, key, count){
 						window.setTimeoutGlobal(instance.id, instance.func, instance.timer);
 					});
 				}
 			};
-			
+
 			var windowActivity = function(){
 				(function() {
 					var hidden = "hidden";
-					
+
 					// Standards:
 					if (hidden in document)
 						document.addEventListener("visibilitychange", onchange);
@@ -126,7 +126,7 @@
 					else
 						window.onpageshow = window.onpagehide
 							= window.onfocus = window.onblur = onchange;
-					
+
 					function onchange (evt) {
 						var status = "",
 							v = "visible",
@@ -134,33 +134,33 @@
 							evtMap = {
 								focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h
 							};
-						
+
 						evt = evt || window.event;
 						if (evt.type in evtMap) {
 							status = evtMap[evt.type];
 						}else {
 							status = this[hidden] ? "hidden" : "visible";
 						}
-						
+
 						if( status === "visible" ){
 							reEnableTimeouts();
 						}else if( status === "hidden" ){
 							closeTimeout();
 						}
 					}
-					
-					
+
+
 					// set the initial state (but only if browser supports the Page Visibility API)
 					if( document[hidden] !== undefined )
 						onchange({type: document[hidden] ? "blur" : "focus"});
 				})();
-				
+
 			};
-			
+
 			windowActivity();
 		}
 	}catch(err){ console.log(err) }
-	
+
 	/**
 	 * returns the size of an Object or array
 	 *
@@ -172,14 +172,14 @@
 		for (key in obj) {
 			if (obj.hasOwnProperty(key)) size++;
 		}
-		
+
 		if(size === 0 && isElement(obj)){
 			size = 1;
 		}
-		
+
 		return size;
 	};
-	
+
 	/**
 	 * Returns a count of object from a query result
 	 * @paramobj  {Object} anything or Array object
@@ -193,7 +193,7 @@
 			return 0;
 		}
 	};
-	
+
 	/**
 	 * Removes an HTML DOM element
 	 * @paramobj el {Object} DOM element
@@ -203,7 +203,7 @@
 			el.parentElement.removeChild(el);
 		}
 	};
-	
+
 	/**
 	 * Returns true if it is a DOM element
 	 *
@@ -227,7 +227,7 @@
 			var count = 0;
 			for(var key in obj){
 				callback(obj[key], key, count, obj.length);
-				
+
 				count++;
 			}
 		}else if( typeof obj !== "undefined" && obj !== null ){
@@ -251,7 +251,7 @@
 		}catch(e){
 			console.trace();
 		}
-		
+
 		return element;
 	};
 
@@ -262,7 +262,7 @@
 	 * @returns {{classList}|*}
 	 */
 	var removeClass = function(element, className) {
-		
+
 		try {
 			if (element.classList) {
 				element.classList.remove(className);
@@ -274,7 +274,7 @@
 			console.error(e);
 			console.trace();
 		}
-		
+
 		return element;
 	};
 
@@ -285,7 +285,7 @@
 	 * @returns {boolean}
 	 */
 	var hasClass = function(element, className) {
-		
+
 		if(typeof className === 'string') {
 			return _hasClass(element, className)
 		}else if(className instanceof Array){
@@ -297,12 +297,12 @@
 			}
 			return hasClass;
 		}
-		
+
 	};
-	
+
 	function _hasClass(element, className){
 		className = className.replace(".", "");
-		
+
 		try {
 			if (element.classList) {
 				return element.classList.contains(className);
@@ -360,11 +360,11 @@
 	 * @returns {null | ParentNode}
 	 */
 	var closest = function( element, selector ) {
-		
+
 		if(typeof selector === "object" ){
 			var selectorClassString = selector.getAttribute("class"),
 				selectorIdString = selector.id;
-			
+
 			if(selectorIdString !== null && selectorIdString.length > 0){
 				selector = "#" + selectorIdString;
 			}else if(selectorClassString !== null && selectorClassString.length > 0){
@@ -373,7 +373,7 @@
 				selector = selector.nodeName;
 			}
 		}
-		
+
 		function closest( element, selector ){
 			try {
 				element = element.parentNode;
@@ -381,9 +381,9 @@
 				console.log(element, selector);
 				console.trace();
 			}
-			
+
 			if( element !== null && typeof element === 'object' ) {
-				
+
 				if( selector.match(cLabs.classSelector) && hasClass(element, selector) ) {
 					return element;
 				} else if( selector.match(cLabs.idSelector) && element.id === selector.replace("#", "") ) {
@@ -397,14 +397,14 @@
 				return null;
 			}
 		}
-		
+
 		if( typeof element === 'object' ) {
 			return closest( element, selector );
 		}else{
 			return null;
 		}
 	};
-	
+
 	var appendNext = function(el, newNode){
 		if (el.nextSibling) {
 			el.parentNode.insertBefore(newNode, el.nextSibling);
@@ -413,7 +413,7 @@
 			el.parentNode.appendChild(newNode);
 		}
 	};
-	
+
 	//Format number with leading zeros
 	var formatNumberLeadingZeros = function(num, size){
 		var s = String(num);
@@ -434,6 +434,11 @@
 		return check;
 	};
 
+	// check if iOS
+	var isiOSDevice = function() {
+		return !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);;
+	};
+
 	var getOffset = function( el ) {
 		var _x = 0;
 		var _y = 0;
@@ -444,7 +449,7 @@
 		}
 		return { top: _y, left: _x };
 	};
-	
+
 	/**
 	 * Query selector, supports CSS element selection
 	 *
@@ -460,16 +465,16 @@
 	 */
 	var query = function( doc, selector ) {
 		var result;
-		
+
 		var tmpDoc = doc, tmpSelector = selector; // used for debug only
-		
+
 		if (typeof doc === 'string' && selector === undefined) {
 			selector = doc;
 			doc = document;
 		}
-		
+
 		try {
-			
+
 			if(doc !== null) {
 				selector = trim(selector); //
 				if (selector.match(cLabs.classSelector)) {
@@ -482,7 +487,7 @@
 					result = doc.querySelectorAll(selector);
 				}
 			}
-			
+
 			if (result !== null && result !== undefined && result.nodeType) {
 				return result;
 			} else if (result !== null && result !== undefined && result.length === 1) {
@@ -498,7 +503,7 @@
 			console.log(tmpDoc);
 			console.log(doc, selector);
 		}
-		
+
 	};
 
 	var scrollEnabled = function(doc){
@@ -508,7 +513,7 @@
 	var trim = function( string ){
 		return string.replace(/^\s+|\s+$/g, '');
 	};
-	
+
 	/* IE8 version fix */
 	if ( !document.getElementsByClassName ) {
 		query = function(e,l){var t;return"string"==typeof e&&void 0===l&&(l=e,e=document),null!=(t=(l=trim(l)).match(cLabs.idSelector)?document.getElementById(l.replace("#","")):l.match(cLabs.tagSelector)?e.getElementsByTagName(l):e.querySelectorAll(l))&&t.nodeType?t:null!=t&&1===t.length?t[0]:null!=t&&t.length>0?Array.prototype.slice.call(t):null};
@@ -540,7 +545,7 @@
 
 		return obj3;
 	};
-	
+
 	/**
 	 * Ajax method
 	 *
@@ -550,19 +555,19 @@
 	cLabs.Ajax = function() {
 		this.xhr = new XMLHttpRequest();
 	};
-	
+
 	cLabs.Ajax.prototype.createCORSRequest = function(method, url) {
 		var obj = this;
-		
+
 		if ("withCredentials" in obj.xhr) {
 			// Most browsers.
 			obj.xhr.open(method, url, true);
 		} else if (typeof XDomainRequest != "undefined") {
 			// IE8 & IE9
 			obj.xhr = new XDomainRequest();
-			
+
 			url = (url.indexOf("https") > -1 && location.protocol !== 'https:') ? url.replace('https', 'http') : url;
-			
+
 			obj.xhr.open(method, url);
 		} else {
 			// CORS not supported.
@@ -570,18 +575,18 @@
 		}
 		return obj.xhr;
 	};
-	
+
 	cLabs.Ajax.prototype.abort = function() {
 		var _this = this;
 
 		if( _this.xhr && typeof _this.xhr.readyState !== "undefined" && _this.xhr.readyState !== 4 && _this.xhr.readyState > 0 ){
-			console.error("aborting Ajax", _this.xhr.readyState, _this.xhr);
+			//console.error("aborting Ajax", _this.xhr.readyState, _this.xhr);
 			_this.xhr.abort();
 		}
-		
+
 		return _this;
 	};
-	
+
 	/**
 	 * Retrieves data from a URL without page refresh
 	 *
@@ -592,7 +597,7 @@
 	 */
 	cLabs.Ajax.prototype.getData = function ( data ) {
 		var obj = this;
-		
+
 		try{
 			data.type           = (data.type !== undefined && typeof data.type === 'string' && data.type.length > 0) ? data.type : 'POST';
 			data.data           = (data.data !== undefined && typeof data.data === 'object') ? data.data : {};
@@ -601,19 +606,19 @@
 			data.error          = (data.error !== undefined) ? data.error : (function(){});
 			data.headers        = (data.headers !== undefined) ? data.headers : {};
 			data.extraCallback  = (data.extraCallback !== undefined) ? data.extraCallback : (function(){});
-			
+
 			// cross browser CORS support
 			obj.xhr = this.createCORSRequest(data.type, data.url);
-			
+
 			obj.xhr.onload = function() {
 				data.extraCallback(data, obj.xhr);
 				data.success(obj.xhr.responseText, data, obj.xhr);
 			};
-			
+
 			obj.xhr.onerror = function () {
 				data.error(obj.xhr.status);
 			};
-			
+
 			if (typeof XDomainRequest === "undefined") {
 				if( sizeof(data.headers) > 0 ){
 					var item;
@@ -626,23 +631,24 @@
 					obj.xhr.setRequestHeader("Content-Type", "text/plain");
 				}
 			}
-			
+
 			obj.xhr.send( JSON.stringify(data.data) );
-			
+
 			return obj.xhr;
 		}catch(err){console.log(err);}
 	};
-	
+
 	// var scrollObj2 = null;
 	var movementInterval;
 	var dragElement = function(elmnt, draggableEl, overlayContainer, container, dragging, finishDragging, mobileTouch) {
 		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0,
 			isMobile = isMobileTablet(),
+			isiOS = isiOSDevice(),
 			isParentWindow = elmnt.parentNode.nodeName === "BODY",
 			maxLeft = ( isParentWindow ? window.innerWidth : container.offsetWidth ),
 			maxTop = ( isParentWindow ? window.innerHeight : container.offsetHeight ),
 			touchStart, moving = null;
-			// scrollObj2 = query(".scroll-res");
+		// scrollObj2 = query(".scroll-res");
 
 		if( movementInterval ){
 			clearTimeout(movementInterval);
@@ -682,15 +688,16 @@
 				touchStart = setTimeout(function(){
 					justATouch = false;
 				}, 100);
-			}, { passive:false });
+			}, { passive: isiOS });
 
 			draggableEl.addEventListener('touchmove', function(e) {
+				e.preventDefault();
 				pos3 = e.targetTouches[0].pageX;
 				pos4 = e.targetTouches[0].pageY;
 				// moving = new Date().getTime();
 
 				elementDrag(e);
-			}, { passive:false });
+			}, { passive: isiOS });
 
 			draggableEl.addEventListener('touchend', function(e) {
 				// e.preventDefault();
@@ -702,7 +709,7 @@
 					mobileTouch();
 				}
 
-			}, { passive:false });
+			}, { passive: isiOS });
 
 			window.addEventListener("orientationchange", function(e){
 				onWindowChange();
@@ -800,10 +807,10 @@
 				elmnt.style.left = leftTopCheck.left + "px";
 			}
 
-			
+
 			if( typeof dragging === "function" ) dragging(newTop, newLeft);
 		}
-		
+
 		function closeDragElement(e) {
 			overlayContainer.style.display = "none";
 			if( isMobile ) {
@@ -816,7 +823,7 @@
 			moving = null;
 
 			removeClass(elmnt, "cl-being-moved");
-			
+
 			if( typeof finishDragging === "function" ) finishDragging();
 		}
 
@@ -1159,10 +1166,10 @@
 
 		this.init();
 	};
-	
-	
-	
-	
+
+
+
+
 	var MiniScoreBoard = function( options ){
 		this.settings = {
 			lbWidget: null,
@@ -1175,7 +1182,7 @@
 			enableDragging: true,
 			dragging: false
 		};
-		
+
 		if( typeof options !== "undefined" ){
 			for(var opt in options){
 				if (options.hasOwnProperty(opt)) {
@@ -1183,17 +1190,17 @@
 				}
 			}
 		}
-		
+
 		this.layout = function(){
 			var wrapper = document.createElement("div"),
 				iconWrapper = document.createElement("div"),
 				icon = document.createElement("div"),
-				
+
 				informationWrapper = document.createElement("div"),
 				informationTopWrapper = document.createElement("div"),
 				informationWrapperClose = document.createElement("div"),
 				informationClose = document.createElement("a");
-			
+
 			wrapper.setAttribute("class", "cl-widget-ms-wrapper");
 			iconWrapper.setAttribute("class", "cl-widget-ms-icon-wrapper");
 			icon.setAttribute("class", "cl-widget-ms-icon");
@@ -1201,17 +1208,17 @@
 			informationWrapper.setAttribute("class", "cl-widget-ms-information-wrapper");
 			informationWrapperClose.setAttribute("class", "cl-widget-ms-information-close-wrapper");
 			informationClose.setAttribute("class", "cl-widget-ms-information-close");
-			
+
 			informationClose.href = "javascript:void(0);";
 			informationClose.innerHTML = "x";
-			
+
 			informationWrapperClose.appendChild(informationClose);
 			informationWrapper.appendChild(informationWrapperClose);
 			informationTopWrapper.appendChild(informationWrapper);
 			iconWrapper.appendChild(icon);
 			wrapper.appendChild(iconWrapper);
 			wrapper.appendChild(informationTopWrapper);
-			
+
 			return wrapper;
 		};
 
@@ -1225,29 +1232,37 @@
 
 		this.timeManagement = function(){
 			var _this = this,
-				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledStart).diff(moment()),
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.startsIn,
-				date = _this.settings.lbWidget.formatDateTime( moment.duration(diff) ),
-				dateObj = _this.settings.lbWidget.formatDateTime( moment.duration(diff) ),
+				diff = 0,
+				label = "",
+				date = "",
+				dateObj = "",
 				inverse = false;
 
-			if( diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0 ){
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.starting;
-				date = "";
-			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3 ){
-				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledEnd).diff( moment() );
-				dateObj = _this.settings.lbWidget.formatDateTime( moment.duration(diff) );
-				label = _this.settings.lbWidget.formatDateTime( moment.duration(diff) );
-				date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
-				inverse = true;
-			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode === 3 ){
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finishing;
-				date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
-				inverse = true;
-			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode >= 4 ){
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finished;
-				date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
-				inverse = true;
+			if( _this.settings.lbWidget.settings.competition.activeContest !== null ) {
+				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledStart).diff(moment());
+				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.startsIn;
+				date = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+				dateObj = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+				inverse = false;
+
+				if (diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0) {
+					label = _this.settings.lbWidget.settings.translation.miniLeaderboard.starting;
+					date = "";
+				} else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3) {
+					diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledEnd).diff(moment());
+					dateObj = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+					label = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+					date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
+					inverse = true;
+				} else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode === 3) {
+					label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finishing;
+					date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
+					inverse = true;
+				} else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode >= 4) {
+					label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finished;
+					date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
+					inverse = true;
+				}
 			}
 
 			return {
@@ -1258,7 +1273,7 @@
 				inverse: inverse
 			};
 		};
-		
+
 		this.layoutDefaultOrEmptyEntry = function(){
 			var lbResultsMemEntry = document.createElement("div"),
 				lbResultsMemLabel = document.createElement("div"),
@@ -1323,11 +1338,11 @@
 				inverse = timeManagement.inverse;
 
 			if( defaultDomObj === null ){
-				
+
 				_this.removeUnusedElements();
 
 				addClass(_this.settings.container, "cl-ms-default-style");
-				
+
 				var lbWrapper = document.createElement("div"),
 					lbDateWrapper = document.createElement("div"),
 					lbDateLabel = document.createElement("div"),
@@ -1375,16 +1390,16 @@
 				lbResultsWrapper.appendChild(lbHeaders);
 				lbResultsWrapper.appendChild(lbResultsList);
 
-				
+
 				lbWrapper.appendChild(lbDateWrapper);
 				lbWrapper.appendChild(lbResultsWrapper);
 
 				defaultDomObj = wrapperDomObj.appendChild(lbWrapper);
-				
+
 				setTimeout(function(){
 					addClass(wrapperDomObj, "cl-show");
 				}, 200);
-				
+
 			}else{
 				if( !hasClass(wrapperDomObj, "cl-show") ){
 					addClass(wrapperDomObj, "cl-show");
@@ -1392,7 +1407,7 @@
 				query(_this.settings.container, ".cl-widget-ms-default-date-label").innerHTML = label;
 				query(_this.settings.container, ".cl-widget-ms-default-date").innerHTML = date;
 			}
-			
+
 			mapObject(_this.settings.lbWidget.settings.leaderboard.leaderboardData, function(lbEntry){
 				if( (lbEntry.memberRefId === _this.settings.lbWidget.settings.memberId || lbEntry.memberId === _this.settings.lbWidget.settings.memberId) && typeof lbEntry.rankings !== "undefined" ){
 					var scoreArea = query(defaultDomObj, ".cl-widget-ms-default-results-list");
@@ -1445,7 +1460,7 @@
 					// rank.innerHTML = rankValue;
 				}
 			});
-			
+
 			if( inverse && !hasClass(defaultDomObj, "cl-inverse") ){
 				addClass(defaultDomObj, "cl-inverse");
 			}
@@ -1690,15 +1705,15 @@
 				addClass(sumBestDomObj, "cl-inverse");
 			}
 		};
-		
+
 		this.layoutRequiresOptIn = function(){
-			
+
 			var _this = this,
 				diff = moment(_this.settings.lbWidget.settings.competition.activeCompetition.scheduledStart).diff(moment()),
 				label = "Starting In",
 				wrapperDomObj = _this.settings.infoContainer,
 				date = _this.settings.lbWidget.formatDateTime( moment.duration(diff) );
-			
+
 			if( diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0 ){
 				label = "starting";
 				date = "";
@@ -1713,42 +1728,42 @@
 				label = "finished";
 				date = "";
 			}
-			
+
 			if( query(_this.settings.container, ".cl-widget-ms-optin-wrapper") === null ){
-				
+
 				_this.removeUnusedElements();
-				
+
 				var optInWrapper = document.createElement("div"),
 					optInDateWrapper = document.createElement("div"),
 					optInDateLabel = document.createElement("div"),
 					optInDate = document.createElement("div"),
 					optInDateActionWrapper = document.createElement("div"),
 					optInDateAction = document.createElement("a");
-				
+
 				optInWrapper.setAttribute("class", "cl-widget-ms-optin-wrapper");
 				optInDateLabel.setAttribute("class", "cl-widget-ms-optin-date-label");
 				optInDate.setAttribute("class", "cl-widget-ms-optin-date");
 				optInDateWrapper.setAttribute("class", "cl-widget-ms-optin-date-wrapper");
 				optInDateActionWrapper.setAttribute("class", "cl-widget-ms-optin-action-wrapper");
 				optInDateAction.setAttribute("class", "cl-widget-ms-optin-action");
-				
+
 				optInDateLabel.innerHTML = label;
 				optInDate.innerHTML = date;
 				optInDateAction.innerHTML = _this.settings.lbWidget.settings.translation.tournaments.enter;
-				
+
 				optInDateWrapper.appendChild(optInDateLabel);
 				optInDateWrapper.appendChild(optInDate);
-				
+
 				optInDateActionWrapper.appendChild(optInDateAction);
 				optInWrapper.appendChild(optInDateWrapper);
 				optInWrapper.appendChild(optInDateActionWrapper);
-				
+
 				wrapperDomObj.appendChild(optInWrapper);
-				
+
 				setTimeout(function(){
 					addClass(wrapperDomObj, "cl-show");
 				}, 200);
-				
+
 			}else{
 				if( !hasClass(wrapperDomObj, "cl-show") ){
 					addClass(wrapperDomObj, "cl-show");
@@ -1757,7 +1772,7 @@
 				query(_this.settings.container, ".cl-widget-ms-optin-date").innerHTML = date;
 			}
 		};
-		
+
 		this.removeUnusedElements = function(){
 			var _this = this,
 				defaultLayoutWrapperDomObj = query(_this.settings.container, ".cl-widget-ms-default-wrapper"),
@@ -1773,7 +1788,7 @@
 			if( defaultLayoutWrapperDomObj !== null ){
 				remove(defaultLayoutWrapperDomObj);
 			}
-			
+
 			if( optInWrapperDomObj !== null ){
 				remove(optInWrapperDomObj);
 			}
@@ -1786,24 +1801,24 @@
 				remove(firstToDomObj);
 			}
 		};
-		
+
 		this.clearAll = function(){
 			var _this = this;
-			
+
 			if( _this.settings.updateInterval ){
 				clearTimeout(_this.settings.updateInterval);
 			}
-			
+
 			_this.removeInfoArea();
-			
+
 			_this.settings.active = false;
 		};
-		
+
 		this.removeInfoArea = function(){
 			var _this = this,
 				wrapperDomObj = query(_this.settings.container, ".cl-show"),
 				layout = query(_this.settings.container, ".cl-widget-ms-default-wrapper");
-			
+
 			if( wrapperDomObj !== null ) removeClass(wrapperDomObj, "cl-show");
 
 			if( layout !== null ){
@@ -1812,26 +1827,26 @@
 				}, 300)
 			}
 		};
-		
+
 		this.updateScoreBoard = function(){
 			var _this = this;
-			
+
 			if( _this.settings.updateInterval ){
 				clearTimeout(_this.settings.updateInterval);
 			}
-			
+
 			_this.settings.updateInterval = setTimeout(function(){
 				_this.loadInfoArea(function(){
 					_this.updateScoreBoard();
 				});
-				
-				
+
+
 			}, _this.settings.updateIntervalTime);
 		};
-		
+
 		this.loadInfoArea = function( callback ){
 			var _this = this;
-			
+
 			if( _this.settings.active && _this.settings.lbWidget.settings.competition.activeCompetition !== null && _this.settings.lbWidget.settings.competition.activeCompetition.statusCode < 7 ) {
 				if (typeof _this.settings.lbWidget.settings.competition.activeCompetition.optin === "boolean" && !_this.settings.lbWidget.settings.competition.activeCompetition.optin) {
 					_this.layoutRequiresOptIn();
@@ -1852,7 +1867,7 @@
 				_this.clearAll();
 			}
 		};
-		
+
 		this.eventListeners = function(){
 			var _this = this;
 
@@ -1863,7 +1878,7 @@
 				}else if( newLeft <= 5 ){
 					removeClass(_this.settings.container, "cl-vertical-mini");
 				}
-				
+
 				_this.settings.dragging = true;
 			}, function () {
 				_this.settings.lbWidget.restartActivity();
@@ -1891,7 +1906,7 @@
 				callback();
 			}
 		};
-		
+
 		this.loadScoreBoard = function(){
 			var _this = this;
 
@@ -1904,16 +1919,16 @@
 					_this.updateScoreBoard();
 				}, 1000);
 			});
-			
+
 
 		}
-		
+
 	};
-	
-	
-	
-	
-	
+
+
+
+
+
 	var Notifications = function( options ){
 		this.settings = {
 			container: null,
@@ -1927,7 +1942,7 @@
 			autoNotificationHideTime: 10000,
 			displayInProgress: false
 		};
-		
+
 		if( typeof options !== "undefined" ){
 			for(var opt in options){
 				if (options.hasOwnProperty(opt)) {
@@ -2095,7 +2110,7 @@
 				}, _this.settings.checkTimeout);
 			}
 		};
-		
+
 		this.init = function(){
 			var _this = this;
 
@@ -2119,11 +2134,11 @@
 		};
 
 	};
-	
-	
-	
-	
-	
+
+
+
+
+
 	var MainWidget = function( options ){
 		this.settings = {
 			lbWidget: null,
@@ -2133,6 +2148,11 @@
 			detailsContainer: null,
 			tournamentListContainer: null,
 			headerDate: null,
+			preLoader: {
+				preLoaderActive: false,
+				preLoaderlastAttempt: null,
+				preloaderCallbackRecovery: function(){}
+			},
 			achievement: {
 				container: null,
 				detailsContainer: null
@@ -2190,7 +2210,7 @@
 			navigationSwitchLastAtempt: new Date().getTime(),
 			navigationSwitchInProgress: false
 		};
-		
+
 		if( typeof options !== "undefined" ){
 			for(var opt in options){
 				if (options.hasOwnProperty(opt)) {
@@ -2265,12 +2285,12 @@
 				addClass(parentEl, "cl-shown");
 			}
 		};
-		
+
 		this.layout = function(){
 			var _this = this,
 				wrapper = document.createElement("div"),
 				innerWrapper = document.createElement("div"),
-				
+
 				navigationContainer = document.createElement("div"),
 				navigationItems = document.createElement("div"),
 				navigationItemLB = document.createElement("div"),
@@ -2281,7 +2301,7 @@
 				navigationItemRewardsIcon = document.createElement("div"),
 				navigationItemInbox = document.createElement("div"),
 				navigationItemInboxIcon = document.createElement("div"),
-				
+
 				mainSectionContainer = document.createElement("div"),
 
 				preLoaderContainer = document.createElement("div"),
@@ -2294,10 +2314,10 @@
 				sectionACH = _this.achievementsAreaLayout(),
 				sectionRewards = _this.rewardsAreaLayout(),
 				sectionInbox = _this.inboxAreaLayout();
-			
+
 			wrapper.setAttribute("class", "cl-main-widget-wrapper");
 			innerWrapper.setAttribute("class", "cl-main-widget-inner-wrapper");
-			
+
 			navigationContainer.setAttribute("class", "cl-main-widget-navigation-container");
 			navigationItems.setAttribute("class", "cl-main-widget-navigation-items");
 			navigationItemLB.setAttribute("class", "cl-main-widget-navigation-lb cl-active-nav");
@@ -2308,7 +2328,7 @@
 			navigationItemRewardsIcon.setAttribute("class", "cl-main-widget-navigation-rewards-icon cl-main-navigation-item");
 			navigationItemInbox.setAttribute("class", "cl-main-widget-navigation-inbox");
 			navigationItemInboxIcon.setAttribute("class", "cl-main-widget-navigation-inbox-icon cl-main-navigation-item");
-			
+
 			mainSectionContainer.setAttribute("class", "cl-main-widget-section-container");
 
 			preLoaderContainer.setAttribute("class", "cl-main-widget-pre-loader");
@@ -2331,8 +2351,8 @@
 			navigationItemInbox.appendChild(navigationItemInboxIcon);
 			navigationItems.appendChild(navigationItemInbox);
 			navigationContainer.appendChild(navigationItems);
-			
-			
+
+
 			mainSectionContainer.appendChild(sectionLB);
 			mainSectionContainer.appendChild(sectionACH);
 			mainSectionContainer.appendChild(sectionRewards);
@@ -2342,40 +2362,40 @@
 			innerWrapper.appendChild(navigationContainer);
 			innerWrapper.appendChild(mainSectionContainer);
 			wrapper.appendChild(innerWrapper);
-			
+
 			return wrapper;
 		};
-		
+
 		this.leaderboardAreaLayout = function(){
 			var _this = this,
 				sectionLB = document.createElement("div"),
-				
+
 				sectionLBHeader = document.createElement("div"),
 				sectionLBHeaderList = document.createElement("div"),
 				sectionLBHeaderListIcon = document.createElement("div"),
 				sectionLBHeaderLabel = document.createElement("div"),
 				sectionLBHeaderDate = document.createElement("div"),
 				sectionLBHeaderClose = document.createElement("div"),
-				
+
 				sectionLBDetails = document.createElement("div"),
 				sectionLBDetailsInfo = document.createElement("div"),
 				sectionLBDetailsInfoIcon = document.createElement("div"),
 				sectionLBDetailsContentContainer = document.createElement("div"),
 				sectionLBDetailsContentContainerLabel = document.createElement("div"),
 				sectionLBDetailsContentContainerDate = document.createElement("div"),
-				
+
 				sectionLBLeaderboard = document.createElement("div"),
 				sectionLBLeaderboardHeader = document.createElement("div"),
 				sectionLBLeaderboardHeaderLabels = document.createElement("div"),
 				sectionLBLeaderboardHeaderTopResults = document.createElement("div"),
 				sectionLBLeaderboardBody = document.createElement("div"),
 				sectionLBLeaderboardBodyResults = document.createElement("div"),
-				
+
 				sectionLBMissingMember = document.createElement("div"),
-				
+
 				sectionLBOptInContainer = document.createElement("div"),
 				sectionLBOptInAction = document.createElement("a"),
-				
+
 				sectionLBFooter = document.createElement("div"),
 				sectionLBFooterContent = document.createElement("div"),
 
@@ -2395,7 +2415,7 @@
 				sectionTournamentListBodyResults = document.createElement("div"),
 				sectionTournamentBackAction = document.createElement("a");
 
-			
+
 			sectionLB.setAttribute("class", "cl-main-widget-lb cl-main-section-item cl-main-active-section");
 			sectionLBHeader.setAttribute("class", "cl-main-widget-lb-header");
 			sectionLBHeaderList.setAttribute("class", "cl-main-widget-lb-header-list");
@@ -2403,14 +2423,14 @@
 			sectionLBHeaderLabel.setAttribute("class", "cl-main-widget-lb-header-label");
 			sectionLBHeaderDate.setAttribute("class", "cl-main-widget-lb-header-date");
 			sectionLBHeaderClose.setAttribute("class", "cl-main-widget-lb-header-close");
-			
+
 			sectionLBDetails.setAttribute("class", "cl-main-widget-lb-details");
 			sectionLBDetailsInfo.setAttribute("class", "cl-main-widget-lb-details-info");
 			sectionLBDetailsInfoIcon.setAttribute("class", "cl-main-widget-lb-details-info-icon");
 			sectionLBDetailsContentContainer.setAttribute("class", "cl-main-widget-lb-details-content");
 			sectionLBDetailsContentContainerLabel.setAttribute("class", "cl-main-widget-lb-details-content-label");
 			sectionLBDetailsContentContainerDate.setAttribute("class", "cl-main-widget-lb-details-content-date");
-			
+
 			// Leaderboard result container
 			sectionLBLeaderboard.setAttribute("class", "cl-main-widget-lb-leaderboard");
 			sectionLBLeaderboardHeader.setAttribute("class", "cl-main-widget-lb-leaderboard-header");
@@ -2418,13 +2438,13 @@
 			sectionLBLeaderboardHeaderTopResults.setAttribute("class", "cl-main-widget-lb-leaderboard-header-top-res");
 			sectionLBLeaderboardBody.setAttribute("class", "cl-main-widget-lb-leaderboard-body");
 			sectionLBLeaderboardBodyResults.setAttribute("class", "cl-main-widget-lb-leaderboard-body-res");
-			
+
 			sectionLBMissingMember.setAttribute("class", "cl-main-widget-lb-missing-member");
-			
+
 			// footer
 			sectionLBFooter.setAttribute("class", "cl-main-widget-lb-footer");
 			sectionLBFooterContent.setAttribute("class", "cl-main-widget-lb-footer-content");
-			
+
 			// details section
 			sectionTournamentDetailsContainer.setAttribute("class", "cl-main-widget-lb-details-container");
 			sectionTournamentDetailsHeader.setAttribute("class", "cl-main-widget-lb-details-header");
@@ -2438,39 +2458,39 @@
 			sectionTournamentDetailsOptInAction.setAttribute("class", "cl-main-widget-lb-details-optin-action");
 
 			sectionTournamentList.setAttribute("class", "cl-main-widget-tournaments-list");
-			sectionTournamentBackAction.setAttribute("class", "cl-main-widget-tournaments-bacl-btn");
+			sectionTournamentBackAction.setAttribute("class", "cl-main-widget-tournaments-back-btn");
 			sectionTournamentListBody.setAttribute("class", "cl-main-widget-tournaments-list-body");
 			sectionTournamentListBodyResults.setAttribute("class", "cl-main-widget-tournaments-list-body-res");
-			
+
 			sectionLBOptInContainer.setAttribute("class", "cl-main-widget-lb-optin-container");
 			sectionLBOptInAction.setAttribute("class", "cl-main-widget-lb-optin-action");
-			
-			
+
+
 			sectionLBHeaderLabel.innerHTML = _this.settings.lbWidget.settings.translation.tournaments.label;
 			sectionLBFooterContent.innerHTML = _this.settings.lbWidget.settings.translation.global.copy;
 			sectionTournamentDetailsOptInAction.innerHTML = _this.settings.lbWidget.settings.translation.tournaments.enter;
 			sectionTournamentDetailsOptInAction.href = "javascript:void(0);";
 			sectionLBOptInAction.innerHTML = _this.settings.lbWidget.settings.translation.tournaments.enter;
 			sectionLBOptInAction.href = "javascript:void(0);";
-			
+
 			sectionLBHeaderList.appendChild(sectionLBHeaderListIcon);
 			sectionLBHeader.appendChild(sectionLBHeaderList);
 			sectionLBHeader.appendChild(sectionLBHeaderLabel);
 			sectionLBHeader.appendChild(sectionLBHeaderDate);
 			sectionLBHeader.appendChild(sectionLBHeaderClose);
-			
+
 			sectionLBDetailsInfo.appendChild(sectionLBDetailsInfoIcon);
 			sectionLBDetailsContentContainer.appendChild(sectionLBDetailsContentContainerLabel);
 			sectionLBDetailsContentContainer.appendChild(sectionLBDetailsContentContainerDate);
 			sectionLBDetails.appendChild(sectionLBDetailsInfo);
 			sectionLBDetails.appendChild(sectionLBDetailsContentContainer);
-			
+
 			sectionLBLeaderboardHeader.appendChild(sectionLBLeaderboardHeaderLabels);
 			sectionLBLeaderboard.appendChild(sectionLBLeaderboardHeader);
 			sectionLBLeaderboard.appendChild(sectionLBLeaderboardHeaderTopResults);
 			sectionLBLeaderboardBody.appendChild(sectionLBLeaderboardBodyResults);
 			sectionLBLeaderboard.appendChild(sectionLBLeaderboardBody);
-			
+
 			sectionLBFooter.appendChild(sectionLBFooterContent);
 
 			sectionTournamentListBody.appendChild(sectionTournamentListBodyResults);
@@ -2486,9 +2506,9 @@
 			sectionTournamentDetailsContainer.appendChild(sectionTournamentDetailsBodyContainer);
 			sectionTournamentDetailsOptInContainer.appendChild(sectionTournamentDetailsOptInAction);
 			sectionTournamentDetailsContainer.appendChild(sectionTournamentDetailsOptInContainer);
-			
+
 			sectionLBOptInContainer.appendChild(sectionLBOptInAction);
-			
+
 			sectionLB.appendChild(sectionLBHeader);
 			sectionLB.appendChild(sectionLBDetails);
 			sectionLB.appendChild(sectionLBLeaderboard);
@@ -2500,30 +2520,30 @@
 
 			return sectionLB;
 		};
-		
+
 		this.achievementsAreaLayout = function(){
 			var _this = this,
 				sectionACH = document.createElement("div"),
-				
+
 				sectionACHHeader = document.createElement("div"),
 				sectionACHHeaderLabel = document.createElement("div"),
 				sectionACHHeaderDate = document.createElement("div"),
 				sectionACHHeaderClose = document.createElement("div"),
-				
+
 				sectionACHDetails = document.createElement("div"),
 				sectionACHDetailsInfo = document.createElement("div"),
 				sectionACHDetailsInfoIcon = document.createElement("div"),
 				sectionACHDetailsContentContainer = document.createElement("div"),
 				sectionACHDetailsContentContainerLabel = document.createElement("div"),
 				sectionACHDetailsContentContainerDate = document.createElement("div"),
-				
+
 				sectionACHList = document.createElement("div"),
 				sectionACHListBody = document.createElement("div"),
 				sectionACHListBodyResults = document.createElement("div"),
-				
+
 				sectionACHFooter = document.createElement("div"),
 				sectionACHFooterContent = document.createElement("div"),
-				
+
 				sectionAchievementDetailsContainer = document.createElement("div"),
 				sectionAchievementDetailsHeader = document.createElement("div"),
 				sectionAchievementDetailsHeaderLabel = document.createElement("div"),
@@ -2532,31 +2552,31 @@
 				sectionAchievementDetailsBodyContainer = document.createElement("div"),
 				sectionAchievementDetailsBodyImageContainer = document.createElement("div"),
 				sectionAchievementDetailsBody = document.createElement("div");
-			
-			
-			
+
+
+
 			sectionACH.setAttribute("class", "cl-main-widget-section-ach cl-main-section-item");
 			sectionACHHeader.setAttribute("class", "cl-main-widget-ach-header");
 			sectionACHHeaderLabel.setAttribute("class", "cl-main-widget-ach-header-label");
 			sectionACHHeaderDate.setAttribute("class", "cl-main-widget-ach-header-date");
 			sectionACHHeaderClose.setAttribute("class", "cl-main-widget-ach-header-close");
-			
+
 			sectionACHDetails.setAttribute("class", "cl-main-widget-ach-details");
 			sectionACHDetailsInfo.setAttribute("class", "cl-main-widget-ach-details-info");
 			sectionACHDetailsInfoIcon.setAttribute("class", "cl-main-widget-ach-details-info-icon");
 			sectionACHDetailsContentContainer.setAttribute("class", "cl-main-widget-ach-details-content");
 			sectionACHDetailsContentContainerLabel.setAttribute("class", "cl-main-widget-ach-details-content-label");
 			sectionACHDetailsContentContainerDate.setAttribute("class", "cl-main-widget-ach-details-content-date");
-			
+
 			// Leaderboard result container
 			sectionACHList.setAttribute("class", "cl-main-widget-ach-list");
 			sectionACHListBody.setAttribute("class", "cl-main-widget-ach-list-body");
 			sectionACHListBodyResults.setAttribute("class", "cl-main-widget-ach-list-body-res");
-			
+
 			// footer
 			sectionACHFooter.setAttribute("class", "cl-main-widget-ach-footer");
 			sectionACHFooterContent.setAttribute("class", "cl-main-widget-ach-footer-content");
-			
+
 			// details section
 			sectionAchievementDetailsContainer.setAttribute("class", "cl-main-widget-ach-details-container");
 			sectionAchievementDetailsHeader.setAttribute("class", "cl-main-widget-ach-details-header");
@@ -2566,8 +2586,8 @@
 			sectionAchievementDetailsBodyContainer.setAttribute("class", "cl-main-widget-ach-details-body-container");
 			sectionAchievementDetailsBodyImageContainer.setAttribute("class", "cl-main-widget-ach-details-body-image-cont");
 			sectionAchievementDetailsBody.setAttribute("class", "cl-main-widget-ach-details-body");
-			
-			
+
+
 			sectionACHHeaderLabel.innerHTML = _this.settings.lbWidget.settings.translation.achievements.label;
 			sectionACHFooterContent.innerHTML = _this.settings.lbWidget.settings.translation.global.copy;
 
@@ -2580,22 +2600,22 @@
 			sectionAchievementDetailsBodyContainer.appendChild(sectionAchievementDetailsBody);
 			sectionAchievementDetailsContainer.appendChild(sectionAchievementDetailsBodyContainer);
 
-			
+
 			sectionACHHeader.appendChild(sectionACHHeaderLabel);
 			sectionACHHeader.appendChild(sectionACHHeaderDate);
 			sectionACHHeader.appendChild(sectionACHHeaderClose);
-			
+
 			sectionACHDetailsInfo.appendChild(sectionACHDetailsInfoIcon);
 			sectionACHDetailsContentContainer.appendChild(sectionACHDetailsContentContainerLabel);
 			sectionACHDetailsContentContainer.appendChild(sectionACHDetailsContentContainerDate);
 			sectionACHDetails.appendChild(sectionACHDetailsInfo);
 			sectionACHDetails.appendChild(sectionACHDetailsContentContainer);
-			
+
 			sectionACHListBody.appendChild(sectionACHListBodyResults);
 			sectionACHList.appendChild(sectionACHListBody);
-			
+
 			sectionACHFooter.appendChild(sectionACHFooterContent);
-			
+
 			sectionACH.appendChild(sectionACHHeader);
 			sectionACH.appendChild(sectionACHDetails);
 			sectionACH.appendChild(sectionACHList);
@@ -2604,30 +2624,30 @@
 
 			return sectionACH;
 		};
-		
+
 		this.rewardsAreaLayout = function(){
 			var _this = this,
 				sectionRewards = document.createElement("div"),
-				
+
 				sectionRewardsHeader = document.createElement("div"),
 				sectionRewardsHeaderLabel = document.createElement("div"),
 				sectionRewardsHeaderDate = document.createElement("div"),
 				sectionRewardsHeaderClose = document.createElement("div"),
-				
+
 				sectionRewardsDetails = document.createElement("div"),
 				sectionRewardsDetailsInfo = document.createElement("div"),
 				sectionRewardsDetailsInfoIcon = document.createElement("div"),
 				sectionRewardsDetailsContentContainer = document.createElement("div"),
 				sectionRewardsDetailsContentContainerLabel = document.createElement("div"),
 				sectionRewardsDetailsContentContainerDate = document.createElement("div"),
-				
+
 				sectionRewardsList = document.createElement("div"),
 				sectionRewardsListBody = document.createElement("div"),
 				sectionRewardsListBodyResults = document.createElement("div"),
 
 				sectionRewardsFooter = document.createElement("div"),
 				sectionRewardsFooterContent = document.createElement("div"),
-				
+
 				sectionRewardsDetailsContainer = document.createElement("div"),
 				sectionRewardsDetailsHeader = document.createElement("div"),
 				sectionRewardsDetailsHeaderLabel = document.createElement("div"),
@@ -2642,21 +2662,21 @@
 				sectionRewardsClaimContainer = document.createElement("div"),
 				sectionRewardsClaimBtn = document.createElement("a");
 
-			
-			
+
+
 			sectionRewards.setAttribute("class", "cl-main-widget-section-reward cl-main-section-item");
 			sectionRewardsHeader.setAttribute("class", "cl-main-widget-reward-header");
 			sectionRewardsHeaderLabel.setAttribute("class", "cl-main-widget-reward-header-label");
 			sectionRewardsHeaderDate.setAttribute("class", "cl-main-widget-reward-header-date");
 			sectionRewardsHeaderClose.setAttribute("class", "cl-main-widget-reward-header-close");
-			
+
 			sectionRewardsDetails.setAttribute("class", "cl-main-widget-reward-details");
 			sectionRewardsDetailsInfo.setAttribute("class", "cl-main-widget-reward-details-info");
 			sectionRewardsDetailsInfoIcon.setAttribute("class", "cl-main-widget-reward-details-info-icon");
 			sectionRewardsDetailsContentContainer.setAttribute("class", "cl-main-widget-reward-details-content");
 			sectionRewardsDetailsContentContainerLabel.setAttribute("class", "cl-main-widget-reward-details-content-label");
 			sectionRewardsDetailsContentContainerDate.setAttribute("class", "cl-main-widget-reward-details-content-date");
-			
+
 			// Leaderboard result container
 			sectionRewardsList.setAttribute("class", "cl-main-widget-reward-list");
 			sectionRewardsListBody.setAttribute("class", "cl-main-widget-reward-list-body");
@@ -2665,7 +2685,7 @@
 			// footer
 			sectionRewardsFooter.setAttribute("class", "cl-main-widget-reward-footer");
 			sectionRewardsFooterContent.setAttribute("class", "cl-main-widget-reward-footer-content");
-			
+
 			// details section
 			sectionRewardsDetailsContainer.setAttribute("class", "cl-main-widget-reward-details-container");
 			sectionRewardsDetailsHeader.setAttribute("class", "cl-main-widget-reward-details-header");
@@ -2681,7 +2701,7 @@
 			sectionRewardsClaimContainer.setAttribute("class", "cl-main-widget-reward-claim-container");
 			sectionRewardsClaimBtn.setAttribute("class", "cl-main-widget-reward-claim-btn");
 
-			
+
 			sectionRewardsHeaderLabel.innerHTML = _this.settings.lbWidget.settings.translation.rewards.label;
 			sectionRewardsFooterContent.innerHTML = _this.settings.lbWidget.settings.translation.global.copy;
 			sectionRewardsClaimBtn.innerHTML = _this.settings.lbWidget.settings.translation.rewards.claim;
@@ -2703,7 +2723,7 @@
 			sectionRewardsHeader.appendChild(sectionRewardsHeaderLabel);
 			sectionRewardsHeader.appendChild(sectionRewardsHeaderDate);
 			sectionRewardsHeader.appendChild(sectionRewardsHeaderClose);
-			
+
 			sectionRewardsDetailsInfo.appendChild(sectionRewardsDetailsInfoIcon);
 			sectionRewardsDetailsContentContainer.appendChild(sectionRewardsDetailsContentContainerLabel);
 			sectionRewardsDetailsContentContainer.appendChild(sectionRewardsDetailsContentContainerDate);
@@ -2712,9 +2732,9 @@
 
 			sectionRewardsListBody.appendChild(sectionRewardsListBodyResults);
 			sectionRewardsList.appendChild(sectionRewardsListBody);
-			
+
 			sectionRewardsFooter.appendChild(sectionRewardsFooterContent);
-			
+
 			sectionRewards.appendChild(sectionRewardsHeader);
 			sectionRewards.appendChild(sectionRewardsDetails);
 			sectionRewards.appendChild(sectionRewardsList);
@@ -2723,30 +2743,30 @@
 
 			return sectionRewards;
 		};
-		
+
 		this.inboxAreaLayout = function(){
 			var _this = this,
 				sectionInbox = document.createElement("div"),
-				
+
 				sectionInboxHeader = document.createElement("div"),
 				sectionInboxHeaderLabel = document.createElement("div"),
 				sectionInboxHeaderDate = document.createElement("div"),
 				sectionInboxHeaderClose = document.createElement("div"),
-				
+
 				sectionInboxDetails = document.createElement("div"),
 				sectionInboxDetailsInfo = document.createElement("div"),
 				sectionInboxDetailsInfoIcon = document.createElement("div"),
 				sectionInboxDetailsContentContainer = document.createElement("div"),
 				sectionInboxDetailsContentContainerLabel = document.createElement("div"),
 				sectionInboxDetailsContentContainerDate = document.createElement("div"),
-				
+
 				sectionInboxList = document.createElement("div"),
 				sectionInboxListBody = document.createElement("div"),
 				sectionInboxListBodyResults = document.createElement("div"),
-				
+
 				sectionInboxFooter = document.createElement("div"),
 				sectionInboxFooterContent = document.createElement("div"),
-				
+
 				sectionTournamentDetailsContainer = document.createElement("div"),
 				sectionTournamentDetailsHeader = document.createElement("div"),
 				sectionTournamentDetailsHeaderLabel = document.createElement("div"),
@@ -2755,31 +2775,31 @@
 				sectionTournamentDetailsBodyContainer = document.createElement("div"),
 				sectionTournamentDetailsBodyImageContainer = document.createElement("div"),
 				sectionTournamentDetailsBody = document.createElement("div");
-			
-			
-			
+
+
+
 			sectionInbox.setAttribute("class", "cl-main-widget-section-inbox cl-main-section-item");
 			sectionInboxHeader.setAttribute("class", "cl-main-widget-inbox-header");
 			sectionInboxHeaderLabel.setAttribute("class", "cl-main-widget-inbox-header-label");
 			sectionInboxHeaderDate.setAttribute("class", "cl-main-widget-inbox-header-date");
 			sectionInboxHeaderClose.setAttribute("class", "cl-main-widget-inbox-header-close");
-			
+
 			sectionInboxDetails.setAttribute("class", "cl-main-widget-inbox-details");
 			sectionInboxDetailsInfo.setAttribute("class", "cl-main-widget-inbox-details-info");
 			sectionInboxDetailsInfoIcon.setAttribute("class", "cl-main-widget-inbox-details-info-icon");
 			sectionInboxDetailsContentContainer.setAttribute("class", "cl-main-widget-inbox-details-content");
 			sectionInboxDetailsContentContainerLabel.setAttribute("class", "cl-main-widget-inbox-details-content-label");
 			sectionInboxDetailsContentContainerDate.setAttribute("class", "cl-main-widget-inbox-details-content-date");
-			
+
 			// Leaderboard result container
 			sectionInboxList.setAttribute("class", "cl-main-widget-inbox-list");
 			sectionInboxListBody.setAttribute("class", "cl-main-widget-inbox-list-body");
 			sectionInboxListBodyResults.setAttribute("class", "cl-main-widget-inbox-list-body-res");
-			
+
 			// footer
 			sectionInboxFooter.setAttribute("class", "cl-main-widget-inbox-footer");
 			sectionInboxFooterContent.setAttribute("class", "cl-main-widget-inbox-footer-content");
-			
+
 			// details section
 			sectionTournamentDetailsContainer.setAttribute("class", "cl-main-widget-inbox-details-container");
 			sectionTournamentDetailsHeader.setAttribute("class", "cl-main-widget-inbox-details-header");
@@ -2789,34 +2809,34 @@
 			sectionTournamentDetailsBodyContainer.setAttribute("class", "cl-main-widget-inbox-details-body-container");
 			sectionTournamentDetailsBodyImageContainer.setAttribute("class", "cl-main-widget-inbox-details-body-image-cont");
 			sectionTournamentDetailsBody.setAttribute("class", "cl-main-widget-inbox-details-body");
-			
-			
+
+
 			sectionInboxHeaderLabel.innerHTML = _this.settings.lbWidget.settings.translation.rewards.label;
 			sectionInboxFooterContent.innerHTML = _this.settings.lbWidget.settings.translation.global.copy;
-			
+
 			sectionInboxHeader.appendChild(sectionInboxHeaderLabel);
 			sectionInboxHeader.appendChild(sectionInboxHeaderDate);
 			sectionInboxHeader.appendChild(sectionInboxHeaderClose);
-			
+
 			sectionInboxDetailsInfo.appendChild(sectionInboxDetailsInfoIcon);
 			sectionInboxDetailsContentContainer.appendChild(sectionInboxDetailsContentContainerLabel);
 			sectionInboxDetailsContentContainer.appendChild(sectionInboxDetailsContentContainerDate);
 			sectionInboxDetails.appendChild(sectionInboxDetailsInfo);
 			sectionInboxDetails.appendChild(sectionInboxDetailsContentContainer);
-			
+
 			sectionInboxListBody.appendChild(sectionInboxListBodyResults);
 			sectionInboxList.appendChild(sectionInboxListBody);
-			
+
 			sectionInboxFooter.appendChild(sectionInboxFooterContent);
-			
+
 			sectionInbox.appendChild(sectionInboxHeader);
 			sectionInbox.appendChild(sectionInboxDetails);
 			sectionInbox.appendChild(sectionInboxList);
 			sectionInbox.appendChild(sectionInboxFooter);
-			
+
 			return sectionInbox;
 		};
-		
+
 		this.leaderboardHeader = function(){
 			var _this = this,
 				rankCol = document.createElement("div"),
@@ -2824,19 +2844,19 @@
 				nameCol = document.createElement("div"),
 				growthCol = document.createElement("div"),
 				pointsCol = document.createElement("div");
-			
+
 			rankCol.setAttribute("class", "cl-rank-col cl-col");
 			iconCol.setAttribute("class", "cl-icon-col cl-col");
 			nameCol.setAttribute("class", "cl-name-col cl-col");
 			growthCol.setAttribute("class", "cl-growth-col cl-col");
 			pointsCol.setAttribute("class", "cl-points-col cl-col");
-			
+
 			rankCol.innerHTML = _this.settings.lbWidget.settings.translation.leaderboard.rank;
 			iconCol.innerHTML = "";
 			nameCol.innerHTML = _this.settings.lbWidget.settings.translation.leaderboard.name;
 			growthCol.innerHTML = "";
 			pointsCol.innerHTML = _this.settings.lbWidget.settings.translation.leaderboard.points;
-			
+
 			_this.settings.leaderboard.header.appendChild(rankCol);
 			_this.settings.leaderboard.header.appendChild(iconCol);
 			_this.settings.leaderboard.header.appendChild(nameCol);
@@ -2852,7 +2872,7 @@
 
 			_this.settings.leaderboard.header.appendChild(rewardCol);
 		};
-		
+
 		this.leaderboardRow = function( rank, icon, name, change, growth, points, reward, count, memberFound ){
 			var _this = this,
 				cellWrapper = document.createElement("div"),
@@ -2864,7 +2884,7 @@
 				growthCel = document.createElement("div"),
 				pointsCel = document.createElement("div"),
 				memberFoundClass = (memberFound) ? " cl-lb-member-row" : "";
-			
+
 			cellWrapper.setAttribute("class", "cl-lb-row cl-lb-rank-" + rank + " cl-lb-count-" + count + memberFoundClass);
 			rankCel.setAttribute("class", "cl-rank-col cl-col cl-rank-" + rank);
 			rankCelValue.setAttribute("class", "cl-rank-col-value");
@@ -2873,23 +2893,23 @@
 			nameCel.setAttribute("class", "cl-name-col cl-col");
 			growthCel.setAttribute("class", "cl-growth-col cl-col");
 			pointsCel.setAttribute("class", "cl-points-col cl-col");
-			
+
 			cellWrapper.dataset.rank = rank;
-			
+
 			rankCelValue.innerHTML = rank;
 			nameCel.innerHTML = name;
 			growthCel.dataset.growth = (change < 0) ? "down" : ( change > 0 ? "up" : "same" );
 			growthCel.dataset.change = change;
 			growthCel.innerHTML = growth;
 			pointsCel.innerHTML = points;
-			
+
 			if( icon.length > 0 ){
 				iconCelImg.src = icon;
 				iconCelImg.alt = name;
 			}else{
 				iconCelImg.style.display = "none";
 			}
-			
+
 			rankCel.appendChild(rankCelValue);
 			cellWrapper.appendChild(rankCel);
 			iconCel.appendChild(iconCelImg);
@@ -2906,18 +2926,18 @@
 			addClass(cellWrapper, "cl-reward-enabled");
 
 			cellWrapper.appendChild(rewardCel);
-			
+
 			return cellWrapper;
 		};
-		
+
 		this.leaderboardRowUpdate = function( rank, icon, name, change, growth, points, reward, count, memberFound, onMissing ){
 			var _this = this,
 				cellRow = query(_this.settings.leaderboard.container, ".cl-lb-rank-" + rank + ".cl-lb-count-" + count);
-			
+
 			if( cellRow === null ){
 				onMissing(rank, icon, name, change, growth, points, reward, count, memberFound)
 			}else {
-				
+
 				var rankCel = query(cellRow, ".cl-rank-col-value"),
 					iconCel = query(cellRow, ".cl-icon-col-img"),
 					nameCel = query(cellRow, ".cl-name-col"),
@@ -2925,28 +2945,28 @@
 					pointsCel = query(cellRow, ".cl-points-col"),
 					memberFoundClass = "cl-lb-member-row",
 					rowHasClass = hasClass(cellRow, memberFoundClass);
-				
+
 				if( count > 0 && !hasClass(cellRow, "cl-shared-rank") ){
 					addClass(cellRow, "cl-shared-rank");
 				}
-				
+
 				if(memberFound && !rowHasClass){
 					addClass(cellRow, memberFoundClass);
 				}else if( !memberFound && rowHasClass ){
 					removeClass(cellRow, memberFoundClass);
 				}
-				
+
 				cellRow.dataset.rank = rank;
-				
+
 				rankCel.innerHTML = rank;
 				nameCel.innerHTML = name;
-				
+
 				growthCel.dataset.growth = (change < 0) ? "down" : ( change > 0 ? "up" : "same" );
 				growthCel.dataset.change = change;
 				growthCel.innerHTML = growth;
-				
+
 				pointsCel.innerHTML = points;
-				
+
 				if( icon.length > 0 ) {
 					iconCel.src = icon;
 					iconCel.alt = name;
@@ -2954,8 +2974,8 @@
 				}else{
 					iconCel.style.display = "none";
 				}
-				
-				
+
+
 				if (typeof _this.settings.lbWidget.settings.competition.activeContest !== "undefined" && _this.settings.lbWidget.settings.competition.activeContest !== null && typeof _this.settings.lbWidget.settings.competition.activeContest.rewards !== "undefined" && _this.settings.lbWidget.settings.competition.activeContest.rewards.length > 0) {
 					var rewardCel = query(cellRow, ".cl-reward-col");
 					if( rewardCel !== null ){
@@ -2964,12 +2984,12 @@
 				}
 			}
 		};
-		
+
 		this.populateLeaderboardResultsWithDefaultEntries = function(){
 			var _this = this,
 				topResults = [],
 				remainingResults = [];
-			
+
 			for(var i = 0; i < _this.settings.leaderboard.topResultSize; i++){
 				var rank = i+1;
 				topResults.push({
@@ -2980,7 +3000,7 @@
 					memberRefId: ""
 				});
 			}
-			
+
 			for(var s = _this.settings.leaderboard.topResultSize; s < _this.settings.leaderboard.defaultEmptyList; s++){
 				var rank = s+1;
 				remainingResults.push({
@@ -2991,18 +3011,16 @@
 					memberRefId: ""
 				});
 			}
-			
+
 			_this.updateLeaderboardTopResults( topResults );
 			_this.updateLeaderboardResults( remainingResults );
-
-			_this.checkLeaderboardScrollContainer();
 		};
-		
+
 		this.updateLeaderboardTopResults = function( topResults ){
 			var _this = this,
 				rankCheck = [],
 				cleanupRankCheck = [];
-			
+
 			// cleanup
 			mapObject(topResults, function( lb ){
 				cleanupRankCheck.push(lb.rank);
@@ -3010,24 +3028,24 @@
 					remove(obj);
 				});
 			});
-			
+
 			objectIterator(query(_this.settings.leaderboard.topResults, ".cl-lb-row"), function(obj){
 				var rank = parseInt(obj.dataset.rank);
 				if( cleanupRankCheck.indexOf( rank ) === -1 && rank > _this.settings.leaderboard.defaultEmptyList ){
 					remove(obj);
 				}
 			});
-			
+
 			mapObject(topResults, function( lb ){
 				var count = 0,
 					icon = _this.settings.lbWidget.populateIdenticonBase64Image(lb.memberId),
 					memberFound = (_this.settings.lbWidget.settings.memberId === lb.memberId || _this.settings.lbWidget.settings.memberId === lb.memberRefId),
-					memberName = (memberFound) ? "You" : lb.name,
+					memberName = (memberFound) ? _this.settings.lbWidget.settings.translation.leaderboard.you : lb.name,
 					reward = _this.getReward(lb.rank),
 					change = (typeof lb.change === "undefined") ? 0 : lb.change,
 					growthType = (change < 0) ? "down" : ( change > 0 ? "up" : "same" ),
 					growthIcon = "<span class='cl-growth-icon cl-growth-" + growthType + "'></span>";
-				
+
 				if( rankCheck.indexOf(lb.rank) !== -1 ){
 					for (var rc = 0; rc < rankCheck.length; rc++) {
 						if( lb.rank === rankCheck[rc] ){
@@ -3035,7 +3053,7 @@
 						}
 					}
 				}
-				
+
 				_this.leaderboardRowUpdate(
 					lb.rank,
 					icon, // icon
@@ -3047,22 +3065,22 @@
 					count,
 					memberFound,
 					function( rank, icon, name, change, growth, points, reward, count, memberFound ){
-						
+
 						var newRow = _this.leaderboardRow( rank, icon, name, change, growth, points, reward, count, memberFound ),
 							prevCellRow = query(_this.settings.leaderboard.container, ".cl-lb-rank-" + rank + ".cl-lb-count-" + (count-1));
-						
+
 						if( prevCellRow !== null && typeof prevCellRow.length === "undefined" ){
 							appendNext(prevCellRow, newRow);
 						}else
 							_this.settings.leaderboard.topResults.appendChild(newRow);
 					}
 				);
-				
+
 				rankCheck.push(lb.rank);
-				
+
 			});
 		};
-		
+
 		this.getReward = function(rank){
 			var _this = this,
 				rewardResponse = [];
@@ -3074,15 +3092,15 @@
 					}
 				});
 			}
-			
+
 			return rewardResponse.join(", ");
 		};
-		
+
 		this.updateLeaderboardResults = function( remainingResults ){
 			var _this = this,
 				rankCheck = [],
 				cleanupRankCheck = [];
-			
+
 			// cleanup
 			mapObject(remainingResults, function( lb ){
 				cleanupRankCheck.push(lb.rank);
@@ -3090,24 +3108,24 @@
 					remove(obj);
 				});
 			});
-			
+
 			objectIterator(query(_this.settings.leaderboard.container, ".cl-lb-row"), function(obj){
 				var rank = parseInt(obj.dataset.rank);
 				if( cleanupRankCheck.indexOf( rank ) === -1 && rank > _this.settings.leaderboard.defaultEmptyList ){
 					remove(obj);
 				}
 			});
-			
+
 			mapObject(remainingResults, function( lb ){
 				var count = 0,
 					icon = _this.settings.lbWidget.populateIdenticonBase64Image(lb.memberId),
 					memberFound = (_this.settings.lbWidget.settings.memberId === lb.memberId || _this.settings.lbWidget.settings.memberId === lb.memberRefId),
-					memberName = (memberFound) ? "You" : lb.name,
+					memberName = (memberFound) ? _this.settings.lbWidget.settings.translation.leaderboard.you : lb.name,
 					reward = _this.getReward(lb.rank),
 					change = (typeof lb.change === "undefined") ? 0 : lb.change,
 					growthType = (change < 0) ? "down" : ( change > 0 ? "up" : "same" ),
 					growthIcon = "<span class='cl-growth-icon cl-growth-" + growthType + "'></span>";
-				
+
 				if( rankCheck.indexOf(lb.rank) !== -1 ){
 					for (var rc = 0; rc < rankCheck.length; rc++) {
 						if( lb.rank === rankCheck[rc] ){
@@ -3115,7 +3133,7 @@
 						}
 					}
 				}
-				
+
 				_this.leaderboardRowUpdate(
 					lb.rank,
 					icon, // icon
@@ -3129,25 +3147,25 @@
 					function( rank, icon, name, change, growth, points, reward, count, memberFound ){
 						var newRow = _this.leaderboardRow( rank, icon, name, name, growth, points, reward, count, memberFound ),
 							prevCellRow = query(_this.settings.leaderboard.container, ".cl-lb-rank-" + rank + ".cl-lb-count-" + (count-1));
-						
+
 						if( prevCellRow !== null && typeof prevCellRow.length === "undefined" ){
 							appendNext(prevCellRow, newRow);
 						}else
 							_this.settings.leaderboard.list.appendChild(newRow);
 					}
 				);
-				
+
 				rankCheck.push(lb.rank);
 			});
 		};
-		
+
 		this.updateLeaderboard = function(){
 			var _this = this,
 				topResults = [],
 				remainingResults = [];
-			
+
 			_this.populateLeaderboardResultsWithDefaultEntries();
-			
+
 			mapObject(_this.settings.lbWidget.settings.leaderboard.leaderboardData, function(lb){
 				if( lb.rank <= _this.settings.leaderboard.topResultSize ){
 					topResults.push(lb);
@@ -3155,7 +3173,7 @@
 					remainingResults.push(lb);
 				}
 			});
-			
+
 			_this.updateLeaderboardTopResults( topResults );
 			_this.updateLeaderboardResults( remainingResults );
 
@@ -3163,19 +3181,17 @@
 			if( member !== null ){
 				_this.missingMember( _this.isElementVisibleInView(member, _this.settings.leaderboard.list.parentNode) );
 			}
-
-			_this.checkLeaderboardScrollContainer();
 		};
-		
+
 		this.updateLeaderboardTime = function(){
 			var _this = this,
 				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledStart).diff(moment()),
 				date = _this.settings.lbWidget.formatDateTime( moment.duration(diff) );
-			
+
 			if( _this.settings.leaderboard.timerInterval ){
 				clearTimeout(_this.settings.leaderboard.timerInterval);
 			}
-			
+
 			if( diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0 ){
 				date = "";
 			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3 ){
@@ -3186,26 +3202,26 @@
 			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode >= 4 ){
 				date = _this.settings.lbWidget.settings.translation.tournaments.finished;
 			}
-			
+
 			_this.settings.headerDate.innerHTML = date;
 			_this.settings.detailsContainerDate.innerHTML = date;
-			
+
 			_this.settings.leaderboard.timerInterval = setTimeout(function(){
 				_this.updateLeaderboardTime();
 			}, 1000);
 		};
-		
+
 		this.leaderboardDetailsUpdate = function(){
 			var _this = this,
 				mainLabel = query(_this.settings.section, ".cl-main-widget-lb-details-content-label");
-			
+
 			mainLabel.innerHTML = (_this.settings.lbWidget.settings.competition.activeContest !== null) ? _this.settings.lbWidget.settings.competition.activeContest.label : "No available competition";
 		};
-		
+
 		this.leaderboardOptInCheck = function(){
 			var _this = this,
 				optIn = query(_this.settings.section, ".cl-main-widget-lb-optin-action");
-			
+
 			if( typeof _this.settings.lbWidget.settings.competition.activeCompetition !== "undefined" && _this.settings.lbWidget.settings.competition.activeCompetition !== null && typeof _this.settings.lbWidget.settings.competition.activeCompetition.optinRequired === "boolean" && _this.settings.lbWidget.settings.competition.activeCompetition.optinRequired ) {
 				if ( typeof _this.settings.lbWidget.settings.competition.activeCompetition.optin === "boolean" && !_this.settings.lbWidget.settings.competition.activeCompetition.optin ) {
 					optIn.innerHTML = _this.settings.lbWidget.settings.translation.tournaments.enter;
@@ -3216,7 +3232,19 @@
 			}else{
 				optIn.parentNode.style.display = "none";
 			}
-			
+
+		};
+
+		//cleanup/recover activity
+		this.preLoaderRerun = function(){
+			var _this = this;
+
+			if( _this.settings.preLoader.preLoaderActive && _this.settings.preLoader.preloaderCallbackRecovery !== null
+				&& _this.settings.preLoader.preLoaderlastAttempt !== null && typeof _this.settings.preLoader.preLoaderlastAttempt === "number"
+				&& (_this.settings.preLoader.preLoaderlastAttempt+8000) < new Date().getTime() ){
+
+				_this.settings.preLoader.preloaderCallbackRecovery();
+			}
 		};
 
 		this.preloader = function(){
@@ -3225,14 +3253,28 @@
 				content = query(_this.settings.section, ".cl-main-widget-pre-loader-content");
 
 			return {
-				show: function(){
+				show: function( callback ){
+					_this.settings.preLoader.preLoaderActive = true;
+					_this.settings.preLoader.preLoaderlastAttempt = new Date().getTime();
 					preLoader.style.display = "block";
 					setTimeout(function(){
 						preLoader.style.opacity = 1;
 					}, 20);
+
+					if( _this.settings.preLoader.preloaderCallbackRecovery === null && typeof callback === "function" ) {
+						_this.settings.preLoader.preloaderCallbackRecovery = callback;
+					}
+
+					callback();
 				},
 				hide: function(){
+					_this.settings.preLoader.preLoaderActive = false;
+					_this.settings.preLoader.preLoaderlastAttempt = null;
 					preLoader.style.opacity = 0;
+
+					if( _this.settings.preLoader.preloaderCallbackRecovery !== null ){
+						_this.settings.preLoader.preloaderCallbackRecovery = null;
+					}
 
 					setTimeout(function(){
 						preLoader.style.display = "none";
@@ -3240,7 +3282,7 @@
 				}
 			};
 		};
-		
+
 		this.loadLeaderboard = function( callback ){
 			var _this = this;
 
@@ -3264,7 +3306,7 @@
 				_this.leaderboardHeader();
 				_this.eventListeners();
 			}
-			
+
 			_this.leaderboardOptInCheck();
 			_this.leaderboardDetailsUpdate();
 			_this.updateLeaderboard();
@@ -3272,25 +3314,27 @@
 			if( _this.settings.lbWidget.settings.competition.activeContest !== null ) {
 				_this.updateLeaderboardTime();
 			}
-			
+
 			if( typeof callback === "function" ){
 				callback();
 			}
 		};
-		
+
 		this.clearAll = function(){
 			var _this = this;
-			
+
 			_this.settings.active = false;
-			
+
 			if( _this.settings.leaderboard.timerInterval ){
 				clearTimeout(_this.settings.leaderboard.timerInterval);
 			}
+
+			_this.settings.preLoader.preLoaderActive = false;
 		};
-		
+
 		this.hide = function( callback ){
 			var _this = this;
-			
+
 			_this.clearAll();
 
 			if( _this.settings.container !== null ) {
@@ -3309,21 +3353,21 @@
 			}else if (typeof callback === "function") {
 				callback();
 			}
-			
+
 		};
-		
+
 		this.missingMember = function( isVisible ){
 			var _this = this,
 				area = query(_this.settings.container, ".cl-main-widget-lb-missing-member");
-			
+
 			if( !isVisible ){
-				
+
 				var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
-				
+
 				if( area !== null && member !== null ){
-					
+
 					area.innerHTML = member.innerHTML;
-					
+
 					area.style.display = "block";
 				}else{
 					area.style.display = "none";
@@ -3332,57 +3376,55 @@
 				area.style.display = "none";
 			}
 		};
-		
+
 		this.isElementVisibleInView = function (el, container) {
 			var position = el.getBoundingClientRect();
 			var elemContainer = container.getBoundingClientRect();
 			var elemTop = position.top;
 			var elemBottom = position.bottom;
 			var elemHeight = position.height;
-			
+
 			return elemTop <= elemContainer.top ?
 				elemContainer.top - elemTop <= elemHeight : elemBottom - elemContainer.bottom <= elemHeight;
 		};
-		
+
 		this.eventListeners = function(){
 			var _this = this;
-			
+
 			_this.settings.leaderboard.list.parentNode.onscroll = function(evt){
-			    var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
-				
-			    if( member !== null ) {
-				    _this.missingMember(_this.isElementVisibleInView(member, evt.target));
-			    }
+				evt.preventDefault();
+				var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
+
+				if( member !== null ) {
+					_this.missingMember(_this.isElementVisibleInView(member, evt.target));
+				}
 			};
-			
+
 			window.onresize = function(evt){
-			    var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
+				var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
 
 				if( member !== null ){
 					_this.missingMember( _this.isElementVisibleInView(member, _this.settings.leaderboard.list.parentNode) );
 				}
-
-
-			 	_this.checkLeaderboardScrollContainer();
 			};
 		};
 
-		this.checkLeaderboardScrollContainer = function(){
-			var _this = this,
-				lbScrollContainer = query(_this.settings.leaderboard.container, ".cl-main-widget-lb-leaderboard-body");
+		// this.checkLeaderboardScrollContainer = function(){
+		// 	var _this = this,
+		// 		lbScrollContainer = query(_this.settings.leaderboard.container, ".cl-main-widget-lb-leaderboard-body");
+		//
+		// 	if( scrollEnabled(lbScrollContainer) ){
+		// 		addClass(lbScrollContainer, "cl-element-scrollable");
+		// 	}else{
+		// 		removeClass(lbScrollContainer, "cl-element-scrollable");
+		// 	}
+		// };
 
-			if( scrollEnabled(lbScrollContainer) ){
-				addClass(lbScrollContainer, "cl-element-scrollable");
-			}else{
-				removeClass(lbScrollContainer, "cl-element-scrollable");
-			}
-		};
-		
 		this.competitionDetailsOptInButtonState = function(){
 			var _this = this,
 				optIn = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-optin-action");
-			
-			
+
+
 			if( typeof _this.settings.lbWidget.settings.competition.activeCompetition.optinRequired === "boolean" && _this.settings.lbWidget.settings.competition.activeCompetition.optinRequired ) {
 				if ( typeof _this.settings.lbWidget.settings.competition.activeCompetition.optin === "boolean" && !_this.settings.lbWidget.settings.competition.activeCompetition.optin ) {
 					optIn.innerHTML = _this.settings.lbWidget.settings.translation.tournaments.enter;
@@ -3396,34 +3438,34 @@
 				optIn.parentNode.style.display = "none";
 			}
 		};
-		
+
 		this.loadCompetitionDetails = function( callback ){
 			var _this = this,
 				label = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-header-label"),
 				date = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-header-date"),
 				body = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-body"),
 				image = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-body-image-cont");
-			
+
 			label.innerHTML = ( _this.settings.lbWidget.settings.competition.activeContest.label.length > 0 ) ? _this.settings.lbWidget.settings.competition.activeContest.label : _this.settings.lbWidget.settings.competition.activeCompetition.label;
 			body.innerHTML = ( _this.settings.lbWidget.settings.competition.activeContest.description.length > 0 ) ? _this.settings.lbWidget.settings.competition.activeContest.description : _this.settings.lbWidget.settings.competition.activeCompetition.description;
 			_this.competitionDetailsOptInButtonState();
-			
+
 			_this.settings.detailsContainer.style.display = "block";
 			_this.settings.headerDate.style.display = "none";
-			
+
 			objectIterator(query(body, "img"), function(img, key, count){
 				if( count === 0 ){
 					var newImg = img.cloneNode(true);
 					image.innerHTML = "";
 					image.appendChild(newImg);
-					
+
 					remove(img);
 				}
 			});
-			
+
 			setTimeout(function(){
 				addClass(_this.settings.detailsContainer, "cl-show");
-				
+
 				if(typeof callback === "function") callback();
 			}, 50);
 		};
@@ -3433,44 +3475,45 @@
 				listResContainer = query(_this.settings.tournamentListContainer, ".cl-main-widget-tournaments-list-body-res"),
 				preLoader = _this.preloader();
 
-			preLoader.show();
-			_this.settings.lbWidget.checkForAvailableCompetitions( function() {
-				var accordionObj = _this.accordionStyle(_this.settings.tournamentsSection.accordionLayout, function (accordionSection, listContainer, topEntryContainer, layout) {
-					var tournamentData = _this.settings.lbWidget.settings.tournaments[layout.type];
+			preLoader.show(function() {
+				_this.settings.lbWidget.checkForAvailableCompetitions(function () {
+					var accordionObj = _this.accordionStyle(_this.settings.tournamentsSection.accordionLayout, function (accordionSection, listContainer, topEntryContainer, layout) {
+						var tournamentData = _this.settings.lbWidget.settings.tournaments[layout.type];
 
 
-					if (typeof tournamentData !== "undefined") {
-						if (tournamentData.length === 0) {
-							accordionSection.style.display = "none";
+						if (typeof tournamentData !== "undefined") {
+							if (tournamentData.length === 0) {
+								accordionSection.style.display = "none";
+							}
+							mapObject(tournamentData, function (tournament, key, count) {
+								if ((count + 1) <= layout.showTopResults && query(topEntryContainer, ".cl-tournament-" + tournament.id) === null) {
+									var topEntryContaineRlistItem = _this.tournamentItem(tournament);
+									topEntryContainer.appendChild(topEntryContaineRlistItem);
+								}
+
+								if (query(listContainer, ".cl-tournament-" + tournament.id) === null) {
+									var listItem = _this.tournamentItem(tournament);
+									listContainer.appendChild(listItem);
+								}
+							});
 						}
-						mapObject(tournamentData, function (tournament, key, count) {
-							if ((count + 1) <= layout.showTopResults && query(topEntryContainer, ".cl-tournament-" + tournament.id) === null) {
-								var topEntryContaineRlistItem = _this.tournamentItem(tournament);
-								topEntryContainer.appendChild(topEntryContaineRlistItem);
-							}
-
-							if (query(listContainer, ".cl-tournament-" + tournament.id) === null) {
-								var listItem = _this.tournamentItem(tournament);
-								listContainer.appendChild(listItem);
-							}
-						});
-					}
 
 
-				});
+					});
 
-				listResContainer.innerHTML = "";
-				listResContainer.appendChild(accordionObj);
+					listResContainer.innerHTML = "";
+					listResContainer.appendChild(accordionObj);
 
-				_this.settings.tournamentListContainer.style.display = "block";
-				setTimeout(function () {
-					addClass(_this.settings.tournamentListContainer, "cl-show");
+					_this.settings.tournamentListContainer.style.display = "block";
+					setTimeout(function () {
+						addClass(_this.settings.tournamentListContainer, "cl-show");
 
-					if (typeof callback === "function") callback();
+						if (typeof callback === "function") callback();
 
-					preLoader.hide()
-				}, 50);
-			}, ajaxInstance);
+						preLoader.hide()
+					}, 50);
+				}, ajaxInstance);
+			});
 		};
 
 		this.hideCompetitionList = function( callback ){
@@ -3485,19 +3528,19 @@
 				if (typeof callback === "function") callback();
 			}, 200);
 		};
-		
+
 		this.hideCompetitionDetails = function( callback ){
 			var _this = this;
-			
+
 			removeClass(_this.settings.detailsContainer, "cl-show");
 			setTimeout(function(){
 				_this.settings.detailsContainer.style.display = "none";
 				_this.settings.headerDate.style.display = "block";
-				
+
 				if(typeof callback === "function") callback();
 			}, 200);
 		};
-		
+
 		this.achievementItem = function( ach, achieved, perc ){
 			var _this = this,
 				listItem = document.createElement("div"),
@@ -3511,7 +3554,7 @@
 				progressionBar = document.createElement("div"),
 				moreButton = document.createElement("a"),
 				cpomntainsImage = (typeof ach.icon !== "undefined" && ach.icon.length > 0);
-			
+
 			listItem.setAttribute("class", "cl-ach-list-item cl-ach-" + ach.id + ( cpomntainsImage ? " cl-ach-with-image" : "" ));
 			detailsContainer.setAttribute("class", "cl-ach-list-details-cont");
 			detailsWrapper.setAttribute("class", "cl-ach-list-details-wrap");
@@ -3522,57 +3565,57 @@
 			progressionCont.setAttribute("class", "cl-ach-list-progression-cont");
 			progressionBar.setAttribute("class", "cl-ach-list-progression-bar");
 			moreButton.setAttribute("class", "cl-ach-list-more");
-			
+
 			moreButton.dataset.id = ach.id;
 			moreButton.innerHTML = _this.settings.lbWidget.settings.translation.achievements.more;
 			moreButton.href = "javascript:void(0);";
-			
+
 			listItem.dataset.id = ach.id;
-			
+
 			label.innerHTML = ach.name;
 			category.innerHTML = ach.category.join(", ");
-			
+
 			detailsWrapper.appendChild(label);
 			detailsWrapper.appendChild(category);
 			detailsWrapper.appendChild(description);
-			
+
 			if( cpomntainsImage ){
 				var image = new Image(),
 					imageIconWrapper = document.createElement("div");
 				imageIconWrapper.setAttribute("class", "cl-ach-list-item-img-wrapper");
 				image.setAttribute("class", "cl-ach-list-item-img");
-				
+
 				image.src = _this.settings.lbWidget.settings.uri.gatewayDomain + _this.settings.lbWidget.settings.uri.assets.replace(":attachmentId", ach.icon);
 				image.alt = ach.name;
-				
+
 				// image.onload = function(){
 				//
 				// };
 				imageIconWrapper.appendChild(image);
 				detailsContainer.appendChild(imageIconWrapper);
 			}
-			
+
 			detailsContainer.appendChild(detailsWrapper);
-			
+
 			progressionCont.appendChild(progressionBar);
 			progressionWrapper.appendChild(progressionCont);
 			progressionWrapper.appendChild(moreButton);
-			
-			
+
+
 			listItem.appendChild(detailsContainer);
 			listItem.appendChild(progressionWrapper);
-			
+
 			return listItem;
 		};
-		
+
 		this.achievementListLayout = function(achievementData){
 			var _this = this,
 				achList = query(_this.settings.section, ".cl-main-widget-section-ach .cl-main-widget-ach-list-body-res");
-			
+
 			mapObject(achievementData, function(ach){
 				if( query(achList, ".cl-ach-" + ach.id) === null ) {
 					var listItem = _this.achievementItem(ach);
-					
+
 					achList.appendChild(listItem);
 				}
 			});
@@ -3682,49 +3725,50 @@
 				if(typeof callback === "function") callback();
 			}, 200);
 		};
-		
+
 		this.updateAchievementProgressionAndIssued = function( issued, progression ){
 			var _this = this,
 				achList = query(_this.settings.section, ".cl-main-widget-section-ach .cl-main-widget-ach-list-body-res");
-			
+
 			objectIterator(query(achList, ".cl-ach-list-item"), function(ach){
 				var id = ach.dataset.id,
 					issuedStatus = (issued.indexOf(id) !== -1);
-				
+
 				var perc = 0;
 				mapObject(progression, function(pr){
 					if( pr.achievementId === id ){
 						perc = (parseFloat(pr.goalPercentageComplete)*100).toFixed(1)
 					}
 				});
-				
+
 				if( ach !== null ){
 					var bar = query(ach, ".cl-ach-list-progression-bar");
-					
+
 					if( issuedStatus ){
 						addClass(bar, "cl-ach-complete");
 						bar.innerHTML = _this.settings.lbWidget.settings.translation.achievements.complete;
+						bar.style.width = "100%";
 					}else{
 						bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + "%";
 					}
 				}
-				
+
 			});
-			
-			
+
+
 		};
-		
+
 		this.loadAchievements = function( callback ){
 			var _this = this;
-			
+
 			_this.settings.lbWidget.checkForAvailableAchievements(function( achievementData ){
 				_this.achievementListLayout(achievementData);
-				
+
 				var idList = [];
 				mapObject(_this.settings.lbWidget.settings.achievements.list, function(ach){
 					idList.push(ach.id);
 				});
-				
+
 				setTimeout(function(){
 					_this.settings.lbWidget.checkForMemberAchievementsIssued(function( issued ){
 						_this.settings.lbWidget.checkForMemberAchievementsProgression(idList, function( progression ){
@@ -3736,10 +3780,10 @@
 				if( typeof callback === "function" ){
 					callback();
 				}
-				
+
 			});
 		};
-		
+
 		this.rewardItem = function( rew ){
 			var _this = this,
 				listItem = document.createElement("div"),
@@ -3747,7 +3791,7 @@
 				detailsWrapper = document.createElement("div"),
 				label = document.createElement("div"),
 				description = document.createElement("div");
-			
+
 			listItem.setAttribute("class", "cl-rew-list-item cl-rew-" + rew.id);
 			detailsContainer.setAttribute("class", "cl-rew-list-details-cont");
 			detailsWrapper.setAttribute("class", "cl-rew-list-details-wrap");
@@ -3768,7 +3812,7 @@
 			detailsWrapper.appendChild(description);
 			detailsContainer.appendChild(detailsWrapper);
 			listItem.appendChild(detailsContainer);
-			
+
 			return listItem;
 		};
 
@@ -3798,7 +3842,7 @@
 
 			return listItem;
 		};
-		
+
 		this.rewardsListLayout = function(rewards, availableRewards, expiredRewards){
 			var _this = this,
 				rewardList = query(_this.settings.section, ".cl-main-widget-section-reward .cl-main-widget-reward-list-body-res");
@@ -3838,10 +3882,10 @@
 			// 	}
 			// });
 		};
-		
+
 		this.loadRewards = function( callback ){
 			var _this = this;
-			
+
 			_this.settings.lbWidget.checkForAvailableRewards(function( rewards, availableRewards, expiredRewards ){
 				_this.rewardsListLayout(rewards, availableRewards, expiredRewards);
 
@@ -3850,8 +3894,8 @@
 				}
 			});
 		};
-		
-		
+
+
 		var changeInterval;
 		var changeContainerInterval;
 		this.navigationSwitch = function( target, callback ){
@@ -3868,95 +3912,96 @@
 
 				if (!hasClass(target.parentNode, "cl-active-nav")) {
 
-					preLoader.show();
+					preLoader.show(function() {
 
-					if (changeInterval) clearTimeout(changeInterval);
-					if (changeContainerInterval) clearTimeout(changeContainerInterval);
+						if (changeInterval) clearTimeout(changeInterval);
+						if (changeContainerInterval) clearTimeout(changeContainerInterval);
 
-					objectIterator(query(_this.settings.container, ".cl-main-widget-navigation-items .cl-active-nav"), function (obj) {
-						removeClass(obj, "cl-active-nav");
-					});
+						objectIterator(query(_this.settings.container, ".cl-main-widget-navigation-items .cl-active-nav"), function (obj) {
+							removeClass(obj, "cl-active-nav");
+						});
 
-					objectIterator(query(_this.settings.container, ".cl-main-widget-section-container .cl-main-active-section"), function (obj) {
-						removeClass(obj, "cl-main-active-section");
-						setTimeout(function () {
-							obj.style.display = "none";
-						}, 150);
-					});
+						objectIterator(query(_this.settings.container, ".cl-main-widget-section-container .cl-main-active-section"), function (obj) {
+							removeClass(obj, "cl-main-active-section");
+							setTimeout(function () {
+								obj.style.display = "none";
+							}, 150);
+						});
 
-					changeContainerInterval = setTimeout(function () {
-						if (hasClass(target, "cl-main-widget-navigation-lb-icon")) {
-							_this.loadLeaderboard(function () {
+						changeContainerInterval = setTimeout(function () {
+							if (hasClass(target, "cl-main-widget-navigation-lb-icon")) {
+								_this.loadLeaderboard(function () {
 
-								var lbContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-lb");
+									var lbContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-lb");
 
-								lbContainer.style.display = "block";
-								changeInterval = setTimeout(function () {
-									addClass(lbContainer, "cl-main-active-section");
-								}, 30);
-
-								if (typeof callback === "function") {
-									callback();
-								}
-
-								preLoader.hide();
-
-								_this.settings.navigationSwitchInProgress = false;
-							});
-
-
-						} else if (hasClass(target, "cl-main-widget-navigation-ach-icon")) {
-							_this.loadAchievements(function () {
-								var achContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-ach");
-
-								_this.settings.achievement.detailsContainer.style.display = "none";
-
-								achContainer.style.display = "block";
-								changeInterval = setTimeout(function () {
-									addClass(achContainer, "cl-main-active-section");
+									lbContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(lbContainer, "cl-main-active-section");
+									}, 30);
 
 									if (typeof callback === "function") {
 										callback();
 									}
-								}, 30);
 
-								preLoader.hide();
+									preLoader.hide();
 
-								_this.settings.navigationSwitchInProgress = false;
-							});
-						} else if (hasClass(target, "cl-main-widget-navigation-rewards-icon")) {
-							_this.loadRewards(function () {
+									_this.settings.navigationSwitchInProgress = false;
+								});
 
-								var rewardsContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-reward");
 
-								rewardsContainer.style.display = "block";
+							} else if (hasClass(target, "cl-main-widget-navigation-ach-icon")) {
+								_this.loadAchievements(function () {
+									var achContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-ach");
+
+									_this.settings.achievement.detailsContainer.style.display = "none";
+
+									achContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(achContainer, "cl-main-active-section");
+
+										if (typeof callback === "function") {
+											callback();
+										}
+									}, 30);
+
+									preLoader.hide();
+
+									_this.settings.navigationSwitchInProgress = false;
+								});
+							} else if (hasClass(target, "cl-main-widget-navigation-rewards-icon")) {
+								_this.loadRewards(function () {
+
+									var rewardsContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-reward");
+
+									rewardsContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(rewardsContainer, "cl-main-active-section");
+									}, 30);
+
+									if (typeof callback === "function") {
+										callback();
+									}
+
+									preLoader.hide();
+
+									_this.settings.navigationSwitchInProgress = false;
+								});
+							} else if (hasClass(target, "cl-main-widget-navigation-inbox-icon")) {
+								var inboxContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-inbox");
+
+								inboxContainer.style.display = "block";
 								changeInterval = setTimeout(function () {
-									addClass(rewardsContainer, "cl-main-active-section");
+									addClass(inboxContainer, "cl-main-active-section");
 								}, 30);
-
-								if (typeof callback === "function") {
-									callback();
-								}
 
 								preLoader.hide();
 
 								_this.settings.navigationSwitchInProgress = false;
-							});
-						} else if (hasClass(target, "cl-main-widget-navigation-inbox-icon")) {
-							var inboxContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-inbox");
+							}
+						}, 250);
 
-							inboxContainer.style.display = "block";
-							changeInterval = setTimeout(function () {
-								addClass(inboxContainer, "cl-main-active-section");
-							}, 30);
-
-							preLoader.hide();
-
-							_this.settings.navigationSwitchInProgress = false;
-						}
-					}, 250);
-
-					addClass(target.parentNode, "cl-active-nav");
+						addClass(target.parentNode, "cl-active-nav");
+					});
 				} else if (typeof callback === "function") {
 
 					_this.settings.navigationSwitchInProgress = false;
@@ -3964,20 +4009,20 @@
 				}
 			}
 		};
-		
+
 		this.resetNavigation = function( callback ){
 			var _this = this,
 				lbContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-lb");
-			
+
 			objectIterator(query(_this.settings.container, ".cl-main-widget-navigation-items .cl-active-nav"), function(obj){
 				removeClass(obj, "cl-active-nav");
 			});
-			
+
 			objectIterator(query(_this.settings.container, ".cl-main-widget-section-container .cl-main-active-section"), function(obj){
 				obj.style.display = "none";
 				removeClass(obj, "cl-main-active-section");
 			});
-			
+
 			addClass(query(_this.settings.container, ".cl-main-widget-navigation-items .cl-main-widget-navigation-lb"), "cl-active-nav");
 			setTimeout(function(){
 				lbContainer.style.display = "block";
@@ -3988,29 +4033,29 @@
 				}, 30);
 			}, 40);
 		};
-		
+
 		this.initLayout = function( callback ){
 			var _this = this;
-			
+
 			_this.settings.active = true;
-			
+
 			_this.loadLeaderboard();
-			
+
 			_this.settings.container.style.display = "block";
 			setTimeout(function(){
 				addClass(_this.settings.container, "cl-show");
-				
+
 				var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
 				if( member !== null ){
 					_this.missingMember( _this.isElementVisibleInView(member, _this.settings.leaderboard.list.parentNode) );
 				}
-				
+
 				_this.resetNavigation( callback );
 			}, 30);
 		};
 	};
-	
-	
+
+
 	/**
 	 * Main leaderboard widget, controls all actions and initiation logic.
 	 * Main responsibility is to control the interactions between different widgets/plugins and user even actions
@@ -4071,11 +4116,11 @@
 				refreshLbDataInterval: null,
 				leaderboardData: [],
 				loadLeaderboardHistory: {}
-				
+
 			},
 			uri: {
 				gatewayDomain: cLabs.api.url,
-				
+
 				members: "/api/v1/:space/members/reference/:id",
 				assets: "/assets/attachments/:attachmentId",
 
@@ -4085,15 +4130,15 @@
 				competitions: "/api/v1/:space/competitions",
 				competitionById: "/api/v1/:space/competitions/:id",
 				contestLeaderboard: "/api/v1/:space/contests/:id/leaderboard",
-				
+
 				achievement: "/api/v1/:space/achievements/:id",
 				achievements: "/api/v1/:space/achievements/members/reference/:id",
 				// achievements: "/api/v1/:space/achievements",
 				achievementsProgression: "/api/v1/:space/members/reference/:id/achievements",
 				achievementsIssued: "/api/v1/:space/members/reference/:id/achievements/issued",
-				
+
 				messages: "/api/v1/:space/members/reference/:id/messages",
-				
+
 				memberReward: "/api/v1/:space/members/reference/:id/award/:awardId",
 				memberRewardClaim: "/api/v1/:space/members/reference/:id/award/:awardId/award",
 
@@ -4102,8 +4147,9 @@
 				memberCompetitionOptIn: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin",
 				memberCompetitionOptInCheck: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin-check",
 
-				translationPath: ""
+				translationPath: "../i18n/translation_:language.json"
 			},
+			loadTranslations: true,
 			translation: {
 				time: {
 					days: "d",
@@ -4161,13 +4207,13 @@
 			],
 			layoutBuildCallback: function( layout, instance ){}
 		};
-		
+
 		if( typeof options !== "undefined" ){
 			this.settings = mergeObjects(this.settings, options);
 		}
-		
+
 		this.log = function( message ){ if( this.settings.debug ) { console.error(message); } };
-		
+
 		/**
 		 * Format duration of Date Time from moment() object
 		 * @param duration {moment}
@@ -4202,7 +4248,7 @@
 				return "";
 			}
 		};
-		
+
 		/**
 		 * get a list of available competition filtered by provided global criteria
 		 * @param callback {Function}
@@ -4226,11 +4272,11 @@
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
 				filters.push("_uomKey" + _this.settings.currency);
 			}
-			
+
 			if( _this.settings.gameId.length > 0 && _this.settings.enforceGameLookup ){
 				filters.push("options.products.productRefId=" + _this.settings.gameId);
 			}
-			
+
 			if( _this.settings.groups.length > 0 && _this.settings.memberId.length === 0 ){
 				filters.push("options.limitEntrantsTo=" + _this.settings.groups);
 			}
@@ -4244,10 +4290,10 @@
 				success: function(response, dataObj, xhr){
 					if( xhr.status === 200 ){
 						var json = JSON.parse(response);
-						
+
 						_this.settings.tournaments.readyCompetitions = [];
 						_this.settings.tournaments.activeCompetitions = [];
-						
+
 						mapObject(json.data, function(comp){
 							if( comp.statusCode === 3 ){
 								_this.settings.tournaments.readyCompetitions.push(comp);
@@ -4265,7 +4311,7 @@
 				}
 			});
 		};
-		
+
 		/**
 		 * get a list of finished competition filtered by provided global criteria
 		 * @param callback {Function}
@@ -4325,7 +4371,7 @@
 				}
 			});
 		};
-		
+
 		this.prepareActiveCompetition = function( callback ){
 			var _this = this,
 				activeCompetition = null,
@@ -4360,33 +4406,33 @@
 			if( activeCompetition === null && _this.settings.tournaments.activeCompetitions.length > 0 ){
 				activeCompetition = _this.settings.tournaments.activeCompetitions[0];
 				activeCompetitionId = activeCompetition.id;
-				
+
 			}else if( activeCompetition === null && _this.settings.tournaments.readyCompetitions.length > 0 ){
 				activeCompetition = _this.settings.tournaments.readyCompetitions[0];
 				activeCompetitionId = activeCompetition.id;
 			}
-			
+
 			if ( activeCompetitionId === null ) { // no active or ready competitions found
 				_this.deactivateCompetitionsAndLeaderboards();
 			}else{
 				if( _this.settings.competition.activeCompetitionId !== activeCompetitionId && activeCompetitionId !== null ) {
-					
+
 					_this.settings.competition.activeCompetition = activeCompetition;
 					_this.settings.competition.activeCompetitionId = activeCompetitionId;
-					
+
 				}
-				
+
 				if( activeCompetitionId !== null ){
 					_this.loadActiveCompetition( function( json ){
-						
+
 						_this.setActiveCompetition(json, callback);
-						
+
 					} );
 				}else if (typeof callback === "function") { callback(); }
 			}
-			
+
 		};
-		
+
 		this.loadActiveCompetition = function( callback ){
 			var _this = this,
 				url = (_this.settings.memberId.length === 0) ? (
@@ -4402,7 +4448,7 @@
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
 				filters.push("_uomKey" + _this.settings.currency);
 			}
-			
+
 			_this.settings.globalAjax.abort().getData({
 				type: "GET",
 				url: _this.settings.uri.gatewayDomain + url + "?" + filters.join("&"),
@@ -4412,7 +4458,7 @@
 				success: function(response, dataObj, xhr){
 					if( xhr.status === 200 ){
 						var json = JSON.parse(response);
-						
+
 						if( typeof callback === "function" ){ callback(json); }
 					}else{
 						_this.log("failed to loadActiveCompetition " + response);
@@ -4420,31 +4466,31 @@
 				}
 			});
 		};
-		
+
 		this.setActiveCompetition = function( json, callback ){
 			var _this = this;
-			
+
 			_this.settings.competition.activeCompetition = json.data;
 			_this.settings.competition.activeContest = null;
 			_this.settings.competition.activeContestId = null;
-			
+
 			if( typeof json.data.contests !== "undefined" && json.data.contests.length > 0 ) {
 				mapObject(json.data.contests, function(contest){
 					if( contest.statusCode < 7 && _this.settings.competition.activeContest === null ){
 						_this.settings.competition.activeContest = contest;
 						_this.settings.competition.activeContestId = contest.id;
-						
+
 						if( typeof _this.settings.competition.activeContest.rewards === "undefined" ){
 							_this.settings.competition.activeContest.rewards = [];
 						}
-						
+
 						var rewards = [];
 						mapObject(_this.settings.competition.activeContest.rewards, function(reward){
-							
+
 							if( typeof reward.rewardRank === "string" ){
 								var rankParts = reward.rewardRank.split(","),
 									rewardRank = [];
-								
+
 								mapObject(rankParts, function(part){
 									if( stringContains(part, "-") ){
 										var rankRange = part.split("-"),
@@ -4457,22 +4503,22 @@
 										rewardRank.push(parseInt(part));
 									}
 								});
-								
+
 								reward.rewardRank = rewardRank;
 							}
-							
+
 							rewards.push(reward);
 						});
-						
+
 						_this.settings.competition.activeContest.rewards = rewards;
 					}
 				});
-				
+
 			}
-			
+
 			if( typeof callback === "function" ){ callback(); }
 		};
-		
+
 		this.getLeaderboardData = function( count, callback ){
 			if( this.settings.competition.activeContestId !== null ) {
 				var _this = this,
@@ -4481,11 +4527,11 @@
 						"_limit=" + count,
 						"rankings=2"
 					];
-				
+
 				if (typeof _this.settings.memberId === "string" && _this.settings.memberId.length > 0) {
 					filters.push("memberId=" + _this.settings.memberId);
 				}
-				
+
 				_this.settings.globalAjax.abort().getData({
 					type: "GET",
 					url: _this.settings.uri.gatewayDomain + url + "?" + filters.join("&"),
@@ -4495,7 +4541,7 @@
 					success: function (response, dataObj, xhr) {
 						if (xhr.status === 200) {
 							var json = JSON.parse(response);
-							
+
 							// if(
 							// 	typeof _this.settings.loadLeaderboardHistory[_this.settings.competition.activeContestId] === "undefined"
 							// 	||
@@ -4510,11 +4556,11 @@
 							// 		data: JSON.stringify(json.data)
 							// 	};
 							// }
-							
+
 							_this.settings.leaderboard.leaderboardData = json.data;
-							
+
 							callback(json.data);
-							
+
 						} else {
 							_this.log("failed to getLeaderboardData " + response);
 						}
@@ -4524,7 +4570,7 @@
 				callback();
 			}
 		};
-		
+
 		var checkAchievementsAjax = new cLabs.Ajax();
 		this.checkForAvailableAchievements = function( callback ){
 			var _this = this,
@@ -4539,7 +4585,7 @@
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
 				filters.push("_uomKey" + _this.settings.currency);
 			}
-			
+
 			if( typeof _this.settings.member.groups !== "undefined" &&  _this.settings.member.groups.length > 0 ){
 				withGroups = true;
 				filters.push("memberGroups=" + _this.settings.member.groups.join(","));
@@ -4554,13 +4600,13 @@
 				success: function(response, dataObj, xhr){
 					if( xhr.status === 200 ){
 						var jsonForAll = JSON.parse(response);
-						
+
 						_this.settings.achievements.list = [];
-						
+
 						mapObject(jsonForAll.data, function(ach){
 							_this.settings.achievements.list.push(ach);
 						});
-						
+
 						if( withGroups ) {
 							checkAchievementsAjax.abort().getData({
 								type: "GET",
@@ -4571,13 +4617,13 @@
 								success: function (response, dataObj, xhr) {
 									if (xhr.status === 200) {
 										var json = JSON.parse(response);
-										
+
 										mapObject(json.data, function (ach) {
 											_this.settings.achievements.list.push(ach);
 										});
-										
+
 										if (typeof callback === "function") callback(_this.settings.achievements.list);
-										
+
 									} else {
 										_this.log("failed to checkForAvailableAchievements " + response);
 									}
@@ -4698,15 +4744,15 @@
 					if( xhr.status === 200 ){
 						var json = JSON.parse(response),
 							idList = [];
-						
+
 						if( typeof json.aggregations !== "undefined" && json.aggregations.length > 0 ) {
 							mapObject(json.aggregations[0].items, function (item) {
 								idList.push(item.value);
 							});
 						}
-						
+
 						if( typeof callback === "function" ) callback( idList );
-						
+
 					}else{
 						_this.log("failed to checkForMemberAchievementsIssued " + response);
 					}
@@ -4728,9 +4774,9 @@
 				success: function(response, dataObj, xhr){
 					if( xhr.status === 200 ){
 						var json = JSON.parse(response);
-						
+
 						if( typeof callback === "function" ) callback( json.data );
-						
+
 					}else{
 						_this.log("failed to checkForMemberAchievementsProgression " + response);
 					}
@@ -4753,11 +4799,11 @@
 				success: function(response, dataObj, xhr){
 					if( xhr.status === 200 ){
 						var jsonForAll = JSON.parse(response);
-						
+
 						_this.settings.rewards.rewards = [];
 						_this.settings.rewards.availableRewards = [];
 						_this.settings.rewards.expiredRewards = [];
-						
+
 						mapObject(jsonForAll.data, function(message){
 							var expired = (typeof message.expiry === "undefined") ? false : ( moment(message.expiry).diff(moment()) < 0 ? true : false );
 
@@ -4837,25 +4883,25 @@
 				},
 				success: function (response, dataObj, xhr) {
 					if (xhr.status === 200) {
-						
+
 						callback();
-						
+
 					} else {
 						_this.log("failed to optInMemberToActiveCompetition " + response);
 					}
 				}
 			});
 		};
-		
+
 		var revalidationCount = 0;
 		this.revalidateIfSuccessfullOptIn = function( callback ){
 			var _this = this;
-			
+
 			_this.loadActiveCompetition(function( competitionJson ){
 				if( typeof competitionJson.data.optin === "boolean" && !competitionJson.data.optin ){
-					
+
 					revalidationCount++;
-					
+
 					if( revalidationCount < 5 ) {
 						setTimeout(function(){
 							_this.revalidateIfSuccessfullOptIn( callback );
@@ -4868,14 +4914,14 @@
 				}
 			});
 		};
-		
+
 		this.leaderboardDataRefresh = function(){
 			var _this = this;
-			
+
 			if( _this.settings.leaderboard.refreshLbDataInterval ){
 				clearTimeout(_this.settings.leaderboard.refreshLbDataInterval);
 			}
-			
+
 			if(
 				(_this.settings.competition.activeCompetition !== null && typeof _this.settings.competition.activeCompetition.optinRequired === "boolean" && !_this.settings.competition.activeCompetition.optinRequired)
 				||
@@ -4883,23 +4929,23 @@
 			){
 				var count = (_this.settings.miniScoreBoard.settings.active) ? 0 : _this.settings.leaderboard.fullLeaderboardSize;
 				_this.getLeaderboardData(count, function( data ){
-					
+
 					if( _this.settings.miniScoreBoard.settings.active ) _this.settings.miniScoreBoard.loadScoreBoard();
 					if( _this.settings.mainWidget.settings.active ) _this.settings.mainWidget.loadLeaderboard();
-					
+
 				});
 			}
-			
-			
+
+
 			_this.settings.leaderboard.refreshLbDataInterval = setTimeout(function () {
 				_this.leaderboardDataRefresh();
 			}, _this.settings.leaderboard.refreshIntervalMillis);
-			
+
 		};
-		
+
 		this.activeCompetitionDataRefresh = function( callback ){
 			var _this = this;
-			
+
 			if( _this.settings.competition.refreshInterval ){
 				clearTimeout(_this.settings.competition.refreshInterval);
 			}
@@ -4912,6 +4958,7 @@
 					if( _this.settings.leaderboard.refreshInterval ){
 						clearTimeout(_this.settings.leaderboard.refreshInterval);
 					}
+
 
 					if( _this.settings.miniScoreBoard.settings.active || _this.settings.mainWidget.settings.active ) {
 						if (
@@ -4956,22 +5003,22 @@
 					}
 				});
 			});
-			
+
 			_this.settings.competition.refreshInterval = setTimeout(function(){
 				_this.activeCompetitionDataRefresh();
 			}, _this.settings.competition.refreshIntervalMillis);
 		};
-		
+
 		this.deactivateCompetitionsAndLeaderboards = function( callback ){
 			var _this = this;
-			
+
 			if( _this.settings.leaderboard.refreshInterval ){
 				clearTimeout(_this.settings.leaderboard.refreshInterval);
 			}
-			
+
 			_this.settings.miniScoreBoard.clearAll();
 			_this.settings.mainWidget.clearAll();
-			
+
 			if( typeof callback === "function" ){ callback(); }
 		};
 
@@ -5004,10 +5051,10 @@
 
 			if( typeof callback === "function" ){ callback(); }
 		};
-		
+
 		this.loadMember = function( callback ){
 			var _this = this;
-			
+
 			_this.settings.globalAjax.abort().getData({
 				type: "GET",
 				url: _this.settings.uri.gatewayDomain + _this.settings.uri.members.replace(":space", _this.settings.spaceName).replace(":id", _this.settings.memberId),
@@ -5017,11 +5064,11 @@
 				success: function (response, dataObj, xhr) {
 					if ( xhr.status === 200 ) {
 						var json = JSON.parse(response);
-						
+
 						_this.settings.member = json.data;
-						
+
 						callback( json.data );
-						
+
 					} else {
 						_this.log("failed to loadMember " + response);
 					}
@@ -5032,7 +5079,7 @@
 		this.loadWidgetTranslations = function( callback ){
 			var _this = this;
 
-			if( typeof _this.settings.uri.translationPath === "string" && _this.settings.uri.translationPath.length > 0 ) {
+			if( typeof _this.settings.uri.translationPath === "string" && _this.settings.uri.translationPath.length > 0 && _this.settings.loadTranslations ) {
 				_this.settings.globalAjax.abort().getData({
 					type: "GET",
 					url: _this.settings.uri.gatewayDomain + _this.settings.uri.translationPath.replace(":language", _this.settings.language),
@@ -5049,6 +5096,8 @@
 
 						} else {
 							_this.log("no translation foound " + response);
+
+							callback();
 						}
 					}
 				});
@@ -5056,7 +5105,7 @@
 				callback();
 			}
 		};
-		
+
 		this.startup = function(){
 			var _this = this;
 
@@ -5067,9 +5116,26 @@
 				if( _this.settings.enableNotifications ) {
 					_this.settings.notifications.init();
 				}
+
+				_this.cleanup();
 			});
 		};
-		
+
+		var _cleanupInstance;
+		this.cleanup = function(){
+			var _this = this;
+
+			if( _cleanupInstance ){
+				clearTimeout(_cleanupInstance);
+			}
+
+			_cleanupInstance = setTimeout(function(){
+				_this.settings.mainWidget.preLoaderRerun();
+
+				_this.cleanup();
+			}, 3000);
+		};
+
 		this.loadStylesheet = function( callback ){
 			var _this = this,
 				createdResources = false,
@@ -5351,16 +5417,19 @@
 				var tournamentId = (hasClass(el, "cl-tour-list-item")) ? el.dataset.id : closest(el, ".cl-tour-list-item").dataset.id,
 					preLoader = _this.settings.mainWidget.preloader();
 
-				preLoader.show();
-				_this.settings.tournaments.activeCompetitionId = tournamentId;
-				_this.activeCompetitionDataRefresh(function(){
-					_this.settings.mainWidget.hideCompetitionList(function(){
-						preLoader.hide();
+				preLoader.show(function(){
+					_this.settings.mainWidget.settings.active = true;
+					_this.settings.tournaments.activeCompetitionId = tournamentId;
+					_this.activeCompetitionDataRefresh(function(){
+						_this.settings.mainWidget.hideCompetitionList(function(){
+							preLoader.hide();
+						});
 					});
 				});
 
+
 				// hide competition list view
-			}else if( hasClass(el, "cl-main-widget-tournaments-bacl-btn") ){
+			}else if( hasClass(el, "cl-main-widget-tournaments-back-btn") ){
 				_this.settings.mainWidget.hideCompetitionList();
 
 				// mini scoreboard action to open primary widget
@@ -5372,10 +5441,10 @@
 				_this.settings.mainWidget.accordionNavigation( el );
 			}
 		};
-		
+
 		this.eventListeners = function(){
 			var _this = this;
-			
+
 			document.body.addEventListener("keyup", function(event){
 				switch (event.keyCode) {
 					case 27: // on escape
@@ -5388,7 +5457,7 @@
 
 							});
 						}
-					break;
+						break;
 				}
 			});
 
@@ -5408,10 +5477,10 @@
 				});
 			}
 		};
-		
+
 		this.closeEverything = function(){
 			var _this = this;
-			
+
 			_this.deactivateCompetitionsAndLeaderboards(function () {
 				_this.settings.leaderboard.leaderboardData = [];
 				_this.settings.mainWidget.initLayout(function () {
@@ -5421,14 +5490,15 @@
 					_this.settings.miniScoreBoard.settings.container.style.display = "none";
 				}, 200);
 			});
-			
+
 			_this.settings.mainWidget.hide();
+			_this.settings.mainWidget.settings.preLoader.preLoaderActive = false;
 		};
 
 		this.isMobile = function(){
 			return isMobileTablet();
 		};
-		
+
 		this.init = function(){
 			var _this = this;
 
@@ -5464,7 +5534,7 @@
 				});
 			});
 		};
-		
+
 		if( this.settings.autoStart ){
 			this.init();
 		}
@@ -5475,5 +5545,5 @@
 	}else{
 		console.warn("window._clLeaderBoardV3SelfInit is already defined");
 	}
-	
+
 })();

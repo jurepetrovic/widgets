@@ -434,6 +434,11 @@
 		return check;
 	};
 
+	// check if iOS
+	var isiOSDevice = function() {
+		return !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);;
+	};
+
 	var getOffset = function( el ) {
 		var _x = 0;
 		var _y = 0;
@@ -575,7 +580,7 @@
 		var _this = this;
 
 		if( _this.xhr && typeof _this.xhr.readyState !== "undefined" && _this.xhr.readyState !== 4 && _this.xhr.readyState > 0 ){
-			console.error("aborting Ajax", _this.xhr.readyState, _this.xhr);
+			//console.error("aborting Ajax", _this.xhr.readyState, _this.xhr);
 			_this.xhr.abort();
 		}
 		
@@ -638,6 +643,7 @@
 	var dragElement = function(elmnt, draggableEl, overlayContainer, container, dragging, finishDragging, mobileTouch) {
 		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0,
 			isMobile = isMobileTablet(),
+			isiOS = isiOSDevice(),
 			isParentWindow = elmnt.parentNode.nodeName === "BODY",
 			maxLeft = ( isParentWindow ? window.innerWidth : container.offsetWidth ),
 			maxTop = ( isParentWindow ? window.innerHeight : container.offsetHeight ),
@@ -682,15 +688,16 @@
 				touchStart = setTimeout(function(){
 					justATouch = false;
 				}, 100);
-			}, { passive:false });
+			}, { passive: isiOS });
 
 			draggableEl.addEventListener('touchmove', function(e) {
+				e.preventDefault();
 				pos3 = e.targetTouches[0].pageX;
 				pos4 = e.targetTouches[0].pageY;
 				// moving = new Date().getTime();
 
 				elementDrag(e);
-			}, { passive:false });
+			}, { passive: isiOS });
 
 			draggableEl.addEventListener('touchend', function(e) {
 				// e.preventDefault();
@@ -702,7 +709,7 @@
 					mobileTouch();
 				}
 
-			}, { passive:false });
+			}, { passive: isiOS });
 
 			window.addEventListener("orientationchange", function(e){
 				onWindowChange();
@@ -1225,29 +1232,37 @@
 
 		this.timeManagement = function(){
 			var _this = this,
-				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledStart).diff(moment()),
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.startsIn,
-				date = _this.settings.lbWidget.formatDateTime( moment.duration(diff) ),
-				dateObj = _this.settings.lbWidget.formatDateTime( moment.duration(diff) ),
+				diff = 0,
+				label = "",
+				date = "",
+				dateObj = "",
 				inverse = false;
 
-			if( diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0 ){
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.starting;
-				date = "";
-			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3 ){
-				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledEnd).diff( moment() );
-				dateObj = _this.settings.lbWidget.formatDateTime( moment.duration(diff) );
-				label = _this.settings.lbWidget.formatDateTime( moment.duration(diff) );
-				date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
-				inverse = true;
-			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode === 3 ){
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finishing;
-				date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
-				inverse = true;
-			}else if( _this.settings.lbWidget.settings.competition.activeContest.statusCode >= 4 ){
-				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finished;
-				date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
-				inverse = true;
+			if( _this.settings.lbWidget.settings.competition.activeContest !== null ) {
+				diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledStart).diff(moment());
+				label = _this.settings.lbWidget.settings.translation.miniLeaderboard.startsIn;
+				date = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+				dateObj = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+				inverse = false;
+
+				if (diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0) {
+					label = _this.settings.lbWidget.settings.translation.miniLeaderboard.starting;
+					date = "";
+				} else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3) {
+					diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledEnd).diff(moment());
+					dateObj = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+					label = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
+					date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
+					inverse = true;
+				} else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode === 3) {
+					label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finishing;
+					date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
+					inverse = true;
+				} else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode >= 4) {
+					label = _this.settings.lbWidget.settings.translation.miniLeaderboard.finished;
+					date = _this.settings.lbWidget.settings.translation.miniLeaderboard.rank;
+					inverse = true;
+				}
 			}
 
 			return {
@@ -2133,6 +2148,11 @@
 			detailsContainer: null,
 			tournamentListContainer: null,
 			headerDate: null,
+			preLoader: {
+				preLoaderActive: false,
+				preLoaderlastAttempt: null,
+				preloaderCallbackRecovery: function(){}
+			},
 			achievement: {
 				container: null,
 				detailsContainer: null
@@ -2438,7 +2458,7 @@
 			sectionTournamentDetailsOptInAction.setAttribute("class", "cl-main-widget-lb-details-optin-action");
 
 			sectionTournamentList.setAttribute("class", "cl-main-widget-tournaments-list");
-			sectionTournamentBackAction.setAttribute("class", "cl-main-widget-tournaments-bacl-btn");
+			sectionTournamentBackAction.setAttribute("class", "cl-main-widget-tournaments-back-btn");
 			sectionTournamentListBody.setAttribute("class", "cl-main-widget-tournaments-list-body");
 			sectionTournamentListBodyResults.setAttribute("class", "cl-main-widget-tournaments-list-body-res");
 			
@@ -2994,8 +3014,6 @@
 			
 			_this.updateLeaderboardTopResults( topResults );
 			_this.updateLeaderboardResults( remainingResults );
-
-			_this.checkLeaderboardScrollContainer();
 		};
 		
 		this.updateLeaderboardTopResults = function( topResults ){
@@ -3163,8 +3181,6 @@
 			if( member !== null ){
 				_this.missingMember( _this.isElementVisibleInView(member, _this.settings.leaderboard.list.parentNode) );
 			}
-
-			_this.checkLeaderboardScrollContainer();
 		};
 		
 		this.updateLeaderboardTime = function(){
@@ -3219,20 +3235,46 @@
 			
 		};
 
+		//cleanup/recover activity
+		this.preLoaderRerun = function(){
+			var _this = this;
+
+			if( _this.settings.preLoader.preLoaderActive && _this.settings.preLoader.preloaderCallbackRecovery !== null
+				&& _this.settings.preLoader.preLoaderlastAttempt !== null && typeof _this.settings.preLoader.preLoaderlastAttempt === "number"
+				&& (_this.settings.preLoader.preLoaderlastAttempt+8000) < new Date().getTime() ){
+
+				_this.settings.preLoader.preloaderCallbackRecovery();
+			}
+		};
+
 		this.preloader = function(){
 			var _this = this,
 				preLoader = query(_this.settings.section, ".cl-main-widget-pre-loader"),
 				content = query(_this.settings.section, ".cl-main-widget-pre-loader-content");
 
 			return {
-				show: function(){
+				show: function( callback ){
+					_this.settings.preLoader.preLoaderActive = true;
+					_this.settings.preLoader.preLoaderlastAttempt = new Date().getTime();
 					preLoader.style.display = "block";
 					setTimeout(function(){
 						preLoader.style.opacity = 1;
 					}, 20);
+
+					if( _this.settings.preLoader.preloaderCallbackRecovery === null && typeof callback === "function" ) {
+						_this.settings.preLoader.preloaderCallbackRecovery = callback;
+					}
+
+					callback();
 				},
 				hide: function(){
+					_this.settings.preLoader.preLoaderActive = false;
+					_this.settings.preLoader.preLoaderlastAttempt = null;
 					preLoader.style.opacity = 0;
+
+					if( _this.settings.preLoader.preloaderCallbackRecovery !== null ){
+						_this.settings.preLoader.preloaderCallbackRecovery = null;
+					}
 
 					setTimeout(function(){
 						preLoader.style.display = "none";
@@ -3286,6 +3328,8 @@
 			if( _this.settings.leaderboard.timerInterval ){
 				clearTimeout(_this.settings.leaderboard.timerInterval);
 			}
+
+			_this.settings.preLoader.preLoaderActive = false;
 		};
 		
 		this.hide = function( callback ){
@@ -3348,6 +3392,7 @@
 			var _this = this;
 			
 			_this.settings.leaderboard.list.parentNode.onscroll = function(evt){
+				evt.preventDefault();
 			    var member = query(_this.settings.leaderboard.list, ".cl-lb-member-row");
 				
 			    if( member !== null ) {
@@ -3361,22 +3406,19 @@
 				if( member !== null ){
 					_this.missingMember( _this.isElementVisibleInView(member, _this.settings.leaderboard.list.parentNode) );
 				}
-
-
-			 	_this.checkLeaderboardScrollContainer();
 			};
 		};
 
-		this.checkLeaderboardScrollContainer = function(){
-			var _this = this,
-				lbScrollContainer = query(_this.settings.leaderboard.container, ".cl-main-widget-lb-leaderboard-body");
-
-			if( scrollEnabled(lbScrollContainer) ){
-				addClass(lbScrollContainer, "cl-element-scrollable");
-			}else{
-				removeClass(lbScrollContainer, "cl-element-scrollable");
-			}
-		};
+		// this.checkLeaderboardScrollContainer = function(){
+		// 	var _this = this,
+		// 		lbScrollContainer = query(_this.settings.leaderboard.container, ".cl-main-widget-lb-leaderboard-body");
+		//
+		// 	if( scrollEnabled(lbScrollContainer) ){
+		// 		addClass(lbScrollContainer, "cl-element-scrollable");
+		// 	}else{
+		// 		removeClass(lbScrollContainer, "cl-element-scrollable");
+		// 	}
+		// };
 		
 		this.competitionDetailsOptInButtonState = function(){
 			var _this = this,
@@ -3433,44 +3475,45 @@
 				listResContainer = query(_this.settings.tournamentListContainer, ".cl-main-widget-tournaments-list-body-res"),
 				preLoader = _this.preloader();
 
-			preLoader.show();
-			_this.settings.lbWidget.checkForAvailableCompetitions( function() {
-				var accordionObj = _this.accordionStyle(_this.settings.tournamentsSection.accordionLayout, function (accordionSection, listContainer, topEntryContainer, layout) {
-					var tournamentData = _this.settings.lbWidget.settings.tournaments[layout.type];
+			preLoader.show(function() {
+				_this.settings.lbWidget.checkForAvailableCompetitions(function () {
+					var accordionObj = _this.accordionStyle(_this.settings.tournamentsSection.accordionLayout, function (accordionSection, listContainer, topEntryContainer, layout) {
+						var tournamentData = _this.settings.lbWidget.settings.tournaments[layout.type];
 
 
-					if (typeof tournamentData !== "undefined") {
-						if (tournamentData.length === 0) {
-							accordionSection.style.display = "none";
+						if (typeof tournamentData !== "undefined") {
+							if (tournamentData.length === 0) {
+								accordionSection.style.display = "none";
+							}
+							mapObject(tournamentData, function (tournament, key, count) {
+								if ((count + 1) <= layout.showTopResults && query(topEntryContainer, ".cl-tournament-" + tournament.id) === null) {
+									var topEntryContaineRlistItem = _this.tournamentItem(tournament);
+									topEntryContainer.appendChild(topEntryContaineRlistItem);
+								}
+
+								if (query(listContainer, ".cl-tournament-" + tournament.id) === null) {
+									var listItem = _this.tournamentItem(tournament);
+									listContainer.appendChild(listItem);
+								}
+							});
 						}
-						mapObject(tournamentData, function (tournament, key, count) {
-							if ((count + 1) <= layout.showTopResults && query(topEntryContainer, ".cl-tournament-" + tournament.id) === null) {
-								var topEntryContaineRlistItem = _this.tournamentItem(tournament);
-								topEntryContainer.appendChild(topEntryContaineRlistItem);
-							}
-
-							if (query(listContainer, ".cl-tournament-" + tournament.id) === null) {
-								var listItem = _this.tournamentItem(tournament);
-								listContainer.appendChild(listItem);
-							}
-						});
-					}
 
 
-				});
+					});
 
-				listResContainer.innerHTML = "";
-				listResContainer.appendChild(accordionObj);
+					listResContainer.innerHTML = "";
+					listResContainer.appendChild(accordionObj);
 
-				_this.settings.tournamentListContainer.style.display = "block";
-				setTimeout(function () {
-					addClass(_this.settings.tournamentListContainer, "cl-show");
+					_this.settings.tournamentListContainer.style.display = "block";
+					setTimeout(function () {
+						addClass(_this.settings.tournamentListContainer, "cl-show");
 
-					if (typeof callback === "function") callback();
+						if (typeof callback === "function") callback();
 
-					preLoader.hide()
-				}, 50);
-			}, ajaxInstance);
+						preLoader.hide()
+					}, 50);
+				}, ajaxInstance);
+			});
 		};
 
 		this.hideCompetitionList = function( callback ){
@@ -3704,6 +3747,7 @@
 					if( issuedStatus ){
 						addClass(bar, "cl-ach-complete");
 						bar.innerHTML = _this.settings.lbWidget.settings.translation.achievements.complete;
+						bar.style.width = "100%";
 					}else{
 						bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + "%";
 					}
@@ -3868,95 +3912,96 @@
 
 				if (!hasClass(target.parentNode, "cl-active-nav")) {
 
-					preLoader.show();
+					preLoader.show(function() {
 
-					if (changeInterval) clearTimeout(changeInterval);
-					if (changeContainerInterval) clearTimeout(changeContainerInterval);
+						if (changeInterval) clearTimeout(changeInterval);
+						if (changeContainerInterval) clearTimeout(changeContainerInterval);
 
-					objectIterator(query(_this.settings.container, ".cl-main-widget-navigation-items .cl-active-nav"), function (obj) {
-						removeClass(obj, "cl-active-nav");
-					});
+						objectIterator(query(_this.settings.container, ".cl-main-widget-navigation-items .cl-active-nav"), function (obj) {
+							removeClass(obj, "cl-active-nav");
+						});
 
-					objectIterator(query(_this.settings.container, ".cl-main-widget-section-container .cl-main-active-section"), function (obj) {
-						removeClass(obj, "cl-main-active-section");
-						setTimeout(function () {
-							obj.style.display = "none";
-						}, 150);
-					});
+						objectIterator(query(_this.settings.container, ".cl-main-widget-section-container .cl-main-active-section"), function (obj) {
+							removeClass(obj, "cl-main-active-section");
+							setTimeout(function () {
+								obj.style.display = "none";
+							}, 150);
+						});
 
-					changeContainerInterval = setTimeout(function () {
-						if (hasClass(target, "cl-main-widget-navigation-lb-icon")) {
-							_this.loadLeaderboard(function () {
+						changeContainerInterval = setTimeout(function () {
+							if (hasClass(target, "cl-main-widget-navigation-lb-icon")) {
+								_this.loadLeaderboard(function () {
 
-								var lbContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-lb");
+									var lbContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-lb");
 
-								lbContainer.style.display = "block";
-								changeInterval = setTimeout(function () {
-									addClass(lbContainer, "cl-main-active-section");
-								}, 30);
-
-								if (typeof callback === "function") {
-									callback();
-								}
-
-								preLoader.hide();
-
-								_this.settings.navigationSwitchInProgress = false;
-							});
-
-
-						} else if (hasClass(target, "cl-main-widget-navigation-ach-icon")) {
-							_this.loadAchievements(function () {
-								var achContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-ach");
-
-								_this.settings.achievement.detailsContainer.style.display = "none";
-
-								achContainer.style.display = "block";
-								changeInterval = setTimeout(function () {
-									addClass(achContainer, "cl-main-active-section");
+									lbContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(lbContainer, "cl-main-active-section");
+									}, 30);
 
 									if (typeof callback === "function") {
 										callback();
 									}
-								}, 30);
 
-								preLoader.hide();
+									preLoader.hide();
 
-								_this.settings.navigationSwitchInProgress = false;
-							});
-						} else if (hasClass(target, "cl-main-widget-navigation-rewards-icon")) {
-							_this.loadRewards(function () {
+									_this.settings.navigationSwitchInProgress = false;
+								});
 
-								var rewardsContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-reward");
 
-								rewardsContainer.style.display = "block";
+							} else if (hasClass(target, "cl-main-widget-navigation-ach-icon")) {
+								_this.loadAchievements(function () {
+									var achContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-ach");
+
+									_this.settings.achievement.detailsContainer.style.display = "none";
+
+									achContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(achContainer, "cl-main-active-section");
+
+										if (typeof callback === "function") {
+											callback();
+										}
+									}, 30);
+
+									preLoader.hide();
+
+									_this.settings.navigationSwitchInProgress = false;
+								});
+							} else if (hasClass(target, "cl-main-widget-navigation-rewards-icon")) {
+								_this.loadRewards(function () {
+
+									var rewardsContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-reward");
+
+									rewardsContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(rewardsContainer, "cl-main-active-section");
+									}, 30);
+
+									if (typeof callback === "function") {
+										callback();
+									}
+
+									preLoader.hide();
+
+									_this.settings.navigationSwitchInProgress = false;
+								});
+							} else if (hasClass(target, "cl-main-widget-navigation-inbox-icon")) {
+								var inboxContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-inbox");
+
+								inboxContainer.style.display = "block";
 								changeInterval = setTimeout(function () {
-									addClass(rewardsContainer, "cl-main-active-section");
+									addClass(inboxContainer, "cl-main-active-section");
 								}, 30);
-
-								if (typeof callback === "function") {
-									callback();
-								}
 
 								preLoader.hide();
 
 								_this.settings.navigationSwitchInProgress = false;
-							});
-						} else if (hasClass(target, "cl-main-widget-navigation-inbox-icon")) {
-							var inboxContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-inbox");
+							}
+						}, 250);
 
-							inboxContainer.style.display = "block";
-							changeInterval = setTimeout(function () {
-								addClass(inboxContainer, "cl-main-active-section");
-							}, 30);
-
-							preLoader.hide();
-
-							_this.settings.navigationSwitchInProgress = false;
-						}
-					}, 250);
-
-					addClass(target.parentNode, "cl-active-nav");
+						addClass(target.parentNode, "cl-active-nav");
+					});
 				} else if (typeof callback === "function") {
 
 					_this.settings.navigationSwitchInProgress = false;
@@ -4102,8 +4147,9 @@
 				memberCompetitionOptIn: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin",
 				memberCompetitionOptInCheck: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin-check",
 
-				translationPath: ""
+				translationPath: "../i18n/translation_:language.json"
 			},
+			loadTranslations: true,
 			translation: {
 				time: {
 					days: "d",
@@ -4913,6 +4959,7 @@
 						clearTimeout(_this.settings.leaderboard.refreshInterval);
 					}
 
+
 					if( _this.settings.miniScoreBoard.settings.active || _this.settings.mainWidget.settings.active ) {
 						if (
 							(_this.settings.competition.activeCompetition !== null && typeof _this.settings.competition.activeCompetition.optinRequired === "boolean" && !_this.settings.competition.activeCompetition.optinRequired)
@@ -5032,7 +5079,7 @@
 		this.loadWidgetTranslations = function( callback ){
 			var _this = this;
 
-			if( typeof _this.settings.uri.translationPath === "string" && _this.settings.uri.translationPath.length > 0 ) {
+			if( typeof _this.settings.uri.translationPath === "string" && _this.settings.uri.translationPath.length > 0 && _this.settings.loadTranslations ) {
 				_this.settings.globalAjax.abort().getData({
 					type: "GET",
 					url: _this.settings.uri.gatewayDomain + _this.settings.uri.translationPath.replace(":language", _this.settings.language),
@@ -5049,6 +5096,8 @@
 
 						} else {
 							_this.log("no translation foound " + response);
+
+							callback();
 						}
 					}
 				});
@@ -5067,7 +5116,24 @@
 				if( _this.settings.enableNotifications ) {
 					_this.settings.notifications.init();
 				}
+
+				_this.cleanup();
 			});
+		};
+
+		var _cleanupInstance;
+		this.cleanup = function(){
+			var _this = this;
+
+			if( _cleanupInstance ){
+				clearTimeout(_cleanupInstance);
+			}
+
+			_cleanupInstance = setTimeout(function(){
+				_this.settings.mainWidget.preLoaderRerun();
+
+				_this.cleanup();
+			}, 3000);
 		};
 		
 		this.loadStylesheet = function( callback ){
@@ -5351,16 +5417,19 @@
 				var tournamentId = (hasClass(el, "cl-tour-list-item")) ? el.dataset.id : closest(el, ".cl-tour-list-item").dataset.id,
 					preLoader = _this.settings.mainWidget.preloader();
 
-				preLoader.show();
-				_this.settings.tournaments.activeCompetitionId = tournamentId;
-				_this.activeCompetitionDataRefresh(function(){
-					_this.settings.mainWidget.hideCompetitionList(function(){
-						preLoader.hide();
+				preLoader.show(function(){
+					_this.settings.mainWidget.settings.active = true;
+					_this.settings.tournaments.activeCompetitionId = tournamentId;
+					_this.activeCompetitionDataRefresh(function(){
+						_this.settings.mainWidget.hideCompetitionList(function(){
+							preLoader.hide();
+						});
 					});
 				});
 
+
 				// hide competition list view
-			}else if( hasClass(el, "cl-main-widget-tournaments-bacl-btn") ){
+			}else if( hasClass(el, "cl-main-widget-tournaments-back-btn") ){
 				_this.settings.mainWidget.hideCompetitionList();
 
 				// mini scoreboard action to open primary widget
@@ -5423,6 +5492,7 @@
 			});
 			
 			_this.settings.mainWidget.hide();
+			_this.settings.mainWidget.settings.preLoader.preLoaderActive = false;
 		};
 
 		this.isMobile = function(){

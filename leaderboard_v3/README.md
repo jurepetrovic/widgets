@@ -40,8 +40,10 @@ Our widget "out of the box" is a product that you can use immediately by placing
     			spaceName: '<space_name>',
     			gameId: "<game_name>",
     			memberId: '<member_reference_id>',
+                language: "en",
     			uri: {
-    				gatewayDomain: "https://gateway-staging.competitionlabs.com"
+    				gatewayDomain: "https://gateway-staging.competitionlabs.com",
+                    translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json"
     			},
     			resources: {
     				css: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/style.css",
@@ -52,4 +54,48 @@ Our widget "out of the box" is a product that you can use immediately by placing
     		a.async=1;a.src=u;m.parentNode.insertBefore(a,m);
     	})(window,document,'script','https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/javascript/leaderboard.v3.js',"_CLLBV3Opt");
 </script>
+```
+
+## FAQ
+### How to show game/product specific competitions only:
+```text
+The setting "enforceGameLookup" should be set to "true" and game/product ID should be assigned to the setting entry "gameId" part of the widget startup/initialisation
+{
+  enforceGameLookup: true,
+  gameId: "my_id"
+}
+```
+
+### How to show the widget only if there are any available competitions:
+```text
+The primary method “this.startup“ inside the "LbWidget" class is the one you should adjust to implement your scenario to achieve a pre-launch check, you can wrap what's inside of that method with the function:
+this.checkForAvailableCompetitions()
+This method collects all the necessary information about active, ready and finished competitions (example: _this.settings.tournaments.readyCompetitions will contain a list of upcoming competitions) so you can use the callback and the collected information to decide to show or hide the mini-scoreboard on startup based on your requirements.
+```
+
+### How do I only show the competition tab if there is an active competition only and/or change the default tab to the achievements tab
+
+The current flow is:
+1) once the mini scoreboard is clicked, the main layout gets initialized (unless it’s already not existing in the DOM)
+2) the navigation then gets reset to the initial competition tab
+
+To achieve this scenario you would need to do an available competition check prior to the navigation reset and then hide/show tabs accordingly based on your business requirement.
+The code of interest would be on line inside the method called: "this.initLayout" in the "MainWidget" widget class, the method that resets the navigation is "_this.resetNavigation( callback )" this handles what navigation item to set as default for the user.
+You can either change this code directly or override that method after initialization inside the "this.startup" method for the class "LbWidget" by doing the following "_this.settings.mainWidget.resetNavigation = function(callback){}". 
+There you can write some logic that would check what tabs to show/hide. 
+Or you can overwrite this on a more global scope level where you initialize the widget "new LbWidget(window._CLLBV3Opt)" as you get full access to the settings and all other methods.
+
+
+### Localization - How do I translate the widget UI:
+To enable translation the following steps need to be made:
+1) Translate your UI elements to the appropriate language and save it in a ".json" format using the following naming pattern `translation_en.json` [JSON example](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_en.json)
+2) The translations you define inside the file will be merged with the core translations on run time
+
+```text
+* The default widget language is set to english "en", the widget will try to load look for an external translation 
+resource based on the language setting and the "translationPath"
+
+* If the resource path is used as "translation_:language.json" the widget script will try to replace ":language" with the 
+current language  setting and load the translation dynamically from an external source, example:
+https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json
 ```
