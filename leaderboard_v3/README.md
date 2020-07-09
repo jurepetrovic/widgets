@@ -45,10 +45,10 @@ Our widget "out of the box" is a product that you can use immediately by placing
     				gatewayDomain: "https://gateway-staging.competitionlabs.com",
     				translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json"
     			},
-    			resources: {
-    				css: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/style.css",
-    				font: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/fonts.css"
-    			}
+    			resources: [
+    				"https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/style.css",
+    				"https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/fonts.css"
+    			]
     		};
     		var a=d.createElement(s), m=d.getElementsByTagName(s)[0];
     		a.async=1;a.src=u;m.parentNode.insertBefore(a,m);
@@ -57,6 +57,18 @@ Our widget "out of the box" is a product that you can use immediately by placing
 ```
 
 ## FAQ
+### How do I set the currency:
+The setting "currency" needs to be set to the appropriate ISO key used in [units of measure section](https://complabs.atlassian.net/wiki/spaces/CLRAV/pages/594935946/Units+of+Measure)
+```text
+{
+  currency: "usd"
+}
+```
+
+### How do I specify a custom stylesheet:
+All styles are loaded as part of the initialisation, so overwriting the resources array variable with your stylesheet asset will allow you to load in the external stylesheets dynamically.
+There is no limit to how many stylesheets you can add as the widget will load all of them from the specified array.
+
 ### How to show game/product specific competitions only:
 ```text
 The setting "enforceGameLookup" should be set to "true" and game/product ID should be assigned to the setting entry "gameId" part of the widget startup/initialisation
