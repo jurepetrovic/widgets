@@ -40,7 +40,7 @@ Our widget "out of the box" is a product that you can use immediately by placing
     			spaceName: '<space_name>',
     			gameId: "<game_name>",
     			memberId: '<member_reference_id>',
-                language: "en",
+    			language: "en",
     			uri: {
     				gatewayDomain: "https://gateway-staging.competitionlabs.com",
                     translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json"
