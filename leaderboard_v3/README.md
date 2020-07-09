@@ -43,7 +43,7 @@ Our widget "out of the box" is a product that you can use immediately by placing
     			language: "en",
     			uri: {
     				gatewayDomain: "https://gateway-staging.competitionlabs.com",
-                    translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json"
+    				translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json"
     			},
     			resources: {
     				css: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/style.css",
