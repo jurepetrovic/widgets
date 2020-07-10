@@ -2029,10 +2029,18 @@
     z-index: 1;
 }
 
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-box {
+    float: left;
+    width: 100%;
+    position: relative;
+    border: 1px solid gray;
+    padding: 10px 10px 10px 10px
+}
+
 /* Progress bar outer border */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-cont {
     float: left;
-    width: 100%;
+    width: 90%;
     background: #db7718;
     height: 15px;
     border-radius: 5px;
@@ -2047,6 +2055,8 @@
     border-radius: 5px;
     transition: all 0.3s ease;
 }
+
+/* progress bar text complete */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar.cl-ach-complete {
     font-size: 10px;
     line-height: 13px;
@@ -2061,10 +2071,13 @@
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
-    line-height: 30px;
+    line-height: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-transform: uppercase;
     display: inline;
-    margin: 5px, 5px, 5px, 5px;
+    border: 1px solid white;
+    
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more {

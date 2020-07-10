@@ -3563,7 +3563,8 @@
 				category = document.createElement("div"),
 				description = document.createElement("div"),
 				progressionWrapper = document.createElement("div"),
-				progressionCont = document.createElement("div"),
+				progressionBox = document.createElement("div"), // box with container & bar & percentage
+				progressionCont = document.createElement("div"), // container
 				progressionBar = document.createElement("div"),
 				progressionPercent = document.createElement("div"),
 				moreButton = document.createElement("a"),
@@ -3575,10 +3576,15 @@
 			label.setAttribute("class", "cl-ach-list-details-label");
 			category.setAttribute("class", "cl-ach-list-details-category");
 			description.setAttribute("class", "cl-ach-list-details-description");
+
 			progressionWrapper.setAttribute("class", "cl-ach-list-progression");
+
+			progressionBox.setAttribute("class", "cl-ach-list-progression-box");
+
 			progressionCont.setAttribute("class", "cl-ach-list-progression-cont");
 			progressionBar.setAttribute("class", "cl-ach-list-progression-bar");
 			progressionPercent.setAttribute("class", "cl-ach-list-percent-number");
+
 			moreButton.setAttribute("class", "cl-ach-list-more");
 			
 			progressionPercent.innerHTML = "50%";
@@ -3614,11 +3620,14 @@
 			
 			detailsContainer.appendChild(detailsWrapper);
 			
+			// progression contains has bar inside
 			progressionCont.appendChild(progressionBar);
-			progressionWrapper.appendChild(progressionCont);
-			progressionWrapper.appendChild(progressionPercent);
+			// progression box has container + percent number
+			progressionBox.appendChild(progressionCont);
+			progressionBox.appendChild(progressionPercent);
+			// wrapper has box + button
+			progressionWrapper.appendChild(progressionBox);
 			progressionWrapper.appendChild(moreButton);
-			
 			
 			listItem.appendChild(detailsContainer);
 			listItem.appendChild(progressionWrapper);
