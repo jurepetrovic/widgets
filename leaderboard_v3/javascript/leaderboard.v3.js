@@ -5193,9 +5193,10 @@
 			if( typeof _this.settings.uri.translationPath === "string" && _this.settings.uri.translationPath.length > 0 && _this.settings.loadTranslations ) {
 				_this.settings.globalAjax.abort().getData({
 					type: "GET",
-					url: _this.settings.uri.gatewayDomain + _this.settings.uri.translationPath.replace(":language", _this.settings.language),
+					// translation path must be absolute URL
+					url: _this.settings.uri.translationPath.replace(":language", _this.settings.language).toString(),
 					headers: {
-						"X-API-KEY": _this.settings.apiKey
+						"X-API-KEY": _this.settings.apiKey,
 					},
 					success: function (response, dataObj, xhr) {
 						if (xhr.status === 200) {
@@ -5206,11 +5207,14 @@
 							callback();
 
 						} else {
-							_this.log("no translation foound " + response);
+							_this.log("no translation found " + response);
 
 							callback();
 						}
-					}
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						_this.log("Translation File Request Error");
+					} 
 				});
 			}else{
 				callback();
