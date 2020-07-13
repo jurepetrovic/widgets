@@ -7,43 +7,43 @@
     "seconds": "s"
   },
   "achievements": {
-    "label": "Achievements",
-    "more": "More",
-    "complete": "complete 100%"
+    "label": "Conquêtes",
+    "more": "Plus",
+    "complete": "Complété 100%"
   },
   "tournaments": {
-    "label": "Tournaments",
-    "enter": "Enter Tournament",
-    "readyCompetitions": "Upcoming Tournaments",
-    "activeCompetitions": "Active Tournaments",
-    "finishedCompetitions": "Finished Tournaments",
-    "finishing": "Finishing",
-    "finished": "Finished",
-    "registered": "Registered"
+    "label": "Tournoi",
+    "enter": "Entrez dans le Tournoi",
+    "readyCompetitions": "Tournois Futurs",
+    "activeCompetitions": "Tournois Actifs",
+    "finishedCompetitions": "Tournois Terminés",
+    "finishing": "En Terminant",
+    "finished": "Terminé",
+    "registered": "Enregistré"
   },
   "leaderboard": {
-    "rank": "Rank",
-    "name": "Name",
+    "rank": "Position",
+    "name": "Nom",
     "points": "Points",
-    "prize": "Prize",
-    "you": "You"
+    "prize": "Prix",
+    "you": "Vous"
   },
   "miniLeaderboard": {
-    "highScore": "High Score",
-    "lastScore": "Last Score",
-    "rank": "Rank",
-    "startsIn": "Starting In",
-    "starting": "starting",
-    "finishing": "finishing",
-    "finished": "finished"
+    "highScore": "Meilleur Résultat",
+    "lastScore": "Dernier Résultat",
+    "rank": "Position",
+    "startsIn": "Commençant Dans",
+    "starting": "Commençant",
+    "finishing": "Terminant",
+    "finished": "Terminé"
   },
   "rewards": {
-    "label": "Rewards",
-    "claim": "Claim Now",
-    "claimed": "Claimed",
-    "availableRewards": "Available Rewards",
-    "rewards": "Claimed Rewards",
-    "expiredRewards": "Expired Rewards"
+    "label": "Prix",
+    "claim": "Percevez Maintenant",
+    "claimed": "Perçu",
+    "availableRewards": "Prix Disponibles",
+    "rewards": "Prix Perçus",
+    "expiredRewards": "Prix Expiré"
   },
   "global": {
     "copy": "Powered By CompetitionLabs"

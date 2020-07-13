@@ -7,43 +7,43 @@
     "seconds": "s"
   },
   "achievements": {
-    "label": "Achievements",
-    "more": "More",
-    "complete": "complete 100%"
+    "label": "Conquiste",
+    "more": "Più",
+    "complete": "Completato al 100%"
   },
   "tournaments": {
-    "label": "Tournaments",
-    "enter": "Enter Tournament",
-    "readyCompetitions": "Upcoming Tournaments",
-    "activeCompetitions": "Active Tournaments",
-    "finishedCompetitions": "Finished Tournaments",
-    "finishing": "Finishing",
-    "finished": "Finished",
-    "registered": "Registered"
+    "label": "Tornei",
+    "enter": "Entra nel Torneo",
+    "readyCompetitions": "Tornei Futuri",
+    "activeCompetitions": "Tornei Attivi",
+    "finishedCompetitions": "Tornei Conclusi",
+    "finishing": "Concludendo",
+    "finished": "Concluso",
+    "registered": "Registrato"
   },
   "leaderboard": {
-    "rank": "Rank",
-    "name": "Name",
-    "points": "Points",
-    "prize": "Prize",
-    "you": "You"
+    "rank": "Posizione",
+    "name": "Nome",
+    "points": "Punti",
+    "prize": "Premio",
+    "you": "Tu"
   },
   "miniLeaderboard": {
-    "highScore": "High Score",
-    "lastScore": "Last Score",
-    "rank": "Rank",
-    "startsIn": "Starting In",
-    "starting": "starting",
-    "finishing": "finishing",
-    "finished": "finished"
+    "highScore": "Miglior Punteggio",
+    "lastScore": "Ultimo Punteggio",
+    "rank": "Posizione",
+    "startsIn": "Iniziando in",
+    "starting": "Iniziando",
+    "finishing": "Concludendo",
+    "finished": "Concluso"
   },
   "rewards": {
-    "label": "Rewards",
-    "claim": "Claim Now",
-    "claimed": "Claimed",
-    "availableRewards": "Available Rewards",
-    "rewards": "Claimed Rewards",
-    "expiredRewards": "Expired Rewards"
+    "label": "Premi",
+    "claim": "Riscuoti Adesso",
+    "claimed": "Riscosso",
+    "availableRewards": "Premi Disponibili",
+    "rewards": "Premi Riscossi",
+    "expiredRewards": "Premi Scaduti"
   },
   "global": {
     "copy": "Powered By CompetitionLabs"
