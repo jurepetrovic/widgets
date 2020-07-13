@@ -955,7 +955,6 @@
     background-repeat: no-repeat;
     background-color:transparent;
     background-size: 100%;
-    display: none;
 }
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox-icon{
     display: block;
@@ -2571,6 +2570,7 @@
     background: #ff020c;
     position: relative;
     z-index: 2;
+    display:none;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list {
     position: absolute;
@@ -2579,7 +2579,7 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    padding: 72px 0 22px 0;
+    padding: 30px 0 22px 0;
     background: #ff020c;
     border-radius: 5px;
 }
@@ -2589,13 +2589,128 @@
     width: 100%;
     z-index: 1;
     overflow: auto;
-    height: calc(100vh - 210px);
+    height: calc(100vh - 73px);
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res {
     float: left;
     width: 100%;
-    padding: 0 30px;
+    padding: 0;
 }
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-inbox-list-item {
+    float: left;
+    width: 100%;
+    padding: 10px 15px 15px 15px;
+    margin: 0;
+    border-bottom: 1px solid #c56008;
+    transition: background-color 0.3s ease;
+    cursor:pointer;
+}
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-item:hover {
+    background-color: #d50004;
+}
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-cont {
+    float: left;
+    width: 100%;
+}
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-wrap {
+    float: left;
+    width: 100%;
+}
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-label {
+    float: left;
+    width: 100%;
+    color:#ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+}
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-description {
+    float: left;
+    width: 100%;
+    font-size:11px;
+    max-height:40px;
+    line-height:16px;
+    color:#ffffff;
+}
+
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container{
+    position: absolute;
+    height: calc(100% - 52px);
+    background: #d50004;
+    top: 30px;
+    left: -200px;
+    width: 100%;
+    z-index: 10;
+    opacity:0;
+    display:none;
+    transition: all 0.3s ease;
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container.cl-show{
+    left: 0;
+    opacity:1;
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-header{
+    float:left;
+    width:100%;
+    min-height: 60px;
+    padding:10px 60px;
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-header-label{
+    float: left;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 20px;
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-header-date{
+    float: left;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-back-btn{
+    position: absolute;
+    left: 20px;
+    top: 16px;
+    width: 30px;
+    height: 26px;
+    background-image: url(../images/prev-btn-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-body-container{
+    float: left;
+    width: 100%;
+    overflow: auto;
+    padding: 5px 40px 25px 40px;
+    position: absolute;
+    top: 80px;
+    height: calc(100% - 130px);
+}
+.cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-body{
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0 0 30px 0;
+}
+
+
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-footer {
     float: left;
     width: 100%;

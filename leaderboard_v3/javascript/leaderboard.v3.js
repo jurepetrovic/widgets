@@ -2161,6 +2161,10 @@
 				container: null,
 				detailsContainer: null
 			},
+			messages: {
+				container: null,
+				detailsContainer: null
+			},
 			leaderboard: {
 				defaultEmptyList: 20,
 				topResultSize: 3,
@@ -2767,14 +2771,13 @@
 				sectionInboxFooter = document.createElement("div"),
 				sectionInboxFooterContent = document.createElement("div"),
 				
-				sectionTournamentDetailsContainer = document.createElement("div"),
-				sectionTournamentDetailsHeader = document.createElement("div"),
-				sectionTournamentDetailsHeaderLabel = document.createElement("div"),
-				sectionTournamentDetailsHeaderDate = document.createElement("div"),
-				sectionTournamentDetailsBackBtn = document.createElement("a"),
-				sectionTournamentDetailsBodyContainer = document.createElement("div"),
-				sectionTournamentDetailsBodyImageContainer = document.createElement("div"),
-				sectionTournamentDetailsBody = document.createElement("div");
+				sectionInboxDetailsContainer = document.createElement("div"),
+				sectionInboxDetailsHeader = document.createElement("div"),
+				sectionInboxDetailsHeaderLabel = document.createElement("div"),
+				sectionInboxDetailsHeaderDate = document.createElement("div"),
+				sectionInboxDetailsBackBtn = document.createElement("a"),
+				sectionInboxDetailsBodyContainer = document.createElement("div"),
+				sectionInboxDetailsBody = document.createElement("div");
 			
 			
 			
@@ -2801,17 +2804,16 @@
 			sectionInboxFooterContent.setAttribute("class", "cl-main-widget-inbox-footer-content");
 			
 			// details section
-			sectionTournamentDetailsContainer.setAttribute("class", "cl-main-widget-inbox-details-container");
-			sectionTournamentDetailsHeader.setAttribute("class", "cl-main-widget-inbox-details-header");
-			sectionTournamentDetailsHeaderLabel.setAttribute("class", "cl-main-widget-inbox-details-header-label");
-			sectionTournamentDetailsHeaderDate.setAttribute("class", "cl-main-widget-inbox-details-header-date");
-			sectionTournamentDetailsBackBtn.setAttribute("class", "cl-main-widget-inbox-details-back-btn");
-			sectionTournamentDetailsBodyContainer.setAttribute("class", "cl-main-widget-inbox-details-body-container");
-			sectionTournamentDetailsBodyImageContainer.setAttribute("class", "cl-main-widget-inbox-details-body-image-cont");
-			sectionTournamentDetailsBody.setAttribute("class", "cl-main-widget-inbox-details-body");
+			sectionInboxDetailsContainer.setAttribute("class", "cl-main-widget-inbox-details-container");
+			sectionInboxDetailsHeader.setAttribute("class", "cl-main-widget-inbox-details-header");
+			sectionInboxDetailsHeaderLabel.setAttribute("class", "cl-main-widget-inbox-details-header-label");
+			sectionInboxDetailsHeaderDate.setAttribute("class", "cl-main-widget-inbox-details-header-date");
+			sectionInboxDetailsBackBtn.setAttribute("class", "cl-main-widget-inbox-details-back-btn");
+			sectionInboxDetailsBodyContainer.setAttribute("class", "cl-main-widget-inbox-details-body-container");
+			sectionInboxDetailsBody.setAttribute("class", "cl-main-widget-inbox-details-body");
 			
 			
-			sectionInboxHeaderLabel.innerHTML = _this.settings.lbWidget.settings.translation.rewards.label;
+			sectionInboxHeaderLabel.innerHTML = _this.settings.lbWidget.settings.translation.messages.label;
 			sectionInboxFooterContent.innerHTML = _this.settings.lbWidget.settings.translation.global.copy;
 			
 			sectionInboxHeader.appendChild(sectionInboxHeaderLabel);
@@ -2826,6 +2828,15 @@
 			
 			sectionInboxListBody.appendChild(sectionInboxListBodyResults);
 			sectionInboxList.appendChild(sectionInboxListBody);
+
+
+			sectionInboxDetailsHeader.appendChild(sectionInboxDetailsHeaderLabel);
+			sectionInboxDetailsHeader.appendChild(sectionInboxDetailsHeaderDate);
+			sectionInboxDetailsContainer.appendChild(sectionInboxDetailsHeader);
+			sectionInboxDetailsContainer.appendChild(sectionInboxDetailsBackBtn);
+			sectionInboxDetailsBodyContainer.appendChild(sectionInboxDetailsBody);
+			sectionInboxDetailsContainer.appendChild(sectionInboxDetailsBodyContainer);
+
 			
 			sectionInboxFooter.appendChild(sectionInboxFooterContent);
 			
@@ -2833,7 +2844,8 @@
 			sectionInbox.appendChild(sectionInboxDetails);
 			sectionInbox.appendChild(sectionInboxList);
 			sectionInbox.appendChild(sectionInboxFooter);
-			
+			sectionInbox.appendChild(sectionInboxDetailsContainer);
+
 			return sectionInbox;
 		};
 		
@@ -3302,6 +3314,8 @@
 				_this.settings.achievement.detailsContainer = query(_this.settings.container, ".cl-main-widget-ach-details-container");
 				_this.settings.reward.container = query(_this.settings.container, ".cl-main-widget-section-reward");
 				_this.settings.reward.detailsContainer = query(_this.settings.container, ".cl-main-widget-reward-details-container");
+				_this.settings.messages.container = query(_this.settings.container, ".cl-main-widget-section-inbox");
+				_this.settings.messages.detailsContainer = query(_this.settings.container, ".cl-main-widget-inbox-details-container");
 
 				_this.leaderboardHeader();
 				_this.eventListeners();
@@ -3715,12 +3729,39 @@
 			}, 50);
 		};
 
+		this.loadMessageDetails = function( data, callback ){
+			var _this = this,
+				label = query(_this.settings.messages.detailsContainer, ".cl-main-widget-inbox-details-header-label"),
+				body = query(_this.settings.messages.detailsContainer, ".cl-main-widget-inbox-details-body");
+
+			label.innerHTML = data.data.subject;
+			body.innerHTML = data.data.body;
+
+			_this.settings.messages.detailsContainer.style.display = "block";
+			setTimeout(function(){
+				addClass(_this.settings.messages.detailsContainer, "cl-show");
+
+				if(typeof callback === "function") callback();
+			}, 50);
+		};
+
 		this.hideRewardDetails = function( callback ){
 			var _this = this;
 
 			removeClass(_this.settings.reward.detailsContainer, "cl-show");
 			setTimeout(function(){
 				_this.settings.reward.detailsContainer.style.display = "none";
+
+				if(typeof callback === "function") callback();
+			}, 200);
+		};
+
+		this.hideMessageDetails = function( callback ){
+			var _this = this;
+
+			removeClass(_this.settings.messages.detailsContainer, "cl-show");
+			setTimeout(function(){
+				_this.settings.messages.detailsContainer.style.display = "none";
 
 				if(typeof callback === "function") callback();
 			}, 200);
@@ -3816,6 +3857,33 @@
 			return listItem;
 		};
 
+		this.messageItem = function( inbox ){
+			var _this = this,
+				listItem = document.createElement("div"),
+				detailsContainer = document.createElement("div"),
+				detailsWrapper = document.createElement("div"),
+				label = document.createElement("div"),
+				description = document.createElement("div"),
+				content = stripHtml(inbox.body);
+
+			listItem.setAttribute("class", "cl-inbox-list-item cl-inbox-" + inbox.id);
+			detailsContainer.setAttribute("class", "cl-inbox-list-details-cont");
+			detailsWrapper.setAttribute("class", "cl-inbox-list-details-wrap");
+			label.setAttribute("class", "cl-inbox-list-details-label");
+			description.setAttribute("class", "cl-inbox-list-details-description");
+
+			listItem.dataset.id = inbox.id;
+			label.innerHTML = (inbox.subject.length > 36) ? inbox.subject.substr(0, 36) + "..." : inbox.subject;
+			description.innerHTML = (content.length > 60) ? content.substr(0, 60) + "..." : content;
+
+			detailsWrapper.appendChild(label);
+			detailsWrapper.appendChild(description);
+			detailsContainer.appendChild(detailsWrapper);
+			listItem.appendChild(detailsContainer);
+
+			return listItem;
+		};
+
 		this.tournamentItem = function( tournament ){
 			var _this = this,
 				listItem = document.createElement("div"),
@@ -3882,12 +3950,36 @@
 			// 	}
 			// });
 		};
+
+		this.messagesListLayout = function(rewards, availableRewards, expiredRewards){
+			var _this = this,
+				messageList = query(_this.settings.section, ".cl-main-widget-section-inbox .cl-main-widget-inbox-list-body-res");
+
+			messageList.innerHTML = "";
+
+			mapObject(_this.settings.lbWidget.settings.messages.messages, function(inboxItem, key, count){
+				var listItem = _this.messageItem(inboxItem);
+				messageList.appendChild(listItem);
+			});
+		};
 		
 		this.loadRewards = function( callback ){
 			var _this = this;
 			
 			_this.settings.lbWidget.checkForAvailableRewards(function( rewards, availableRewards, expiredRewards ){
 				_this.rewardsListLayout(rewards, availableRewards, expiredRewards);
+
+				if( typeof callback === "function" ){
+					callback();
+				}
+			});
+		};
+
+		this.loadMessages = function( callback ){
+			var _this = this;
+
+			_this.settings.lbWidget.checkForAvailableMessages(function( rewards, availableRewards, expiredRewards ){
+				_this.messagesListLayout(rewards, availableRewards, expiredRewards);
 
 				if( typeof callback === "function" ){
 					callback();
@@ -3987,16 +4079,20 @@
 									_this.settings.navigationSwitchInProgress = false;
 								});
 							} else if (hasClass(target, "cl-main-widget-navigation-inbox-icon")) {
-								var inboxContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-inbox");
 
-								inboxContainer.style.display = "block";
-								changeInterval = setTimeout(function () {
-									addClass(inboxContainer, "cl-main-active-section");
-								}, 30);
+								_this.loadMessages(function () {
+									var inboxContainer = query(_this.settings.container, ".cl-main-widget-section-container .cl-main-widget-section-inbox");
 
-								preLoader.hide();
+									inboxContainer.style.display = "block";
+									changeInterval = setTimeout(function () {
+										addClass(inboxContainer, "cl-main-active-section");
+									}, 30);
 
-								_this.settings.navigationSwitchInProgress = false;
+									preLoader.hide();
+
+									_this.settings.navigationSwitchInProgress = false;
+								});
+
 							}
 						}, 250);
 
@@ -4103,6 +4199,9 @@
 				rewards: [],
 				expiredRewards: []
 			},
+			messages: {
+				messages: []
+			},
 			tournaments: {
 				activeCompetitionId: null,
 				readyCompetitions: [], // statusCode 3
@@ -4138,7 +4237,8 @@
 				achievementsIssued: "/api/v1/:space/members/reference/:id/achievements/issued",
 				
 				messages: "/api/v1/:space/members/reference/:id/messages",
-				
+				messageById: "/api/v1/:space/members/reference/:id/messages/:messageId",
+
 				memberReward: "/api/v1/:space/members/reference/:id/award/:awardId",
 				memberRewardClaim: "/api/v1/:space/members/reference/:id/award/:awardId/award",
 
@@ -4196,6 +4296,9 @@
 					availableRewards: "Available Rewards",
 					rewards: "Claimed Rewards",
 					expiredRewards: "Expired Rewards"
+				},
+				messages: {
+					label: "Messages"
 				},
 				global: {
 					copy: "Powered By CompetitionLabs"
@@ -4699,6 +4802,36 @@
 			});
 		};
 
+		var getMessageAjax = new cLabs.Ajax();
+		this.getMessage = function( messageId, callback ){
+			var _this = this;
+
+			getMessageAjax.abort().getData({
+				url: _this.settings.uri.gatewayDomain + _this.settings.uri.messageById.replace(":space", _this.settings.spaceName).replace(":id", _this.settings.memberId).replace(":messageId", messageId),
+				headers: {
+					"X-API-KEY": _this.settings.apiKey
+				},
+				type: "GET",
+				success: function(response, dataObj, xhr){
+					var json = null;
+					if( xhr.status === 200 ){
+						try{
+							json = JSON.parse(response);
+						}catch(e){}
+					}
+
+					if( typeof callback === "function" ){
+						callback( json );
+					}
+				},
+				error: function(){
+					if( typeof callback === "function" ){
+						callback( null );
+					}
+				}
+			});
+		};
+
 		var claimRewardAjax = new cLabs.Ajax();
 		this.claimReward = function( rewardId, callback ){
 			var _this = this;
@@ -4865,6 +4998,41 @@
 
 					}else{
 						_this.log("failed to checkForAvailableRewards claimed " + response);
+					}
+				}
+			});
+		};
+
+		var checkForAvailableMessagesAjax = new cLabs.Ajax();
+		this.checkForAvailableMessages = function( callback ){
+			var _this = this,
+				url = _this.settings.uri.messages.replace(":space", _this.settings.spaceName).replace(":id", _this.settings.memberId),
+				date = new Date();
+
+			date.setDate(date.getMonth()-1);
+
+			var createdDateFilter = date.getFullYear() + "-" + formatNumberLeadingZeros((date.getMonth()+1), 2) + "-" + formatNumberLeadingZeros(date.getDate(), 2);
+
+			checkForAvailableMessagesAjax.abort().getData({
+				type: "GET",
+				url: _this.settings.uri.gatewayDomain + url + "?_sortByFields=created:desc&_hasNoValuesFor=prize&_limit=100&created>==" + createdDateFilter,
+				headers: {
+					"X-API-KEY": _this.settings.apiKey
+				},
+				success: function(response, dataObj, xhr){
+					if( xhr.status === 200 ){
+						var jsonForAll = JSON.parse(response);
+
+						_this.settings.messages.messages = [];
+
+						mapObject(jsonForAll.data, function(message){
+							_this.settings.messages.messages.push(message);
+						});
+
+						if (typeof callback === "function") callback(_this.settings.messages.messages);
+
+					}else{
+						_this.log("failed to checkForAvailableMessages " + response);
 					}
 				}
 			});
@@ -5361,11 +5529,24 @@
 				_this.settings.mainWidget.hideRewardDetails(function(){
 				});
 
+				// messages details back button
+			}else if( hasClass(el, "cl-main-widget-inbox-details-back-btn") ){
+				_this.settings.mainWidget.hideMessageDetails(function(){
+				});
+
 				// load rewards details
 			}else if( hasClass(el, "cl-rew-list-item") || closest(el, ".cl-rew-list-item") !== null ){
 				var rewardId = (hasClass(el, "cl-rew-list-item")) ? el.dataset.rewardId : closest(el, ".cl-rew-list-item").dataset.rewardId;
 				_this.getReward(rewardId, function(data){
 					_this.settings.mainWidget.loadRewardDetails(data, function(){
+					});
+				});
+
+				// load inbox details
+			}else if( hasClass(el, "cl-inbox-list-item") || closest(el, ".cl-inbox-list-item") !== null ){
+				var messageId = (hasClass(el, "cl-inbox-list-item")) ? el.dataset.rewardId : closest(el, ".cl-inbox-list-item").dataset.id;
+				_this.getMessage(messageId, function(data){
+					_this.settings.mainWidget.loadMessageDetails(data, function(){
 					});
 				});
 

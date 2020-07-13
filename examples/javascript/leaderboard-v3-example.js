@@ -21,7 +21,8 @@
 	widgetInstance.settings.uri.achievementsProgression = "data/achievements-list-perc-data-sample.json";
 	widgetInstance.settings.uri.achievementsIssued = "data/achievements-list-issued-data-sample.json";
 	widgetInstance.settings.uri.messages = "data/messages-claimed-data-sample.json";
-	widgetInstance.settings.uri.memberReward = "data/messages-data-sample.json";
+	widgetInstance.settings.uri.memberReward = "data/messages-reward-data-sample.json";
+	widgetInstance.settings.uri.messageById = "data/messages-data-sample.json";
 	widgetInstance.settings.uri.assets = "images/:attachmentId.png";
 	widgetInstance.settings.resources = [
 		("../leaderboard_v3/css/style.css?t=" + ( new Date().getTime() )),
