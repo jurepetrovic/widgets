@@ -3587,7 +3587,8 @@
 
 			moreButton.setAttribute("class", "cl-ach-list-more");
 			
-			progressionPercent.innerHTML = "50%";
+			// start with 0
+			progressionPercent.innerHTML = "0%";
 
 			moreButton.dataset.id = ach.id;
 			moreButton.innerHTML = _this.settings.lbWidget.settings.translation.achievements.more;
@@ -3769,20 +3770,15 @@
 				});
 				
 				if( ach !== null ){
-					var bar = query(ach, ".cl-ach-list-progression-bar");
 					
-					if( issuedStatus ){
-						addClass(bar, "cl-ach-complete");
-						bar.innerHTML = _this.settings.lbWidget.settings.translation.achievements.complete;
-						bar.style.width = "100%";
-					}else{
-						bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + "%";
-					}
+					var bar = query(ach, ".cl-ach-list-progression-bar");	
+					var percentNum = query(ach, ".cl-ach-list-percent-number");
+
+
+					bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + "%";
+					percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + "%";
 				}
-				
 			});
-			
-			
 		};
 		
 		this.loadAchievements = function( callback ){
