@@ -3,14 +3,14 @@
   "data": {
     "statusCode": 5,
     "numberOfRounds": 1,
-    "description": "<p>Lipsum</p>",
+    "description": "<p>Lipsum</p><img src='images/banner-example-3.jpg'>",
     "optinRequired": false,
     "label": "Competition example",
     "contests": [{
       "statusCode": 2,
       "number": 0,
       "entrantsFromContest": [],
-      "description": "<p>Lipsum</p>",
+      "description": "<p>Lipsum 2</p><img src='images/banner-example-3.jpg'>",
       "label": "Competition example",
       "jsonClass": "Contest",
       "rewards": [{

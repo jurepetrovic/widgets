@@ -2330,8 +2330,6 @@
 			navigationItemACHIcon.setAttribute("class", "cl-main-widget-navigation-ach-icon cl-main-navigation-item");
 			navigationItemRewards.setAttribute("class", "cl-main-widget-navigation-rewards");
 			navigationItemRewardsIcon.setAttribute("class", "cl-main-widget-navigation-rewards-icon cl-main-navigation-item");
-			navigationItemInbox.setAttribute("class", "cl-main-widget-navigation-inbox");
-			navigationItemInboxIcon.setAttribute("class", "cl-main-widget-navigation-inbox-icon cl-main-navigation-item");
 			
 			mainSectionContainer.setAttribute("class", "cl-main-widget-section-container");
 
@@ -2352,8 +2350,14 @@
 			navigationItems.appendChild(navigationItemACH);
 			navigationItemRewards.appendChild(navigationItemRewardsIcon);
 			navigationItems.appendChild(navigationItemRewards);
-			navigationItemInbox.appendChild(navigationItemInboxIcon);
-			navigationItems.appendChild(navigationItemInbox);
+
+			if( _this.settings.lbWidget.settings.messages.enable ) {
+				navigationItemInbox.setAttribute("class", "cl-main-widget-navigation-inbox");
+				navigationItemInboxIcon.setAttribute("class", "cl-main-widget-navigation-inbox-icon cl-main-navigation-item");
+				navigationItemInbox.appendChild(navigationItemInboxIcon);
+				navigationItems.appendChild(navigationItemInbox);
+			}
+
 			navigationContainer.appendChild(navigationItems);
 			
 			
@@ -3459,23 +3463,25 @@
 				date = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-header-date"),
 				body = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-body"),
 				image = query(_this.settings.detailsContainer, ".cl-main-widget-lb-details-body-image-cont");
-			
+
+			image.innerHTML = "";
 			label.innerHTML = ( _this.settings.lbWidget.settings.competition.activeContest.label.length > 0 ) ? _this.settings.lbWidget.settings.competition.activeContest.label : _this.settings.lbWidget.settings.competition.activeCompetition.label;
 			body.innerHTML = ( _this.settings.lbWidget.settings.competition.activeContest.description.length > 0 ) ? _this.settings.lbWidget.settings.competition.activeContest.description : _this.settings.lbWidget.settings.competition.activeCompetition.description;
 			_this.competitionDetailsOptInButtonState();
 			
 			_this.settings.detailsContainer.style.display = "block";
 			_this.settings.headerDate.style.display = "none";
-			
-			objectIterator(query(body, "img"), function(img, key, count){
-				if( count === 0 ){
-					var newImg = img.cloneNode(true);
-					image.innerHTML = "";
-					image.appendChild(newImg);
-					
-					remove(img);
-				}
-			});
+
+			if( _this.settings.lbWidget.settings.competition.extractImageHeader ) {
+				objectIterator(query(body, "img"), function (img, key, count) {
+					if (count === 0) {
+						var newImg = img.cloneNode(true);
+						image.appendChild(newImg);
+
+						remove(img);
+					}
+				});
+			}
 			
 			setTimeout(function(){
 				addClass(_this.settings.detailsContainer, "cl-show");
@@ -3641,18 +3647,22 @@
 				body = query(_this.settings.achievement.detailsContainer, ".cl-main-widget-ach-details-body"),
 				image = query(_this.settings.achievement.detailsContainer, ".cl-main-widget-ach-details-body-image-cont");
 
+			image.innerHTML = "";
+
 			label.innerHTML = data.data.name;
 			body.innerHTML = data.data.description;
 
-			objectIterator(query(body, "img"), function(img, key, count){
-				if( count === 0 ){
-					var newImg = img.cloneNode(true);
-					image.innerHTML = "";
-					image.appendChild(newImg);
+			if( _this.settings.lbWidget.settings.achievements.extractImageHeader ) {
+				var imageLookup = query(body, "img");
+				objectIterator(imageLookup, function (img, key, count) {
+					if (count === 0) {
+						var newImg = img.cloneNode(true);
+						image.appendChild(newImg);
 
-					remove(img);
-				}
-			});
+						remove(img);
+					}
+				});
+			}
 
 			_this.settings.achievement.detailsContainer.style.display = "block";
 			setTimeout(function(){
@@ -4186,13 +4196,15 @@
 				activeCompetition: null,
 				activeContest: null,
 				refreshInterval: null,
-				refreshIntervalMillis: 10000
+				refreshIntervalMillis: 10000,
+				extractImageHeader: true // will extract the first found image inside the body tag and move it on top
 			},
 			achievements: {
 				list: [],
 				availableRewards: [],
 				rewards: [],
-				expiredRewards: []
+				expiredRewards: [],
+				extractImageHeader: true // will extract the first found image inside the body tag and move it on top
 			},
 			rewards: {
 				availableRewards: [],
@@ -4200,6 +4212,7 @@
 				expiredRewards: []
 			},
 			messages: {
+				enable: false,
 				messages: []
 			},
 			tournaments: {
@@ -4247,7 +4260,7 @@
 				memberCompetitionOptIn: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin",
 				memberCompetitionOptInCheck: "/api/v1/:space/members/reference/:id/competition/:competitionId/optin-check",
 
-				translationPath: "../i18n/translation_:language.json"
+				translationPath: "" //../i18n/translation_:language.json
 			},
 			loadTranslations: true,
 			translation: {

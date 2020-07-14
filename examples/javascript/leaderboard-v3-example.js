@@ -24,6 +24,8 @@
 	widgetInstance.settings.uri.memberReward = "data/messages-reward-data-sample.json";
 	widgetInstance.settings.uri.messageById = "data/messages-data-sample.json";
 	widgetInstance.settings.uri.assets = "images/:attachmentId.png";
+	widgetInstance.settings.competition.extractImageHeader = false;
+	widgetInstance.settings.achievements.extractImageHeader = false;
 	widgetInstance.settings.resources = [
 		("../leaderboard_v3/css/style.css?t=" + ( new Date().getTime() )),
 		("../leaderboard_v3/css/fonts.css?t=" + ( new Date().getTime() ))
