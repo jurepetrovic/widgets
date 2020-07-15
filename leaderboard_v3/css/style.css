@@ -1429,7 +1429,7 @@
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container{
     position: absolute;
     height: calc(100% - 52px);
-    background: #28A02A;
+    background: #1c406a;
     top: 30px;
     left: -200px;
     width: 100%;
@@ -1592,7 +1592,7 @@
 .cl-main-widget-tournaments-list{
     position: absolute;
     height: calc(100% - 63px);
-    background: #254D7C;
+    background: #1c406a;
     top: 40px;
     left: -200px;
     width: 100%;
