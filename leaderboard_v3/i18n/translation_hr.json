@@ -1,51 +1,58 @@
 {
   "time": {
-    "days": "d",
+        "days": "d",
     "hours": "h",
     "minutesShortHand": "min",
     "minutes": "m",
     "seconds": "s"
+
   },
   "achievements": {
-    "label": "Achievements",
-    "more": "More",
-    "complete": "complete 100%"
+        "label": "Postignuća",
+    "more": "Više",
+    "complete": "završeno 100%"
+
   },
   "tournaments": {
-    "label": "Tournaments",
-    "enter": "Enter Tournament",
-    "readyCompetitions": "Upcoming Tournaments",
-    "activeCompetitions": "Active Tournaments",
-    "finishedCompetitions": "Finished Tournaments",
-    "finishing": "Finishing",
-    "finished": "Finished",
-    "registered": "Registered"
+      "label": "Turniri",
+    "enter": "Uđite u turnir",
+    "readyCompetitions": "Nadolazeći turniri",
+    "activeCompetitions": "Aktivni turniri",
+    "finishedCompetitions": "Završeni turniri",
+    "finishing": "Završava",
+    "finished": "Završeno",
+    "registered": "Registriran"
+
   },
   "leaderboard": {
-    "rank": "Rank",
-    "name": "Name",
-    "points": "Points",
-    "prize": "Prize",
-    "you": "You"
+        "rank": "Razina",
+    "name": "Ime",
+    "points": "Bodovi",
+    "prize": "Nagrada",
+    "you": "Vi"
+
   },
   "miniLeaderboard": {
-    "highScore": "High Score",
-    "lastScore": "Last Score",
-    "rank": "Rank",
-    "startsIn": "Starting In",
-    "starting": "starting",
-    "finishing": "finishing",
-    "finished": "finished"
+      "highScore": "Najbolji rezultat",
+    "lastScore": "Posljednji rezultat",
+    "rank": "Razina",
+    "startsIn": "Počinje za",
+    "starting": "počinje",
+    "finishing": "završava",
+    "finished": "završeno"
+
   },
   "rewards": {
-    "label": "Rewards",
-    "claim": "Claim Now",
-    "claimed": "Claimed",
-    "availableRewards": "Available Rewards",
-    "rewards": "Claimed Rewards",
-    "expiredRewards": "Expired Rewards"
+        "label": "Nagrade",
+    "claim": "Zatražite sada",
+    "claimed": "Zatraženo",
+    "availableRewards": "Dostupne nagrade",
+    "rewards": "Preuzete nagrade",
+    "expiredRewards": "Istekle nagrade"
+
   },
   "global": {
-    "copy": ""
+        "copy": "Osigurao GameArt"
+
   }
 }

@@ -7,45 +7,49 @@
     "seconds": "s"
   },
   "achievements": {
-    "label": "Achievements",
-    "more": "More",
-    "complete": "complete 100%"
+    "label": "Conquistas",
+    "more": "Mais",
+    "complete": "100 completo%"
   },
   "tournaments": {
-    "label": "Tournaments",
-    "enter": "Enter Tournament",
-    "readyCompetitions": "Upcoming Tournaments",
-    "activeCompetitions": "Active Tournaments",
-    "finishedCompetitions": "Finished Tournaments",
-    "finishing": "Finishing",
-    "finished": "Finished",
-    "registered": "Registered"
+    "label": "Torneios",
+    "enter": "Entrar no Torneio",
+    "readyCompetitions": "Próximos Torneios",
+    "activeCompetitions": "Torneios Ativos",
+    "finishedCompetitions": "Torneios Finalizados",
+    "finishing": "A terminar",
+    "finished": "Finalizado",
+    "registered": "Registado"
   },
   "leaderboard": {
-    "rank": "Rank",
-    "name": "Name",
-    "points": "Points",
-    "prize": "Prize",
-    "you": "You"
+    "rank": "Posição",
+    "name": "Nome",
+    "points": "Pontos",
+    "prize": "Prémio",
+    "you": "Você"
+
   },
   "miniLeaderboard": {
-    "highScore": "High Score",
-    "lastScore": "Last Score",
-    "rank": "Rank",
-    "startsIn": "Starting In",
-    "starting": "starting",
-    "finishing": "finishing",
-    "finished": "finished"
+    "highScore": "Pontuação Máxima",
+    "lastScore": "Última Pontuação",
+    "rank": "Posição",
+    "startsIn": "A começar Em",
+    "starting": "a começar",
+    "finishing": "a terminar",
+    "finished": "finalizado"
+
   },
   "rewards": {
-    "label": "Rewards",
-    "claim": "Claim Now",
-    "claimed": "Claimed",
-    "availableRewards": "Available Rewards",
-    "rewards": "Claimed Rewards",
-    "expiredRewards": "Expired Rewards"
+    "label": "Recompensas",
+    "claim": "Reclamar Agora",
+    "claimed": "Solicitado",
+    "availableRewards": "Recompensas Disponíveis",
+    "rewards": "Recompensas Solicitadas",
+    "expiredRewards": "Recompensas Caducadas"
+
   },
   "global": {
-    "copy": ""
+     "copy": "Desenvolvido Por CompetitionLabs"
+
   }
 }
