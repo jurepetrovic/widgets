@@ -19,7 +19,8 @@
     "finishedCompetitions": "Tournois Terminés",
     "finishing": "En Terminant",
     "finished": "Terminé",
-    "registered": "Enregistré"
+    "registered": "Enregistré",
+    "noAvailableCompetitions": "Aucune compétition disponible"
   },
   "leaderboard": {
     "rank": "Position",

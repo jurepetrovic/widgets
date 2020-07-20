@@ -19,7 +19,8 @@
     "finishedCompetitions": "Tornei Conclusi",
     "finishing": "Concludendo",
     "finished": "Concluso",
-    "registered": "Registrato"
+    "registered": "Registrato",
+    "noAvailableCompetitions": "Nessuna competizione disponibile"
   },
   "leaderboard": {
     "rank": "Posizione",
