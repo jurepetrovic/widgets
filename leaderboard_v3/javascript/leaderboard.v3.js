@@ -3244,7 +3244,7 @@
 			var _this = this,
 				mainLabel = query(_this.settings.section, ".cl-main-widget-lb-details-content-label");
 			
-			mainLabel.innerHTML = (_this.settings.lbWidget.settings.competition.activeContest !== null) ? _this.settings.lbWidget.settings.competition.activeContest.label : "No available competition";
+			mainLabel.innerHTML = (_this.settings.lbWidget.settings.competition.activeContest !== null) ? _this.settings.lbWidget.settings.competition.activeContest.label : _this.settings.lbWidget.settings.translation.tournaments.noAvailableCompetitions;
 		};
 		
 		this.leaderboardOptInCheck = function(){
@@ -3873,14 +3873,17 @@
 			description.setAttribute("class", "cl-rew-list-details-description");
 
 			listItem.dataset.id = rew.id;
+			var labelText = stripHtml(rew.subject);
+			var descriptionText = stripHtml(rew.body);
+
 			if( typeof rew.prize !== "undefined" ) {
 				listItem.dataset.rewardId = rew.prize.id;
-				label.innerHTML = rew.subject + " - " + rew.prize.reward.rewardName + " (" + rew.prize.reward.value + ")";
-				description.innerHTML = (typeof rew.prize.reward.description !== "undefined" && rew.prize.reward.description.length > 0) ? rew.prize.reward.description : rew.body;
-			}else{
-				label.innerHTML = rew.subject;
-				description.innerHTML = rew.body;
+				labelText = stripHtml( rew.subject + " - " + rew.prize.reward.rewardName + " (" + rew.prize.reward.value + ")" );
+				descriptionText = stripHtml( (typeof rew.prize.reward.description !== "undefined" && rew.prize.reward.description.length > 0) ? rew.prize.reward.description : rew.body );
 			}
+
+			label.innerHTML = (labelText.length > 80) ? (labelText.substr(0, 80) + "...") : labelText;
+			description.innerHTML = (descriptionText.length > 200) ? (descriptionText.substr(0, 200) + "...") : descriptionText;
 
 			detailsWrapper.appendChild(label);
 			detailsWrapper.appendChild(description);
@@ -4235,7 +4238,7 @@
 				expiredRewards: []
 			},
 			messages: {
-				enable: false,
+				enable: true,
 				messages: []
 			},
 			tournaments: {
@@ -4307,7 +4310,8 @@
 					finishedCompetitions: "Finished Tournaments",
 					finishing: "Finishing",
 					finished: "Finished",
-					registered: "Registered"
+					registered: "Registered",
+					noAvailableCompetitions: "No available competition"
 				},
 				leaderboard: {
 					rank: "Rank",

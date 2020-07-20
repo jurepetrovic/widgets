@@ -19,7 +19,8 @@
     "finishedCompetitions": "Finished Tournaments",
     "finishing": "Finishing",
     "finished": "Finished",
-    "registered": "Registered"
+    "registered": "Registered",
+    "noAvailableCompetitions": "No available competition"
   },
   "leaderboard": {
     "rank": "Rank",

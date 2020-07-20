@@ -78,6 +78,16 @@ The setting "enforceGameLookup" should be set to "true" and game/product ID shou
 }
 ```
 
+### How to disable Inbox/Messaging section:
+```text
+To disable the inbox/messaging area on the full widget preview the following setting "messages.enabled" has to be set to "false":
+{
+  messages: {
+      enable: false
+  }
+}
+```
+
 ### How to show the widget only if there are any available competitions:
 ```text
 The primary method “this.startup“ inside the "LbWidget" class is the one you should adjust to implement your scenario to achieve a pre-launch check, you can wrap what's inside of that method with the function:
