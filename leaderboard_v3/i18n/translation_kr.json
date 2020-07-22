@@ -1,57 +1,55 @@
 {
   "time": {
     "days": "일",
-	"hours": "시간",
-	"minutesShortHand": "분",
-	"minutes": "분",
-	"seconds": "초"
-
+    "hours": "시간",
+    "minutesShortHand": "분",
+    "minutes": "분",
+    "seconds": "초"
   },
+
   "achievements": {
     "label": "달성",
-	"more": "더보기",
+    "more": "더보기",
     "complete": "100% 완료"
-
   },
+
   "tournaments": {
     "label": "토너먼트",
-	"enter": "토너먼트 입장",
-	"readyCompetitions": "다가오는 토너먼트",
-	"activeCompetitions": "활성 토너먼트",
+    "enter": "토너먼트 입장",
+    "readyCompetitions": "다가오는 토너먼트",
+    "activeCompetitions": "활성 토너먼트",
     "finishedCompetitions": "종료된 토너먼트",
-	"finishing": "종료중";
-	"finished": "종료",
-    "registered": "등록"
-
+    "finishing": "종료중",
+    "finished": "종료",
+    "registered": "등록",
+    "noAvailableCompetitions": "이용 가능한 대결이 없습니다"
   },
+
   "leaderboard": {
     "rank": "순위",
-	"name": "이름",
-	"points": "점수",
-	"prize": "상금",
+    "name": "이름",
+    "points": "점수",
+    "prize": "상금",
     "you": "고객"
-
   },
   "miniLeaderboard": {
     "highScore": "고득점",
     "lastScore": "지난 점수",
-	"rank": "순위",
-	"startsIn": "다음 시간 이내 시작",
-	"starting": "시작중",
-	"finishing": "종료중",
-	"finished": "종료"
-
+    "rank": "순위",
+    "startsIn": "다음 시간 이내 시작",
+    "starting": "시작중",
+    "finishing": "종료중",
+    "finished": "종료"
   },
   "rewards": {
     "label": "보상",
     "claim": "지금 요청하기",
     "claimed": "요청",
     "availableRewards": "사용가능한 보상",
-	"rewards": "요청된 보상",
+    "rewards": "요청된 보상",
     "expiredRewards": "만료된 보상"
-
   },
   "global": {
-    "copy": "CompetitionLabs에 의해 구동"
+    "copy": "GameArt에 의해 구동"
   }
 }

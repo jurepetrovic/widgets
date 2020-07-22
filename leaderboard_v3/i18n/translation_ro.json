@@ -1,58 +1,52 @@
 {
   "time": {
-        "days": "z",
+    "days": "z",
     "hours": "o",
     "minutesShortHand": "min",
     "minutes": "m",
     "seconds": "s"
-
   },
   "achievements": {
-        "label": "Realizări",
+    "label": "Realizări",
     "more": "Mai multe",
     "complete": "completat 100%"
-
   },
   "tournaments": {
-      "label": "Turnee",
+    "label": "Turnee",
     "enter": "Participă la Turneu",
     "readyCompetitions": "Turnee Viitoare",
     "activeCompetitions": "Turnee Active",
     "finishedCompetitions": "Turnee Finalizate",
     "finishing": "În curs de finalizare",
     "finished": "Finalizat",
-    "registered": "Înregistrat"
-
+    "registered": "Înregistrat",
+    "noAvailableCompetitions": "niciun concurs disponibil"
   },
   "leaderboard": {
-       "rank": "Poziție",
+    "rank": "Poziție",
     "name": "Nume",
     "points": "Puncte",
     "prize": "Premiu",
     "you": "Tu"
-
   },
   "miniLeaderboard": {
-        "highScore": "Cel Mai Mare Scor",
+    "highScore": "Cel Mai Mare Scor",
     "lastScore": "Cel Mai Recent Scor",
     "rank": "Poziție",
     "startsIn": "Începe în",
     "starting": "începe",
     "finishing": "se finalizează",
     "finished": "finalizat"
-
   },
   "rewards": {
-       "label": "Recompense",
+    "label": "Recompense",
     "claim": "Revendică Acum",
     "claimed": "Revendicat",
     "availableRewards": "Recompense Disponibile",
     "rewards": "Recompense Revendicate",
     "expiredRewards": "Recompense Expirate"
-
   },
   "global": {
-        "copy": "Susținut de CompetitionLabs"
-
+    "copy": "Susținut de GameArt"
   }
 }

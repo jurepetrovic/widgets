@@ -39,7 +39,8 @@
     "startsIn": "Počinje za",
     "starting": "počinje",
     "finishing": "završava",
-    "finished": "završeno"
+    "finished": "završeno",
+    "noAvailableCompetitions": "nema dostupnih natjecanja"
 
   },
   "rewards": {

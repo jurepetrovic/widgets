@@ -19,7 +19,8 @@
     "finishedCompetitions": "Torneios Finalizados",
     "finishing": "A terminar",
     "finished": "Finalizado",
-    "registered": "Registado"
+    "registered": "Registado",
+    "noAvailableCompetitions": "nenhuma competição disponível"
   },
   "leaderboard": {
     "rank": "Posição",
@@ -49,7 +50,7 @@
 
   },
   "global": {
-     "copy": "Desenvolvido Por CompetitionLabs"
+     "copy": "Desenvolvido Por GameArt"
 
   }
 }

@@ -21,7 +21,8 @@
     "finishedCompetitions": "已完成的锦标赛",
     "finishing": "即将完成",
     "finished": "已完成",
-    "registered": "已注册"
+    "registered": "已注册",
+    "noAvailableCompetitions": "未提供比赛"
 
   },
   "leaderboard": {
@@ -53,7 +54,7 @@
 
   },
   "global": {
-        "copy": "CompetitionLabs提供技术支持"
+        "copy": "GameArt提供技术支持"
 
   }
 }
