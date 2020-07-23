@@ -21,8 +21,8 @@
     "finishedCompetitions": "Završeni turniri",
     "finishing": "Završava",
     "finished": "Završeno",
-    "registered": "Registriran"
-
+    "registered": "Registriran",
+    "noAvailableCompetitions": "nema dostupnih natjecanja"
   },
   "leaderboard": {
         "rank": "Razina",
@@ -39,8 +39,7 @@
     "startsIn": "Počinje za",
     "starting": "počinje",
     "finishing": "završava",
-    "finished": "završeno",
-    "noAvailableCompetitions": "nema dostupnih natjecanja"
+    "finished": "završeno"
 
   },
   "rewards": {

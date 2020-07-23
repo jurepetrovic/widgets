@@ -1,49 +1,50 @@
 {
   "time": {
-    "days": "d",
+    "days": "T",
     "hours": "h",
     "minutesShortHand": "min",
     "minutes": "m",
     "seconds": "s"
   },
   "achievements": {
-    "label": "Achievements",
-    "more": "More",
-    "complete": "complete 100%"
+    "label": "Erreichungen",
+    "more": "Mehr",
+    "complete": "Fertig 100%"
   },
   "tournaments": {
-    "label": "Tournaments",
-    "enter": "Enter Tournament",
-    "readyCompetitions": "Upcoming Tournaments",
-    "activeCompetitions": "Active Tournaments",
-    "finishedCompetitions": "Finished Tournaments",
-    "finishing": "Finishing",
-    "finished": "Finished",
-    "registered": "Registered"
+    "label": "Turniere",
+    "enter": "Turnier eintreten",
+    "readyCompetitions": "Bevorstehende Turniere",
+    "activeCompetitions": "Aktive Turniere",
+    "finishedCompetitions": "Fertige Turniere",
+    "finishing": "beendend",
+    "finished": "fertig",
+    "registered": "Registriert",
+    "noAvailableCompetitions": "Kein verfügbarer Tunier"
   },
   "leaderboard": {
-    "rank": "Rank",
+    "rank": "Rang",
     "name": "Name",
-    "points": "Points",
-    "prize": "Prize",
-    "you": "You"
+    "points": "Punkte",
+    "prize": "Preis",
+    "you": "Sie"
   },
   "miniLeaderboard": {
-    "highScore": "High Score",
-    "lastScore": "Last Score",
-    "rank": "Rank",
-    "startsIn": "Starting In",
-    "starting": "starting",
-    "finishing": "finishing",
-    "finished": "finished"
+    "highScore": "Highscore",
+    "lastScore": "letzte Punktzahl",
+    "rank": "Rang",
+    "startsIn": "ab",
+    "starting": "startend",
+    "finishing": "beended",
+    "finished": "fertig"
   },
   "rewards": {
-    "label": "Rewards",
-    "claim": "Claim Now",
-    "claimed": "Claimed",
-    "availableRewards": "Available Rewards",
-    "rewards": "Claimed Rewards",
-    "expiredRewards": "Expired Rewards"
+    "label": "Belohnungen",
+    "claim": "Jetzt Beanspruchen",
+    "claimed": "Beansprucht",
+    "availableRewards": "Verfügbare Belohnungen",
+    "rewards": "Beanspruchte Belohnungen",
+    "expiredRewards": "Abgelaufene Belohnungen"
   },
   "global": {
     "copy": ""
