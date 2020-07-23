@@ -3104,7 +3104,7 @@
 			if( typeof _this.settings.lbWidget.settings.competition.activeContest !== "undefined" && _this.settings.lbWidget.settings.competition.activeContest !== null ) {
 				mapObject(_this.settings.lbWidget.settings.competition.activeContest.rewards, function (reward) {
 					if (reward.rewardRank instanceof Array && reward.rewardRank.indexOf(rank) !== -1) {
-						rewardResponse.push(reward.value);
+						rewardResponse.push( _this.settings.lbWidget.settings.rewards.rewardFormatter(reward) );
 					}
 				});
 			}
@@ -4212,7 +4212,17 @@
 			rewards: {
 				availableRewards: [],
 				rewards: [],
-				expiredRewards: []
+				expiredRewards: [],
+				rewardFormatter: function(reward){
+					var defaultRewardValue = reward.value;
+
+					if( typeof reward.unitOfMeasure !== "undefined" && typeof reward.unitOfMeasure.symbol !== "undefined" && reward.unitOfMeasure.symbol !== null ){
+						defaultRewardValue = reward.unitOfMeasure.symbol + reward.value;
+					}
+
+					return defaultRewardValue;
+				}
+
 			},
 			messages: {
 				enable: true,
@@ -5737,7 +5747,7 @@
 			this.init();
 		}
 	};
-
+	
 	if(typeof window._clLeaderBoardV3SelfInit === "undefined") {
 		window._clLeaderBoardV3SelfInit = LbWidget;
 	}else{
