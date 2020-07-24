@@ -40,6 +40,16 @@
           "metadata": [],
           "created": "2018-01-09T22:35:04.267+0000",
           "id": "AWDdEArLCgpY-bw2S2S3"
+        },
+        "unitOfMeasure": {
+          "name": "EUR",
+          "jsonClass": "UnitOfMeasure",
+          "key": "EUR",
+          "symbol": "€",
+          "isoCode": "EUR",
+          "id": "OoDDaGYBdjx9MNzr9v8G",
+          "multiplier": 2.0,
+          "unitOfMeasureType": "Currency"
         }
       }],
       "scheduledStart": "2020-04-21T11:52:00.000+0000",

@@ -3110,7 +3110,7 @@
 			if( typeof _this.settings.lbWidget.settings.competition.activeContest !== "undefined" && _this.settings.lbWidget.settings.competition.activeContest !== null ) {
 				mapObject(_this.settings.lbWidget.settings.competition.activeContest.rewards, function (reward) {
 					if (reward.rewardRank instanceof Array && reward.rewardRank.indexOf(rank) !== -1) {
-						rewardResponse.push(reward.value);
+						rewardResponse.push( _this.settings.lbWidget.settings.rewards.rewardFormatter(reward) );
 					}
 				});
 			}
@@ -3722,7 +3722,7 @@
 
 			label.innerHTML = data.data.reward.rewardName;
 			body.innerHTML = data.data.reward.description;
-			value.innerHTML = data.data.reward.value;
+			value.innerHTML = _this.settings.lbWidget.settings.rewards.rewardFormatter(data.data.reward);
 			claimBtn.dataset.id = data.data.id;
 
 			if( data.data.claimed ){
@@ -3742,7 +3742,7 @@
 				image.setAttribute("class", "cl-reward-list-item-img");
 
 				image.src = _this.settings.lbWidget.settings.uri.gatewayDomain + _this.settings.lbWidget.settings.uri.assets.replace(":attachmentId", data.data.reward.icon);
-				image.alt = data.data.reward.value;
+				image.alt = _this.settings.lbWidget.settings.rewards.rewardFormatter(data.data.reward);
 
 				icon.appendChild( image );
 			}else{
@@ -3878,7 +3878,7 @@
 
 			if( typeof rew.prize !== "undefined" ) {
 				listItem.dataset.rewardId = rew.prize.id;
-				labelText = stripHtml( rew.subject + " - " + rew.prize.reward.rewardName + " (" + rew.prize.reward.value + ")" );
+				labelText = stripHtml( rew.subject + " - " + rew.prize.reward.rewardName + " (" + _this.settings.lbWidget.settings.rewards.rewardFormatter(rew.prize.reward) + ")" );
 				descriptionText = stripHtml( (typeof rew.prize.reward.description !== "undefined" && rew.prize.reward.description.length > 0) ? rew.prize.reward.description : rew.body );
 			}
 
@@ -4235,7 +4235,17 @@
 			rewards: {
 				availableRewards: [],
 				rewards: [],
-				expiredRewards: []
+				expiredRewards: [],
+				rewardFormatter: function(reward){
+					var defaultRewardValue = reward.value;
+
+					if( typeof reward.unitOfMeasure !== "undefined" && typeof reward.unitOfMeasure.symbol !== "undefined" && reward.unitOfMeasure.symbol !== null ){
+						defaultRewardValue = reward.unitOfMeasure.symbol + reward.value;
+					}
+
+					return defaultRewardValue;
+				}
+
 			},
 			messages: {
 				enable: true,
