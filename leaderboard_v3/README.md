@@ -59,7 +59,7 @@ Our widget "out of the box" is a product that you can use immediately by placing
 ```
 
 ## Using the loader script
-Good use of a loader script is when you need to centralise all your widget loading (custom scripts, styles and environmental parameters) from a single place.
+You can use this loader script to centralise all your widget loading needs (custom scripts, styles and environmental parameters) into a single place.
 The "Loader" script requires the bear minimum of 2 things to be set to the global `window._CLLBV3Opt` parameter before the scripts loads:
 1) `gameId`
 2) `memberId`
