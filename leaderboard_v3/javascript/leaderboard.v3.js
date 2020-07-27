@@ -32,7 +32,7 @@
 	
 	// default domain
 	// var apiURL = "http://192.168.1.8:9998";
-	var apiURL = "http://app.local:9998";
+	var apiURL = "https://gateway.competitionlabs.com";
 
 	var cLabs = {
 		api: {

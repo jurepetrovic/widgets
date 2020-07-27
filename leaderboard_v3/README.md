@@ -15,7 +15,9 @@ Our widget "out of the box" is a product that you can use immediately by placing
 [Read more here](https://complabs.atlassian.net/wiki/spaces/CLRAV/pages/842301445/The+Widget)
 
 ## Examples
-[Examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
+* [Live Standard laoding examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
+* [Live loader script examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3_loader.html)
+
 
 <table style="border:none;">
     <tr>
@@ -55,6 +57,38 @@ Our widget "out of the box" is a product that you can use immediately by placing
     	})(window,document,'script','https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/javascript/leaderboard.v3.js',"_CLLBV3Opt");
 </script>
 ```
+
+## Using the loader script
+Good use of a loader script is when you need to centralise all your widget loading (custom scripts, styles and environmental parameters) from a single place.
+The "Loader" script requires the bear minimum of 2 things to be set to the global `window._CLLBV3Opt` parameter before the scripts loads:
+1) `gameId`
+2) `memberId`
+```html
+<script type="text/javascript">
+    window._CLLBV3Opt = {
+        gameId: "my_game_id",
+        memberId: "my_member_id"
+    };
+</script>
+```
+#### Steps required to configure the loader script:
+1) update your default API key, space name (optional: `language` and `currency`), unless you are loading the API key and space name from your game/product
+2) define what products will load in the widget:
+```javascript
+products: {
+    "my_product_id": {
+        script: "https://my.custom.script.location",
+        resources: [
+            "https://my.custom.stylesheet.location"
+        ],
+        onBeforeLoad: function( instance, options, callback ){ // your custom logic before the widget gets initialised/rendered
+            if( typeof callback === "function" ) callback();
+        }
+    },
+    "my_product_id_2": {}
+}
+```
+3) add loader script to your website
 
 ## FAQ
 ### How do I set the currency:
