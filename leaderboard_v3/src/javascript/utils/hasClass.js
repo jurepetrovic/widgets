@@ -15,7 +15,7 @@ function _hasClass(element, className) {
       return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
     }
   } catch (e) {
-    if (typeof e.stack !== "undefined") {
+    if (typeof e.stack !== 'undefined') {
       console.log(e.stack);
     }
     console.log(e, element, className);

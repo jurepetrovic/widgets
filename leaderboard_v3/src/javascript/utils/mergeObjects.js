@@ -1,4 +1,4 @@
-import {sizeof} from "./index";
+import sizeof from './sizeof';
 
 const mergeObjects = function (obj1, obj2, arrayType) {
   var obj3 = (typeof arrayType === 'undefined' || arrayType === false) ? {} : [];

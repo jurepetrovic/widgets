@@ -13,8 +13,8 @@ const removeClass = function (element, className) {
     }
   } catch (e) {
     console.log(element, className);
-    console.error(e);
-    console.trace();
+    // console.error(e);
+    // console.trace();
   }
 
   return element;

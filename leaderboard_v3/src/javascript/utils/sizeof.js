@@ -1,4 +1,4 @@
-import {isElement} from './index';
+import isElement from './isElement';
 
 /**
  * returns the size of an Object or array

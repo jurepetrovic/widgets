@@ -11,24 +11,23 @@ import Identicon from 'identicon.js';
 import jsSHA from 'jssha';
 import cLabs from './modules/cLabs';
 import dragElement from './modules/dragElement';
-import {
-	sizeof,
-	remove,
-	objectIterator,
-	addClass,
-	removeClass,
-	hasClass,
-	stringContains,
-	stripHtml,
-	closest,
-	isMobileTablet,
-	appendNext,
-	formatNumberLeadingZeros,
-	query,
-	mergeObjects
-} from './utils';
 
-(function() {
+import sizeof from './utils/sizeof';
+import remove from './utils/remove';
+import objectIterator from './utils/objectIterator';
+import addClass from './utils/addClass';
+import removeClass from './utils/removeClass';
+import hasClass from './utils/hasClass';
+import stringContains from './utils/stringContains';
+import stripHtml from './utils/stripHtml';
+import closest from './utils/closest';
+import isMobileTablet from './utils/isMobileTablet';
+import appendNext from './utils/appendNext';
+import formatNumberLeadingZeros from './utils/formatNumberLeadingZeros';
+import query from './utils/query';
+import mergeObjects from './utils/mergeObjects';
+
+(function () {
 	'use strict';
 
 	/**

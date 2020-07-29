@@ -1,5 +1,5 @@
 import cLabs from '../modules/cLabs';
-import {hasClass} from "./index";
+import hasClass from './hasClass';
 
 /**
  * Iterate up the tree of DOM elements to find the closes match

@@ -1,5 +1,5 @@
 // a check to test if the device is a mobile or tablet
-import {stringContains} from "./index";
+import stringContains from './stringContains';
 
 const isMobileTablet = function () {
   let check = false;

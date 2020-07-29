@@ -1,20 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
-
-const filename = 'leaderboard.v3.js';
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
-  entry: `./src/javascript/${filename}`,
+  entry: {
+    'leaderboard.v3.js': './src/javascript/leaderboard.v3.js',
+    'loader.js': './src/javascript/loader.js'
+  },
   output: {
-    filename,
-    path: path.resolve(__dirname, '../build/javascript'),
+    filename: '[name]',
+    path: path.resolve(__dirname, '../build/javascript')
   },
   mode: 'development',
   devtool: 'inline-source-map',
   optimization: {
-    minimize: false,
+    minimize: false
   },
   watch: true,
   watchOptions: {
@@ -26,7 +27,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
+        loader: 'eslint-loader'
       },
       {
         test: /\.js$/,
@@ -35,8 +36,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', {"debug": true}]
-            ],
+              ['@babel/preset-env', { debug: true }]
+            ]
           }
         }
       }
@@ -52,9 +53,8 @@ module.exports = {
       patterns: [
         { from: 'src/css', to: '../css' },
         { from: 'src/i18n', to: '../i18n' },
-        { from: 'src/images', to: '../images' },
-      ],
-    }),
+        { from: 'src/images', to: '../images' }
+      ]
+    })
   ]
 };
-

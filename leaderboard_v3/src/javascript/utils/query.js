@@ -1,5 +1,5 @@
 import cLabs from '../modules/cLabs';
-import {trim} from './index';
+import trim from './trim';
 
 /**
  * Query selector, supports CSS element selection

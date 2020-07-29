@@ -10,7 +10,11 @@
  - control when and how the scripts get initialised
  - restrict loading per product
 */
-(function() {
+
+import trim from './utils/trim';
+import sizeof from './utils/sizeof';
+
+(function () {
   'use strict';
 
   var classSelector = /^\.([\w-]+)$/; // class string expression check
@@ -18,9 +22,6 @@
   var tagSelector = /^[\w-]+$/; // TAG string expression check
 
   try{"function"!=typeof mapObject&&(window.mapObject=function(e,t){if(null!==e){var n=0;for(var r in e)e.hasOwnProperty(r)&&(t(e[r],r,n),n++);return!0}return console.log("returned object is null",typeof e),!1})}catch(err){console.log(err)}
-  var trim = function( string ){return string.replace(/^\s+|\s+$/g, '');};
-  var isElement = function(o){return (typeof HTMLElement === "object" ? o instanceof HTMLElement : /*DOM2*/ o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName==="string");};
-  function sizeof(obj) {/*!Object.keys(item.location).length // IE9+*/var size = 0, key;for (key in obj) {if (obj.hasOwnProperty(key)) size++;}if(size === 0 && isElement(obj)){size = 1;}return size;}
   var query = function( doc, selector ) {var result;var tmpDoc = doc, tmpSelector = selector; /* used for debug only*/if (typeof doc === 'string' && selector === undefined) {selector = doc;doc = document;}try {if(doc !== null) {selector = trim(selector); /**/if (selector.match(classSelector)) {result = doc.getElementsByClassName(selector.replace(".", ""));} else if (selector.match(idSelector)) {result = document.getElementById(selector.replace("#", ""));} else if (selector.match(tagSelector)) {result = doc.getElementsByTagName(selector);} else {result = doc.querySelectorAll(selector);}}if (result !== null && result !== undefined && result.nodeType) {return result;} else if (result !== null && result !== undefined && result.length === 1) {return result[0];} else if (result !== null && result !== undefined && result.length > 0) {return Array.prototype.slice.call(result);} else {return null;}}catch(e){console.log(e);console.log(tmpSelector);console.log(tmpDoc);console.log(doc, selector);console.trace();/*console.warn(_stackTrace());*/}};
 
   /**
@@ -44,11 +45,9 @@
   Ajax.prototype.getData = function ( data ) {var obj = this;try{data.type = (data.type !== undefined && typeof data.type === 'string' && data.type.length > 0) ? data.type : 'POST';data.data           = (data.data !== undefined && typeof data.data === 'object') ? data.data : {};data.url            = (data.url !== undefined && typeof data.url === 'string' && data.url.length > 0) ? data.url : '';data.success        = (data.success !== undefined) ? data.success : (function(){});data.error          = (data.error !== undefined) ? data.error : (function(){});data.headers        = (data.headers !== undefined) ? data.headers : {};data.extraCallback  = (data.extraCallback !== undefined) ? data.extraCallback : (function(){});/* cross browser CORS support*/obj.xhr = this.createCORSRequest(data.type, data.url);obj.xhr.onload = function() {data.extraCallback(data, obj.xhr);data.success(obj.xhr.responseText, data, obj.xhr);};obj.xhr.onerror = function () {data.error(obj.xhr.status);};if (typeof XDomainRequest === "undefined") {if( sizeof(data.headers) > 0 ){var item;for( item in data.headers ){obj.xhr.setRequestHeader(item, data.headers[item]);}}else if ( (data.type === 'POST' || data.type === 'PUT' || data.type === 'DELETE') && sizeof(data.headers) === 0 ) {obj.xhr.setRequestHeader("Content-Type", "application/json");} else {obj.xhr.setRequestHeader("Content-Type", "text/plain");}}obj.xhr.send( JSON.stringify(data.data) );return obj.xhr;}catch(err){console.log(err);}};
   var stringContains = function (str, partial){try{return (str.indexOf(partial) > -1);}catch(e){return false;}};
 
-
-  var loadScript = function(){
-
+  var loadScript = function () {
     // generic/default settings
-    if( typeof window._CLLBV3Opt === "undefined" ) {
+    if ( typeof window._CLLBV3Opt === 'undefined' ) {
       window._CLLBV3Opt = {
         bindContainer: document.body,
         spaceName: "my_space_name",
@@ -132,7 +131,7 @@
     this.initialiseWidget = function(product){
       var _this = this;
 
-      _this.loadScript(product, function(){
+      _this.loadScript(product, function () {
         if( typeof window._clLeaderBoardV3SelfInit !== "undefined" ){
 
           var settings = window._CLLBV3Opt;
@@ -147,25 +146,23 @@
           window._clLeaderBoardV3 = new window._clLeaderBoardV3SelfInit( settings );
 
 
-          if( typeof product.onBeforeLoad === "function" ){
-            product.onBeforeLoad(_this, product, function(){
+          if ( typeof product.onBeforeLoad === "function" ) {
+            product.onBeforeLoad(_this, product, function () {
               window._clLeaderBoardV3.init();
             });
-          }else{
+          } else {
             window._clLeaderBoardV3.init();
           }
-
-
-        }else{
+        } else {
           console.log("widget does not exist");
         }
       });
     };
 
-    this.init = function(){
+    this.init = function () {
       var _this = this;
 
-      if( typeof window._CLLBV3Opt !== "undefined" && typeof window._CLLBV3Opt.gameId === "string" ){
+      if ( typeof window._CLLBV3Opt !== "undefined" && typeof window._CLLBV3Opt.gameId === "string" ) {
 
         var found = false;
         mapObject(_this.settings.products, function(product, key){
@@ -176,16 +173,14 @@
         });
 
         // if not found and loadWidgetIfNoProductsFound is true initialise widget
-        if( !found && _this.settings.loadWidgetIfNoProductsFound ){
+        if ( !found && _this.settings.loadWidgetIfNoProductsFound ) {
           _this.initialiseWidget({
             script: _this.settings.defaultScript,
             resources: _this.settings.defaultResources
           });
         }
-
       }
     };
-
   };
 
   new loadScript().init();
