@@ -2377,7 +2377,7 @@ import {
 				
 			});
 		};
-		
+
 		this.getReward = function(rank){
 			var _this = this,
 				rewardResponse = [];
@@ -2385,7 +2385,7 @@ import {
 			if( typeof _this.settings.lbWidget.settings.competition.activeContest !== "undefined" && _this.settings.lbWidget.settings.competition.activeContest !== null ) {
 				mapObject(_this.settings.lbWidget.settings.competition.activeContest.rewards, function (reward) {
 					if (reward.rewardRank instanceof Array && reward.rewardRank.indexOf(rank) !== -1) {
-						rewardResponse.push(reward.value);
+						rewardResponse.push( _this.settings.lbWidget.settings.rewards.rewardFormatter(reward) );
 					}
 				});
 			}
@@ -2507,12 +2507,12 @@ import {
 				_this.updateLeaderboardTime();
 			}, 1000);
 		};
-		
+
 		this.leaderboardDetailsUpdate = function(){
 			var _this = this,
 				mainLabel = query(_this.settings.section, ".cl-main-widget-lb-details-content-label");
-			
-			mainLabel.innerHTML = (_this.settings.lbWidget.settings.competition.activeContest !== null) ? _this.settings.lbWidget.settings.competition.activeContest.label : "No available competition";
+
+			mainLabel.innerHTML = (_this.settings.lbWidget.settings.competition.activeContest !== null) ? _this.settings.lbWidget.settings.competition.activeContest.label : _this.settings.lbWidget.settings.translation.tournaments.noAvailableCompetitions;
 		};
 		
 		this.leaderboardOptInCheck = function(){
@@ -2975,7 +2975,7 @@ import {
 
 			label.innerHTML = data.data.reward.rewardName;
 			body.innerHTML = data.data.reward.description;
-			value.innerHTML = data.data.reward.value;
+			value.innerHTML = _this.settings.lbWidget.settings.rewards.rewardFormatter(data.data.reward);
 			claimBtn.dataset.id = data.data.id;
 
 			if( data.data.claimed ){
@@ -2995,7 +2995,7 @@ import {
 				image.setAttribute("class", "cl-reward-list-item-img");
 
 				image.src = _this.settings.lbWidget.settings.uri.gatewayDomain + _this.settings.lbWidget.settings.uri.assets.replace(":attachmentId", data.data.reward.icon);
-				image.alt = data.data.reward.value;
+				image.alt = _this.settings.lbWidget.settings.rewards.rewardFormatter(data.data.reward);
 
 				icon.appendChild( image );
 			}else{
@@ -3131,20 +3131,23 @@ import {
 			description.setAttribute("class", "cl-rew-list-details-description");
 
 			listItem.dataset.id = rew.id;
+			var labelText = stripHtml(rew.subject);
+			var descriptionText = stripHtml(rew.body);
+
 			if( typeof rew.prize !== "undefined" ) {
 				listItem.dataset.rewardId = rew.prize.id;
-				label.innerHTML = rew.subject + " - " + rew.prize.reward.rewardName + " (" + rew.prize.reward.value + ")";
-				description.innerHTML = (typeof rew.prize.reward.description !== "undefined" && rew.prize.reward.description.length > 0) ? rew.prize.reward.description : rew.body;
-			}else{
-				label.innerHTML = rew.subject;
-				description.innerHTML = rew.body;
+				labelText = stripHtml( rew.subject + " - " + rew.prize.reward.rewardName + " (" + _this.settings.lbWidget.settings.rewards.rewardFormatter(rew.prize.reward) + ")" );
+				descriptionText = stripHtml( (typeof rew.prize.reward.description !== "undefined" && rew.prize.reward.description.length > 0) ? rew.prize.reward.description : rew.body );
 			}
+
+			label.innerHTML = (labelText.length > 80) ? (labelText.substr(0, 80) + "...") : labelText;
+			description.innerHTML = (descriptionText.length > 200) ? (descriptionText.substr(0, 200) + "...") : descriptionText;
 
 			detailsWrapper.appendChild(label);
 			detailsWrapper.appendChild(description);
 			detailsContainer.appendChild(detailsWrapper);
 			listItem.appendChild(detailsContainer);
-			
+
 			return listItem;
 		};
 
@@ -3490,17 +3493,26 @@ import {
 			rewards: {
 				availableRewards: [],
 				rewards: [],
-				expiredRewards: []
+				expiredRewards: [],
+				rewardFormatter: function(reward) {
+					var defaultRewardValue = reward.value;
+
+					if( typeof reward.unitOfMeasure !== "undefined" && typeof reward.unitOfMeasure.symbol !== "undefined" && reward.unitOfMeasure.symbol !== null ){
+						defaultRewardValue = reward.unitOfMeasure.symbol + reward.value;
+					}
+
+					return defaultRewardValue
+				}
 			},
 			messages: {
-				enable: false,
+				enable: true,
 				messages: []
 			},
 			tournaments: {
 				activeCompetitionId: null,
 				readyCompetitions: [], // statusCode 3
 				activeCompetitions: [], // statusCode 5
-				finishedCompetitions: [], // statusCode 7
+				finishedCompetitions: [] // statusCode 7
 			},
 			leaderboard: {
 				fullLeaderboardSize: 100,
@@ -3565,7 +3577,8 @@ import {
 					finishedCompetitions: "Finished Tournaments",
 					finishing: "Finishing",
 					finished: "Finished",
-					registered: "Registered"
+					registered: "Registered",
+					noAvailableCompetitions: "No available competition"
 				},
 				leaderboard: {
 					rank: "Rank",
