@@ -6,6 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = {
   entry: {
     'leaderboard.v3.js': './src/javascript/leaderboard.v3.js',
+    'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
   },
   output: {
@@ -19,12 +20,12 @@ module.exports = {
   watch: false,
   module: {
     rules: [
-      // {
-      //   enforce: 'pre',
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: 'eslint-loader'
-      // },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|tests)/,

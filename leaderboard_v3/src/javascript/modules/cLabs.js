@@ -1,5 +1,7 @@
 // default domain
+
 // var apiURL = "http://192.168.1.8:9998";
+
 const apiURL = 'https://gateway.competitionlabs.com';
 
 const cLabs = {
