@@ -4,10 +4,10 @@
  * @param html {string}
  * @returns {string | string}
  */
-const stripHtml = function(html) {
-  var tmp = document.createElement("DIV");
+const stripHtml = function (html) {
+  var tmp = document.createElement('DIV');
   tmp.innerHTML = html;
-  return tmp.textContent || tmp.innerText || "";
+  return tmp.textContent || tmp.innerText || '';
 };
 
 export default stripHtml;

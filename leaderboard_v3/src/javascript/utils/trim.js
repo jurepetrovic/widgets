@@ -1,4 +1,4 @@
-const trim = function( string ){
+const trim = function (string) {
   return string.replace(/^\s+|\s+$/g, '');
 };
 

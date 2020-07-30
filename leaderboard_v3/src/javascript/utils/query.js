@@ -17,7 +17,7 @@ import trim from './trim';
 const query = function (doc, selector) {
   var result;
 
-  var tmpDoc = doc, tmpSelector = selector; // used for debug only
+  var tmpDoc = doc; var tmpSelector = selector; // used for debug only
 
   if (typeof doc === 'string' && selector === undefined) {
     selector = doc;
@@ -29,9 +29,9 @@ const query = function (doc, selector) {
       selector = trim(selector); //
 
       if (selector.match(cLabs.classSelector)) {
-        result = doc.getElementsByClassName(selector.replace(".", ""));
+        result = doc.getElementsByClassName(selector.replace('.', ''));
       } else if (selector.match(cLabs.idSelector)) {
-        result = document.getElementById(selector.replace("#", ""));
+        result = document.getElementById(selector.replace('#', ''));
       } else if (selector.match(cLabs.tagSelector)) {
         result = doc.getElementsByTagName(selector);
       } else {

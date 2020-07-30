@@ -5,8 +5,16 @@
     "browser": true,
     "es6": true
   },
+  "ignorePatterns": [
+    "**/dependencies/*.js",
+    "**/polyfills/*.js",
+    "_leaderboard.v3.js",
+    "_leaderboard.v3-selfinit.js"
+  ],
   "rules": {
     "semi": ["error", "always"],
-    "no-extra-semi": "off"
+    "no-extra-semi": "off",
+    "no-useless-escape": "off",
+    "no-prototype-builtins": "off"
   }
 }

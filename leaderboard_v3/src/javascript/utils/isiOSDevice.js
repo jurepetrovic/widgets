@@ -1,5 +1,5 @@
 // check if iOS
-const isiOSDevice = function() {
+const isiOSDevice = function () {
   return !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);
 };
 

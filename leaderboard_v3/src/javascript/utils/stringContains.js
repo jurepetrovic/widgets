@@ -4,7 +4,7 @@
  * @param partial {string}
  * @returns {boolean}
  */
-const stringContains = function (str, partial){
+const stringContains = function (str, partial) {
   return (str.indexOf(partial) > -1);
 };
 

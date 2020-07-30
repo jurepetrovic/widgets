@@ -5,8 +5,8 @@
  * @returns {boolean}
  */
 
-function _hasClass(element, className) {
-  className = className.replace(".", "");
+function _hasClass (element, className) {
+  className = className.replace('.', '');
 
   try {
     if (element.classList) {
@@ -20,14 +20,13 @@ function _hasClass(element, className) {
     }
     console.log(e, element, className);
 
-    return false
+    return false;
   }
 }
 
 const hasClass = function (element, className) {
-
   if (typeof className === 'string') {
-    return _hasClass(element, className)
+    return _hasClass(element, className);
   } else if (className instanceof Array) {
     var hasClass = false;
     for (var i in className) {
@@ -37,7 +36,6 @@ const hasClass = function (element, className) {
     }
     return hasClass;
   }
-
 };
 
 export default hasClass;

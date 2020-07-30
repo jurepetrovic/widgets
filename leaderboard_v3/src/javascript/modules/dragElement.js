@@ -1,16 +1,19 @@
-import {addClass, hasClass, isiOSDevice, isMobileTablet, removeClass} from "../utils";
+import { addClass, hasClass, isiOSDevice, isMobileTablet, removeClass } from '../utils';
 
 // var scrollObj2 = null;
 let movementInterval;
 
 const dragElement = function (elmnt, draggableEl, overlayContainer, container, dragging, finishDragging, mobileTouch) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0,
-    isMobile = isMobileTablet(),
-    isiOS = isiOSDevice(),
-    isParentWindow = elmnt.parentNode.nodeName === "BODY",
-    maxLeft = (isParentWindow ? window.innerWidth : container.offsetWidth),
-    maxTop = (isParentWindow ? window.innerHeight : container.offsetHeight),
-    touchStart, moving = null;
+  var pos1 = 0;
+  var pos2 = 0;
+  var pos3 = 0;
+  var pos4 = 0;
+  var isMobile = isMobileTablet();
+  var isiOS = isiOSDevice();
+  var isParentWindow = elmnt.parentNode.nodeName === 'BODY';
+  var maxLeft = (isParentWindow ? window.innerWidth : container.offsetWidth);
+  var maxTop = (isParentWindow ? window.innerHeight : container.offsetHeight);
+  var touchStart; var moving = null;
   // scrollObj2 = query(".scroll-res");
 
   if (movementInterval) {
@@ -18,19 +21,19 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
   }
 
   var onWindowChange = function () {
-    var isVertical = hasClass(elmnt, "cl-vertical-mini"),
-      maxLeft = (isParentWindow ? window.innerWidth : container.offsetWidth),
-      maxTop = (isParentWindow ? window.innerHeight : container.offsetHeight),
-      offsetMaxLeft = maxLeft - parseInt(elmnt.offsetWidth + (isVertical ? draggableEl.offsetWidth / 7 : draggableEl.offsetWidth / 1.6)),
-      offsetMaxTop = maxTop - parseInt(elmnt.offsetHeight + (isVertical ? draggableEl.offsetHeight / 1.2 : draggableEl.offsetHeight / 4)),
-      elTop = parseInt(elmnt.style.top),
-      elLeft = parseInt(elmnt.style.left);
+    var isVertical = hasClass(elmnt, 'cl-vertical-mini');
+    var maxLeft = (isParentWindow ? window.innerWidth : container.offsetWidth);
+    var maxTop = (isParentWindow ? window.innerHeight : container.offsetHeight);
+    var offsetMaxLeft = maxLeft - parseInt(elmnt.offsetWidth + (isVertical ? draggableEl.offsetWidth / 7 : draggableEl.offsetWidth / 1.6));
+    var offsetMaxTop = maxTop - parseInt(elmnt.offsetHeight + (isVertical ? draggableEl.offsetHeight / 1.2 : draggableEl.offsetHeight / 4));
+    var elTop = parseInt(elmnt.style.top);
+    var elLeft = parseInt(elmnt.style.left);
 
     if (elTop > offsetMaxTop && offsetMaxTop > 5) {
-      elmnt.style.top = offsetMaxTop + "px";
+      elmnt.style.top = offsetMaxTop + 'px';
     }
     if (elLeft > offsetMaxLeft && offsetMaxLeft > 5) {
-      elmnt.style.left = offsetMaxLeft + "px";
+      elmnt.style.left = offsetMaxLeft + 'px';
     }
   };
 
@@ -51,7 +54,7 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
       touchStart = setTimeout(function () {
         justATouch = false;
       }, 100);
-    }, {passive: isiOS});
+    }, { passive: isiOS });
 
     draggableEl.addEventListener('touchmove', function (e) {
       e.preventDefault();
@@ -60,7 +63,7 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
       // moving = new Date().getTime();
 
       elementDrag(e);
-    }, {passive: isiOS});
+    }, { passive: isiOS });
 
     draggableEl.addEventListener('touchend', function (e) {
       // e.preventDefault();
@@ -68,35 +71,31 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
       closeDragElement(e);
       moving = null;
 
-      if (justATouch && typeof mobileTouch === "function") {
+      if (justATouch && typeof mobileTouch === 'function') {
         mobileTouch();
       }
+    }, { passive: isiOS });
 
-    }, {passive: isiOS});
-
-    window.addEventListener("orientationchange", function (e) {
+    window.addEventListener('orientationchange', function (e) {
       onWindowChange();
     }, true);
   } else {
-
     // if present, the header is where you move the DIV from:
     draggableEl.onmousedown = dragMouseDown;
 
-    window.addEventListener("resize", function (e) {
+    window.addEventListener('resize', function (e) {
       onWindowChange();
     }, true);
-
   }
 
-
-  function dragMouseDown(e) {
+  function dragMouseDown (e) {
     e = e || window.event;
     e.preventDefault();
 
     maxLeft = (isParentWindow ? window.innerWidth : container.offsetWidth);
     maxTop = (isParentWindow ? window.innerHeight : container.offsetHeight);
 
-    overlayContainer.style.display = "block";
+    overlayContainer.style.display = 'block';
 
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
@@ -106,7 +105,6 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
     document.onmousemove = elementDrag;
   }
 
-
   /**
    * Adds additional offset to max left and top based on orientation and container width (will be affected by CSS styling so needs to be adjusted accordingly)
    * - elmnt => is the main container that has the positioning applied to
@@ -114,9 +112,9 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
    */
   var checkMaxMinRestraints = function (newTop, newLeft, offsetMaxLeft, offsetMaxTop) {
     var // minLeft = (isVertical ? elmnt.offsetWidth/4 : 0 ), // attempt to restrict the container to go out of bounds by a few pixels, needs some work
-      minLeft = 0,
-      top = (newTop <= 0 ? 0 : newTop),
-      left = (newLeft <= minLeft ? minLeft : newLeft);
+      minLeft = 0;
+    var top = (newTop <= 0 ? 0 : newTop);
+    var left = (newLeft <= minLeft ? minLeft : newLeft);
 
     if (left >= offsetMaxLeft) {
       left = offsetMaxLeft;
@@ -131,16 +129,15 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
     };
   };
 
-  function elementDrag(e) {
-
+  function elementDrag (e) {
     e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position:
-    var posX = (isMobile) ? e.targetTouches[0].pageX : e.clientX,
-      posY = (isMobile) ? e.targetTouches[0].pageY : e.clientY,
-      isVertical = hasClass(elmnt, "cl-vertical-mini"),
-      offsetMaxLeft = maxLeft - parseInt(elmnt.offsetWidth + (isVertical ? draggableEl.offsetWidth / 7 : draggableEl.offsetWidth / 1.6)),
-      offsetMaxTop = maxTop - parseInt(elmnt.offsetHeight + (isVertical ? draggableEl.offsetHeight / 1.2 : draggableEl.offsetHeight / 4));
+    var posX = (isMobile) ? e.targetTouches[0].pageX : e.clientX;
+    var posY = (isMobile) ? e.targetTouches[0].pageY : e.clientY;
+    var isVertical = hasClass(elmnt, 'cl-vertical-mini');
+    var offsetMaxLeft = maxLeft - parseInt(elmnt.offsetWidth + (isVertical ? draggableEl.offsetWidth / 7 : draggableEl.offsetWidth / 1.6));
+    var offsetMaxTop = maxTop - parseInt(elmnt.offsetHeight + (isVertical ? draggableEl.offsetHeight / 1.2 : draggableEl.offsetHeight / 4));
 
     pos1 = pos3 - posX;
     pos2 = pos4 - posY;
@@ -150,11 +147,11 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
 
     checkMovement();
 
-    if (!hasClass(elmnt, "cl-being-moved")) addClass(elmnt, "cl-being-moved");
+    if (!hasClass(elmnt, 'cl-being-moved')) addClass(elmnt, 'cl-being-moved');
 
-    var newTop = (isMobile) ? (posY - parseInt(draggableEl.offsetHeight / 2)) : (elmnt.offsetTop - pos2),
-      newLeft = (isMobile) ? (posX - parseInt(draggableEl.offsetWidth / 2)) : (elmnt.offsetLeft - pos1),
-      leftTopCheck = checkMaxMinRestraints(newTop, newLeft, offsetMaxLeft, offsetMaxTop); // set the element's new position:
+    var newTop = (isMobile) ? (posY - parseInt(draggableEl.offsetHeight / 2)) : (elmnt.offsetTop - pos2);
+    var newLeft = (isMobile) ? (posX - parseInt(draggableEl.offsetWidth / 2)) : (elmnt.offsetLeft - pos1);
+    var leftTopCheck = checkMaxMinRestraints(newTop, newLeft, offsetMaxLeft, offsetMaxTop); // set the element's new position:
 
     // scrollObj2.innerHTML = leftTopCheck.top + "-" + leftTopCheck.left + " : "+ newTop + "-" + newLeft + " : " + (posX < 0 || posY < 0 || posX > maxLeft || posY > maxTop) + "-" + (newTop > offsetMaxTop || newLeft > offsetMaxLeft);
     // scrollObj2.innerHTML = leftTopCheck.top + "-" + leftTopCheck.left + " : "+ newTop +"-"+ newLeft + " : " + (posX < 0 || posY < 0 || posX > maxLeft || posY > maxTop) + "-" + (newTop > offsetMaxTop || newLeft > offsetMaxLeft);
@@ -166,16 +163,15 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
     } else if (leftTopCheck.top > offsetMaxTop || leftTopCheck.left > offsetMaxLeft) {
       closeDragElement(e);
     } else {
-      elmnt.style.top = leftTopCheck.top + "px";
-      elmnt.style.left = leftTopCheck.left + "px";
+      elmnt.style.top = leftTopCheck.top + 'px';
+      elmnt.style.left = leftTopCheck.left + 'px';
     }
 
-
-    if (typeof dragging === "function") dragging(newTop, newLeft);
+    if (typeof dragging === 'function') dragging(newTop, newLeft);
   }
 
-  function closeDragElement(e) {
-    overlayContainer.style.display = "none";
+  function closeDragElement (e) {
+    overlayContainer.style.display = 'none';
     if (isMobile) {
       e.preventDefault();
     } else {
@@ -185,13 +181,12 @@ const dragElement = function (elmnt, draggableEl, overlayContainer, container, d
     }
     moving = null;
 
-    removeClass(elmnt, "cl-being-moved");
+    removeClass(elmnt, 'cl-being-moved');
 
-    if (typeof finishDragging === "function") finishDragging();
+    if (typeof finishDragging === 'function') finishDragging();
   }
 
-  function checkMovement() {
-
+  function checkMovement () {
     if (movementInterval) {
       clearTimeout(movementInterval);
     }

@@ -1,8 +1,7 @@
-const appendNext = function(el, newNode){
+const appendNext = function (el, newNode) {
   if (el.nextSibling) {
     el.parentNode.insertBefore(newNode, el.nextSibling);
-  }
-  else {
+  } else {
     el.parentNode.appendChild(newNode);
   }
 };
