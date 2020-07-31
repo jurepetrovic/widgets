@@ -1,12 +1,13 @@
 {
   "name": "leaderboard_v3",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Leaderboard Widgets V3",
-  "main": "index.js",
+  "main": "./build",
   "scripts": {
-    "dev": "webpack --config ./webpack/webpack.config.js --progress",
-    "build": "webpack --config ./webpack/webpack.config.js --env.production --progress",
+    "dev": "webpack-dev-server --config ./webpack/webpack.config.js --progress",
+    "build": "webpack --config ./webpack/webpack.config.js --env.production --progress & npm run open-example",
     "lint": "eslint ./src",
+    "open-example": "webpack-dev-server --open --port 9000 --contentBase ../ --open-page /examples/leaderboard_v3.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -25,7 +26,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "identicon.js": "^2.3.3",

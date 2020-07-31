@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: {
@@ -15,6 +15,13 @@ module.exports = {
   },
   mode: 'development',
   devtool: 'inline-source-map',
+  devServer: {
+    open: true,
+    port: 9000,
+    contentBase: path.join(__dirname, '../..'),
+    openPage: '/examples/leaderboard_v3.html',
+    writeToDisk: true
+  },
   optimization: {
     minimize: false
   },
@@ -37,7 +44,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { debug: true }]
+              ['@babel/preset-env', { debug: false }]
             ]
           }
         }
@@ -45,7 +52,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,
       contextRegExp: /moment$/
