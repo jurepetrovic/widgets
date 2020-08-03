@@ -46,6 +46,9 @@
     "rewards": "Claimed Rewards",
     "expiredRewards": "Expired Rewards"
   },
+  "messages": {
+    "label": "Messages"
+  },
   "global": {
     "copy": "Powered By CompetitionLabs"
   }

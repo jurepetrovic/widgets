@@ -68,6 +68,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.LANG': JSON.stringify(process.env.LANG)
+    }),
     // new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,

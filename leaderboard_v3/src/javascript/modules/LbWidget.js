@@ -20,6 +20,8 @@ import { Notifications } from './Notifications';
 import { MiniScoreBoard } from './MiniScoreBoard';
 import { MainWidget } from './MainWidget';
 
+const translation = require(`../../i18n/translation_${process.env.LANG}.json`);
+
 /**
  * Main leaderboard widget, controls all actions and initiation logic.
  * Main responsibility is to control the interactions between different widgets/plugins and user even actions
@@ -38,7 +40,7 @@ export const LbWidget = function (options) {
     mainWidget: null,
     globalAjax: new cLabs.Ajax(),
     checkAjax: new cLabs.Ajax(),
-    language: 'en',
+    language: process.env.LANG,
     currency: '',
     spaceName: '',
     memberId: '',
@@ -129,61 +131,7 @@ export const LbWidget = function (options) {
       translationPath: '' // ../i18n/translation_:language.json
     },
     loadTranslations: true,
-    translation: {
-      time: {
-        days: 'd',
-        hours: 'h',
-        minutesShortHand: 'min',
-        minutes: 'm',
-        seconds: 's'
-      },
-      achievements: {
-        label: 'Achievements',
-        more: 'More',
-        complete: 'complete 100%'
-      },
-      tournaments: {
-        label: 'Tournaments',
-        enter: 'Enter Tournament',
-        readyCompetitions: 'Upcoming Tournaments',
-        activeCompetitions: 'Active Tournaments',
-        finishedCompetitions: 'Finished Tournaments',
-        finishing: 'Finishing',
-        finished: 'Finished',
-        registered: 'Registered',
-        noAvailableCompetitions: 'No available competition'
-      },
-      leaderboard: {
-        rank: 'Rank',
-        name: 'Name',
-        points: 'Points',
-        prize: 'Prize',
-        you: 'You'
-      },
-      miniLeaderboard: {
-        highScore: 'High Score',
-        lastScore: 'Last Score',
-        rank: 'Rank',
-        startsIn: 'Starting In',
-        starting: 'starting',
-        finishing: 'finishing',
-        finished: 'finished'
-      },
-      rewards: {
-        label: 'Rewards',
-        claim: 'Claim Now',
-        claimed: 'Claimed',
-        availableRewards: 'Available Rewards',
-        rewards: 'Claimed Rewards',
-        expiredRewards: 'Expired Rewards'
-      },
-      messages: {
-        label: 'Messages'
-      },
-      global: {
-        copy: 'Powered By CompetitionLabs'
-      }
-    },
+    translation: translation,
     resources: [
       (cLabs.api.url + '/assets/widgets/leaderboard_v3/css/style.css?t=' + (new Date().getTime())),
       (cLabs.api.url + '/assets/widgets/leaderboard_v3/css/fonts.css?t=' + (new Date().getTime()))
