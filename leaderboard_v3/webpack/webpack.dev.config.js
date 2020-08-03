@@ -5,7 +5,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    'leaderboard.v3.js': './src/javascript/leaderboard.v3.js',
+    'leaderboard.v3.js': [
+      './src/javascript/leaderboard.v3.js',
+      './src/scss/style.scss',
+      './src/scss/fonts.scss'
+    ],
     'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
   },
@@ -48,6 +52,18 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.scss$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '../css/[name].css'
+            }
+          },
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -59,7 +75,6 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'src/css', to: '../css' },
         { from: 'src/i18n', to: '../i18n' },
         { from: 'src/images', to: '../images' }
       ]
