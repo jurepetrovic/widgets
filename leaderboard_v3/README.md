@@ -157,3 +157,52 @@ https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard
 
 * If translations are not required it is possible to disable them by changing "loadTranslations" setting to "false"
 ```
+
+## Contributing
+
+#### Prerequisites
+
+- NodeJS >= 10.10
+- NPM >= 6.x
+
+#### Build
+
+Go to the `leaderboard_v3` directory and install the dependencies.
+
+```sh
+npm install
+```
+
+Run `npm run build` in the `leaderboard_v3` directory to generate production files inside `build`.
+
+```sh
+npm run build
+```
+
+Or run `npm run dev` to build widget in development mode.
+
+```sh
+npm run dev
+```
+
+#### Coding standards
+
+Code formatting rules are defined in `.eslintrc`. You can check your code against these standards by running:
+
+```sh
+npm run lint
+```
+
+To automatically fix any style violations in your code, you can run:
+
+```sh
+npm run lint -- --fix
+```
+
+#### Example
+
+Run `npm run example` to open the example page.
+
+```sh
+npm run example
+```
