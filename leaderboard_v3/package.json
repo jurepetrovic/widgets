@@ -1,8 +1,7 @@
 {
-  "name": "leaderboard_v3",
-  "version": "3.0.0",
-  "description": "Leaderboard Widgets V3",
-  "main": "./build",
+  "name": "leaderboard",
+  "version": "3.0.1",
+  "description": "Leaderboard Widgets",
   "scripts": {
     "dev": "cross-env --env.LANG=en webpack-dev-server --config ./webpack/webpack.config.js --progress",
     "build": "cross-env --env.LANG=en webpack --config ./webpack/webpack.config.js --env.production --progress",
@@ -38,5 +37,11 @@
     "identicon.js": "^2.3.3",
     "jssha": "^3.1.0",
     "moment": "2.24.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/competitionlabs/widgets/tree/master/leaderboard_v3"
+  },
+  "main": "build/javascript/leaderboard.v3.js",
+  "style": "build/css/style.css"
 }
