@@ -7,7 +7,8 @@ module.exports = {
   entry: {
     'leaderboard.v3.js': [
       './src/javascript/leaderboard.v3.js',
-      './src/scss/style.scss'
+      './src/scss/style.scss',
+      './src/scss/config.scss'
     ],
     'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
