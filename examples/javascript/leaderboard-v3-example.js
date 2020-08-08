@@ -25,7 +25,6 @@
 	widgetInstance.settings.uri.messageById = "data/messages-data-sample.json";
 	widgetInstance.settings.uri.assets = "images/:attachmentId.png";
 	widgetInstance.settings.resources = [
-		("../leaderboard_v3/build/css/variables.css?t=" + ( new Date().getTime() )),
 		("../leaderboard_v3/build/css/style.css?t=" + ( new Date().getTime() ))
 	];
 

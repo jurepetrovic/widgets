@@ -1,3 +1,83 @@
 :root {
-  --main-bg-color: #212121;
+  // MAIN
+  --lb3-widget-icon: url(../images/logo-icon2.png);
+  --lb3-widget-bg-color: #212121;
+  --lb3-widget-border-color: #000000;
+  --lb3-widget-text-color: #ffffff;
+  --lb3-widget-date-text-color: #ffffff;
+  --lb3-widget-header-text-color: #7a7a7a;
+
+  // CLOSE BTN
+  --lb3-close-btn-bg-color: #212121;
+
+  // TOURNAMENTS
+  --lb3-tournament-details-bg-color: #28a02a;
+  --lb3-tournament-details-label-color: #ffffff;
+  --lb3-tournament-footer-bg-color: #2bb22e;
+  --lb3-tournament-footer-text-color: #212121;
+  --lb3-tournament-container-bg-color: #28a02a;
+  --lb3-tournament-container-text-color: #ffffff;
+  --lb3-tournament-header-text-color: #a9d9aa;
+  --lb3-tournament-top-results-bg-color: #0d980e;
+  --lb3-tournament-details-container-bg-color: #28a02a;
+  --lb3-tournament-details-header-color: #ffffff;
+  --lb3-tournament-details-date-color: #ffffff;
+  --lb3-tournament-details-body-color: #ffffff;
+  --lb3-tournament-details-link-color: #2c9ab7;
+  --lb3-tournament-list-bg-color: #28a02a;
+
+  // ACHIEVEMENTS
+  --lb3-achievements-header-bg-color: #23b3dd;
+  --lb3-achievements-details-bg-color: #00a1bd;
+  --lb3-achievements-container-bg-color: #00a1bd;
+  --lb3-achievements-details-header-text-color: #ffffff;
+  --lb3-achievements-details-date-color: #ffffff;
+  --lb3-achievements-details-body-color: #ffffff;
+  --lb3-achievements-details-link-color: #2c9ab7;
+  --lb3-achievements-footer-bg-color: #23b3dd;
+  --lb3-achievements-footer-text-color: #212121;
+  --lb3-achievements-divider-color: #068aa2;
+  --lb3-achievements-item-label-color: #ffffff;
+  --lb3-achievements-item-body-color: #ffffff;
+  --lb3-achievements-progress-bg-color: #068aa2;
+  --lb3-achievements-progress-fill-color: #ffffff;
+  --lb3-achievements-btn-bg-color: #23b3dd;
+  --lb3-achievements-btn-hover-color: #29c2ef;
+
+  // REWARDS
+
+  --lb3-rewards-header-bg-color: #f18d32;
+  --lb3-rewards-footer-bg-color: #f18d32;
+  --lb3-rewards-footer-text-color: #212121;
+  --lb3-rewards-bg-color: #e88229;
+  --lb3-rewards-divider-color: #c56008;
+  --lb3-rewards-item-label-color: #ffffff;
+  --lb3-rewards-item-body-color: #ffffff;
+  --lb3-rewards-item-hover-bg-color: #dd790c;
+  --lb3-rewards-accordion-bg-color: #cc6e09;
+  --lb3-rewards-accordion-hover-color: #ab6d2a;
+  --lb3-rewards-details-bg-color: #e88229;
+  --lb3-rewards-details-title-color: #ffffff;
+  --lb3-rewards-details-date-color: #ffffff;
+  --lb3-rewards-details-body-color: #ffffff;
+  --lb3-rewards-winnings-bg-color: #cb6e09;
+  --lb3-rewards-btn-bg-color: #ff6d00;
+  --lb3-rewards-btn-hover-color: #ec6603;
+
+  // MESSAGES
+
+  --lb3-messages-header-bg-color: #f84128;
+  --lb3-messages-header-text-color: #ffffff;
+  --lb3-messages-header-date-color: #ffffff;
+  --lb3-messages-item-bg-color: #ff020c;
+  --lb3-messages-item-hover-color: #d50004;
+  --lb3-messages-item-divider-color: #c56008;
+  --lb3-messages-item-label-color: #ffffff;
+  --lb3-messages-item-text-color: #ffffff;
+  --lb3-messages-details-bg-color: #d50004;
+  --lb3-messages-details-title-color: #ffffff;
+  --lb3-messages-details-date-color: #ffffff;
+  --lb3-messages-details-text-color: #ffffff;
+  --lb3-messages-footer-bg-color: #f84128;
+  --lb3-messages-footer-text-color: #212121;
 }
