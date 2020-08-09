@@ -157,3 +157,15 @@ https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard
 
 * If translations are not required it is possible to disable them by changing "loadTranslations" setting to "false"
 ```
+
+### Migrate to the latest modular NodeJS widget implementation:
+I recommend following the following steps if you wish to use the latest modular NodeJS widget implementation, 
+the following steps are only applicable and need to be taken if you did any custom changes/development on 
+the source of the widget otherwise there is no need to change anything because the code is just modularized and will 
+bundle/compile and work the same way as V2.0.0, it is backwards compatible:
+
+_Steps_:
+1) Make sure that the widget code you have is up to date with the `v2.0.0` branch  
+2) Run a comparison (a diff check) of your code and the leaderboard widgets source code on branch `v2.0.0` to locate any custom differences you did  
+3) Once the custom changes are located you can transfer those 1 at a time to the new code base on the `master` branch as the structure was just split apart into modules, components and utilities for ease of development and didn’t change much, it would still look familiar
+4) The `README.md` file contains all the information you need to run/build the widget locally and build a production distributable 
