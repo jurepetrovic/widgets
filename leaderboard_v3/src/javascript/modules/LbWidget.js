@@ -213,7 +213,7 @@ export const LbWidget = function (options) {
     var ajaxInstanceToUse = (typeof ajaxInstance !== 'undefined' && ajaxInstance !== null) ? ajaxInstance : competitionCheckAjax;
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     if (_this.settings.gameId.length > 0 && _this.settings.enforceGameLookup) {
@@ -274,7 +274,7 @@ export const LbWidget = function (options) {
     var ajaxInstanceToUse = (typeof ajaxInstance !== 'undefined' && ajaxInstance !== null) ? ajaxInstance : competitionFinishedCheckAjax;
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     if (_this.settings.gameId.length > 0 && _this.settings.enforceGameLookup) {
@@ -381,7 +381,7 @@ export const LbWidget = function (options) {
     ];
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     _this.settings.globalAjax.abort().getData({
@@ -519,7 +519,7 @@ export const LbWidget = function (options) {
     var withGroups = false;
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     if (typeof _this.settings.member.groups !== 'undefined' && _this.settings.member.groups.length > 0) {
@@ -529,7 +529,7 @@ export const LbWidget = function (options) {
 
     checkAchievementsAjax.abort().getData({
       type: 'GET',
-      url: _this.settings.uri.gatewayDomain + url + '?_lang=' + _this.settings.language + '&_uomKey' + _this.settings.currency,
+      url: _this.settings.uri.gatewayDomain + url + '?_lang=' + _this.settings.language + '&_uomKey=' + _this.settings.currency,
       headers: {
         'X-API-KEY': _this.settings.apiKey
       },
@@ -579,7 +579,7 @@ export const LbWidget = function (options) {
     var _this = this;
 
     getAchievementsAjax.abort().getData({
-      url: _this.settings.uri.gatewayDomain + _this.settings.uri.achievement.replace(':space', _this.settings.spaceName).replace(':id', achievementId) + '?_lang=' + _this.settings.language + '&_uomKey' + _this.settings.currency,
+      url: _this.settings.uri.gatewayDomain + _this.settings.uri.achievement.replace(':space', _this.settings.spaceName).replace(':id', achievementId) + '?_lang=' + _this.settings.language + '&_uomKey=' + _this.settings.currency,
       headers: {
         'X-API-KEY': _this.settings.apiKey
       },
