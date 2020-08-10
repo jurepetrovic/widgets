@@ -1,0 +1,58 @@
+{
+  "time": {
+        "days": "d",
+    "hours": "h",
+    "minutesShortHand": "min",
+    "minutes": "m",
+    "seconds": "s"
+
+  },
+  "achievements": {
+        "label": "Postignuća",
+    "more": "Više",
+    "complete": "završeno 100%"
+
+  },
+  "tournaments": {
+      "label": "Turniri",
+    "enter": "Uđite u turnir",
+    "readyCompetitions": "Nadolazeći turniri",
+    "activeCompetitions": "Aktivni turniri",
+    "finishedCompetitions": "Završeni turniri",
+    "finishing": "Završava",
+    "finished": "Završeno",
+    "registered": "Registriran",
+    "noAvailableCompetitions": "nema dostupnih natjecanja"
+  },
+  "leaderboard": {
+        "rank": "Razina",
+    "name": "Ime",
+    "points": "Bodovi",
+    "prize": "Nagrada",
+    "you": "Vi"
+
+  },
+  "miniLeaderboard": {
+      "highScore": "Najbolji rezultat",
+    "lastScore": "Posljednji rezultat",
+    "rank": "Razina",
+    "startsIn": "Počinje za",
+    "starting": "počinje",
+    "finishing": "završava",
+    "finished": "završeno"
+
+  },
+  "rewards": {
+        "label": "Nagrade",
+    "claim": "Zatražite sada",
+    "claimed": "Zatraženo",
+    "availableRewards": "Dostupne nagrade",
+    "rewards": "Preuzete nagrade",
+    "expiredRewards": "Istekle nagrade"
+
+  },
+  "global": {
+        "copy": "Osigurao GameArt"
+
+  }
+}

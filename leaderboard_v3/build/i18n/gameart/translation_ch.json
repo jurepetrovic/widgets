@@ -1,0 +1,60 @@
+{
+  "time": {
+    "days": "天",
+    "hours": "小时",
+    "minutesShortHand": "分钟",
+    "minutes": "分钟",
+    "seconds": "秒"
+
+  },
+  "achievements": {
+        "label": "成就",
+    "more": "更多",
+    "complete": "完成100%"
+
+  },
+  "tournaments": {
+     "label": "锦标赛",
+    "enter": "进入锦标赛",
+    "readyCompetitions": "即将开始的锦标赛",
+    "activeCompetitions": "正在进行的锦标赛",
+    "finishedCompetitions": "已完成的锦标赛",
+    "finishing": "即将完成",
+    "finished": "已完成",
+    "registered": "已注册",
+    "noAvailableCompetitions": "未提供比赛"
+
+  },
+  "leaderboard": {
+       "rank": "排名",
+    "name": "名称",
+    "points": "积分",
+    "prize": "奖励",
+    "you": "您的排名"
+
+  },
+  "miniLeaderboard": {
+        "highScore": "高分",
+    "lastScore": "最后分数",
+    "rank": "排名",
+    "startsIn": "即将开始",
+    "starting": "即将开始",
+    "finishing": "即将结束",
+    "finished": "已结束"
+
+
+  },
+  "rewards": {
+       "label": "奖励",
+    "claim": "立刻领取",
+    "claimed": "已领取",
+    "availableRewards": "可用奖励",
+    "rewards": "已领取奖励",
+    "expiredRewards": "已过期奖励"
+
+  },
+  "global": {
+        "copy": "GameArt提供技术支持"
+
+  }
+}

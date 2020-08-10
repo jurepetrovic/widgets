@@ -1,0 +1,54 @@
+{
+  "time": {
+    "days": "วัน",
+    "hours": "ชม.",
+    "minutesShortHand": "นาที",
+    "minutes": "นาที",
+    "seconds": "วินาที"
+  },
+
+  "achievements": {
+    "label": "ความสำเร็จ",
+    "more": "เพิ่มเติม",
+    "complete": "สมบูรณ์ 100%"
+  },
+
+  "tournaments": {
+    "label": "ทัวร์นาเมนต์",
+    "enter": "เข้าสู่ทัวร์นาเมนต์",
+    "readyCompetitions": "ทัวร์นาเมนต์ที่กำลังจะมาถึง",
+    "activeCompetitions": "ทัวร์นาเมนต์ที่แอกทีฟ",
+    "finishedCompetitions": "ทัวร์นาเมนต์ที่สิ้นสุด",
+    "finishing": "กำลังสิ้นสุด",
+    "finished": "สิ้นสุดแล้ว",
+    "registered": "ลงทะเบียนแล้ว",
+    "noAvailableCompetitions": "ไม่มีการแข่งขัน"
+  },
+  "leaderboard": {
+    "rank": "ลำดับ",
+    "name": "ชื่อ",
+    "points": "คะแนน",
+    "prize": "รางวัล",
+    "you": "คุณ"
+  },
+  "miniLeaderboard": {
+    "highScore": "คะแนนสูง",
+    "lastScore": "คะแนนล่าสุด",
+    "rank": "ลำดับ",
+    "startsIn": "กำลังเริ่มต้นใน",
+    "starting": "กำลังเริ่มต้น",
+    "finishing": "กำลังสิ้นสุด",
+    "finished": "สิ้นสุดแล้ว"
+  },
+  "rewards": {
+    "label": "รางวัล",
+    "claim": "ขอรับตอนนี้",
+    "claimed": "ขอรับแล้ว",
+    "availableRewards": "รางวัลที่พร้อมให้บริการ",
+    "rewards": "รางวัลที่รับแล้ว",
+    "expiredRewards": "รางวัลที่หมดอายุแล้ว"
+  },
+  "global": {
+    "copy": "ดำเนินงานโดย GameArt"
+  }
+}
