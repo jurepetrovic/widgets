@@ -15,7 +15,9 @@ Our widget "out of the box" is a product that you can use immediately by placing
 [Read more here](https://complabs.atlassian.net/wiki/spaces/CLRAV/pages/842301445/The+Widget)
 
 ## Examples
-[Examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
+* [Live Standard laoding examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
+* [Live loader script examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3_loader.html)
+
 
 <table style="border:none;">
     <tr>
@@ -55,6 +57,38 @@ Our widget "out of the box" is a product that you can use immediately by placing
     	})(window,document,'script','https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/javascript/leaderboard.v3.js',"_CLLBV3Opt");
 </script>
 ```
+
+## Using the loader script
+You can use this loader script to centralise all your widget loading needs (custom scripts, styles and environmental parameters) into a single place.
+The "Loader" script requires the bear minimum of 2 things to be set to the global `window._CLLBV3Opt` parameter before the scripts loads:
+1) `gameId`
+2) `memberId`
+```html
+<script type="text/javascript">
+    window._CLLBV3Opt = {
+        gameId: "my_game_id",
+        memberId: "my_member_id"
+    };
+</script>
+```
+#### Steps required to configure the loader script:
+1) update your default API key, space name (optional: `language` and `currency`), unless you are loading the API key and space name from your game/product
+2) define what products will load in the widget:
+```javascript
+products: {
+    "my_product_id": {
+        script: "https://my.custom.script.location",
+        resources: [
+            "https://my.custom.stylesheet.location"
+        ],
+        onBeforeLoad: function( instance, options, callback ){ // your custom logic before the widget gets initialised/rendered
+            if( typeof callback === "function" ) callback();
+        }
+    },
+    "my_product_id_2": {}
+}
+```
+3) add loader script to your website
 
 ## FAQ
 ### How do I set the currency:
@@ -123,3 +157,15 @@ https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard
 
 * If translations are not required it is possible to disable them by changing "loadTranslations" setting to "false"
 ```
+
+### Migrate to the latest modular NodeJS widget implementation:
+I recommend following the following steps if you wish to use the latest modular NodeJS widget implementation, 
+the following steps are only applicable and need to be taken if you did any custom changes/development on 
+the source of the widget otherwise there is no need to change anything because the code is just modularized and will 
+bundle/compile and work the same way as V2.0.0, it is backwards compatible:
+
+_Steps_:
+1) Make sure that the widget code you have is up to date with the `v2.0.0` branch  
+2) Run a comparison (a diff check) of your code and the leaderboard widgets source code on branch `v2.0.0` to locate any custom differences you did  
+3) Once the custom changes are located you can transfer those 1 at a time to the new code base on the `master` branch as the structure was just split apart into modules, components and utilities for ease of development and didn’t change much, it would still look familiar
+4) The `README.md` file contains all the information you need to run/build the widget locally and build a production distributable 
