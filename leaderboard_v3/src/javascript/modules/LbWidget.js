@@ -46,7 +46,7 @@ export const LbWidget = function (options) {
     memberId: '',
     groups: '',
     gameId: '',
-    enforceGameLookup: false, // tournament lookup will include/exclude game only requests
+    enforceGameLookup: true, // tournament lookup will include/exclude game only requests
     apiKey: '',
     member: null,
     competition: {
@@ -91,7 +91,7 @@ export const LbWidget = function (options) {
     },
     leaderboard: {
       fullLeaderboardSize: 100,
-      refreshIntervalMillis: 3000,
+      refreshIntervalMillis: 5000,
       refreshInterval: null,
       refreshLbDataInterval: null,
       leaderboardData: [],
@@ -213,7 +213,7 @@ export const LbWidget = function (options) {
     var ajaxInstanceToUse = (typeof ajaxInstance !== 'undefined' && ajaxInstance !== null) ? ajaxInstance : competitionCheckAjax;
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     if (_this.settings.gameId.length > 0 && _this.settings.enforceGameLookup) {
@@ -274,7 +274,7 @@ export const LbWidget = function (options) {
     var ajaxInstanceToUse = (typeof ajaxInstance !== 'undefined' && ajaxInstance !== null) ? ajaxInstance : competitionFinishedCheckAjax;
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     if (_this.settings.gameId.length > 0 && _this.settings.enforceGameLookup) {
@@ -307,7 +307,7 @@ export const LbWidget = function (options) {
             callback();
           }
         } else {
-          _this.log('failed to checkForActiveCompetitions ' + response);
+          _this.log('failed to checkForFinishedCompetitions ' + response);
         }
       }
     });
@@ -350,7 +350,9 @@ export const LbWidget = function (options) {
       activeCompetitionId = activeCompetition.id;
     }
 
-    if (activeCompetitionId === null) { // no active or ready competitions found
+    // no competitions found
+    if (activeCompetitionId === null && _this.settings.tournaments.finishedCompetitions.length <= 0) {
+      // deactivation requires closing & opening of the mainWidget.
       _this.deactivateCompetitionsAndLeaderboards();
     } else {
       if (_this.settings.competition.activeCompetitionId !== activeCompetitionId && activeCompetitionId !== null) {
@@ -358,6 +360,7 @@ export const LbWidget = function (options) {
         _this.settings.competition.activeCompetitionId = activeCompetitionId;
       }
 
+      // load active competition
       if (activeCompetitionId !== null) {
         _this.loadActiveCompetition(function (json) {
           _this.setActiveCompetition(json, callback);
@@ -381,7 +384,7 @@ export const LbWidget = function (options) {
     ];
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     _this.settings.globalAjax.abort().getData({
@@ -494,6 +497,9 @@ export const LbWidget = function (options) {
             //   };
             // }
 
+            // we need to mask competitor's names. We will replace last 4 characters with "*"
+            // also first 4 chars are replaced with "*"
+            _this.maskNames(json.data, _this.settings.memberId);
             _this.settings.leaderboard.leaderboardData = json.data;
 
             callback(json.data);
@@ -507,19 +513,47 @@ export const LbWidget = function (options) {
     }
   };
 
+  // function masks names of users
+  this.maskNames = function (data, myname) {
+    // myname --> _this.settings.memberId
+    for (var leadboard of data) {
+      if (leadboard.name !== myname) {
+        // split casino and player name
+        var separated = leadboard.name.split(':');
+        const casName = this.maskWord(separated[0]);
+        const playerName = this.maskWord(separated[1]);
+        leadboard.name = casName + ':' + playerName;
+      }
+    }
+  };
+
+  // take string as input and put first 4 chars as "*"
+  this.maskWord = function (word) {
+    var ret = '';
+    // replace last 4
+    if (word.length >= 4) {
+      ret = word.substring(0, word.length - 4);
+      ret += '****';
+      // replace all
+    } else {
+      ret = word.replace(/./g, '*');
+    }
+    return ret;
+  };
+
   var checkAchievementsAjax = new cLabs.Ajax();
   this.checkForAvailableAchievements = function (callback) {
     var _this = this;
     var url = _this.settings.uri.achievements.replace(':space', _this.settings.spaceName).replace(':id', _this.settings.memberId);
     var filters = [
       '_limit=100',
-      '_include=rewards',
+      '_include=rewards,products',
       ('_lang=' + _this.settings.language)
     ];
     var withGroups = false;
 
     if (typeof _this.settings.currency === 'string' && _this.settings.currency.length > 0) {
-      filters.push('_uomKey' + _this.settings.currency);
+      filters.push('_uomKey=' + _this.settings.currency);
     }
 
     if (typeof _this.settings.member.groups !== 'undefined' && _this.settings.member.groups.length > 0) {
@@ -529,19 +563,21 @@ export const LbWidget = function (options) {
 
     checkAchievementsAjax.abort().getData({
       type: 'GET',
-      url: _this.settings.uri.gatewayDomain + url + '?_lang=' + _this.settings.language + '&_uomKey' + _this.settings.currency,
+      url: _this.settings.uri.gatewayDomain + url + '?_lang=' + _this.settings.language + '&_uomKey=' + _this.settings.currency,
       headers: {
         'X-API-KEY': _this.settings.apiKey
       },
       success: function (response, dataObj, xhr) {
         if (xhr.status === 200) {
           var jsonForAll = JSON.parse(response);
-
+          // clear achievements list
           _this.settings.achievements.list = [];
-
+          /*
           window.mapObject(jsonForAll.data, function (ach) {
+            // here we add first achievements
             _this.settings.achievements.list.push(ach);
           });
+          */
 
           if (withGroups) {
             checkAchievementsAjax.abort().getData({
@@ -555,7 +591,8 @@ export const LbWidget = function (options) {
                   var json = JSON.parse(response);
 
                   window.mapObject(json.data, function (ach) {
-                    _this.settings.achievements.list.push(ach);
+                    // we show the achievement only if it's active for the current game (product)
+                    _this.filterAchievementByProduct(ach, _this.settings.gameId, _this);
                   });
 
                   if (typeof callback === 'function') callback(_this.settings.achievements.list);
@@ -574,12 +611,31 @@ export const LbWidget = function (options) {
     });
   };
 
+  // filter achievement if enabled for current game
+  // we show the achievement only if it's active for the current game (product)
+  // _this.settings.gameId="55"
+  // ach.products = [{name: "Eddie Dundee", productGroups: ["gameart"], productRefId: "55", productType: "slot"}]
+  this.filterAchievementByProduct = function (ach, gameid, self) {
+    // no product filtering enabled in backoffice
+    if (ach.products.length === 0) {
+      self.settings.achievements.list.push(ach);
+      // check if achievement enabled for this current game (product)
+    } else {
+      for (var prod of ach.products) {
+        if (prod.productRefId === self.settings.gameId) {
+          // add to achievements list
+          self.settings.achievements.list.push(ach);
+        }
+      }
+    }
+  };
+
   var getAchievementsAjax = new cLabs.Ajax();
   this.getAchievement = function (achievementId, callback) {
     var _this = this;
 
     getAchievementsAjax.abort().getData({
-      url: _this.settings.uri.gatewayDomain + _this.settings.uri.achievement.replace(':space', _this.settings.spaceName).replace(':id', achievementId) + '?_lang=' + _this.settings.language + '&_uomKey' + _this.settings.currency,
+      url: _this.settings.uri.gatewayDomain + _this.settings.uri.achievement.replace(':space', _this.settings.spaceName).replace(':id', achievementId) + '?_lang=' + _this.settings.language + '&_uomKey=' + _this.settings.currency,
       headers: {
         'X-API-KEY': _this.settings.apiKey
       },
@@ -1061,6 +1117,14 @@ export const LbWidget = function (options) {
           callback(json.data);
         } else {
           _this.log('failed to loadMember ' + response);
+          // if user not found, we can retry later to see if it was inserted.
+          // normally the spin events will automatically insert the user
+          if (xhr.status === 404) {
+            // retry in 5 secs
+            setTimeout(() => {
+              _this.init();
+            }, 5000);
+          }
         }
       }
     });
@@ -1088,6 +1152,9 @@ export const LbWidget = function (options) {
 
             callback();
           }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          _this.log('Translation File Request Error');
         }
       });
     } else {

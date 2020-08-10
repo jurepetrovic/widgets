@@ -980,9 +980,14 @@ export const MainWidget = function (options) {
     });
 
     objectIterator(query(_this.settings.leaderboard.container, '.cl-lb-row'), function (obj) {
-      var rank = parseInt(obj.dataset.rank);
-      if (cleanupRankCheck.indexOf(rank) === -1 && rank > _this.settings.leaderboard.defaultEmptyList) {
-        remove(obj);
+      try {
+        var rank = parseInt(obj.dataset.rank);
+        if (cleanupRankCheck.indexOf(rank) === -1 && rank > _this.settings.leaderboard.defaultEmptyList) {
+          remove(obj);
+        }
+      } catch (e) {
+        console.log(obj.dataset, obj.attributes, obj);
+        console.error(e);
       }
     });
 
@@ -1415,8 +1420,10 @@ export const MainWidget = function (options) {
     var category = document.createElement('div');
     var description = document.createElement('div');
     var progressionWrapper = document.createElement('div');
-    var progressionCont = document.createElement('div');
+    var progressionBox = document.createElement('div'); // box with container & bar & percentage
+    var progressionCont = document.createElement('div'); // container
     var progressionBar = document.createElement('div');
+    var progressionPercent = document.createElement('div');
     var moreButton = document.createElement('a');
     var cpomntainsImage = (typeof ach.icon !== 'undefined' && ach.icon.length > 0);
 
@@ -1427,9 +1434,13 @@ export const MainWidget = function (options) {
     category.setAttribute('class', 'cl-ach-list-details-category');
     description.setAttribute('class', 'cl-ach-list-details-description');
     progressionWrapper.setAttribute('class', 'cl-ach-list-progression');
+    progressionBox.setAttribute('class', 'cl-ach-list-progression-box');
     progressionCont.setAttribute('class', 'cl-ach-list-progression-cont');
     progressionBar.setAttribute('class', 'cl-ach-list-progression-bar');
+    progressionPercent.setAttribute('class', 'cl-ach-list-percent-number');
     moreButton.setAttribute('class', 'cl-ach-list-more');
+    // start with 0
+    progressionPercent.innerHTML = '0%';
 
     moreButton.dataset.id = ach.id;
     moreButton.innerHTML = _this.settings.lbWidget.settings.translation.achievements.more;
@@ -1462,8 +1473,14 @@ export const MainWidget = function (options) {
 
     detailsContainer.appendChild(detailsWrapper);
 
+    // progression contains has bar inside
     progressionCont.appendChild(progressionBar);
-    progressionWrapper.appendChild(progressionCont);
+    // progression box has container + percent number
+    progressionBox.appendChild(progressionCont);
+    progressionBox.appendChild(progressionPercent);
+
+    // wrapper has box + button
+    progressionWrapper.appendChild(progressionBox);
     progressionWrapper.appendChild(moreButton);
 
     listItem.appendChild(detailsContainer);
@@ -1627,7 +1644,7 @@ export const MainWidget = function (options) {
 
     objectIterator(query(achList, '.cl-ach-list-item'), function (ach) {
       var id = ach.dataset.id;
-      var issuedStatus = (issued.indexOf(id) !== -1);
+      // var issuedStatus = (issued.indexOf(id) !== -1);
 
       var perc = 0;
       window.mapObject(progression, function (pr) {
@@ -1638,7 +1655,10 @@ export const MainWidget = function (options) {
 
       if (ach !== null) {
         var bar = query(ach, '.cl-ach-list-progression-bar');
-
+        var percentNum = query(ach, '.cl-ach-list-percent-number');
+        bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
+        percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + '%';
+        /*
         if (issuedStatus) {
           addClass(bar, 'cl-ach-complete');
           bar.innerHTML = _this.settings.lbWidget.settings.translation.achievements.complete;
@@ -1646,6 +1666,7 @@ export const MainWidget = function (options) {
         } else {
           bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
         }
+        */
       }
     });
   };
