@@ -1,15 +1,16 @@
 {
-  "name": "leaderboard",
-  "version": "3.0.1",
+  "name": "@competitionlabs/leaderboard",
+  "version": "3.0.2",
   "description": "Leaderboard Widgets",
   "scripts": {
     "dev": "cross-env --env.LANG=en webpack-dev-server --config ./webpack/webpack.config.js --progress",
     "build": "cross-env --env.LANG=en webpack --config ./webpack/webpack.config.js --env.production --progress",
     "lint": "eslint ./src",
-    "example": "webpack-dev-server --open --port 9000 --contentBase ../ --open-page /examples/leaderboard_v3.html",
+    "example": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3.html",
+    "example:loader": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_loader.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "COMPETITION LABS LTD",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -34,6 +35,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "css-vars-ponyfill": "^2.3.2",
     "identicon.js": "^2.3.3",
     "jssha": "^3.1.0",
     "moment": "2.24.0"
