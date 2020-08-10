@@ -4239,6 +4239,13 @@
 				rewardFormatter: function(reward){
 					var defaultRewardValue = reward.value;
 
+					// dbg
+					if (typeof reward.unitOfMeasure !== "undefined") {
+						console.log("Got UOM");
+					} else {
+						console.log("There is no UOM");
+					}
+
 					if( typeof reward.unitOfMeasure !== "undefined" && typeof reward.unitOfMeasure.symbol !== "undefined" && reward.unitOfMeasure.symbol !== null ){
 						defaultRewardValue = reward.unitOfMeasure.symbol + reward.value;
 					}
