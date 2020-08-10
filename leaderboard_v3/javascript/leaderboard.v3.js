@@ -4400,7 +4400,7 @@
 				ajaxInstanceToUse = (typeof ajaxInstance !== "undefined" && ajaxInstance !== null) ? ajaxInstance : competitionCheckAjax;
 
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
-				filters.push("_uomKey" + _this.settings.currency);
+				filters.push("_uomKey=" + _this.settings.currency);
 			}
 			
 			if( _this.settings.gameId.length > 0 && _this.settings.enforceGameLookup ){
@@ -4463,7 +4463,7 @@
 				ajaxInstanceToUse = (typeof ajaxInstance !== "undefined" && ajaxInstance !== null) ? ajaxInstance : competitionFinishedCheckAjax;
 
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
-				filters.push("_uomKey" + _this.settings.currency);
+				filters.push("_uomKey=" + _this.settings.currency);
 			}
 
 			if( _this.settings.gameId.length > 0 && _this.settings.enforceGameLookup ){
@@ -4576,7 +4576,7 @@
 				];
 
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
-				filters.push("_uomKey" + _this.settings.currency);
+				filters.push("_uomKey=" + _this.settings.currency);
 			}
 			
 			_this.settings.globalAjax.abort().getData({
@@ -4713,7 +4713,7 @@
 				withGroups = false;
 
 			if( typeof _this.settings.currency === "string" && _this.settings.currency.length > 0  ){
-				filters.push("_uomKey" + _this.settings.currency);
+				filters.push("_uomKey=" + _this.settings.currency);
 			}
 			
 			if( typeof _this.settings.member.groups !== "undefined" &&  _this.settings.member.groups.length > 0 ){
@@ -4723,7 +4723,7 @@
 
 			checkAchievementsAjax.abort().getData({
 				type: "GET",
-				url: _this.settings.uri.gatewayDomain + url + "?_lang=" + _this.settings.language + "&_uomKey" + _this.settings.currency,
+				url: _this.settings.uri.gatewayDomain + url + "?_lang=" + _this.settings.language + "&_uomKey=" + _this.settings.currency,
 				headers: {
 					"X-API-KEY": _this.settings.apiKey
 				},
@@ -4774,7 +4774,7 @@
 			var _this = this;
 
 			getAchievementsAjax.abort().getData({
-				url: _this.settings.uri.gatewayDomain + _this.settings.uri.achievement.replace(":space", _this.settings.spaceName).replace(":id", achievementId) + "?_lang=" + _this.settings.language + "&_uomKey" + _this.settings.currency,
+				url: _this.settings.uri.gatewayDomain + _this.settings.uri.achievement.replace(":space", _this.settings.spaceName).replace(":id", achievementId) + "?_lang=" + _this.settings.language + "&_uomKey=" + _this.settings.currency,
 				headers: {
 					"X-API-KEY": _this.settings.apiKey
 				},
