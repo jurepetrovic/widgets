@@ -43,14 +43,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|tests)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['@babel/preset-env', { debug: false }]
-            ]
-          }
-        }
+        use: ['babel-loader']
       },
       {
         test: /\.scss$/i,
