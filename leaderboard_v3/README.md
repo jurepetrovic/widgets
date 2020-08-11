@@ -208,3 +208,11 @@ https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard
 
 * If translations are not required it is possible to disable them by changing "loadTranslations" setting to "false"
 ```
+
+### Why we use SASS:
+Here are some of the basic benefits of why we are using SASS:
+* provides the ability to use variables, allows you to store a value, or a set of values, and to reuse these variables throughout your SASS files as many times you want and wherever you want. Easy, powerful, and useful.
+* the improved syntax allows you to use a nested syntax, which is code contained within another piece of code that performs a wider function
+* provides mixin functionality: Mixins are like functions in other programming languages. They return a value or set of values and can take parameters including default values.
+* allows you to break apart your big complex CSS files into smaller chunks, this improves the ability to work on the same stylesheets for multiple teams
+* still supports the basic CSS syntax as SCSS syntax is CSS compatible
