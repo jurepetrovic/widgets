@@ -9,7 +9,9 @@
     "example": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3.html",
     "example:loader": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_loader.html",
     "test": "jest --coverage",
-    "test:watch": "jest --coverage --watch"
+    "test:watch": "jest --coverage --watch",
+    "jsdoc:generate": "rimraf docs && jsdoc -c jsdoc.json",
+    "jsdoc": "webpack-dev-server --open --port 9002 --contentBase ./docs"
   },
   "author": "COMPETITION LABS LTD",
   "license": "ISC",
@@ -20,6 +22,7 @@
     "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
+    "docdash": "^1.2.0",
     "eslint": "^7.2.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^4.0.2",
@@ -29,6 +32,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^6.0.0",
     "jest": "^26.3.0",
+    "jsdoc": "^3.6.5",
     "nan": "^2.14.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
