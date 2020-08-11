@@ -56,6 +56,16 @@ To automatically fix any style violations in your code, you can run:
 npm run lint -- --fix
 ```
 
+#### Running tests
+
+You can run the test suite using the following command:
+
+```sh
+npm run test
+```
+
+Please ensure that the tests are passing when submitting a pull request.
+
 #### Example
 
 Run `npm run example` to open the example page.
