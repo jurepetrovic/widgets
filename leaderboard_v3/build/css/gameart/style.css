@@ -2085,7 +2085,7 @@
 /* Progress bar outer border */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-cont {
     float: left;
-    width: 90%;
+    width: 88%;
     background: #fff;
     height: 25px;
     border-radius: 5px;

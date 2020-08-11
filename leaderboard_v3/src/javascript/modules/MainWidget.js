@@ -1638,6 +1638,13 @@ export const MainWidget = function (options) {
     }, 200);
   };
 
+  this.getAchievementInfo = function (id) {
+    var _this = this;
+    for (var ach of _this.settings.lbWidget.settings.achievements.list) {
+      if (ach.id === id) return ach;
+    }
+  };
+
   this.updateAchievementProgressionAndIssued = function (issued, progression) {
     var _this = this;
     var achList = query(_this.settings.section, '.cl-main-widget-section-ach .cl-main-widget-ach-list-body-res');
@@ -1645,11 +1652,15 @@ export const MainWidget = function (options) {
     objectIterator(query(achList, '.cl-ach-list-item'), function (ach) {
       var id = ach.dataset.id;
       // var issuedStatus = (issued.indexOf(id) !== -1);
-
+      var achInfo = _this.getAchievementInfo(id);
       var perc = 0;
       window.mapObject(progression, function (pr) {
         if (pr.achievementId === id) {
-          perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1);
+          if (achInfo.scheduling.scheduleType === 'Once' && pr.issued > 0) {
+            perc = 100;
+          } else {
+            perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1);
+          }
         }
       });
 
