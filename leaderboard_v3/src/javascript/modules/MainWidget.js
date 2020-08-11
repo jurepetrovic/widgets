@@ -1424,6 +1424,8 @@ export const MainWidget = function (options) {
     var progressionCont = document.createElement('div'); // container
     var progressionBar = document.createElement('div');
     var progressionPercent = document.createElement('div');
+    var issuedBox = document.createElement('div');
+    var issuedBoxCount = document.createElement('div');
     var moreButton = document.createElement('a');
     var cpomntainsImage = (typeof ach.icon !== 'undefined' && ach.icon.length > 0);
 
@@ -1438,9 +1440,13 @@ export const MainWidget = function (options) {
     progressionCont.setAttribute('class', 'cl-ach-list-progression-cont');
     progressionBar.setAttribute('class', 'cl-ach-list-progression-bar');
     progressionPercent.setAttribute('class', 'cl-ach-list-percent-number');
+    issuedBox.setAttribute('class', 'cl-ach-list-issued-box');
+    issuedBoxCount.setAttribute('class', 'cl-ach-list-issued-box-count');
     moreButton.setAttribute('class', 'cl-ach-list-more');
     // start with 0
     progressionPercent.innerHTML = '0%';
+    // count number
+    issuedBoxCount.innerHTML = '0';
 
     moreButton.dataset.id = ach.id;
     moreButton.innerHTML = _this.settings.lbWidget.settings.translation.achievements.more;
@@ -1473,14 +1479,19 @@ export const MainWidget = function (options) {
 
     detailsContainer.appendChild(detailsWrapper);
 
-    // progression contains has bar inside
+    // progression container has bar inside
     progressionCont.appendChild(progressionBar);
+
     // progression box has container + percent number
     progressionBox.appendChild(progressionCont);
     progressionBox.appendChild(progressionPercent);
 
-    // wrapper has box + button
+    // issued box has number, unchecked or checked box
+    issuedBox.appendChild(issuedBoxCount);
+
+    // wrapper has box, counter and button
     progressionWrapper.appendChild(progressionBox);
+    progressionWrapper.appendChild(issuedBox);
     progressionWrapper.appendChild(moreButton);
 
     listItem.appendChild(detailsContainer);
@@ -1654,12 +1665,18 @@ export const MainWidget = function (options) {
       // var issuedStatus = (issued.indexOf(id) !== -1);
       var achInfo = _this.getAchievementInfo(id);
       var perc = 0;
+      var issuedCnt = '';
       window.mapObject(progression, function (pr) {
         if (pr.achievementId === id) {
+          // progress bar
           if (achInfo.scheduling.scheduleType === 'Once' && pr.issued > 0) {
             perc = 100;
           } else {
             perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1);
+          }
+          // issue count
+          if (achInfo.scheduling.scheduleType === 'Repeatedly') {
+            issuedCnt = pr.issued.toString();
           }
         }
       });
@@ -1667,8 +1684,10 @@ export const MainWidget = function (options) {
       if (ach !== null) {
         var bar = query(ach, '.cl-ach-list-progression-bar');
         var percentNum = query(ach, '.cl-ach-list-percent-number');
+        var issuedCount = query(ach, '.cl-ach-list-issued-box-count');
         bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
         percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + '%';
+        issuedCount.innerHTML = issuedCnt;
         /*
         if (issuedStatus) {
           addClass(bar, 'cl-ach-complete');

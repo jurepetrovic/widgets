@@ -1136,7 +1136,8 @@ export const LbWidget = function (options) {
     if (typeof _this.settings.uri.translationPath === 'string' && _this.settings.uri.translationPath.length > 0 && _this.settings.loadTranslations) {
       _this.settings.globalAjax.abort().getData({
         type: 'GET',
-        url: _this.settings.uri.gatewayDomain + _this.settings.uri.translationPath.replace(':language', _this.settings.language),
+        // translation path must be absolute URL
+        url: _this.settings.uri.translationPath.replace(':language', _this.settings.language).toString(),
         headers: {
           'X-API-KEY': _this.settings.apiKey
         },
@@ -1148,7 +1149,7 @@ export const LbWidget = function (options) {
 
             callback();
           } else {
-            _this.log('no translation foound ' + response);
+            _this.log('no translation found ' + response);
 
             callback();
           }
