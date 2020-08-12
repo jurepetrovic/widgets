@@ -1,5 +1,7 @@
 /**
  * Returns a count of object from a query result
+ * @memberOf module:utils
+ * @static
  * @paramobj  {Object} anything or Array object
  */
 const objectCount = function (obj) {

@@ -3,6 +3,8 @@ import isElement from './isElement';
 /**
  * returns the size of an Object or array
  *
+ * @memberOf module:utils
+ * @static
  * @param obj {Object}
  * @return {Number}
  */

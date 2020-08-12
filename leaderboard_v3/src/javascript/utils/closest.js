@@ -3,6 +3,8 @@ import hasClass from './hasClass';
 
 /**
  * Iterate up the tree of DOM elements to find the closes match
+ * @memberOf module:utils
+ * @static
  * @param element
  * @param selector
  * @returns {null | ParentNode}

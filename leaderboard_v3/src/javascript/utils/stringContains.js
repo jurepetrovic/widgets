@@ -1,5 +1,7 @@
 /**
  * A check if a string contains an entry of searched for term
+ * @memberOf module:utils
+ * @static
  * @param str {string}
  * @param partial {string}
  * @returns {boolean}
