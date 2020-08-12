@@ -74,6 +74,14 @@ Run `npm run example` to open the example page.
 npm run example
 ```
 
+#### Documentation
+
+You can generate documentation by running:
+
+```sh
+npm run jsdoc
+```
+
 ## Examples
 * [Live Standard laoding examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
 * [Live loader script examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3_loader.html)

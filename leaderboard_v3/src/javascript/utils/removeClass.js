@@ -1,5 +1,7 @@
 /**
  * Remove class string from provided DOM element
+ * @memberOf module:utils
+ * @static
  * @param element
  * @param className
  * @returns {{classList}|*}

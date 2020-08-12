@@ -1,5 +1,7 @@
 /**
  * Prepends 0 the provided number and returns the formated element as a string
+ * @memberOf module:utils
+ * @static
  * @param num
  * @param size {number}
  * @returns {string} 1 => 001

@@ -10,6 +10,8 @@ import trim from './trim';
  *  - Tag selection: "div"
  *  - Multi depth selection: '.element ul li'
  *
+ * @memberOf module:utils
+ * @static
  * @param {Object} "optional"
  * @param {String} CSS element selector
  * @returns {(Object|null|Array)} depending on the provided selector results can vary (null, node, NodeList array)

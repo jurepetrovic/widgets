@@ -10,8 +10,8 @@
     "example:loader": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_loader.html",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
-    "jsdoc:generate": "rimraf docs && jsdoc -c jsdoc.json",
-    "jsdoc": "webpack-dev-server --open --port 9002 --contentBase ./docs"
+    "jsdoc": "rimraf docs && jsdoc -c jsdoc.json",
+    "jsdoc:open": "webpack-dev-server --open --port 9002 --contentBase ./docs"
   },
   "author": "COMPETITION LABS LTD",
   "license": "ISC",

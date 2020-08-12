@@ -1,5 +1,7 @@
 /**
  * App/Append new class string to the provided DOM element
+ * @memberOf module:utils
+ * @static
  * @param element
  * @param className
  * @returns {{classList}|*}

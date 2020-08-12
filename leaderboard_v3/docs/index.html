@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="cLabs.Ajax.html">Ajax</a></li><li><a href="LbWidget.html">LbWidget</a></li><li><a href="Messaging.html">Messaging</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_hasClass">_hasClass</a></li><li><a href="global.html#accordionStyle">accordionStyle</a></li><li><a href="global.html#addClass">addClass</a></li><li><a href="global.html#closest">closest</a></li><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#formatNumberLeadingZeros">formatNumberLeadingZeros</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#hearBeatCheck">hearBeatCheck</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#objectCount">objectCount</a></li><li><a href="global.html#objectIterator">objectIterator</a></li><li><a href="global.html#openWithTabAndAction">openWithTabAndAction</a></li><li><a href="global.html#query">query</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removeClass">removeClass</a></li><li><a href="global.html#sizeof">sizeof</a></li><li><a href="global.html#stringContains">stringContains</a></li><li><a href="global.html#stripHtml">stripHtml</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="cLabs.Ajax.html">Ajax</a></li><li><a href="LbWidget.html">LbWidget</a></li><li><a href="Messaging.html">Messaging</a></li></ul><h3>Modules</h3><ul><li><a href="module-utils.html">utils</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-utils.html#._hasClass">_hasClass</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.addClass">addClass</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.closest">closest</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.formatNumberLeadingZeros">formatNumberLeadingZeros</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.isElement">isElement</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.objectCount">objectCount</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.objectIterator">objectIterator</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.query">query</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.remove">remove</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.removeClass">removeClass</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.scrollEnabled">scrollEnabled</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.sizeof">sizeof</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.stringContains">stringContains</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.stripHtml">stripHtml</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#accordionStyle">accordionStyle</a></li><li><a href="global.html#formatDateTime">formatDateTime</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#hearBeatCheck">hearBeatCheck</a></li><li><a href="global.html#openWithTabAndAction">openWithTabAndAction</a></li></ul>
 </nav>
 
 <div id="main">
@@ -100,6 +100,10 @@
 <h4 id="example">Example</h4>
 <p>Run <code>npm run example</code> to open the example page.</p>
 <pre class="prettyprint source lang-sh"><code>npm run example
+</code></pre>
+<h4 id="documentation">Documentation</h4>
+<p>You can generate documentation by running:</p>
+<pre class="prettyprint source lang-sh"><code>npm run jsdoc
 </code></pre>
 <h2 id="examples">Examples</h2>
 <ul>
@@ -232,7 +236,16 @@ current language  setting and load the translation dynamically from an external 
 https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json
 
 * If translations are not required it is possible to disable them by changing &quot;loadTranslations&quot; setting to &quot;false&quot;
-</code></pre></article>
+</code></pre>
+<h3 id="why-we-use-sass%3A">Why we use SASS:</h3>
+<p>Here are some of the basic benefits of why we are using SASS:</p>
+<ul>
+<li>provides the ability to use variables, allows you to store a value, or a set of values, and to reuse these variables throughout your SASS files as many times you want and wherever you want. Easy, powerful, and useful.</li>
+<li>the improved syntax allows you to use a nested syntax, which is code contained within another piece of code that performs a wider function</li>
+<li>provides mixin functionality: Mixins are like functions in other programming languages. They return a value or set of values and can take parameters including default values.</li>
+<li>allows you to break apart your big complex CSS files into smaller chunks, this improves the ability to work on the same stylesheets for multiple teams</li>
+<li>still supports the basic CSS syntax as SCSS syntax is CSS compatible</li>
+</ul></article>
     </section>
 
 

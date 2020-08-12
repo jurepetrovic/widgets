@@ -1,6 +1,7 @@
 /**
  * Returns true if it is a DOM element
- *
+ * @memberOf module:utils
+ * @static
  * @param o {Object}
  * @return {Boolean}
  */

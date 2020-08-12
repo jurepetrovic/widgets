@@ -1,5 +1,7 @@
 /**
  * Object iterator - best usage is for a list of DOM elements
+ * @memberOf module:utils
+ * @static
  * @param obj
  * @param callback
  */

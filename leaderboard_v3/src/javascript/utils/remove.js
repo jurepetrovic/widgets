@@ -1,5 +1,7 @@
 /**
  * Removes an HTML DOM element
+ * @memberOf module:utils
+ * @static
  * @paramobj el {Object} DOM element
  */
 const remove = function (el) {

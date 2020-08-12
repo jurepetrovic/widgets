@@ -1,3 +1,7 @@
+/**
+ @module utils
+ */
+
 export { default as sizeof } from './sizeof';
 export { default as isElement } from './isElement';
 export { default as objectCount } from './objectCount';

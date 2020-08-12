@@ -1,5 +1,7 @@
 /**
  * Provides an ability to check if a DOM element contains a class string
+ * @memberOf module:utils
+ * @static
  * @param element
  * @param className
  * @returns {boolean}

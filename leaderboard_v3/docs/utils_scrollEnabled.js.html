@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>utils/remove.js - Documentation</title>
+    <title>utils/scrollEnabled.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">utils/remove.js</h1>
+    <h1 class="page-title">utils/scrollEnabled.js</h1>
     
 
     
@@ -45,18 +45,17 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Removes an HTML DOM element
+ * Check if scrolling is enabled
  * @memberOf module:utils
  * @static
- * @paramobj el {Object} DOM element
+ * @param doc
+ * @returns {boolean}
  */
-const remove = function (el) {
-  if (el !== null) {
-    el.parentElement.removeChild(el);
-  }
+const scrollEnabled = function (doc) {
+  return (doc !== null) ? (doc.scrollHeight > doc.offsetHeight) : false;
 };
 
-export default remove;
+export default scrollEnabled;
 </code></pre>
         </article>
     </section>
