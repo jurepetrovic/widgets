@@ -4,7 +4,6 @@ import sizeof from '../utils/sizeof';
 /**
  * Ajax method
  *
- * @class Ajax
  * @constructor
  */
 cLabs.Ajax = function () {
@@ -32,6 +31,13 @@ cLabs.Ajax.prototype.createCORSRequest = function (method, url) {
   return obj.xhr;
 };
 
+/**
+ * Abort the request if it has already been sent
+ *
+ * @memberOf cLabs.Ajax
+ * @method abort
+ * @return { Object } cLabs.Ajax
+ */
 cLabs.Ajax.prototype.abort = function () {
   var _this = this;
 
@@ -46,6 +52,7 @@ cLabs.Ajax.prototype.abort = function () {
 /**
  * Retrieves data from a URL without page refresh
  *
+ * @memberOf cLabs.Ajax
  * @method getData
  * @param {Object} configuration object
  *  - object contains: HTTP method "type: POST, GET", url: to send the request to, data: {object}

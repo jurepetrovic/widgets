@@ -1,4 +1,50 @@
-import moment from 'moment';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>modules/MiniScoreBoard.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="cLabs.Ajax.html">Ajax</a><ul class='methods'><li data-type='method' style='display: none;'><a href="cLabs.Ajax.html#.abort">abort</a></li><li data-type='method' style='display: none;'><a href="cLabs.Ajax.html#.getData">getData</a></li></ul></li><li><a href="LbWidget.html">LbWidget</a><ul class='members'><li data-type='member' style='display: none;'><a href="LbWidget.html#.this.settings">this.settings</a></li><li data-type='member' style='display: none;'><a href="LbWidget.html#~competitionCheckAjax">competitionCheckAjax</a></li><li data-type='member' style='display: none;'><a href="LbWidget.html#~competitionFinishedCheckAjax">competitionFinishedCheckAjax</a></li></ul><ul class='methods'><li data-type='method' style='display: none;'><a href="LbWidget.html#.this.formatDateTime">this.formatDateTime</a></li><li data-type='method' style='display: none;'><a href="LbWidget.html#.this.init">this.init</a></li><li data-type='method' style='display: none;'><a href="LbWidget.html#.this.openWithTabAndAction">this.openWithTabAndAction</a></li></ul></li><li><a href="MainWidget.html">MainWidget</a><ul class='methods'><li data-type='method' style='display: none;'><a href="MainWidget.html#.this.accordionStyle">this.accordionStyle</a></li></ul></li><li><a href="Messaging.html">Messaging</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Messaging.html#.this.hearBeatCheck">this.hearBeatCheck</a></li></ul></li><li><a href="MiniScoreBoard.html">MiniScoreBoard</a></li><li><a href="Notifications.html">Notifications</a></li></ul><h3>Modules</h3><ul><li><a href="module-utils.html">utils</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-utils.html#._hasClass">_hasClass</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.addClass">addClass</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.closest">closest</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.formatNumberLeadingZeros">formatNumberLeadingZeros</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.isElement">isElement</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.objectCount">objectCount</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.objectIterator">objectIterator</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.query">query</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.remove">remove</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.removeClass">removeClass</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.scrollEnabled">scrollEnabled</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.sizeof">sizeof</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.stringContains">stringContains</a></li><li data-type='method' style='display: none;'><a href="module-utils.html#.stripHtml">stripHtml</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getData">getData</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">modules/MiniScoreBoard.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import moment from 'moment';
 import query from '../utils/query';
 import addClass from '../utils/addClass';
 import hasClass from '../utils/hasClass';
@@ -12,12 +58,6 @@ import dragElement from './dragElement';
  * @constructor
  */
 export const MiniScoreBoard = function (options) {
-  /**
-   * MiniScoreBoard settings
-   * @memberOf MiniScoreBoard
-   * @constant
-   * @type { Object }
-   */
   this.settings = {
     lbWidget: null,
     container: null,
@@ -92,10 +132,10 @@ export const MiniScoreBoard = function (options) {
       dateObj = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
       inverse = false;
 
-      if (diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0) {
+      if (diff &lt; 0 &amp;&amp; _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0) {
         label = _this.settings.lbWidget.settings.translation.miniLeaderboard.starting;
         date = '';
-      } else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3) {
+      } else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 &amp;&amp; _this.settings.lbWidget.settings.competition.activeContest.statusCode &lt; 3) {
         diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledEnd).diff(moment());
         dateObj = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
         label = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
@@ -251,7 +291,7 @@ export const MiniScoreBoard = function (options) {
     }
 
     window.mapObject(_this.settings.lbWidget.settings.leaderboard.leaderboardData, function (lbEntry) {
-      if ((lbEntry.memberRefId === _this.settings.lbWidget.settings.memberId || lbEntry.memberId === _this.settings.lbWidget.settings.memberId) && typeof lbEntry.rankings !== 'undefined') {
+      if ((lbEntry.memberRefId === _this.settings.lbWidget.settings.memberId || lbEntry.memberId === _this.settings.lbWidget.settings.memberId) &amp;&amp; typeof lbEntry.rankings !== 'undefined') {
         var scoreArea = query(defaultDomObj, '.cl-widget-ms-default-results-list');
         scoreArea.innerHTML = '';
 
@@ -274,8 +314,8 @@ export const MiniScoreBoard = function (options) {
           }
 
           query(lbWrapper, '.cl-widget-ms-default-mem-label').innerHTML = selfMember ? 'YOU' : '';
-          query(lbWrapper, '.cl-widget-ms-default-mem-rank').innerHTML = "<span class='cl-mem-rank-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.rank + "</span><span class='cl-mem-rank'>" + lbRankingEntry.rank + '</span>';
-          query(lbWrapper, '.cl-widget-ms-default-mem-points').innerHTML = "<span class='cl-mem-points-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.points + "</span><span class='cl-mem-points'>" + lbRankingEntry.points + '</span>';
+          query(lbWrapper, '.cl-widget-ms-default-mem-rank').innerHTML = "&lt;span class='cl-mem-rank-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.rank + "&lt;/span>&lt;span class='cl-mem-rank'>" + lbRankingEntry.rank + '&lt;/span>';
+          query(lbWrapper, '.cl-widget-ms-default-mem-points').innerHTML = "&lt;span class='cl-mem-points-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.points + "&lt;/span>&lt;span class='cl-mem-points'>" + lbRankingEntry.points + '&lt;/span>';
 
           scoreArea.appendChild(lbWrapper);
         });
@@ -285,10 +325,10 @@ export const MiniScoreBoard = function (options) {
         //  var lastScore = query(_this.settings.container, ".cl-widget-ms-default-last-score").innerHTML,
         //  highScore = query(_this.settings.container, ".cl-widget-ms-default-high-score").innerHTML,
         //  rank = query(_this.settings.container, ".cl-widget-ms-default-rank-value"),
-        //  change = (lbEntry.change < 0) ? "down" : ( lbEntry.change > 0 ? "up" : "same" ),
+        //  change = (lbEntry.change &lt; 0) ? "down" : ( lbEntry.change > 0 ? "up" : "same" ),
         //  rankValue = lbEntry.rank;
         //
-        // if( lastScore !== String(lbEntry.points) && String(lbEntry.points) !== highScore ){
+        // if( lastScore !== String(lbEntry.points) &amp;&amp; String(lbEntry.points) !== highScore ){
         //  query(_this.settings.container, ".cl-widget-ms-default-last-score").innerHTML = highScore;
         // }
         //
@@ -304,7 +344,7 @@ export const MiniScoreBoard = function (options) {
       }
     });
 
-    if (inverse && !hasClass(defaultDomObj, 'cl-inverse')) {
+    if (inverse &amp;&amp; !hasClass(defaultDomObj, 'cl-inverse')) {
       addClass(defaultDomObj, 'cl-inverse');
     }
   };
@@ -388,7 +428,7 @@ export const MiniScoreBoard = function (options) {
     }
 
     window.mapObject(_this.settings.lbWidget.settings.leaderboard.leaderboardData, function (lbEntry) {
-      if ((lbEntry.memberRefId === _this.settings.lbWidget.settings.memberId || lbEntry.memberId === _this.settings.lbWidget.settings.memberId) && typeof lbEntry.rankings !== 'undefined') {
+      if ((lbEntry.memberRefId === _this.settings.lbWidget.settings.memberId || lbEntry.memberId === _this.settings.lbWidget.settings.memberId) &amp;&amp; typeof lbEntry.rankings !== 'undefined') {
         var scoreArea = query(defaultDomObj, '.cl-widget-ms-first-to-results-list');
         scoreArea.innerHTML = '';
 
@@ -411,15 +451,15 @@ export const MiniScoreBoard = function (options) {
           img.style.display = 'block';
 
           query(lbWrapper, '.cl-widget-ms-first-to-mem-label').innerHTML = selfMember ? 'YOU' : '';
-          query(lbWrapper, '.cl-widget-ms-first-to-mem-rank').innerHTML = "<span class='cl-mem-rank-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.rank + "</span><span class='cl-mem-rank'>" + lbRankingEntry.rank + '</span>';
-          query(lbWrapper, '.cl-widget-ms-first-to-mem-points').innerHTML = "<span class='cl-mem-points-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.points + "</span><span class='cl-mem-points'>" + lbRankingEntry.points + '/' + strategy.recordTimeWhenSumReaches + '</span>';
+          query(lbWrapper, '.cl-widget-ms-first-to-mem-rank').innerHTML = "&lt;span class='cl-mem-rank-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.rank + "&lt;/span>&lt;span class='cl-mem-rank'>" + lbRankingEntry.rank + '&lt;/span>';
+          query(lbWrapper, '.cl-widget-ms-first-to-mem-points').innerHTML = "&lt;span class='cl-mem-points-label'>" + _this.settings.lbWidget.settings.translation.leaderboard.points + "&lt;/span>&lt;span class='cl-mem-points'>" + lbRankingEntry.points + '/' + strategy.recordTimeWhenSumReaches + '&lt;/span>';
 
           scoreArea.appendChild(lbWrapper);
         });
       }
     });
 
-    if (inverse && !hasClass(defaultDomObj, 'cl-inverse')) {
+    if (inverse &amp;&amp; !hasClass(defaultDomObj, 'cl-inverse')) {
       addClass(defaultDomObj, 'cl-inverse');
     }
   };
@@ -515,10 +555,10 @@ export const MiniScoreBoard = function (options) {
         var lastScore = query(_this.settings.container, '.cl-widget-ms-sum-best-last-score').innerHTML;
         var highScore = query(_this.settings.container, '.cl-widget-ms-sum-best-high-score').innerHTML;
         var rank = query(_this.settings.container, '.cl-widget-ms-sum-best-rank-value');
-        var change = (lbEntry.change < 0) ? 'down' : (lbEntry.change > 0 ? 'up' : 'same');
+        var change = (lbEntry.change &lt; 0) ? 'down' : (lbEntry.change > 0 ? 'up' : 'same');
         var rankValue = lbEntry.rank;
 
-        if (lastScore !== String(lbEntry.points) && String(lbEntry.points) !== highScore) {
+        if (lastScore !== String(lbEntry.points) &amp;&amp; String(lbEntry.points) !== highScore) {
           query(_this.settings.container, '.cl-widget-ms-sum-best-last-score').innerHTML = highScore;
         }
 
@@ -534,7 +574,7 @@ export const MiniScoreBoard = function (options) {
       }
     });
 
-    if (inverse && !hasClass(sumBestDomObj, 'cl-inverse')) {
+    if (inverse &amp;&amp; !hasClass(sumBestDomObj, 'cl-inverse')) {
       addClass(sumBestDomObj, 'cl-inverse');
     }
   };
@@ -546,10 +586,10 @@ export const MiniScoreBoard = function (options) {
     var wrapperDomObj = _this.settings.infoContainer;
     var date = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
 
-    if (diff < 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0) {
+    if (diff &lt; 0 &amp;&amp; _this.settings.lbWidget.settings.competition.activeContest.statusCode === 0) {
       label = 'starting';
       date = '';
-    } else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 && _this.settings.lbWidget.settings.competition.activeContest.statusCode < 3) {
+    } else if (_this.settings.lbWidget.settings.competition.activeContest.statusCode > 0 &amp;&amp; _this.settings.lbWidget.settings.competition.activeContest.statusCode &lt; 3) {
       diff = moment(_this.settings.lbWidget.settings.competition.activeContest.scheduledEnd).diff(moment());
       label = 'started';
       date = _this.settings.lbWidget.formatDateTime(moment.duration(diff));
@@ -675,14 +715,14 @@ export const MiniScoreBoard = function (options) {
   this.loadInfoArea = function (callback) {
     var _this = this;
 
-    if (_this.settings.active && _this.settings.lbWidget.settings.competition.activeCompetition !== null && _this.settings.lbWidget.settings.competition.activeCompetition.statusCode < 7) {
-      if (typeof _this.settings.lbWidget.settings.competition.activeCompetition.optin === 'boolean' && !_this.settings.lbWidget.settings.competition.activeCompetition.optin) {
+    if (_this.settings.active &amp;&amp; _this.settings.lbWidget.settings.competition.activeCompetition !== null &amp;&amp; _this.settings.lbWidget.settings.competition.activeCompetition.statusCode &lt; 7) {
+      if (typeof _this.settings.lbWidget.settings.competition.activeCompetition.optin === 'boolean' &amp;&amp; !_this.settings.lbWidget.settings.competition.activeCompetition.optin) {
         _this.layoutRequiresOptIn();
         callback();
-      } else if (_this.settings.lbWidget.settings.competition.activeContest !== null && _this.settings.lbWidget.settings.competition.activeContest.strategy.type === 'SumBest') {
+      } else if (_this.settings.lbWidget.settings.competition.activeContest !== null &amp;&amp; _this.settings.lbWidget.settings.competition.activeContest.strategy.type === 'SumBest') {
         _this.layoutSumBestOf();
         callback();
-      } else if (_this.settings.lbWidget.settings.competition.activeContest !== null && _this.settings.lbWidget.settings.competition.activeContest.strategy.type === 'FirstTo') {
+      } else if (_this.settings.lbWidget.settings.competition.activeContest !== null &amp;&amp; _this.settings.lbWidget.settings.competition.activeContest.strategy.type === 'FirstTo') {
         _this.layoutFirstToOrEmpty(_this.settings.lbWidget.settings.competition.activeContest.strategy);
         callback();
       } else if (_this.settings.lbWidget.settings.competition.activeContestId !== null) {
@@ -701,9 +741,9 @@ export const MiniScoreBoard = function (options) {
 
     dragElement(_this.settings.container, query(_this.settings.container, '.cl-widget-ms-icon'), _this.settings.overlayContainer, _this.settings.lbWidget.settings.bindContainer, function (newTop, newLeft) {
       _this.settings.lbWidget.stopActivity();
-      if (newTop <= 5) {
+      if (newTop &lt;= 5) {
         addClass(_this.settings.container, 'cl-vertical-mini');
-      } else if (newLeft <= 5) {
+      } else if (newLeft &lt;= 5) {
         removeClass(_this.settings.container, 'cl-vertical-mini');
       }
 
@@ -749,3 +789,32 @@ export const MiniScoreBoard = function (options) {
     });
   };
 };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
