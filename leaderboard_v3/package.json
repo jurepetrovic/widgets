@@ -8,6 +8,7 @@
     "lint": "eslint ./src",
     "example": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3.html",
     "example:loader": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_loader.html",
+    "example:customized": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_customized.html",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "jsdoc": "rimraf docs && jsdoc -c jsdoc.json",

@@ -1,6 +1,7 @@
 import moment from 'moment';
 import Identicon from 'identicon.js';
 import jsSHA from 'jssha';
+import cssVars from 'css-vars-ponyfill';
 
 import mergeObjects from '../utils/mergeObjects';
 import formatNumberLeadingZeros from '../utils/formatNumberLeadingZeros';
@@ -12,6 +13,7 @@ import addClass from '../utils/addClass';
 import removeClass from '../utils/removeClass';
 import closest from '../utils/closest';
 import isMobileTablet from '../utils/isMobileTablet';
+import camelToKebabCase from '../utils/camelToKebabCase';
 
 import cLabs from './cLabs';
 import './Ajax';
@@ -142,6 +144,7 @@ export const LbWidget = function (options) {
       (cLabs.api.url + '/assets/widgets/leaderboard_v3/css/style.css?t=' + (new Date().getTime())),
       (cLabs.api.url + '/assets/widgets/leaderboard_v3/css/fonts.css?t=' + (new Date().getTime()))
     ],
+    styles: {},
     layoutBuildCallback: function (layout, instance) {
     }
   };
@@ -1495,6 +1498,24 @@ export const LbWidget = function (options) {
     return isMobileTablet();
   };
 
+  this.applyAppearance = function () {
+    if (this.settings.styles) {
+      const styles = Object.keys(this.settings.styles).reduce((accumulator, currentValue) => {
+        return {
+          ...accumulator,
+          [`--lb3-${camelToKebabCase(currentValue)}`]: this.settings.styles[currentValue]
+        };
+      }, {});
+
+      cssVars({
+        include: 'link[rel=stylesheet],style',
+        watch: true,
+        onlyLegacy: false,
+        variables: { ...styles }
+      });
+    }
+  };
+
   /**
    * Init LbWidget method
    * @method
@@ -1503,6 +1524,8 @@ export const LbWidget = function (options) {
    */
   this.init = function () {
     this.loadStylesheet(() => {
+      this.applyAppearance();
+
       this.loadMember((member) => {
         this.loadWidgetTranslations(() => {
           if (this.settings.miniScoreBoard === null) {

@@ -5,7 +5,6 @@
 */
 
 import './polyfills';
-import './polyfills/cssVars';
 import './modules/setTimeoutGlobal';
 
 import { LbWidget } from './modules/LbWidget';

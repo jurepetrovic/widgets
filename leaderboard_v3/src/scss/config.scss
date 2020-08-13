@@ -7,10 +7,15 @@
   --lb3-widget-date-text-color: #ffffff;
   --lb3-widget-header-text-color: #7a7a7a;
 
+  --lb3-widget-navigation-icon-width: 73px;
+  --lb3-widget-navigation-icon-height: 73px;
+
   // CLOSE BTN
   --lb3-close-btn-bg-color: #212121;
 
   // TOURNAMENTS
+  --lb3-tournament-icon: url(../images/big-tournament-icon.svg);
+  --lb3-tournament-icon-bg-image: url(../images/big-green-btn-icon2.png);
   --lb3-tournament-details-bg-color: #28a02a;
   --lb3-tournament-details-label-color: #ffffff;
   --lb3-tournament-footer-bg-color: #2bb22e;
@@ -27,6 +32,8 @@
   --lb3-tournament-list-bg-color: #28a02a;
 
   // ACHIEVEMENTS
+  --lb3-achievements-icon: url(../images/big-challenge-icon.svg);
+  --lb3-achievements-icon-bg-image: url(../images/big-blue-btn-icon2.png);
   --lb3-achievements-header-bg-color: #23b3dd;
   --lb3-achievements-details-bg-color: #00a1bd;
   --lb3-achievements-container-bg-color: #00a1bd;
@@ -46,6 +53,8 @@
 
   // REWARDS
 
+  --lb3-rewards-icon: url(../images/big-reward-icon.svg);
+  --lb3-rewards-icon-bg-image: url(../images/big-orange-btn-icon2.png);
   --lb3-rewards-header-bg-color: #f18d32;
   --lb3-rewards-footer-bg-color: #f18d32;
   --lb3-rewards-footer-text-color: #212121;
@@ -66,6 +75,8 @@
 
   // MESSAGES
 
+  --lb3-messages-icon: url(../images/big-message-icon.svg);
+  --lb3-messages-icon-bg-image: url(../images/big-red-btn-icon.svg);
   --lb3-messages-header-bg-color: #f84128;
   --lb3-messages-header-text-color: #ffffff;
   --lb3-messages-header-date-color: #ffffff;
