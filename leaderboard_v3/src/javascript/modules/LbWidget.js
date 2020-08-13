@@ -1520,7 +1520,7 @@ export const LbWidget = function (options) {
             this.eventListeners();
           } else {
             this.settings.mainWidget.hide(() => {
-              this.deactivateCompetitionsAndLeaderboards(function () {
+              this.deactivateCompetitionsAndLeaderboards(() => {
                 this.settings.miniScoreBoard.settings.active = true;
                 this.settings.miniScoreBoard.settings.container.style.display = 'block';
                 this.startup();
