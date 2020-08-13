@@ -14,6 +14,19 @@ Our widget "out of the box" is a product that you can use immediately by placing
 
 [Read more here](https://complabs.atlassian.net/wiki/spaces/CLRAV/pages/842301445/The+Widget)
 
+## Installation
+
+The Leaderboard Widget package lives in [npm](https://www.npmjs.com/get-npm). To install the latest stable version, run the following command:
+
+```shell
+npm install @competitionlabs/leaderboard
+```
+
+Or if you're using [yarn](https://classic.yarnpkg.com/en/docs/install/):
+
+```shell
+yarn add @competitionlabs/leaderboard
+```
 
 ## Contributing
 
