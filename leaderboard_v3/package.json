@@ -3,7 +3,7 @@
   "version": "3.0.4",
   "description": "Leaderboard Widgets",
   "scripts": {
-    "dev": "cross-env --env.LANG=en webpack-dev-server --config ./webpack/webpack.config.js --progress",
+    "dev": "cross-env env.LANG=en env.INLINE_CSS=true webpack-dev-server --config ./webpack/webpack.config.js --progress",
     "build": "rimraf build && cross-env --env.LANG=en webpack --config ./webpack/webpack.config.js --env.production --progress",
     "build:inline-css": "rimraf build && cross-env --env.LANG=en env.INLINE_CSS=true webpack --config ./webpack/webpack.config.js --env.production --progress",
     "lint": "eslint ./src",

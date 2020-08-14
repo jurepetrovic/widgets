@@ -6,8 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     'leaderboard.v3.js': [
-      './src/javascript/leaderboard.v3.js',
-      './src/scss/style.scss'
+      './src/javascript/leaderboard.v3.js'
     ],
     'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
@@ -48,20 +47,32 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '../css/[name].css'
-            }
-          },
+          { loader: 'style-loader', options: { injectType: 'styleTag' } },
+          'css-loader',
           'sass-loader'
         ]
-      }
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'svg-url-loader',
+        query: {
+          limit: 8192,
+          mimetype: 'application/svg+xml'
+        }
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 8192
+        }
+      },
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.LANG': JSON.stringify(process.env.LANG)
+      'process.env.LANG': JSON.stringify(process.env.LANG),
+      'process.env.INLINE_CSS': JSON.stringify(process.env.INLINE_CSS),
     }),
     // new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({
