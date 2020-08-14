@@ -18,13 +18,13 @@ Our widget "out of the box" is a product that you can use immediately by placing
 
 The Leaderboard Widget package lives in [npm](https://www.npmjs.com/get-npm). To install the latest stable version, run the following command:
 
-```shell
+```sh
 npm install @competitionlabs/leaderboard
 ```
 
 Or if you're using [yarn](https://classic.yarnpkg.com/en/docs/install/):
 
-```shell
+```sh
 yarn add @competitionlabs/leaderboard
 ```
 
@@ -47,6 +47,12 @@ Run `npm run build` in the `leaderboard_v3` directory to generate production fil
 
 ```sh
 npm run build
+```
+
+You can include css file into the bundle by running `npm run build:inline-css`
+
+```sh
+npm run build:inline-css
 ```
 
 Or run `npm run dev` to build widget in development mode.
@@ -75,6 +81,12 @@ You can run the test suite using the following command:
 
 ```sh
 npm run test
+```
+
+Run `npm run test:coverage` to open coverage report
+
+```sh
+npm run test:coverage
 ```
 
 Please ensure that the tests are passing when submitting a pull request.
