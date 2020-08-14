@@ -10,6 +10,7 @@
     "example": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3.html",
     "example:loader": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_loader.html",
     "example:customized": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_customized.html",
+    "example:inline-css": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_inline_css.html",
     "example:npm": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_npm/dist/",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",

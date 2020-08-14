@@ -21,7 +21,9 @@ module.exports = {
     open: true,
     port: 9000,
     contentBase: path.join(__dirname, '../..'),
-    openPage: '/examples/leaderboard_v3.html',
+    openPage: process.env.INLINE_CSS
+      ? '/examples/leaderboard_v3_inline_css.html'
+      : '/examples/leaderboard_v3.html',
     writeToDisk: true
   },
   optimization: {
