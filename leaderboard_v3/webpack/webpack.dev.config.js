@@ -5,8 +5,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    'leaderboard.v3.js': [
-      './src/javascript/leaderboard.v3.js'
+    'leaderboard.v3.js': process.env.INLINE_CSS ? [
+      './src/javascript/leaderboard.v3.js',
+    ] : [
+      './src/javascript/leaderboard.v3.js',
+      './src/scss/style.scss'
     ],
     'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
@@ -48,11 +51,21 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
-        use: [
-          { loader: 'style-loader', options: { injectType: 'styleTag' } },
-          'css-loader',
-          'sass-loader'
-        ]
+        use: process.env.INLINE_CSS
+          ? [
+            { loader: 'style-loader', options: { injectType: 'styleTag' } },
+            'css-loader',
+            'sass-loader'
+          ]
+          : [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '../css/[name].css'
+              }
+            },
+            'sass-loader'
+          ]
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
