@@ -4,7 +4,8 @@
   "description": "Leaderboard Widgets",
   "scripts": {
     "dev": "cross-env --env.LANG=en webpack-dev-server --config ./webpack/webpack.config.js --progress",
-    "build": "cross-env --env.LANG=en webpack --config ./webpack/webpack.config.js --env.production --progress",
+    "build": "rimraf build && cross-env --env.LANG=en webpack --config ./webpack/webpack.config.js --env.production --progress",
+    "build:inline-css": "rimraf build && cross-env --env.LANG=en env.INLINE_CSS=true webpack --config ./webpack/webpack.config.js --env.production --progress",
     "lint": "eslint ./src",
     "example": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3.html",
     "example:loader": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_loader.html",
@@ -12,8 +13,9 @@
     "example:npm": "webpack-dev-server --open --port 9001 --contentBase ../ --open-page /examples/leaderboard_v3_npm/dist/",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
+    "test:coverage": "webpack-dev-server --open --port 9002 --contentBase ./coverage/lcov-report",
     "jsdoc": "rimraf docs && jsdoc -c jsdoc.json",
-    "jsdoc:open": "webpack-dev-server --open --port 9002 --contentBase ./docs"
+    "jsdoc:open": "webpack-dev-server --open --port 9003 --contentBase ./docs"
   },
   "author": "COMPETITION LABS LTD",
   "license": "ISC",
@@ -24,6 +26,7 @@
     "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
+    "css-loader": "^4.2.1",
     "docdash": "^1.2.0",
     "eslint": "^7.2.0",
     "eslint-config-standard": "^14.1.1",
@@ -38,6 +41,9 @@
     "nan": "^2.14.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "svg-url-loader": "^6.0.0",
+    "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
