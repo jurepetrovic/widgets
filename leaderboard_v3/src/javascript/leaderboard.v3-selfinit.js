@@ -5,10 +5,12 @@
 */
 
 import './polyfills';
-import './polyfills/cssVars';
 import './modules/setTimeoutGlobal';
-
 import { LbWidget } from './modules/LbWidget';
+
+if (process.env.INLINE_CSS) {
+  require('../scss/style.scss');
+}
 
 (function () {
   if (typeof window._clLeaderBoardV3SelfInit === 'undefined') {

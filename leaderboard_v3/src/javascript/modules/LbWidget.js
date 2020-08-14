@@ -1,6 +1,7 @@
 import moment from 'moment';
 import Identicon from 'identicon.js';
 import jsSHA from 'jssha';
+import cssVars from 'css-vars-ponyfill';
 
 import mergeObjects from '../utils/mergeObjects';
 import formatNumberLeadingZeros from '../utils/formatNumberLeadingZeros';
@@ -12,6 +13,7 @@ import addClass from '../utils/addClass';
 import removeClass from '../utils/removeClass';
 import closest from '../utils/closest';
 import isMobileTablet from '../utils/isMobileTablet';
+import camelToKebabCase from '../utils/camelToKebabCase';
 
 import cLabs from './cLabs';
 import './Ajax';
@@ -29,6 +31,12 @@ const translation = require(`../../i18n/translation_${process.env.LANG}.json`);
  * @constructor
  */
 export const LbWidget = function (options) {
+  /**
+   * LbWidget settings
+   * @memberOf LbWidget
+   * @constant
+   * @type { Object }
+   */
   this.settings = {
     debug: true,
     bindContainer: document.body,
@@ -136,6 +144,7 @@ export const LbWidget = function (options) {
       (cLabs.api.url + '/assets/widgets/leaderboard_v3/css/style.css?t=' + (new Date().getTime())),
       (cLabs.api.url + '/assets/widgets/leaderboard_v3/css/fonts.css?t=' + (new Date().getTime()))
     ],
+    styles: {},
     layoutBuildCallback: function (layout, instance) {
     }
   };
@@ -152,6 +161,7 @@ export const LbWidget = function (options) {
 
   /**
    * Format duration of Date Time from moment() object
+   * @memberOf LbWidget
    * @param duration {moment}
    * @returns {string}
    */
@@ -196,7 +206,8 @@ export const LbWidget = function (options) {
    * get a list of available competition filtered by provided global criteria
    * @param callback {Function}
    */
-  var competitionCheckAjax = new cLabs.Ajax();
+  const competitionCheckAjax = new cLabs.Ajax();
+
   this.checkForAvailableCompetitions = function (callback, ajaxInstance) {
     var _this = this;
     var url = (_this.settings.memberId.length === 0) ? (
@@ -257,7 +268,8 @@ export const LbWidget = function (options) {
    * get a list of finished competition filtered by provided global criteria
    * @param callback {Function}
    */
-  var competitionFinishedCheckAjax = new cLabs.Ajax();
+  const competitionFinishedCheckAjax = new cLabs.Ajax();
+
   this.checkForFinishedCompetitions = function (callback, ajaxInstance) {
     var _this = this;
     var url = (_this.settings.memberId.length === 0) ? (
@@ -1194,6 +1206,7 @@ export const LbWidget = function (options) {
 
   /**
    * Open main widget and open specific tab and loads relevant action
+   * @memberOf LbWidget
    * @param tab String
    * @param actionCallback Function
    */
@@ -1485,31 +1498,55 @@ export const LbWidget = function (options) {
     return isMobileTablet();
   };
 
-  this.init = function () {
-    var _this = this;
+  this.applyAppearance = function () {
+    if (this.settings.styles) {
+      const styles = Object.keys(this.settings.styles).reduce((accumulator, currentValue) => {
+        return {
+          ...accumulator,
+          [`--lb3-${camelToKebabCase(currentValue)}`]: this.settings.styles[currentValue]
+        };
+      }, {});
 
-    _this.loadStylesheet(function () {
-      _this.loadMember(function (member) {
-        _this.loadWidgetTranslations(function () {
-          if (_this.settings.miniScoreBoard === null) {
-            _this.settings.notifications = new Notifications();
-            _this.settings.miniScoreBoard = new MiniScoreBoard({
+      cssVars({
+        include: 'link[rel=stylesheet],style',
+        watch: true,
+        onlyLegacy: false,
+        variables: { ...styles }
+      });
+    }
+  };
+
+  /**
+   * Init LbWidget method
+   * @method
+   * @memberOf LbWidget
+   * @return {undefined}
+   */
+  this.init = function () {
+    this.loadStylesheet(() => {
+      this.applyAppearance();
+
+      this.loadMember((member) => {
+        this.loadWidgetTranslations(() => {
+          if (this.settings.miniScoreBoard === null) {
+            this.settings.notifications = new Notifications();
+            this.settings.miniScoreBoard = new MiniScoreBoard({
               active: true
             });
-            _this.settings.mainWidget = new MainWidget();
+            this.settings.mainWidget = new MainWidget();
 
-            _this.settings.notifications.settings.lbWidget = _this;
-            _this.settings.miniScoreBoard.settings.lbWidget = _this;
-            _this.settings.mainWidget.settings.lbWidget = _this;
+            this.settings.notifications.settings.lbWidget = this;
+            this.settings.miniScoreBoard.settings.lbWidget = this;
+            this.settings.mainWidget.settings.lbWidget = this;
 
-            _this.startup();
-            _this.eventListeners();
+            this.startup();
+            this.eventListeners();
           } else {
-            _this.settings.mainWidget.hide(function () {
-              _this.deactivateCompetitionsAndLeaderboards(function () {
-                _this.settings.miniScoreBoard.settings.active = true;
-                _this.settings.miniScoreBoard.settings.container.style.display = 'block';
-                _this.startup();
+            this.settings.mainWidget.hide(() => {
+              this.deactivateCompetitionsAndLeaderboards(() => {
+                this.settings.miniScoreBoard.settings.active = true;
+                this.settings.miniScoreBoard.settings.container.style.display = 'block';
+                this.startup();
               });
             });
           }

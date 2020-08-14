@@ -4,7 +4,18 @@ import query from '../utils/query';
 import stripHtml from '../utils/stripHtml';
 import addClass from '../utils/addClass';
 
+/**
+ * Notifications leaderboard widget
+ * @param options {Object}
+ * @constructor
+ */
 export const Notifications = function (options) {
+  /**
+   * Notifications settings
+   * @memberOf Notifications
+   * @constant
+   * @type { Object }
+   */
   this.settings = {
     container: null,
     detailsContainer: null,

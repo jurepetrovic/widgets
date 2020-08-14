@@ -2,10 +2,16 @@ import cLabs from './cLabs';
 
 /**
  * SSE Messaging
- * @param options
+ * @param options {Object}
  * @constructor
  */
 export const Messaging = function (options) {
+  /**
+   * Messaging settings
+   * @memberOf Messaging
+   * @constant
+   * @type { Object }
+   */
   this.settings = {
     source: null,
     ajax: {
@@ -87,6 +93,9 @@ export const Messaging = function (options) {
    * Request a heartbeat
    * - if the request is failing close the connection
    * - if the request is successful but the connection is closed reopen and call for a heartbeat again
+   *
+   * @memberOf Messaging
+   * @return {undefined}
    */
   this.hearBeatCheck = function () {
     var _this = this;

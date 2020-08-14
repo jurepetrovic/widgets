@@ -5,7 +5,9 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    'leaderboard.v3.js': [
+    'leaderboard.v3.js': process.env.INLINE_CSS ? [
+      './src/javascript/leaderboard.v3.js',
+    ] : [
       './src/javascript/leaderboard.v3.js',
       './src/scss/style.scss'
     ],
@@ -22,7 +24,9 @@ module.exports = {
     open: true,
     port: 9000,
     contentBase: path.join(__dirname, '../..'),
-    openPage: '/examples/leaderboard_v3.html',
+    openPage: process.env.INLINE_CSS
+      ? '/examples/leaderboard_v3_inline_css.html'
+      : '/examples/leaderboard_v3.html',
     writeToDisk: true
   },
   optimization: {
@@ -47,21 +51,43 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '../css/[name].css'
-            }
-          },
-          'sass-loader'
-        ]
-      }
+        use: process.env.INLINE_CSS
+          ? [
+            { loader: 'style-loader', options: { injectType: 'styleTag' } },
+            'css-loader',
+            'sass-loader'
+          ]
+          : [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '../css/[name].css'
+              }
+            },
+            'sass-loader'
+          ]
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'svg-url-loader',
+        query: {
+          limit: 8192,
+          mimetype: 'application/svg+xml'
+        }
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 8192
+        }
+      },
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.LANG': JSON.stringify(process.env.LANG)
+      'process.env.LANG': JSON.stringify(process.env.LANG),
+      'process.env.INLINE_CSS': JSON.stringify(process.env.INLINE_CSS),
     }),
     // new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({

@@ -6,7 +6,18 @@ import removeClass from '../utils/removeClass';
 import remove from '../utils/remove';
 import dragElement from './dragElement';
 
+/**
+ * MiniScoreBoard
+ * @param options {Object}
+ * @constructor
+ */
 export const MiniScoreBoard = function (options) {
+  /**
+   * MiniScoreBoard settings
+   * @memberOf MiniScoreBoard
+   * @constant
+   * @type { Object }
+   */
   this.settings = {
     lbWidget: null,
     container: null,

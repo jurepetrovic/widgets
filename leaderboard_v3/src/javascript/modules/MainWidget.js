@@ -9,7 +9,18 @@ import remove from '../utils/remove';
 import appendNext from '../utils/appendNext';
 import stripHtml from '../utils/stripHtml';
 
+/**
+ * MainWidget
+ * @param options {Object}
+ * @constructor
+ */
 export const MainWidget = function (options) {
+  /**
+   * MainWidget settings
+   * @memberOf MainWidget
+   * @constant
+   * @type { Object }
+   */
   this.settings = {
     lbWidget: null,
     container: null,
@@ -100,8 +111,10 @@ export const MainWidget = function (options) {
    *      - label: String "Available rewards"
    *      - type: String "available-rewards"
    *      - shown: Boolean true/false
-   * @param data Array
-   * @param onLayout Function
+   *
+   * @memberOf MainWidget
+   * @param data { Array }
+   * @param onLayout { Function }
    */
   this.accordionStyle = function (data, onLayout) {
     var _this = this;
