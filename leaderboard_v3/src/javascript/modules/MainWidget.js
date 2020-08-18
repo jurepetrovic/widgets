@@ -1426,6 +1426,7 @@ export const MainWidget = function (options) {
     var progressionPercent = document.createElement('div');
     var issuedBox = document.createElement('div');
     var issuedBoxCount = document.createElement('div');
+    var issuedBoxCheck = document.createElement('img');
     var moreButton = document.createElement('a');
     var cpomntainsImage = (typeof ach.icon !== 'undefined' && ach.icon.length > 0);
 
@@ -1442,6 +1443,7 @@ export const MainWidget = function (options) {
     progressionPercent.setAttribute('class', 'cl-ach-list-percent-number');
     issuedBox.setAttribute('class', 'cl-ach-list-issued-box');
     issuedBoxCount.setAttribute('class', 'cl-ach-list-issued-box-count');
+    issuedBoxCheck.setAttribute('class', 'cl-ach-list-issued-box-check');
     moreButton.setAttribute('class', 'cl-ach-list-more');
     // start with 0
     progressionPercent.innerHTML = '0%';
@@ -1488,6 +1490,7 @@ export const MainWidget = function (options) {
 
     // issued box has number, unchecked or checked box
     issuedBox.appendChild(issuedBoxCount);
+    issuedBox.appendChild(issuedBoxCheck);
 
     // wrapper has box, counter and button
     progressionWrapper.appendChild(progressionBox);
@@ -1666,6 +1669,7 @@ export const MainWidget = function (options) {
       var achInfo = _this.getAchievementInfo(id);
       var perc = 0;
       var issuedCnt = '';
+      var issuedChck = '../leaderboard_v3/src/images/ach-giftbox.svg';
       window.mapObject(progression, function (pr) {
         if (pr.achievementId === id) {
           // progress bar
@@ -1676,7 +1680,10 @@ export const MainWidget = function (options) {
           }
           // issue count
           if (achInfo.scheduling.scheduleType === 'Repeatedly') {
-            issuedCnt = pr.issued.toString();
+            issuedCnt = pr.issued.toString() + ' ';
+          }
+          if (achInfo.scheduling.scheduleType === 'Once') {
+            issuedChck = (pr.issued > 0) ? '../leaderboard_v3/src/images/ach-issued.svg' : '../leaderboard_v3/src/images/ach-not-issued.svg';
           }
         }
       });
@@ -1685,9 +1692,19 @@ export const MainWidget = function (options) {
         var bar = query(ach, '.cl-ach-list-progression-bar');
         var percentNum = query(ach, '.cl-ach-list-percent-number');
         var issuedCount = query(ach, '.cl-ach-list-issued-box-count');
+        var issuedCheck = query(ach, '.cl-ach-list-issued-box-check');
         bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
         percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + '%';
         issuedCount.innerHTML = issuedCnt;
+        issuedCheck.src = issuedChck;
+        /*
+        var image = new Image();
+        var imageIconWrapper = document.createElement('div');
+        image.setAttribute('class', 'cl-ach-list-issued-box');
+        image.src = 'C:/Programiranje/jurepetrovic/leaderboard_v3/src/images/ach-issued.png';
+        imageIconWrapper.appendChild(image);
+        //  detailsContainer.appendChild(imageIconWrapper);
+        */
         /*
         if (issuedStatus) {
           addClass(bar, 'cl-ach-complete');

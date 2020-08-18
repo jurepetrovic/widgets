@@ -10190,7 +10190,7 @@ var sizeof = function sizeof(obj) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\VSCode\widgets.git\leaderboard_v3\node_modules\webpack-dev-server\client\index.js?http://localhost:9000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:9000");
+__webpack_require__(/*! C:\Programiranje\jurepetrovic\leaderboard_v3\node_modules\webpack-dev-server\client\index.js?http://localhost:9000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:9000");
 module.exports = __webpack_require__(/*! ./src/javascript/loader.js */"./src/javascript/loader.js");
 
 
