@@ -1428,6 +1428,7 @@ export const MainWidget = function (options) {
     var issuedBoxCount = document.createElement('div');
     var issuedBoxCheck = document.createElement('img');
     var moreButton = document.createElement('a');
+    var rewardName = document.createElement('div');
     var cpomntainsImage = (typeof ach.icon !== 'undefined' && ach.icon.length > 0);
 
     listItem.setAttribute('class', 'cl-ach-list-item cl-ach-' + ach.id + (cpomntainsImage ? ' cl-ach-with-image' : ''));
@@ -1445,11 +1446,12 @@ export const MainWidget = function (options) {
     issuedBoxCount.setAttribute('class', 'cl-ach-list-issued-box-count');
     issuedBoxCheck.setAttribute('class', 'cl-ach-list-issued-box-check');
     moreButton.setAttribute('class', 'cl-ach-list-more');
+    rewardName.setAttribute('class', 'cl-ach-list-details-reward');
     // start with 0
     progressionPercent.innerHTML = '0%';
     // count number
     issuedBoxCount.innerHTML = '0';
-
+    rewardName.innerHTML = '';
     moreButton.dataset.id = ach.id;
     moreButton.innerHTML = _this.settings.lbWidget.settings.translation.achievements.more;
     moreButton.href = 'javascript:void(0);';
@@ -1496,6 +1498,7 @@ export const MainWidget = function (options) {
     progressionWrapper.appendChild(progressionBox);
     progressionWrapper.appendChild(issuedBox);
     progressionWrapper.appendChild(moreButton);
+    progressionWrapper.appendChild(rewardName);
 
     listItem.appendChild(detailsContainer);
     listItem.appendChild(progressionWrapper);
@@ -1670,6 +1673,12 @@ export const MainWidget = function (options) {
       var perc = 0;
       var issuedCnt = '';
       var issuedChck = '../leaderboard_v3/src/images/ach-giftbox.svg';
+      var reward = '';
+
+      if (Array.isArray(achInfo.rewards) && achInfo.rewards.length >> 0) {
+        reward = achInfo.rewards[0].rewardName.toString();
+      }
+
       window.mapObject(progression, function (pr) {
         if (pr.achievementId === id) {
           // progress bar
@@ -1680,7 +1689,7 @@ export const MainWidget = function (options) {
           }
           // issue count
           if (achInfo.scheduling.scheduleType === 'Repeatedly') {
-            issuedCnt = pr.issued.toString() + ' ';
+            issuedCnt = pr.issued.toString();
           }
           if (achInfo.scheduling.scheduleType === 'Once') {
             issuedChck = (pr.issued > 0) ? '../leaderboard_v3/src/images/ach-issued.svg' : '../leaderboard_v3/src/images/ach-not-issued.svg';
@@ -1693,10 +1702,12 @@ export const MainWidget = function (options) {
         var percentNum = query(ach, '.cl-ach-list-percent-number');
         var issuedCount = query(ach, '.cl-ach-list-issued-box-count');
         var issuedCheck = query(ach, '.cl-ach-list-issued-box-check');
+        var rewardName = query(ach, '.cl-ach-list-details-reward');
         bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
         percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + '%';
         issuedCount.innerHTML = issuedCnt;
         issuedCheck.src = issuedChck;
+        rewardName.innerHTML = reward;
         /*
         var image = new Image();
         var imageIconWrapper = document.createElement('div');
