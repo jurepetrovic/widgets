@@ -2157,8 +2157,26 @@
     margin-right: 5px;
     vertical-align: middle;
 }
-
+/*
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-check {
+    width: 2.5ex;
+    vertical-align: text-bottom;
+}
+*/
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-check {
+    background-image: url(../images/ach-issued.svg);
+    width: 2.5ex;
+    vertical-align: text-bottom;
+}
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-not-check {
+    background-image: url(../images/ach-not-issued.svg);
+    width: 2.5ex;
+    vertical-align: text-bottom;
+}
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-gift {
+    background-image: url(../images/ach-not-issued.svg);
     width: 2.5ex;
     vertical-align: text-bottom;
 }

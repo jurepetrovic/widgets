@@ -1427,6 +1427,8 @@ export const MainWidget = function (options) {
     var issuedBox = document.createElement('div');
     var issuedBoxCount = document.createElement('div');
     var issuedBoxCheck = document.createElement('img');
+    var issuedBoxNotCheck = document.createElement('img');
+    var issuedBoxGift = document.createElement('img');
     var moreButton = document.createElement('a');
     var rewardName = document.createElement('div');
     var cpomntainsImage = (typeof ach.icon !== 'undefined' && ach.icon.length > 0);
@@ -1445,6 +1447,8 @@ export const MainWidget = function (options) {
     issuedBox.setAttribute('class', 'cl-ach-list-issued-box');
     issuedBoxCount.setAttribute('class', 'cl-ach-list-issued-box-count');
     issuedBoxCheck.setAttribute('class', 'cl-ach-list-issued-box-check');
+    issuedBoxNotCheck.setAttribute('class', 'cl-ach-list-issued-box-not-check');
+    issuedBoxGift.setAttribute('class', 'cl-ach-list-issued-box-not-gift');
     moreButton.setAttribute('class', 'cl-ach-list-more');
     rewardName.setAttribute('class', 'cl-ach-list-details-reward');
     // start with 0
@@ -1492,7 +1496,6 @@ export const MainWidget = function (options) {
 
     // issued box has number, unchecked or checked box
     issuedBox.appendChild(issuedBoxCount);
-    issuedBox.appendChild(issuedBoxCheck);
 
     // wrapper has box, counter and button
     progressionWrapper.appendChild(progressionBox);
@@ -1672,7 +1675,7 @@ export const MainWidget = function (options) {
       var achInfo = _this.getAchievementInfo(id);
       var perc = 0;
       var issuedCnt = '';
-      var issuedChck = '../leaderboard_v3/src/images/ach-giftbox.svg';
+      var issuedChck = _this.issuedBox.appendChild(_this.issuedBoxCheckGift);
       var reward = '';
 
       if (Array.isArray(achInfo.rewards) && achInfo.rewards.length >> 0) {
@@ -1692,7 +1695,7 @@ export const MainWidget = function (options) {
             issuedCnt = pr.issued.toString();
           }
           if (achInfo.scheduling.scheduleType === 'Once') {
-            issuedChck = (pr.issued > 0) ? '../leaderboard_v3/src/images/ach-issued.svg' : '../leaderboard_v3/src/images/ach-not-issued.svg';
+            issuedChck = (pr.issued > 0) ? this.issuedBox.appendChild(this.issuedBoxCheck) : this.issuedBox.appendChild(this.issuedBoxNotCheck);
           }
         }
       });
@@ -1706,8 +1709,9 @@ export const MainWidget = function (options) {
         bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
         percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + '%';
         issuedCount.innerHTML = issuedCnt;
-        issuedCheck.src = issuedChck;
+        issuedCheck = issuedChck;
         rewardName.innerHTML = reward;
+        console.log(issuedCheck);
         /*
         var image = new Image();
         var imageIconWrapper = document.createElement('div');
