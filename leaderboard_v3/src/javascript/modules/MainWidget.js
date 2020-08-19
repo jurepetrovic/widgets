@@ -1686,9 +1686,10 @@ export const MainWidget = function (options) {
 
       window.mapObject(progression, function (pr) {
         if (pr.achievementId === id) {
+          var checkBox = document.createElement('div');
+          var count = document.createElement('div');
           // one time achievement
           if (achInfo.scheduling.scheduleType === 'Once') {
-            var checkBox = document.createElement('div');
             if (pr.issued > 0) {
               perc = 100;
               // box ticked
@@ -1701,9 +1702,15 @@ export const MainWidget = function (options) {
             // add checkbox to issued box container
             issuedBox.appendChild(checkBox);
           }
+
           // issue count
           if (achInfo.scheduling.scheduleType === 'Repeatedly') {
-            // issuedCnt = pr.issued.toString();
+            count.innerHTML = '4';
+            count.setAttribute('class', 'cl-ach-list-issued-box-count');
+            checkBox.setAttribute('class', 'cl-ach-list-issued-box-gift');
+            // add count and checkbox to issued box container
+            issuedBox.appendChild(count);
+            issuedBox.appendChild(checkBox);
           }
         }
       });
@@ -1720,14 +1727,6 @@ export const MainWidget = function (options) {
         issuedCheck = issuedChck;
         rewardName.innerHTML = reward;
         console.log(issuedCheck);
-        /*
-        var image = new Image();
-        var imageIconWrapper = document.createElement('div');
-        image.setAttribute('class', 'cl-ach-list-issued-box');
-        image.src = 'C:/Programiranje/jurepetrovic/leaderboard_v3/src/images/ach-issued.png';
-        imageIconWrapper.appendChild(image);
-        //  detailsContainer.appendChild(imageIconWrapper);
-        */
         /*
         if (issuedStatus) {
           addClass(bar, 'cl-ach-complete');
