@@ -2372,14 +2372,11 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-count {
+  width: 40%;
+  float: left;
   color: #ffffff;
   font-size: 16px;
-  font-weight: 500;
-  line-height: 30px;
   text-transform: uppercase;
-  display: inline-block;
-  border: 0px solid white;
-  margin-right: 5px;
   vertical-align: middle;
 }
 
@@ -2400,11 +2397,13 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-gift {
-  min-height: 100%;
   background-image: url(../images/ach-giftbox.svg);
   background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 45%;
+  height: 80%;
+  margin-top: 3%;
+  background-size: contain;
+  margin-left: 38%;
+  background-position: center center;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-reward {
