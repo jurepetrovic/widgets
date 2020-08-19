@@ -2091,9 +2091,10 @@
     width: 70px;
     line-height: 30px;
     background: #db7718;
+    height: 40px;
     text-decoration: none;
     border-radius: 5px;
-    box-shadow: 0px 10px 13px -7px #494949, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 0px 10px 13px -7px #494949, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     text-transform: uppercase;
     padding: 5px;
 }
@@ -2164,22 +2165,27 @@
 }
 */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-check {
+    min-height: 100%;
     background-image: url(../images/ach-issued.svg);
-    width: 2.5ex;
-    vertical-align: text-bottom;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 45%;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-not-check {
+    min-height: 100%;
     background-image: url(../images/ach-not-issued.svg);
-    width: 2.5ex;
-    vertical-align: text-bottom;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 45%;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-gift {
-    background-image: url(../images/ach-not-issued.svg);
-    width: 2.5ex;
-    vertical-align: text-bottom;
-}
+    min-height: 100%;
+    background-image: url(../images/ach-giftbox.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 45%;}
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-reward {
     float: left;

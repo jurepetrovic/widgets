@@ -1426,8 +1426,7 @@ export const MainWidget = function (options) {
     var progressionPercent = document.createElement('div');
     var issuedBox = document.createElement('div');
     var issuedBoxCount = document.createElement('div');
-    var issuedBoxCheck = document.createElement('img');
-    var issuedBoxNotCheck = document.createElement('img');
+
     var issuedBoxGift = document.createElement('img');
     var moreButton = document.createElement('a');
     var rewardName = document.createElement('div');
@@ -1445,10 +1444,10 @@ export const MainWidget = function (options) {
     progressionBar.setAttribute('class', 'cl-ach-list-progression-bar');
     progressionPercent.setAttribute('class', 'cl-ach-list-percent-number');
     issuedBox.setAttribute('class', 'cl-ach-list-issued-box');
+    // count + gift icon
     issuedBoxCount.setAttribute('class', 'cl-ach-list-issued-box-count');
-    issuedBoxCheck.setAttribute('class', 'cl-ach-list-issued-box-check');
-    issuedBoxNotCheck.setAttribute('class', 'cl-ach-list-issued-box-not-check');
     issuedBoxGift.setAttribute('class', 'cl-ach-list-issued-box-not-gift');
+
     moreButton.setAttribute('class', 'cl-ach-list-more');
     rewardName.setAttribute('class', 'cl-ach-list-details-reward');
     // start with 0
@@ -1495,7 +1494,7 @@ export const MainWidget = function (options) {
     progressionBox.appendChild(progressionPercent);
 
     // issued box has number, unchecked or checked box
-    issuedBox.appendChild(issuedBoxCount);
+    // issuedBox.appendChild(issuedBoxCount);
 
     // wrapper has box, counter and button
     progressionWrapper.appendChild(progressionBox);
@@ -1669,14 +1668,17 @@ export const MainWidget = function (options) {
     var _this = this;
     var achList = query(_this.settings.section, '.cl-main-widget-section-ach .cl-main-widget-ach-list-body-res');
 
+    // iterate over displayed items
     objectIterator(query(achList, '.cl-ach-list-item'), function (ach) {
       var id = ach.dataset.id;
       // var issuedStatus = (issued.indexOf(id) !== -1);
       var achInfo = _this.getAchievementInfo(id);
       var perc = 0;
-      var issuedCnt = '';
-      var issuedChck = _this.issuedBox.appendChild(_this.issuedBoxCheckGift);
+      // var issuedCnt = '';
+      var issuedChck = ''; // _this.issuedBox.appendChild(_this.issuedBoxCheckGift);
       var reward = '';
+      // get box to add checkbox or gift inside
+      var issuedBox = query(ach, '.cl-ach-list-issued-box');
 
       if (Array.isArray(achInfo.rewards) && achInfo.rewards.length >> 0) {
         reward = achInfo.rewards[0].rewardName.toString();
@@ -1684,18 +1686,24 @@ export const MainWidget = function (options) {
 
       window.mapObject(progression, function (pr) {
         if (pr.achievementId === id) {
-          // progress bar
-          if (achInfo.scheduling.scheduleType === 'Once' && pr.issued > 0) {
-            perc = 100;
-          } else {
-            perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1);
+          // one time achievement
+          if (achInfo.scheduling.scheduleType === 'Once') {
+            var checkBox = document.createElement('div');
+            if (pr.issued > 0) {
+              perc = 100;
+              // box ticked
+              checkBox.setAttribute('class', 'cl-ach-list-issued-box-check');
+            } else {
+              perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1);
+              // box unticked
+              checkBox.setAttribute('class', 'cl-ach-list-issued-box-not-check');
+            }
+            // add checkbox to issued box container
+            issuedBox.appendChild(checkBox);
           }
           // issue count
           if (achInfo.scheduling.scheduleType === 'Repeatedly') {
-            issuedCnt = pr.issued.toString();
-          }
-          if (achInfo.scheduling.scheduleType === 'Once') {
-            issuedChck = (pr.issued > 0) ? this.issuedBox.appendChild(this.issuedBoxCheck) : this.issuedBox.appendChild(this.issuedBoxNotCheck);
+            // issuedCnt = pr.issued.toString();
           }
         }
       });
@@ -1703,12 +1711,12 @@ export const MainWidget = function (options) {
       if (ach !== null) {
         var bar = query(ach, '.cl-ach-list-progression-bar');
         var percentNum = query(ach, '.cl-ach-list-percent-number');
-        var issuedCount = query(ach, '.cl-ach-list-issued-box-count');
+        // var issuedCount = query(ach, '.cl-ach-list-issued-box-count');
         var issuedCheck = query(ach, '.cl-ach-list-issued-box-check');
         var rewardName = query(ach, '.cl-ach-list-details-reward');
         bar.style.width = ((perc > 1 || perc === 0) ? perc : 1) + '%';
         percentNum.innerHTML = ((perc > 1 || perc === 0) ? Math.round(perc) : 1) + '%';
-        issuedCount.innerHTML = issuedCnt;
+        // issuedCount.innerHTML = issuedCnt;
         issuedCheck = issuedChck;
         rewardName.innerHTML = reward;
         console.log(issuedCheck);
