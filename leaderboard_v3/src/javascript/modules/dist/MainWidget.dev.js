@@ -1612,10 +1612,12 @@ var MainWidget = function MainWidget(options) {
 
           if (achInfo.scheduling.scheduleType === 'Once') {
             if (pr.issued > 0) {
+              // When once issued, set to 100 always
               perc = 100; // box ticked
 
               checkBox.setAttribute('class', 'cl-ach-list-issued-box-check');
             } else {
+              // set to goalPercentageComplete if not yet issued
               perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1); // box unticked
 
               checkBox.setAttribute('class', 'cl-ach-list-issued-box-not-check');
@@ -1624,6 +1626,8 @@ var MainWidget = function MainWidget(options) {
 
 
           if (achInfo.scheduling.scheduleType === 'Repeatedly') {
+            // set percent to goalPercentageComplete
+            perc = (parseFloat(pr.goalPercentageComplete) * 100).toFixed(1);
             count.setAttribute('class', 'cl-ach-list-issued-box-count');
             checkBox.setAttribute('class', 'cl-ach-list-issued-box-gift');
             count.innerHTML = pr.issued.toString();

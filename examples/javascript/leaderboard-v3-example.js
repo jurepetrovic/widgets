@@ -2,11 +2,11 @@
 	var widgetInstance = window._clLeaderBoardV3;
 
 	widgetInstance.settings.enableNotifications = false; // requires a working/valid SSE channel
-	widgetInstance.settings.memberId = '1:jurep4';
+	widgetInstance.settings.memberId = '69:jure';
 	widgetInstance.settings.uri.gatewayDomain = "https://gateway.competitionlabs.com";
 	widgetInstance.settings.apiKey = '7e739a155d2643dab86674e9f5abafda';
 	widgetInstance.settings.spaceName = 'gameart_staging';
-	widgetInstance.settings.gameId = "55";
+	widgetInstance.settings.gameId = "307";
 	widgetInstance.settings.bindContainer = document.getElementById("my-widget-container");
 
 	// lookup services override
