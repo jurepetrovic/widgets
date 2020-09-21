@@ -30,7 +30,7 @@
 
   widgetInstance.settings.styles = {
     widgetBgColor: '#1f294a',
-    widgetIcon: 'url(../../../examples/images/logo-icon2.png)'
+    widgetIcon: 'url(../../../examples/images/logo-icon-3.png)'
   };
 
   //   List of properties that might be overridden // default value
