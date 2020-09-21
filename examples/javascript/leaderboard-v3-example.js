@@ -7,7 +7,7 @@
 	widgetInstance.settings.apiKey = "";
 	widgetInstance.settings.spaceName = "your space";
 	widgetInstance.settings.gameId = "fruits";
-	widgetInstance.settings.bindContainer = document.getElementById("my-widget-container");
+	widgetInstance.settings.bindContainer = document.body;
 
 	// lookup services override
 	widgetInstance.settings.uri.members = "data/member-data-sample.json";

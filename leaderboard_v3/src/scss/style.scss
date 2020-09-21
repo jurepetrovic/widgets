@@ -15,7 +15,7 @@
   overflow: unset;
   visibility: visible;
   outline: none;
-  font-family: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
+  font-family: var(--lb3-widget-font);
   font-weight: 300;
   border: none;
   display: block;
@@ -127,17 +127,17 @@
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 2px solid #000000;
+  border: var(--lb3-miniscoreboard-close);
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-information-close {
   float: left;
-  background: #767676;
+  background: var(--lb3-miniscoreboard-close-btn-back);
   width: 16px;
   height: 16px;
-  color: #262626;
+  color: var(--lb3-miniscoreboard-close-btn-color);
   text-decoration: none;
   text-align: center;
   border-radius: 100%;
@@ -188,10 +188,10 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #33c334;
+  background: var(--lb3-miniscoreboard-opt-btn-back);
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--lb3-miniscoreboard-opt-btn-color);
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -200,7 +200,7 @@
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-optin-wrapper .cl-widget-ms-optin-action:hover {
-  background: #21a722;
+  background: var(--lb3-miniscoreboard-opt-btn-back-hover);
 }
 
 
@@ -274,7 +274,7 @@
   float: left;
   width: 30%;
   text-align: center;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-date-color);
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-default-mem-entry {
@@ -396,7 +396,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-rank-label-color);
   text-transform: uppercase;
 }
 
@@ -409,7 +409,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-points-label-color);
   text-transform: uppercase;
 }
 

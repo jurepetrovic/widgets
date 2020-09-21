@@ -1,6 +1,7 @@
 :root {
   // MAIN
   --lb3-widget-icon: url(../images/logo-icon2.png);
+  --lb3-widget-font: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
   --lb3-widget-bg-color: #212121;
   --lb3-widget-border-color: #000000;
   --lb3-widget-text-color: #ffffff;
@@ -12,6 +13,20 @@
 
   // CLOSE BTN
   --lb3-close-btn-bg-color: #212121;
+
+  // MINI SCOREBOARD
+  --lb3-miniscoreboard-close-wrapper-border: 2px solid #000000;
+  --lb3-miniscoreboard-close-btn-back: #767676;
+  --lb3-miniscoreboard-close-btn-color: #262626;
+
+  --lb3-miniscoreboard-opt-btn-back: #33c334;
+  --lb3-miniscoreboard-opt-btn-back-hover: #21a722;
+  --lb3-miniscoreboard-opt-btn-color: #ffffff;
+
+  --lb3-miniscoreboard-date-color: #7a7a7a;
+
+  --lb3-miniscoreboard-rank-label-color: #7a7a7a;
+  --lb3-miniscoreboard-points-label-color: #7a7a7a;
 
   // TOURNAMENTS
   --lb3-tournament-icon: url(../images/big-tournament-icon.svg);
