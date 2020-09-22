@@ -208,11 +208,11 @@ export const MainWidget = function (options) {
 
     navigationContainer.setAttribute('class', 'cl-main-widget-navigation-container');
     navigationItems.setAttribute('class', 'cl-main-widget-navigation-items');
-    navigationItemLB.setAttribute('class', 'cl-main-widget-navigation-lb cl-active-nav');
+    navigationItemLB.setAttribute('class', 'cl-main-widget-navigation-lb cl-main-widget-navigation-item cl-active-nav' + (_this.settings.lbWidget.settings.navigation.tournaments ? '' : ' cl-hidden-navigation-item'));
     navigationItemLBIcon.setAttribute('class', 'cl-main-widget-navigation-lb-icon cl-main-navigation-item');
-    navigationItemACH.setAttribute('class', 'cl-main-widget-navigation-ach');
+    navigationItemACH.setAttribute('class', 'cl-main-widget-navigation-ach cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.achievements ? '' : ' cl-hidden-navigation-item'));
     navigationItemACHIcon.setAttribute('class', 'cl-main-widget-navigation-ach-icon cl-main-navigation-item');
-    navigationItemRewards.setAttribute('class', 'cl-main-widget-navigation-rewards');
+    navigationItemRewards.setAttribute('class', 'cl-main-widget-navigation-rewards cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.rewards ? '' : ' cl-hidden-navigation-item'));
     navigationItemRewardsIcon.setAttribute('class', 'cl-main-widget-navigation-rewards-icon cl-main-navigation-item');
 
     mainSectionContainer.setAttribute('class', 'cl-main-widget-section-container');
@@ -235,8 +235,8 @@ export const MainWidget = function (options) {
     navigationItemRewards.appendChild(navigationItemRewardsIcon);
     navigationItems.appendChild(navigationItemRewards);
 
-    if (_this.settings.lbWidget.settings.messages.enable) {
-      navigationItemInbox.setAttribute('class', 'cl-main-widget-navigation-inbox');
+    if (_this.settings.lbWidget.settings.navigation.inbox) {
+      navigationItemInbox.setAttribute('class', 'cl-main-widget-navigation-inbox cl-main-widget-navigation-item');
       navigationItemInboxIcon.setAttribute('class', 'cl-main-widget-navigation-inbox-icon cl-main-navigation-item');
       navigationItemInbox.appendChild(navigationItemInboxIcon);
       navigationItems.appendChild(navigationItemInbox);
@@ -255,6 +255,24 @@ export const MainWidget = function (options) {
     wrapper.appendChild(innerWrapper);
 
     return wrapper;
+  };
+
+  this.mainNavigationCheck = function () {
+    var _this = this;
+    var navItems = query(_this.settings.container, '.cl-main-widget-navigation-item');
+    var checkEnabled = 0;
+
+    objectIterator(navItems, function (navItem) {
+      if (!hasClass(navItem, 'cl-hidden-navigation-item')) {
+        checkEnabled++;
+      }
+    });
+
+    if (checkEnabled === 1) {
+      addClass(query(_this.settings.container, '.cl-main-widget-inner-wrapper'), 'cl-hidden-navigation');
+    } else if (checkEnabled === 0) {
+      _this.settings.lbWidget.log('All navigation items disabled, check [this.settings.lbWidget.settings.navigation]');
+    }
   };
 
   this.leaderboardAreaLayout = function () {
@@ -1187,6 +1205,7 @@ export const MainWidget = function (options) {
       _this.settings.messages.container = query(_this.settings.container, '.cl-main-widget-section-inbox');
       _this.settings.messages.detailsContainer = query(_this.settings.container, '.cl-main-widget-inbox-details-container');
 
+      _this.mainNavigationCheck();
       _this.leaderboardHeader();
       _this.eventListeners();
     }
@@ -1973,6 +1992,7 @@ export const MainWidget = function (options) {
     });
 
     addClass(query(_this.settings.container, '.cl-main-widget-navigation-items .cl-main-widget-navigation-lb'), 'cl-active-nav');
+
     setTimeout(function () {
       lbContainer.style.display = 'block';
       setTimeout(function () {

@@ -88,7 +88,6 @@ export const LbWidget = function (options) {
       }
     },
     messages: {
-      enable: true,
       messages: []
     },
     tournaments: {
@@ -105,6 +104,12 @@ export const LbWidget = function (options) {
       leaderboardData: [],
       loadLeaderboardHistory: {}
 
+    },
+    navigation: { // primary navigation items, if all are disabled init will fail, if only 1 is enabled items will be hidden
+      tournaments: true,
+      achievements: true,
+      rewards: true,
+      inbox: true
     },
     uri: {
       gatewayDomain: cLabs.api.url,
