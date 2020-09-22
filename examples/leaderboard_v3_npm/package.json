@@ -13,7 +13,8 @@
     "parcel-plugin-custom-dist-structure": "^1.1.14"
   },
   "dependencies": {
-    "@competitionlabs/leaderboard": "^3.0.2"
+    "@competitionlabs/leaderboard": "^3.0.2",
+    "node-forge": "^0.10.0"
   },
   "customDistStructure": {
     "config": {
