@@ -208,11 +208,11 @@ export const MainWidget = function (options) {
 
     navigationContainer.setAttribute('class', 'cl-main-widget-navigation-container');
     navigationItems.setAttribute('class', 'cl-main-widget-navigation-items');
-    navigationItemLB.setAttribute('class', 'cl-main-widget-navigation-lb cl-main-widget-navigation-item cl-active-nav' + (_this.settings.lbWidget.settings.navigation.tournaments ? '' : ' cl-hidden-navigation-item'));
+    navigationItemLB.setAttribute('class', _this.settings.lbWidget.settings.navigation.tournaments.navigationClass + ' cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.tournaments.enable ? '' : ' cl-hidden-navigation-item'));
     navigationItemLBIcon.setAttribute('class', 'cl-main-widget-navigation-lb-icon cl-main-navigation-item');
-    navigationItemACH.setAttribute('class', 'cl-main-widget-navigation-ach cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.achievements ? '' : ' cl-hidden-navigation-item'));
+    navigationItemACH.setAttribute('class', _this.settings.lbWidget.settings.navigation.achievements.navigationClass + ' cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.achievements.enable ? '' : ' cl-hidden-navigation-item'));
     navigationItemACHIcon.setAttribute('class', 'cl-main-widget-navigation-ach-icon cl-main-navigation-item');
-    navigationItemRewards.setAttribute('class', 'cl-main-widget-navigation-rewards cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.rewards ? '' : ' cl-hidden-navigation-item'));
+    navigationItemRewards.setAttribute('class', _this.settings.lbWidget.settings.navigation.rewards.navigationClass + ' cl-main-widget-navigation-item' + (_this.settings.lbWidget.settings.navigation.rewards.enable ? '' : ' cl-hidden-navigation-item'));
     navigationItemRewardsIcon.setAttribute('class', 'cl-main-widget-navigation-rewards-icon cl-main-navigation-item');
 
     mainSectionContainer.setAttribute('class', 'cl-main-widget-section-container');
@@ -235,8 +235,8 @@ export const MainWidget = function (options) {
     navigationItemRewards.appendChild(navigationItemRewardsIcon);
     navigationItems.appendChild(navigationItemRewards);
 
-    if (_this.settings.lbWidget.settings.navigation.inbox) {
-      navigationItemInbox.setAttribute('class', 'cl-main-widget-navigation-inbox cl-main-widget-navigation-item');
+    if (_this.settings.lbWidget.settings.navigation.inbox.enable) {
+      navigationItemInbox.setAttribute('class', _this.settings.lbWidget.settings.navigation.inbox.navigationClass + ' cl-main-widget-navigation-item');
       navigationItemInboxIcon.setAttribute('class', 'cl-main-widget-navigation-inbox-icon cl-main-navigation-item');
       navigationItemInbox.appendChild(navigationItemInboxIcon);
       navigationItems.appendChild(navigationItemInbox);
@@ -324,7 +324,7 @@ export const MainWidget = function (options) {
     var sectionTournamentListBodyResults = document.createElement('div');
     var sectionTournamentBackAction = document.createElement('a');
 
-    sectionLB.setAttribute('class', 'cl-main-widget-lb cl-main-section-item cl-main-active-section');
+    sectionLB.setAttribute('class', _this.settings.lbWidget.settings.navigation.tournaments.containerClass + ' cl-main-section-item cl-main-active-section');
     sectionLBHeader.setAttribute('class', 'cl-main-widget-lb-header');
     sectionLBHeaderList.setAttribute('class', 'cl-main-widget-lb-header-list');
     sectionLBHeaderListIcon.setAttribute('class', 'cl-main-widget-lb-header-list-icon');
@@ -460,7 +460,7 @@ export const MainWidget = function (options) {
     var sectionAchievementDetailsBodyImageContainer = document.createElement('div');
     var sectionAchievementDetailsBody = document.createElement('div');
 
-    sectionACH.setAttribute('class', 'cl-main-widget-section-ach cl-main-section-item');
+    sectionACH.setAttribute('class', _this.settings.lbWidget.settings.navigation.achievements.containerClass + ' cl-main-section-item');
     sectionACHHeader.setAttribute('class', 'cl-main-widget-ach-header');
     sectionACHHeaderLabel.setAttribute('class', 'cl-main-widget-ach-header-label');
     sectionACHHeaderDate.setAttribute('class', 'cl-main-widget-ach-header-date');
@@ -564,7 +564,7 @@ export const MainWidget = function (options) {
     var sectionRewardsClaimContainer = document.createElement('div');
     var sectionRewardsClaimBtn = document.createElement('a');
 
-    sectionRewards.setAttribute('class', 'cl-main-widget-section-reward cl-main-section-item');
+    sectionRewards.setAttribute('class', _this.settings.lbWidget.settings.navigation.rewards.containerClass + ' cl-main-section-item');
     sectionRewardsHeader.setAttribute('class', 'cl-main-widget-reward-header');
     sectionRewardsHeaderLabel.setAttribute('class', 'cl-main-widget-reward-header-label');
     sectionRewardsHeaderDate.setAttribute('class', 'cl-main-widget-reward-header-date');
@@ -674,7 +674,7 @@ export const MainWidget = function (options) {
     var sectionInboxDetailsBodyContainer = document.createElement('div');
     var sectionInboxDetailsBody = document.createElement('div');
 
-    sectionInbox.setAttribute('class', 'cl-main-widget-section-inbox cl-main-section-item');
+    sectionInbox.setAttribute('class', _this.settings.lbWidget.settings.navigation.inbox.containerClass + ' cl-main-section-item');
     sectionInboxHeader.setAttribute('class', 'cl-main-widget-inbox-header');
     sectionInboxHeaderLabel.setAttribute('class', 'cl-main-widget-inbox-header-label');
     sectionInboxHeaderDate.setAttribute('class', 'cl-main-widget-inbox-header-date');
@@ -1198,11 +1198,11 @@ export const MainWidget = function (options) {
       _this.settings.tournamentListContainer = query(_this.settings.container, '.cl-main-widget-tournaments-list');
       _this.settings.detailsContainerDate = query(_this.settings.container, '.cl-main-widget-lb-details-header-date');
       _this.settings.headerDate = query(_this.settings.container, '.cl-main-widget-lb-header-date');
-      _this.settings.achievement.container = query(_this.settings.container, '.cl-main-widget-section-ach');
+      _this.settings.achievement.container = query(_this.settings.container, '.' + _this.settings.lbWidget.settings.navigation.achievements.containerClass);
       _this.settings.achievement.detailsContainer = query(_this.settings.container, '.cl-main-widget-ach-details-container');
-      _this.settings.reward.container = query(_this.settings.container, '.cl-main-widget-section-reward');
+      _this.settings.reward.container = query(_this.settings.container, '.' + _this.settings.lbWidget.settings.navigation.rewards.containerClass);
       _this.settings.reward.detailsContainer = query(_this.settings.container, '.cl-main-widget-reward-details-container');
-      _this.settings.messages.container = query(_this.settings.container, '.cl-main-widget-section-inbox');
+      _this.settings.messages.container = query(_this.settings.container, '.' + _this.settings.lbWidget.settings.navigation.inbox.containerClass);
       _this.settings.messages.detailsContainer = query(_this.settings.container, '.cl-main-widget-inbox-details-container');
 
       _this.mainNavigationCheck();
@@ -1506,7 +1506,7 @@ export const MainWidget = function (options) {
 
   this.achievementListLayout = function (achievementData) {
     var _this = this;
-    var achList = query(_this.settings.section, '.cl-main-widget-section-ach .cl-main-widget-ach-list-body-res');
+    var achList = query(_this.settings.section, '.' + _this.settings.lbWidget.settings.navigation.achievements.containerClass + ' .cl-main-widget-ach-list-body-res');
 
     window.mapObject(achievementData, function (ach) {
       if (query(achList, '.cl-ach-' + ach.id) === null) {
@@ -1655,7 +1655,7 @@ export const MainWidget = function (options) {
 
   this.updateAchievementProgressionAndIssued = function (issued, progression) {
     var _this = this;
-    var achList = query(_this.settings.section, '.cl-main-widget-section-ach .cl-main-widget-ach-list-body-res');
+    var achList = query(_this.settings.section, '.' + _this.settings.lbWidget.settings.navigation.achievements.containerClass + ' .cl-main-widget-ach-list-body-res');
 
     objectIterator(query(achList, '.cl-ach-list-item'), function (ach) {
       var id = ach.dataset.id;
@@ -1798,7 +1798,7 @@ export const MainWidget = function (options) {
 
   this.rewardsListLayout = function (rewards, availableRewards, expiredRewards) {
     var _this = this;
-    var rewardList = query(_this.settings.section, '.cl-main-widget-section-reward .cl-main-widget-reward-list-body-res');
+    var rewardList = query(_this.settings.section, '.' + _this.settings.lbWidget.settings.navigation.rewards.containerClass + ' .cl-main-widget-reward-list-body-res');
 
     var accordionObj = _this.accordionStyle(_this.settings.rewardsSection.accordionLayout, function (accordionSection, listContainer, topEntryContainer, layout) {
       var rewardData = _this.settings.lbWidget.settings.rewards[layout.type];
@@ -1835,7 +1835,7 @@ export const MainWidget = function (options) {
 
   this.messagesListLayout = function (rewards, availableRewards, expiredRewards) {
     var _this = this;
-    var messageList = query(_this.settings.section, '.cl-main-widget-section-inbox .cl-main-widget-inbox-list-body-res');
+    var messageList = query(_this.settings.section, '.' + _this.settings.lbWidget.settings.navigation.inbox.containerClass + ' .cl-main-widget-inbox-list-body-res');
 
     messageList.innerHTML = '';
 
@@ -1902,7 +1902,7 @@ export const MainWidget = function (options) {
           changeContainerInterval = setTimeout(function () {
             if (hasClass(target, 'cl-main-widget-navigation-lb-icon')) {
               _this.loadLeaderboard(function () {
-                var lbContainer = query(_this.settings.container, '.cl-main-widget-section-container .cl-main-widget-lb');
+                var lbContainer = query(_this.settings.container, '.cl-main-widget-section-container .' + _this.settings.lbWidget.settings.navigation.tournaments.containerClass);
 
                 lbContainer.style.display = 'block';
                 changeInterval = setTimeout(function () {
@@ -1919,7 +1919,7 @@ export const MainWidget = function (options) {
               });
             } else if (hasClass(target, 'cl-main-widget-navigation-ach-icon')) {
               _this.loadAchievements(function () {
-                var achContainer = query(_this.settings.container, '.cl-main-widget-section-container .cl-main-widget-section-ach');
+                var achContainer = query(_this.settings.container, '.cl-main-widget-section-container .' + _this.settings.lbWidget.settings.navigation.achievements.containerClass);
 
                 _this.settings.achievement.detailsContainer.style.display = 'none';
 
@@ -1938,7 +1938,7 @@ export const MainWidget = function (options) {
               });
             } else if (hasClass(target, 'cl-main-widget-navigation-rewards-icon')) {
               _this.loadRewards(function () {
-                var rewardsContainer = query(_this.settings.container, '.cl-main-widget-section-container .cl-main-widget-section-reward');
+                var rewardsContainer = query(_this.settings.container, '.cl-main-widget-section-container .' + _this.settings.lbWidget.settings.navigation.rewards.containerClass);
 
                 rewardsContainer.style.display = 'block';
                 changeInterval = setTimeout(function () {
@@ -1955,7 +1955,7 @@ export const MainWidget = function (options) {
               });
             } else if (hasClass(target, 'cl-main-widget-navigation-inbox-icon')) {
               _this.loadMessages(function () {
-                var inboxContainer = query(_this.settings.container, '.cl-main-widget-section-container .cl-main-widget-section-inbox');
+                var inboxContainer = query(_this.settings.container, '.cl-main-widget-section-container .' + _this.settings.lbWidget.settings.navigation.inbox.containerClass);
 
                 inboxContainer.style.display = 'block';
                 changeInterval = setTimeout(function () {
@@ -1980,7 +1980,6 @@ export const MainWidget = function (options) {
 
   this.resetNavigation = function (callback) {
     var _this = this;
-    var lbContainer = query(_this.settings.container, '.cl-main-widget-section-container .cl-main-widget-lb');
 
     objectIterator(query(_this.settings.container, '.cl-main-widget-navigation-items .cl-active-nav'), function (obj) {
       removeClass(obj, 'cl-active-nav');
@@ -1991,13 +1990,16 @@ export const MainWidget = function (options) {
       removeClass(obj, 'cl-main-active-section');
     });
 
-    addClass(query(_this.settings.container, '.cl-main-widget-navigation-items .cl-main-widget-navigation-lb'), 'cl-active-nav');
+    var activeNave = false;
+    objectIterator(query(_this.settings.container, '.cl-main-widget-navigation-container .cl-main-widget-navigation-item'), function (navItem, key, count) {
+      if (!activeNave && !hasClass(navItem, 'cl-hidden-navigation-item')) {
+        _this.navigationSwitch(query(navItem, '.cl-main-navigation-item'));
+        activeNave = true;
+      }
+    });
 
     setTimeout(function () {
-      lbContainer.style.display = 'block';
       setTimeout(function () {
-        addClass(lbContainer, 'cl-main-active-section');
-
         if (typeof callback !== 'undefined') callback();
       }, 30);
     }, 40);

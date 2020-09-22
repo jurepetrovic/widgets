@@ -106,10 +106,26 @@ export const LbWidget = function (options) {
 
     },
     navigation: { // primary navigation items, if all are disabled init will fail, if only 1 is enabled items will be hidden
-      tournaments: true,
-      achievements: true,
-      rewards: true,
-      inbox: true
+      tournaments: {
+        enable: true,
+        navigationClass: 'cl-main-widget-navigation-lb',
+        containerClass: 'cl-main-widget-lb'
+      },
+      achievements: {
+        enable: true,
+        navigationClass: 'cl-main-widget-navigation-ach',
+        containerClass: 'cl-main-widget-section-ach'
+      },
+      rewards: {
+        enable: true,
+        navigationClass: 'cl-main-widget-navigation-rewards',
+        containerClass: 'cl-main-widget-section-reward'
+      },
+      inbox: {
+        enable: true,
+        navigationClass: 'cl-main-widget-navigation-inbox',
+        containerClass: 'cl-main-widget-section-inbox'
+      }
     },
     uri: {
       gatewayDomain: cLabs.api.url,
