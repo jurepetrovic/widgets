@@ -1,0 +1,52 @@
+{
+  "time":{
+    "days": "h",
+    "hours": "j",
+    "minutesShortHand": "mnt",
+    "minutes": "m",
+    "seconds": "s"
+  },
+  "achievements": {
+    "label": "Prestasi",
+    "more": "Lainnya",
+    "complete": "selesai 100%"
+  },
+  "tournaments": {
+    "label": "Turnamen",
+    "enter": "Masuk Turnamen",
+    "readyCompetitions": "Turnamen Mendatang",
+    "activeCompetitions": "Turnamen Aktif",
+    "finishedCompetitions": "Turnamen Selesai",
+    "finishing": "Menyelesaikan",
+    "finished": "Selesai",
+    "registered": "Terdaftar",
+    "noAvailableCompetitions": "belum ada kompetisi"
+  },
+  "leaderboard": {
+    "rank": "Rangking",
+    "name": "Nama",
+    "points": "Poin",
+    "prize": "Hadiah",
+    "you": "Kamu"
+  },
+  "miniLeaderboard": {
+    "highScore": "Skor Tinggi",
+    "lastScore": "Skor Terakhir",
+    "rank": "Rangking",
+    "startsIn": "Mulai Dalam",
+    "starting": "memulai",
+    "finishing": "menyelesaikan",
+    "finished": "selesai"
+  },
+  "rewards": {
+    "label": "Hadiah",
+    "claim": "Klaim Sekarang",
+    "claimed": "Diklaim",
+    "availableRewards": "Hadiah Tersedia",
+    "rewards": "Hadiah Diklaim",
+    "expiredRewards": "Hadiah Berakhir"
+  },
+  "global": {
+    "copy": "Didukung Oleh CompetitionLabs"
+  }
+}

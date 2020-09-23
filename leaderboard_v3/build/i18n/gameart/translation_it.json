@@ -1,0 +1,52 @@
+{
+  "time": {
+    "days": "d",
+    "hours": "h",
+    "minutesShortHand": "min",
+    "minutes": "m",
+    "seconds": "s"
+  },
+  "achievements": {
+    "label": "Conquiste",
+    "more": "Più",
+    "complete": "Completato al 100%"
+  },
+  "tournaments": {
+    "label": "Tornei",
+    "enter": "Entra nel Torneo",
+    "readyCompetitions": "Tornei Futuri",
+    "activeCompetitions": "Tornei Attivi",
+    "finishedCompetitions": "Tornei Conclusi",
+    "finishing": "Concludendo",
+    "finished": "Concluso",
+    "registered": "Registrato",
+    "noAvailableCompetitions": "Nessuna competizione disponibile"
+  },
+  "leaderboard": {
+    "rank": "Posizione",
+    "name": "Nome",
+    "points": "Punti",
+    "prize": "Premio",
+    "you": "Tu"
+  },
+  "miniLeaderboard": {
+    "highScore": "Miglior Punteggio",
+    "lastScore": "Ultimo Punteggio",
+    "rank": "Posizione",
+    "startsIn": "Iniziando in",
+    "starting": "Iniziando",
+    "finishing": "Concludendo",
+    "finished": "Concluso"
+  },
+  "rewards": {
+    "label": "Premi",
+    "claim": "Riscuoti Adesso",
+    "claimed": "Riscosso",
+    "availableRewards": "Premi Disponibili",
+    "rewards": "Premi Riscossi",
+    "expiredRewards": "Premi Scaduti"
+  },
+  "global": {
+    "copy": ""
+  }
+}

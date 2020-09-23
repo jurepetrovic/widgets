@@ -1127,9 +1127,9 @@
     position: relative;
     z-index: 2;
 }
-.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info{
+/*.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info{
 
-}
+}*/
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-content{
     float:left;
     width:100%;
@@ -1164,9 +1164,9 @@
     top: 1px;
     cursor: pointer;
 }
-.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info-icon{
+/*.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info-icon{
 
-}
+}*/
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-footer{
     float:left;
     width:100%;
@@ -2072,7 +2072,7 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-box {
     float: left;
-    width: 100%;
+    width: 90%;
     position: relative;
     border: 0px solid gray;
     padding: 8px 8px 8px 8px;
@@ -2082,10 +2082,27 @@
 	box-shadow: 0px 10px 13px -7px #494949, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box {
+    float: left;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    left: 77%;
+    width: 70px;
+    line-height: 30px;
+    background: #db7718;
+    height: 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 10px 13px -7px #494949, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    text-transform: uppercase;
+    padding: 5px;
+}
+
 /* Progress bar outer border */
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-cont {
     float: left;
-    width: 90%;
+    width: 88%;
     background: #fff;
     height: 25px;
     border-radius: 5px;
@@ -2127,8 +2144,53 @@
     padding-right: 10px;
     text-transform: uppercase;
     display: inline-block;
-    border: 0px solid white;
-    
+    border: 0px solid white;  
+}
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-count {
+    width: 40%;
+    float: left;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: uppercase;
+    // border: 1px solid black;
+    vertical-align: middle;
+}
+   
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-check {
+    min-height: 100%;
+    background-image: url(../images/ach-issued.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 45%;
+}
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-not-check {
+    min-height: 100%;
+    background-image: url(../images/ach-not-issued.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 45%;
+}
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-issued-box-gift {
+    background-image: url(../images/ach-giftbox.svg);
+    background-repeat: no-repeat;
+    height: 80%;
+    margin-top: 3%;
+    background-size: contain;
+    margin-left: 38%;
+    background-position: center center;
+}
+
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-reward {
+    float: left;
+    width: 90%;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 10px;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more {

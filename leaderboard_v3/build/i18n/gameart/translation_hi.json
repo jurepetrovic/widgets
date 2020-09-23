@@ -1,0 +1,57 @@
+{
+  "time": {
+        "days": "दि",
+    "hours": "घ",
+    "minutesShortHand": "मिन",
+    "minutes": "मि",
+    "seconds": "स"
+
+  },
+  "achievements": {
+       "label": "उपलब्धियां",
+    "more": "अधिक",
+    "complete": "100% पूर्ण"
+
+  },
+  "tournaments": {
+        "label": "टूर्नामेंट",
+    "enter": "टूर्नामेंट में प्रवेश करें",
+    "readyCompetitions": "आने वाले टूर्नामेंट",
+    "activeCompetitions": "सक्रिय टूर्नामेंट",
+    "finishedCompetitions": "पूर्ण टूर्नामेंट",
+    "finishing": "पूर्ण",
+    "finished": "पूर्ण",
+    "registered": "पंजीकृत"
+
+  },
+  "leaderboard": {
+        "rank": "रेंक",
+    "name": "नाम",
+    "points": "पॉइंट",
+    "prize": "इनाम",
+    "you": "आप"
+
+  },
+  "miniLeaderboard": {
+        "highScore": "उच्च अंक",
+    "lastScore": "अंतिम अंक",
+    "rank": "रेंक",
+    "startsIn": "शुरू हो रहा है",
+    "starting": "शुरू",
+    "finishing": "समाप्ति",
+    "finished": "समाप्त"
+
+  },
+  "rewards": {
+       "label": "इनाम",
+    "claim": "अभी दावा करें",
+    "claimed": "दाव किए गए",
+    "availableRewards": "उपलब्ध इनाम",
+    "rewards": "दाव किए इनाम",
+    "expiredRewards": "समय सीमा समाप्त इनाम"
+
+  },
+  "global": {
+        "copy": ""
+  }
+}

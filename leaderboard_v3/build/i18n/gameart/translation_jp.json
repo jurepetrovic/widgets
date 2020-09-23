@@ -1,0 +1,52 @@
+{
+  "time": {
+    "days": "日",
+    "hours": "時",
+    "minutesShortHand": "分",
+    "minutes": "分",
+    "seconds": "秒"
+  },
+  "achievements": {
+    "label": "達成率",
+    "more": "以上",
+    "complete": "100%完了"
+  },
+  "tournaments": {
+    "label": "トーナメント",
+    "enter": "トーナメントに参加",
+    "readyCompetitions": "次回のトーナメント",
+    "activeCompetitions": "開催中のトーナメント",
+    "finishedCompetitions": "終了したトーナメント",
+    "finishing": "終了間近",
+    "finished": "終了",
+    "registered": "参加済",
+    "noAvailableCompetitions": "利用可能なトーナメントはありません"
+  },
+  "leaderboard": {
+    "rank": "順位",
+    "name": "名前",
+    "points": "ポイント",
+    "prize": "賞金",
+    "you": "あなた"
+  },
+  "miniLeaderboard": {
+    "highScore": "ハイスコア",
+    "lastScore": "ラストスコア",
+    "rank": "順位",
+    "startsIn": "開始",
+    "starting": "開始",
+    "finishing": "終了間近",
+    "finished": "終了"
+  },
+  "rewards": {
+    "label": "賞金",
+    "claim": "今すぐ申請",
+    "claimed": "申請済",
+    "availableRewards": "獲得可能賞金",
+    "rewards": "申請済賞金",
+    "expiredRewards": "期限切れ賞金"
+  },
+  "global": {
+    "copy": ""
+  }
+}

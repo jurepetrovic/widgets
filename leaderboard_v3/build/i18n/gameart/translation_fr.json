@@ -1,0 +1,52 @@
+{
+  "time": {
+    "days": "d",
+    "hours": "h",
+    "minutesShortHand": "min",
+    "minutes": "m",
+    "seconds": "s"
+  },
+  "achievements": {
+    "label": "Conquêtes",
+    "more": "Plus",
+    "complete": "Complété 100%"
+  },
+  "tournaments": {
+    "label": "Tournoi",
+    "enter": "Entrez dans le Tournoi",
+    "readyCompetitions": "Tournois Futurs",
+    "activeCompetitions": "Tournois Actifs",
+    "finishedCompetitions": "Tournois Terminés",
+    "finishing": "En Terminant",
+    "finished": "Terminé",
+    "registered": "Enregistré",
+    "noAvailableCompetitions": "Aucune compétition disponible"
+  },
+  "leaderboard": {
+    "rank": "Position",
+    "name": "Nom",
+    "points": "Points",
+    "prize": "Prix",
+    "you": "Vous"
+  },
+  "miniLeaderboard": {
+    "highScore": "Meilleur Résultat",
+    "lastScore": "Dernier Résultat",
+    "rank": "Position",
+    "startsIn": "Commençant Dans",
+    "starting": "Commençant",
+    "finishing": "Terminant",
+    "finished": "Terminé"
+  },
+  "rewards": {
+    "label": "Prix",
+    "claim": "Percevez Maintenant",
+    "claimed": "Perçu",
+    "availableRewards": "Prix Disponibles",
+    "rewards": "Prix Perçus",
+    "expiredRewards": "Prix Expiré"
+  },
+  "global": {
+    "copy": ""
+  }
+}

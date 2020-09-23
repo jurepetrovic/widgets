@@ -1,0 +1,56 @@
+{
+  "time": {
+    "days": "d",
+    "hours": "h",
+    "minutesShortHand": "min",
+    "minutes": "m",
+    "seconds": "s"
+  },
+  "achievements": {
+    "label": "Conquistas",
+    "more": "Mais",
+    "complete": "100 completo%"
+  },
+  "tournaments": {
+    "label": "Torneios",
+    "enter": "Entrar no Torneio",
+    "readyCompetitions": "Próximos Torneios",
+    "activeCompetitions": "Torneios Ativos",
+    "finishedCompetitions": "Torneios Finalizados",
+    "finishing": "A terminar",
+    "finished": "Finalizado",
+    "registered": "Registado",
+    "noAvailableCompetitions": "nenhuma competição disponível"
+  },
+  "leaderboard": {
+    "rank": "Posição",
+    "name": "Nome",
+    "points": "Pontos",
+    "prize": "Prémio",
+    "you": "Você"
+
+  },
+  "miniLeaderboard": {
+    "highScore": "Pontuação Máxima",
+    "lastScore": "Última Pontuação",
+    "rank": "Posição",
+    "startsIn": "A começar Em",
+    "starting": "a começar",
+    "finishing": "a terminar",
+    "finished": "finalizado"
+
+  },
+  "rewards": {
+    "label": "Recompensas",
+    "claim": "Reclamar Agora",
+    "claimed": "Solicitado",
+    "availableRewards": "Recompensas Disponíveis",
+    "rewards": "Recompensas Solicitadas",
+    "expiredRewards": "Recompensas Caducadas"
+
+  },
+  "global": {
+     "copy": "Desenvolvido Por GameArt"
+
+  }
+}
