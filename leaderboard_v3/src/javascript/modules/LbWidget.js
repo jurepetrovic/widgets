@@ -527,16 +527,13 @@ export const LbWidget = function (options) {
     }
   };
 
-  // take string as input and put first 4 chars as "*"
+  // take string as input and mask first two letters with "." for every 5 characters
   this.maskWord = function (word) {
     var ret = '';
-    // replace last 4
-    if (word.length >= 4) {
-      ret = word.substring(0, word.length - 4);
-      ret += '****';
-      // replace all
-    } else {
-      ret = word.replace(/./g, '*');
+    let i = 0;
+    while (i < word.length) {
+      ret += '..' + word.substring(i + 2, i + 5);
+      i += 5;
     }
     return ret;
   };
