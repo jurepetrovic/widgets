@@ -9,7 +9,7 @@ module.exports = {
       './src/javascript/leaderboard.v3.js',
     ] : [
       './src/javascript/leaderboard.v3.js',
-      './src/scss/style.scss'
+      './src/scss/' + process.env.THEME + '/style.scss'
     ],
     'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
@@ -26,7 +26,7 @@ module.exports = {
     contentBase: path.join(__dirname, '../..'),
     openPage: process.env.INLINE_CSS
       ? '/examples/leaderboard_v3_inline_css.html'
-      : '/examples/leaderboard_v3.html',
+      : 'examples/leaderboard_v3.html',
     writeToDisk: true
   },
   optimization: {
@@ -53,7 +53,10 @@ module.exports = {
         test: /\.scss$/i,
         use: process.env.INLINE_CSS
           ? [
-            { loader: 'style-loader', options: { injectType: 'styleTag' } },
+            {
+              loader: 'style-loader',
+              options: { injectType: 'styleTag' }
+            },
             'css-loader',
             'sass-loader'
           ]
@@ -61,7 +64,7 @@ module.exports = {
             {
               loader: 'file-loader',
               options: {
-                name: '../css/[name].css'
+                name: '../css/theme/[name].css'
               }
             },
             'sass-loader'
@@ -88,6 +91,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.LANG': JSON.stringify(process.env.LANG),
       'process.env.INLINE_CSS': JSON.stringify(process.env.INLINE_CSS),
+      'process.env.THEME': JSON.stringify(process.env.THEME)
     }),
     // new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({

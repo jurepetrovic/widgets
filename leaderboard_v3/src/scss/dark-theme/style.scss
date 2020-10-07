@@ -1,5 +1,9 @@
-@import "./fonts";
-@import "./config";
+@import "./dark-fonts";
+@import "./dark-config";
+
+.sometest {
+  border:1px solid #ffffff;
+}
 
 .cl-widget-ms-wrapper, .cl-widget-notif-wrapper {
   float: left;
@@ -744,7 +748,7 @@
   display: none;
   content: "";
   position: absolute;
-  background-image: url(../images/growth-arrow-icon.svg);
+  background-image: url(../../images/growth-arrow-icon.svg);
   background-repeat: no-repeat;
   background-position: 0 4px;
   background-size: 100%;
@@ -758,7 +762,7 @@
   display: none;
   content: "";
   position: absolute;
-  background-image: url(../images/fall-arrow-icon.svg);
+  background-image: url(../../images/fall-arrow-icon.svg);
   background-repeat: no-repeat;
   background-position: 0 4px;
   background-size: 100%;
@@ -943,11 +947,12 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #33c334;
+  background: #000000;
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
   border-radius: 5px;
+  border: 1px solid #ffffff;
   line-height: 16px;
   font-size: 9px;
   font-weight: 400;
@@ -970,7 +975,7 @@
   height: 100%;
   background: transparent;
   padding: 10px 20px;
-  font-family: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
+  font-family: var(--lb3-widget-font);
   font-weight: 300;
   margin: 0;
   box-sizing: border-box;
@@ -1197,7 +1202,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #33c334;
+  background: #000000;
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -1211,6 +1216,7 @@
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
+  border-bottom: var(--lb3-tournament-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list {
@@ -1250,7 +1256,7 @@
   right: 50px;
   line-height: 30px;
   color: var(--lb3-tournament-header-date-color);
-  font-size: 11px;
+  font-size: 12px;
   min-width: 125px;
 }
 
@@ -1307,7 +1313,7 @@
   position: absolute;
   content: "";
   display: block;
-  background-image: url(../images/info-icon.svg);
+  background-image: url(../../images/info-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -1343,10 +1349,13 @@
   position: absolute;
   bottom: 22px;
   left: 0;
-  background: #000000;
+  background: var(--lb3-tournament-lb-active-member-row-back);
   z-index: 3;
-  color: #ffffff;
+  color: var(--lb3-tournament-lb-active-member-row-color);
   padding: 0 30px;
+}
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member .cl-col{
+  color: var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-footer-content {
@@ -1384,10 +1393,10 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-col {
   float: left;
   color: var(--lb3-tournament-container-text-color);
-  font-size: 12px;
-  line-height: 26px;
+  font-size: var(--lb3-tournament-container-text-size);
+  line-height: var(--lb3-tournament-container-line-height);
   background: none;
-  height: 26px;
+  height: var(--lb3-tournament-container-height);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header-labels .cl-col {
@@ -1433,7 +1442,7 @@
   width: 100%;
   background: var(--lb3-tournament-top-results-bg-color);
   padding: 0 30px;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--lb3-tournament-top-results-bg-box-shadow);
   border-radius: 0 0 5px 5px;
 }
 
@@ -1466,6 +1475,9 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-rank-col {
   width: 9%;
 }
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-body .cl-rank-col {
+  padding:0 0 0 3px;
+}
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-rank-col .cl-rank-col-value {
   float: left;
@@ -1495,18 +1507,36 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-1 .cl-rank-col-value {
-  background: #ffe500;
-  border: 1px solid #e2d45f;
+  background-image: var(--lb3-tournament-lb-first-place-back);
+  background-repeat: no-repeat;
+  background-color: var(--lb3-tournament-lb-first-place-color);
+  border: var(--lb3-tournament-lb-first-place-border);
+  height: 26px;
+  width: 26px;
+  font-size: 13px;
+  line-height: 24px;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-2 .cl-rank-col-value {
-  background: #d4d4d4;
-  border: 1px solid #c8c8c8;
+  background-image: var(--lb3-tournament-lb-second-place-back);
+  background-repeat: no-repeat;
+  background-color: var(--lb3-tournament-lb-second-place-color);
+  border: var(--lb3-tournament-lb-second-place-border);
+  height: 26px;
+  width: 26px;
+  font-size: 13px;
+  line-height: 24px;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-3 .cl-rank-col-value {
-  background: #ffa800;
-  border: 1px solid #e2b662;
+  background-image: var(--lb3-tournament-lb-third-place-back);
+  background-repeat: no-repeat;
+  background-color: var(--lb3-tournament-lb-third-place-color);
+  border: var(--lb3-tournament-lb-third-place-border);
+  height: 26px;
+  width: 26px;
+  font-size: 13px;
+  line-height: 24px;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-icon-col {
@@ -1544,15 +1574,18 @@
   float: left;
   width: 100%;
 }
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-main-widget-lb-leaderboard-header-top-res .cl-lb-row {
+  padding:0 0 2px 0;
+}
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row {
   position: relative;
-  background: #000000;
-  color: #ffffff;
+  background: var(--lb3-tournament-lb-active-member-row-back);
+  color: var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-col {
-  color: #ffffff;
+  color:var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-name-col,
@@ -1566,9 +1599,9 @@
   left: -18px;
   top: 0;
   content: "";
-  background: #000000;
+  background: var(--lb3-tournament-lb-active-member-row-back);
   width: 18px;
-  height: 26px;
+  height: var(--lb3-tournament-lb-active-member-row-height);
   border-radius: 5px 0 0 5px;
 }
 
@@ -1577,9 +1610,9 @@
   right: -10px;
   top: 0;
   content: "";
-  background: #000000;
+  background: var(--lb3-tournament-lb-active-member-row-back);
   width: 10px;
-  height: 26px;
+  height: var(--lb3-tournament-lb-active-member-row-height);
   border-radius: 0 5px 5px 0;
 }
 
@@ -1599,7 +1632,7 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-growth-up {
   display: none;
-  background-image: url(../images/growth-arrow-icon.svg);
+  background-image: url(../../images/growth-arrow-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100%;
@@ -1607,14 +1640,14 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-growth-same {
   display: none;
-  background-image: url(../images/growth-arrow-grey-icon.svg);
+  background-image: url(../../images/growth-arrow-grey-icon.svg);
   background-position: 50% 50%;
   background-size: 100%;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-growth-down {
   display: none;
-  background-image: url(../images/fall-arrow-icon.svg);
+  background-image: url(../../images/fall-arrow-icon.svg);
   background-position: 50% 50%;
   background-size: 100%;
 }
@@ -1676,7 +1709,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../images/prev-btn-icon.svg);
+  background-image: url(../../images/prev-btn-icon.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1856,7 +1889,7 @@
   top: 13px;
   width: 30px;
   height: 26px;
-  background-image: url(../images/prev-btn-icon.svg);
+  background-image: url(../../images/prev-btn-icon.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1939,16 +1972,17 @@
   position: absolute;
   bottom: 0;
   padding: 10px 0;
-  background: #28A02A;
+  background: var(--lb3-tournament-details-opt-in-back);
+  border-top: var(--lb3-tournament-details-opt-in-back-border-top);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action {
   width: auto;
   cursor: pointer;
-  background: #33c334;
+  background: var(--lb3-tournament-details-opt-in-btn-back);
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--lb3-tournament-details-opt-in-color);
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -1958,10 +1992,11 @@
   padding: 9px 28px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
+  border: var(--lb3-tournament-details-opt-in-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action:hover {
-  background: #21a722;
+  background: var(--lb3-tournament-details-opt-in-btn-back-hover);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action.cl-disabled {
@@ -1984,17 +2019,17 @@
   z-index: 3;
   color: #ffffff;
   padding: 10px 30px;
-  background: #28A02A;
+  background: var(--lb3-tournament-lb-opt-in-back);
   text-align: center;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action {
   width: auto;
   cursor: pointer;
-  background: #33c334;
+  background: var(--lb3-tournament-lb-opt-in-btn-back);
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--lb3-tournament-lb-opt-in-btn-color);
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -2004,10 +2039,11 @@
   padding: 9px 28px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
+  border: var(--lb3-tournament-lb-opt-in-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action:hover {
-  background: #21a722;
+  background: var(--lb3-tournament-lb-opt-in-btn-back-hover);
 }
 
 
@@ -2038,6 +2074,7 @@
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
+  border-bottom: var(--lb3-achievements-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-label {
@@ -2067,7 +2104,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-close {
   position: absolute;
   display: block;
-  background-image: url(../images/close-icon.svg);
+  background-image: var(--lb3-achievements-header-close-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2171,7 +2208,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../images/prev-btn-icon.svg);
+  background-image: url(../../images/prev-btn-icon.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2450,7 +2487,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-header .cl-main-widget-reward-header-close {
   position: absolute;
   display: block;
-  background-image: url(../images/close-icon.svg);
+  background-image: var(--lb3-rewards-header-close-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2458,6 +2495,7 @@
   height: 30px;
   right: 3px;
   top: 0;
+  border-bottom: var(--lb3-rewards-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-details {
@@ -2745,7 +2783,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../images/prev-btn-icon.svg);
+  background-image: url(../../images/prev-btn-icon.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2806,7 +2844,7 @@
   width: 100%;
   max-width: 84px;
   background-color: var(--lb3-rewards-details-reward-bg-color);
-  background-image: url(../images/big-reward-icon.svg);
+  background-image: url(../../images/big-reward-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 63%;
@@ -2917,7 +2955,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-header .cl-main-widget-inbox-header-close {
   position: absolute;
   display: block;
-  background-image: url(../images/close-icon.svg);
+  background-image: var(--lb3-messages-header-close-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2925,6 +2963,7 @@
   height: 30px;
   right: 3px;
   top: 0;
+  border-bottom: var(--lb3-messages-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-details {
@@ -3063,7 +3102,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../images/prev-btn-icon.svg);
+  background-image: url(../../images/prev-btn-icon.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -3172,7 +3211,7 @@
   content: "";
   display: block;
   min-height: 100%;
-  background-image: url(../images/big-challenge-icon.svg);
+  background-image: url(../../images/big-challenge-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 45%;
