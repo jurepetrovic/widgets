@@ -107,8 +107,23 @@ You can generate documentation by running:
 npm run jsdoc
 ```
 
+
+## Different themes
+
+There are a few themes to choose from (or create your own):
+
+Build default theme:
+```shell script
+npm run dev
+```
+Build dark theme:
+```shell script
+npm run dev:dark-theme
+```
+
 ## Examples
-* [Live Standard laoding examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3.html)
+* [Live Default Theme laoding examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3-default-theme.html)
+* [Live Dark Theme laoding examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3-dark-theme.html)
 * [Live loader script examples](https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/examples/leaderboard_v3_loader.html)
 
 
@@ -138,16 +153,15 @@ npm run jsdoc
     			language: "en",
     			uri: {
     				gatewayDomain: "https://gateway-staging.competitionlabs.com",
-    				translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/i18n/translation_:language.json"
+    				translationPath: "https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/build/i18n/translation_:language.json"
     			},
     			resources: [
-    				"https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/style.css",
-    				"https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/css/fonts.css"
+    				"https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/build/css/theme/default-theme.css"
     			]
     		};
     		var a=d.createElement(s), m=d.getElementsByTagName(s)[0];
     		a.async=1;a.src=u;m.parentNode.insertBefore(a,m);
-    	})(window,document,'script','https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/javascript/leaderboard.v3.js',"_CLLBV3Opt");
+    	})(window,document,'script','https://s3-eu-west-1.amazonaws.com/demo.competitionlabs.com/_widgets/leaderboard_v3/build/javascript/leaderboard.v3.js',"_CLLBV3Opt");
 </script>
 ```
 

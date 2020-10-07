@@ -26,7 +26,7 @@ module.exports = {
     contentBase: path.join(__dirname, '../..'),
     openPage: process.env.INLINE_CSS
       ? '/examples/leaderboard_v3_inline_css.html'
-      : 'examples/leaderboard_v3.html',
+      : 'examples/leaderboard_v3-' + process.env.THEME + '.html',
     writeToDisk: true
   },
   optimization: {
@@ -64,7 +64,8 @@ module.exports = {
             {
               loader: 'file-loader',
               options: {
-                name: '../css/theme/[name].css'
+                name: '../css/theme/' + process.env.THEME + '.css'
+                // name: '../css/theme/[name].css'
               }
             },
             'sass-loader'

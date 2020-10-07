@@ -48,7 +48,7 @@ module.exports = {
               {
                 loader: 'file-loader',
                 options: {
-                  name: '../css/theme/[name].css'
+                  name: '../css/theme/' + process.env.THEME + '.css'
                 }
               },
               'sass-loader'
@@ -75,6 +75,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.LANG': JSON.stringify(process.env.LANG),
       'process.env.INLINE_CSS': JSON.stringify(process.env.INLINE_CSS),
+      'process.env.THEME': JSON.stringify(process.env.THEME)
     }),
     new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({
