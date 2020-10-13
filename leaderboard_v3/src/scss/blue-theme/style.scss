@@ -1,191 +1,6 @@
-@font-face {
-  font-family: "Gotham";
-  src: url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Book.eot");
-  src: url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Book.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Book.woff2") format("woff2"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Book.woff") format("woff"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Book.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Gotham Bold";
-  src: url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/GothamBold.eot");
-  src: url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/GothamBold.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/GothamBold.woff2") format("woff2"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/GothamBold.woff") format("woff"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/GothamBold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Gotham Light";
-  src: url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Light.eot");
-  src: url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Light.eot?#iefix") format("embedded-opentype"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Light.woff2") format("woff2"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Light.woff") format("woff"), url("https://s3-eu-west-1.amazonaws.com/static.competitionlabs.com/fonts/Gotham-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-:root {
-  --lb3-widget-icon: url(../../images/logo-icon2.png);
-  --lb3-widget-icon-2x: url(../../images/logo-icon2-x2.png);
-  --lb3-widget-font: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
-  --lb3-widget-bg-color: #000000;
-  --lb3-widget-border-color: #292929;
-  --lb3-widget-text-color: #ffffff;
-  --lb3-widget-date-text-color: #ffffff;
-  --lb3-widget-header-text-color: #7a7a7a;
-  --lb3-widget-navigation-icon-width: 73px;
-  --lb3-widget-navigation-icon-height: 73px;
-  --lb3-close-btn-bg-color: #000000;
-  --lb3-miniscoreboard-close-wrapper-border: 2px solid #252525;
-  --lb3-miniscoreboard-close-btn-back: none;
-  --lb3-miniscoreboard-close-btn-color: #ffffff;
-  --lb3-miniscoreboard-close-btn-font-size: 18px;
-  --lb3-miniscoreboard-opt-btn-border: 1px solid #ffffff;
-  --lb3-miniscoreboard-opt-btn-back: #000000;
-  --lb3-miniscoreboard-opt-btn-back-hover: #292929;
-  --lb3-miniscoreboard-opt-btn-color: #ffffff;
-  --lb3-miniscoreboard-date-color: #7a7a7a;
-  --lb3-miniscoreboard-rank-label-color: #7a7a7a;
-  --lb3-miniscoreboard-points-label-color: #7a7a7a;
-  --lb3-miniscoreboard-inverse-first-to-date-color: #7a7a7a;
-  --lb3-miniscoreboard-inverse-first-to-date-only-color: #ffffff;
-  --lb3-miniscoreboard-first-to-header-rank-color: #7a7a7a;
-  --lb3-miniscoreboard-first-to-header-points-color: #7a7a7a;
-  --lb3-miniscoreboard-vertical-first-to-rank-color: #7a7a7a;
-  --lb3-miniscoreboard-vertical-first-to-points-color: #7a7a7a;
-  --lb3-tournament-icon: url(../../images/big-tournament-icon.svg);
-  --lb3-tournament-icon-bg-image: url(../../cl-black-theme/images/big-black-btn-icon.png);
-  --lb3-tournament-icon-bg-image-2x: url(../../cl-black-theme/images/big-black-btn-icon-x2.png);
-  --lb3-tournament-header-back: #000000;
-  --lb3-tournament-header-border-bottom: 1px solid #4c4c4c;
-  --lb3-tournament-header-label-color: #b4b4b4;
-  --lb3-tournament-header-date-color: #ffffff;
-  --lb3-tournament-header-close-back-image: url(../../cl-black-theme/images/close-icon.svg);
-  --lb3-tournament-header-list-back-image: url(../../cl-black-theme/images/menu.svg);
-  --lb3-tournament-details-bg-color: #000000;
-  --lb3-tournament-details-label-color: #e4bc1f;
-  --lb3-tournament-footer-bg-color: #000000;
-  --lb3-tournament-footer-top-border: 1px solid #4c4c4c;
-  --lb3-tournament-footer-text-color: #b4b4b4;
-  --lb3-tournament-container-bg-color: #000000;
-  --lb3-tournament-container-text-color: #ffffff;
-  --lb3-tournament-container-text-size: 12px;
-  --lb3-tournament-container-height: 28px;
-  --lb3-tournament-container-line-height: 28px;
-  --lb3-tournament-lb-first-place-back: none;
-  --lb3-tournament-lb-first-place-color: #ffe500;
-  --lb3-tournament-lb-first-place-border: 1px solid #e2d45f;
-  --lb3-tournament-lb-second-place-back: none;
-  --lb3-tournament-lb-second-place-color: #d4d4d4;
-  --lb3-tournament-lb-second-place-border: 1px solid #c8c8c8;
-  --lb3-tournament-lb-third-place-back: none;
-  --lb3-tournament-lb-third-place-color: #ffa800;
-  --lb3-tournament-lb-third-place-border: 1px solid #e2b662;
-  --lb3-tournament-header-text-color: #8e8e8e;
-  --lb3-tournament-header-text-size: 11px;
-  --lb3-tournament-top-results-bg-color: #1f1f1f;
-  --lb3-tournament-top-results-bg-box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.2);
-  --lb3-tournament-details-container-bg-color: #000000;
-  --lb3-tournament-details-header-color: #e4bc1f;
-  --lb3-tournament-details-date-color: #ffffff;
-  --lb3-tournament-details-body-color: #ffffff;
-  --lb3-tournament-details-link-color: #2c9ab7;
-  --lb3-tournament-list-bg-color: #000000;
-  --lb3-tournament-details-opt-in-back: #000000;
-  --lb3-tournament-details-opt-in-back-border-top: 1px solid #b4b4b4;
-  --lb3-tournament-details-opt-in-btn-back: #000000;
-  --lb3-tournament-details-opt-in-btn-back-hover: #292929;
-  --lb3-tournament-details-opt-in-color: #ffffff;
-  --lb3-tournament-details-opt-in-border: 1px solid #ffffff;
-  --lb3-tournament-list-accordion-label-back: #4c4c4c;
-  --lb3-tournament-list-accordion-label-icon: #ffffff;
-  --lb3-tournament-list-accordion-label-icon-show: #000000;
-  --lb3-tournament-list-accordion-label-back-show: #ffffff;
-  --lb3-tournament-list-accordion-label-back-hover: #7f7f7f;
-  --lb3-tournament-list-accordion-label-color-show: #000000;
-  --lb3-tournament-list-item-cont-border-bottom: 1px solid #b4b4b4;
-  --lb3-tournament-list-item-cont-back-hover: #4c4c4c;
-  --lb3-tournament-lb-active-member-row-height: 28px;
-  --lb3-tournament-lb-active-member-row-back: #ffffff;
-  --lb3-tournament-lb-active-member-row-color: #000000;
-  --lb3-tournament-lb-opt-in-back: #000000;
-  --lb3-tournament-lb-opt-in-btn-back: #000000;
-  --lb3-tournament-lb-opt-in-btn-color: #ffffff;
-  --lb3-tournament-lb-opt-in-btn-back-hover: #292929;
-  --lb3-tournament-lb-opt-in-border: 1px solid #ffffff;
-  --lb3-achievements-icon: url(../../images/big-challenge-icon.svg);
-  --lb3-achievements-icon-bg-image: url(../../cl-black-theme/images/big-black-btn-icon.png);
-  --lb3-achievements-icon-bg-image-2x: url(../../cl-black-theme/images/big-black-btn-icon-x2.png);
-  --lb3-achievements-header-bg-color: #000000;
-  --lb3-achievements-header-label-color: #b4b4b4;
-  --lb3-achievements-header-date-color: #b4b4b4;
-  --lb3-achievements-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
-  --lb3-achievements-header-border-bottom: 1px solid #4c4c4c;
-  --lb3-achievements-details-bg-color: #000000;
-  --lb3-achievements-container-bg-color: #000000;
-  --lb3-achievements-details-header-text-color: #ffffff;
-  --lb3-achievements-details-date-color: #ffffff;
-  --lb3-achievements-details-body-color: #ffffff;
-  --lb3-achievements-details-link-color: #2c9ab7;
-  --lb3-achievements-footer-bg-color: #000000;
-  --lb3-achievements-footer-top-border: 1px solid #4c4c4c;
-  --lb3-achievements-footer-text-color: #b4b4b4;
-  --lb3-achievements-divider-color: #6a6a6a;
-  --lb3-achievements-item-label-color: #e4bc1f;
-  --lb3-achievements-item-body-color: #ffffff;
-  --lb3-achievements-progress-bg-color: #000000;
-  --lb3-achievements-progress-fill-color: #ffffff;
-  --lb3-achievements-btn-bg-color: #000000;
-  --lb3-achievements-btn-hover-color: #3b3b3b;
-  --lb3-achievements-btn-border: 1px solid #ffffff;
-  --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
-  --lb3-rewards-icon-bg-image: url(../../cl-black-theme/images/big-black-btn-icon.png);
-  --lb3-rewards-icon-bg-image-2x: url(../../cl-black-theme/images/big-black-btn-icon-x2.png);
-  --lb3-rewards-header-bg-color: #000000;
-  --lb3-rewards-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
-  --lb3-rewards-header-border-bottom: 1px solid #4c4c4c;
-  --lb3-rewards-footer-bg-color: #000000;
-  --lb3-rewards-footer-top-border: 1px solid #b4b4b4;
-  --lb3-rewards-footer-text-color: #b4b4b4;
-  --lb3-rewards-bg-color: #000000;
-  --lb3-rewards-divider-color: #b4b4b4;
-  --lb3-rewards-item-label-color: #ffffff;
-  --lb3-rewards-item-body-color: #ffffff;
-  --lb3-rewards-item-bg-color-hover: #3b3b3b;
-  --lb3-rewards-accordion-bg-color: #4c4c4c;
-  --lb3-rewards-accordion-hover-color: #7f7f7f;
-  --lb3-rewards-details-bg-color: #000000;
-  --lb3-rewards-details-title-color: #ffffff;
-  --lb3-rewards-details-date-color: #ffffff;
-  --lb3-rewards-details-body-color: #ffffff;
-  --lb3-rewards-details-reward-bg-color: #ffffff;
-  --lb3-rewards-winnings-bg-color: #4c4c4c;
-  --lb3-rewards-btn-bg-color: #000000;
-  --lb3-rewards-btn-border: 1px solid #ffffff;
-  --lb3-rewards-btn-hover-color: #4c4c4c;
-  --lb3-rewards-accordion-container-show-bg-color: #ffffff;
-  --lb3-rewards-accordion-container-show-color: #000000;
-  --lb3-messages-icon: url(../../images/big-message-icon.svg);
-  --lb3-messages-icon-bg-image: url(../../cl-black-theme/images/big-black-btn-icon.png);
-  --lb3-messages-icon-bg-image-2x: url(../../cl-black-theme/images/big-black-btn-icon-x2.png);
-  --lb3-messages-header-bg-color: #000000;
-  --lb3-messages-header-text-color: #ffffff;
-  --lb3-messages-header-date-color: #ffffff;
-  --lb3-messages-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
-  --lb3-messages-header-border-bottom: 1px solid #4c4c4c;
-  --lb3-messages-item-bg-color: #000000;
-  --lb3-messages-item-hover-color: #4c4c4c;
-  --lb3-messages-item-divider-color: #4c4c4c;
-  --lb3-messages-item-label-color: #ffffff;
-  --lb3-messages-item-text-color: #ffffff;
-  --lb3-messages-details-bg-color: #000000;
-  --lb3-messages-details-title-color: #ffffff;
-  --lb3-messages-details-date-color: #ffffff;
-  --lb3-messages-details-text-color: #ffffff;
-  --lb3-messages-footer-bg-color: #000000;
-  --lb3-messages-footer-text-color: #b4b4b4;
-  --lb3-messages-footer-top-border: 1px solid #b4b4b4;
-  --lb3-notification-back-image: url(../../images/big-blue-btn-icon2.png);
-}
+@import "./blue-fonts";
+@import "./blue-config";
 
-.sometest {
-  border: 1px solid #ffffff;
-}
 
 .cl-widget-ms-wrapper, .cl-widget-notif-wrapper {
   float: left;
@@ -266,7 +81,7 @@
   -webkit-filter: blur(0px);
   -moz-filter: blur(0px);
   -ms-filter: blur(0px);
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius="0");
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-information-top-wrapper {
@@ -308,6 +123,7 @@
   top: -10px;
   right: -10px;
   z-index: 1;
+
   background: var(--lb3-close-btn-bg-color);
   width: 30px;
   height: 30px;
@@ -330,6 +146,7 @@
   line-height: 14px;
   font-size: var(--lb3-miniscoreboard-close-btn-font-size);
 }
+
 
 /**
  * Mini Score Board - Opt-in layout
@@ -387,6 +204,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-optin-wrapper .cl-widget-ms-optin-action:hover {
   background: var(--lb3-miniscoreboard-opt-btn-back-hover);
 }
+
 
 /**
  * Mini score board default
@@ -600,6 +418,7 @@
 .cl-widget-ms-wrapper.cl-vertical-mini .cl-widget-ms-information-top-wrapper .cl-widget-ms-default-wrapper .cl-mem-points {
   font-size: 14px;
 }
+
 
 /**
  * Mini score board first to
@@ -822,6 +641,7 @@
   font-size: 14px;
 }
 
+
 /**
  * Mini Score Board - Sum of Best layout
  */
@@ -903,6 +723,7 @@
   float: left;
   width: 100%;
   padding: 0 5px 0 0;
+
   line-height: 12px;
 }
 
@@ -911,6 +732,7 @@
   width: 32%;
   text-align: center;
 }
+
 
 .cl-widget-ms-wrapper .cl-widget-ms-sum-best-wrapper .cl-widget-ms-sum-best-rank-value {
   text-align: center;
@@ -947,6 +769,7 @@
   top: 0;
 }
 
+
 /**
  * Mini score board vertical
  */
@@ -972,7 +795,7 @@
   float: left;
   width: 100%;
   background: #212121;
-  border: 2px solid #000000;
+  border: 2px solid #1f294a;
   border-radius: 10px 10px 10px 10px;
   color: #ffffff;
   padding: 27px 5px 0 5px;
@@ -1121,7 +944,7 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #000000;
+  background: #1f294a;
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
@@ -1133,6 +956,7 @@
   transition: all 0.3s ease;
   padding: 5px 0;
 }
+
 
 /**
  * Main Section area
@@ -1182,9 +1006,8 @@
   left: 0;
   top: 0;
 }
-
 .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-navigation-container {
-  display: none;
+  display:none;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-items {
@@ -1305,6 +1128,7 @@
   opacity: 1;
 }
 
+
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb.cl-active-nav:hover {
   width: 92px;
   height: 92px;
@@ -1349,9 +1173,10 @@
   opacity: 1;
 }
 
-.cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-items .cl-hidden-navigation-item {
+.cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-items .cl-hidden-navigation-item{
   display: none;
 }
+
 
 .cl-main-widget-wrapper .cl-main-widget-section-container {
   position: relative;
@@ -1362,7 +1187,6 @@
   top: 0;
   padding: 0 0 0 73px;
 }
-
 .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-section-container {
   padding: 0 0 0 0;
 }
@@ -1375,7 +1199,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #000000;
+  background: #1f294a;
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -1456,6 +1280,10 @@
   z-index: 2;
 }
 
+// .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info {
+
+// }
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-content {
   float: left;
   width: 100%;
@@ -1493,6 +1321,10 @@
   cursor: pointer;
 }
 
+// .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info-icon {
+
+// }
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-footer {
   float: left;
   width: 100%;
@@ -1519,8 +1351,7 @@
   color: var(--lb3-tournament-lb-active-member-row-color);
   padding: 0 30px;
 }
-
-.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member .cl-col {
+.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member .cl-col{
   color: var(--lb3-tournament-lb-active-member-row-color);
 }
 
@@ -1641,9 +1472,8 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-rank-col {
   width: 9%;
 }
-
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-body .cl-rank-col {
-  padding: 0 0 0 3px;
+  padding:0 0 0 3px;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-rank-col .cl-rank-col-value {
@@ -1662,7 +1492,7 @@
   background: #ffe500;
   border: 1px solid #e2d45f;
   border-radius: 100%;
-  color: #000000;
+  color: #1f294a;
   text-align: center;
   font-size: 11px;
   font-weight: 400;
@@ -1736,13 +1566,13 @@
   width: 12%;
 }
 
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-row {
   float: left;
   width: 100%;
 }
-
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-main-widget-lb-leaderboard-header-top-res .cl-lb-row {
-  padding: 0 0 2px 0;
+  padding:0 0 2px 0;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row {
@@ -1752,7 +1582,7 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-col {
-  color: var(--lb3-tournament-lb-active-member-row-color);
+  color:var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-name-col,
@@ -1960,8 +1790,7 @@
   border-radius: 5px;
   transition: all 0.2s ease;
 }
-
-.cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-pre-loader {
+.cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-pre-loader{
   width: 100%;
 }
 
@@ -2014,6 +1843,7 @@
     height: 32px;
   }
 }
+
 /**
  * Competition list
  */
@@ -2063,6 +1893,7 @@
   z-index: 1;
 }
 
+
 /**
  * ***** Body table reset styles START *****
  */
@@ -2102,6 +1933,7 @@
 }
 
 /******** Body table reset styles END *******/
+
 /**
  * ***** Body list reset styles START ******
  */
@@ -2128,6 +1960,8 @@
 }
 
 /********Body list reset styles END *******/
+
+
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-container {
   float: left;
   width: 100%;
@@ -2208,6 +2042,7 @@
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action:hover {
   background: var(--lb3-tournament-lb-opt-in-btn-back-hover);
 }
+
 
 /**
  * ****************************************
@@ -2440,6 +2275,7 @@
   max-width: 100%;
 }
 
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-footer {
   float: left;
   width: 100%;
@@ -2544,7 +2380,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar.cl-ach-complete {
   font-size: 10px;
   line-height: 13px;
-  color: #000000;
+  color: var(--lb3-achievements-progress-text-color);
   width: 100%;
   text-align: right;
   padding: 0 6px;
@@ -2590,6 +2426,7 @@
   width: 100%;
   max-height: 50px;
 }
+
 
 /**
  * ****************************************
@@ -2834,6 +2671,7 @@
   display: block;
 }
 
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-accordion-label {
   background: var(--lb3-tournament-list-accordion-label-back);
 }
@@ -2883,6 +2721,7 @@
   line-height: 16px;
   color: #ffffff;
 }
+
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container {
   position: absolute;
@@ -3055,6 +2894,7 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
 
 /**
  * ****************************************
@@ -3285,6 +3125,7 @@
   padding: 0 0 30px 0;
 }
 
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-footer {
   float: left;
   width: 100%;
@@ -3307,11 +3148,13 @@
   text-align: center;
 }
 
+
 /**
  * ******************************************
  * ********** Navigation controls ***********
  * ******************************************
  */
+
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-section-item {
   transition: all 0.3s ease;
   opacity: 0;
@@ -3322,6 +3165,7 @@
   opacity: 1;
   left: 0;
 }
+
 
 /**
  * ******************************************
@@ -3352,11 +3196,12 @@
   width: 80px;
   height: 80px;
   background-size: 78px 79px;
+
   filter: none;
   -webkit-filter: blur(0px);
   -moz-filter: blur(0px);
   -ms-filter: blur(0px);
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius="0");
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
 }
 
 .cl-widget-notif-wrapper .cl-widget-notif-icon-wrapper .cl-widget-notif-icon::after {
@@ -3386,7 +3231,7 @@
   float: left;
   width: 100%;
   background: #212121;
-  border: 2px solid #000000;
+  border: 2px solid #1f294a;
   border-radius: 10px 5px 5px 10px;
   color: #ffffff;
   padding: 0 10px 0 42px;
@@ -3408,11 +3253,12 @@
   top: -10px;
   right: -10px;
   z-index: 1;
+
   background: #212121;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 2px solid #000000;
+  border: 2px solid #1f294a;
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
@@ -3460,6 +3306,7 @@
   line-height: 16px;
 }
 
+
 /**
  * *************************************
  * ********** Mobile Devices ***********
@@ -3476,265 +3323,245 @@
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-name-col {
     max-width: 200px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-growth-col {
     max-width: 55px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-points-col {
     max-width: 220px;
   }
 }
+
 @media (max-width: 812px) {
   .cl-main-widget-wrapper {
     padding: 5px 12px 10px 12px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container {
     width: 91%;
     height: 88px;
     left: 25px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-items {
     padding: 0;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
     float: left;
     margin: 0px -5px 0 -3px;
     width: 76px;
     height: 76px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb.cl-active-nav:hover {
     margin: 0 -6px 0 -3px;
     width: 88px;
     height: 88px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
     float: left;
     margin: 0px -5px 0 1px;
     width: 76px;
     height: 76px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach.cl-active-nav:hover {
     margin: 0 -6px 0 -3px;
     width: 88px;
     height: 88px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
     float: left;
     margin: 0px -5px 0 1px;
     width: 76px;
     height: 76px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards.cl-active-nav:hover {
     margin: 0 -6px 0 -3px;
     width: 88px;
     height: 88px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
     float: left;
     margin: 0px -5px 0 1px;
     width: 76px;
     height: 76px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox.cl-active-nav:hover {
     margin: 0 -6px 0 -3px;
     width: 88px;
     height: 88px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container {
     padding: 82px 0 0 0;
   }
-
   .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-section-container {
     padding: 0 0 0 0;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-pre-loader {
     opacity: 1;
     top: 81px;
     height: calc(100% - 80px);
     width: 100%;
   }
-
-  .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-pre-loader {
+  .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-pre-loader{
     height: 100%;
     width: 100%;
-    top: 0;
+    top:0;
   }
 
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header {
     height: 42px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list-icon {
     width: 35px;
     height: 35px;
     margin: 3px 0 0 10px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-date {
     line-height: 42px;
     font-size: 14px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-label {
     line-height: 42px;
     font-size: 16px;
     display: none;
   }
-
   .cl-widget-ms-wrapper .cl-main-widget-lb-header-date .time-ind {
     font-size: 7px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard {
     padding: 84px 0 22px 0;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-lb-details-container {
     height: calc(100% - 64px);
     top: 42px;
   }
 }
+
 @media (max-height: 520px) and (max-width: 812px) {
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header {
     height: 34px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list-icon {
     width: 31px;
     height: 31px;
     margin: 3px 0 0 10px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-date {
     line-height: 34px;
     font-size: 13px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details {
     height: 38px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-content {
     padding: 2px 0 0 0;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard {
     padding: 70px 0 22px 0;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-pre-loader {
     top: 61px;
     height: calc(100% - 60px);
   }
-
-  .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-pre-loader {
+  .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-pre-loader{
     height: 100%;
     width: 100%;
-    top: 0;
+    top:0;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container {
     height: 66px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
     float: left;
     margin: 0px -5px 0 -3px;
     width: 58px;
     height: 58px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb.cl-active-nav:hover {
     margin: 0 -6px 0 1px;
     width: 68px;
     height: 68px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
     float: left;
     margin: 0px -5px 0 3px;
     width: 58px;
     height: 58px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach.cl-active-nav:hover {
     margin: 0 -6px 0 1px;
     width: 68px;
     height: 68px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
     float: left;
     margin: 0px -5px 0 3px;
     width: 58px;
     height: 58px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards.cl-active-nav:hover {
     margin: 0 -6px 0 1px;
     width: 68px;
     height: 68px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
     float: left;
     margin: 0px -5px 0 3px;
     width: 58px;
     height: 58px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox.cl-active-nav, .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox.cl-active-nav:hover {
     margin: 0 -6px 0 -3px;
     width: 68px;
     height: 68px;
   }
-
   .cl-main-widget-wrapper .cl-main-widget-section-container {
     padding: 60px 0 0 0;
   }
-
   .cl-main-widget-wrapper .cl-hidden-navigation .cl-main-widget-section-container {
     padding: 0 0 0 0;
   }
 }
+
 /**
  * for retina resolution
  */
-@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
   .cl-widget-ms-wrapper .cl-widget-ms-icon-wrapper .cl-widget-ms-icon {
     background-image: var(--lb3-widget-icon-2x);
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
     background-image: var(--lb3-achievements-icon-bg-image-2x);
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
     background-image: var(--lb3-tournament-icon-bg-image-2x);
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
     background-image: var(--lb3-rewards-icon-bg-image-2x);
   }
-
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
     background-image: var(--lb3-messages-icon-bg-image-2x);
   }
-
   .cl-widget-notif-wrapper .cl-widget-notif-icon-wrapper .cl-widget-notif-icon {
     background-image: var(--lb3-achievements-icon-bg-image-2x);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

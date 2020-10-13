@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "cross-env --env.LANG=en --env.production=dev --env.THEME=default-theme webpack-dev-server --config ./webpack/webpack.config.js --progress",
     "dev:dark-theme": "cross-env --env.LANG=en --env.production=dev --env.THEME=dark-theme webpack-dev-server --config ./webpack/webpack.config.js --progress",
+    "dev:blue-theme": "cross-env --env.LANG=en --env.production=dev --env.THEME=blue-theme webpack-dev-server --config ./webpack/webpack.config.js --progress",
     "build": "rimraf build && cross-env --env.LANG=en --env.production=prod --env.THEME=default-theme webpack --config ./webpack/webpack.config.js --progress",
     "build:dark-theme": "rimraf build && cross-env --env.LANG=en --env.production=prod --env.THEME=dark-theme webpack --config ./webpack/webpack.config.js --progress",
     "build:inline-css": "rimraf build && cross-env --env.LANG=en env.INLINE_CSS=true --env.THEME=default-theme --env.production=prod webpack --config ./webpack/webpack.config.js --progress",
