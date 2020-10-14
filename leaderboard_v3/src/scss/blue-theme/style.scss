@@ -1,7 +1,6 @@
 @import "./blue-fonts";
 @import "./blue-config";
 
-
 .cl-widget-ms-wrapper, .cl-widget-notif-wrapper {
   float: left;
   width: 100%;
@@ -16,7 +15,7 @@
   overflow: unset;
   visibility: visible;
   outline: none;
-  font-family: var(--lb3-widget-font);
+  font-family: $lb3-widget-font;
   font-weight: 300;
   border: none;
   display: block;
@@ -71,7 +70,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-icon-wrapper .cl-widget-ms-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-widget-icon);
+  background-image: $lb3-widget-icon;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 62px;
@@ -100,10 +99,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: var(--lb3-widget-bg-color);
-  border: 2px solid var(--lb3-widget-border-color);
+  background: $lb3-widget-bg-color;
+  border: 2px solid $lb3-widget-border-color;
   border-radius: 10px 5px 5px 10px;
-  color: var(--lb3-widget-text-color);
+  color: $lb3-widget-text-color;
   padding: 0 10px 0 42px;
   height: 50px;
   transition: all 0.3s ease;
@@ -124,27 +123,27 @@
   right: -10px;
   z-index: 1;
 
-  background: var(--lb3-close-btn-bg-color);
+  background: $lb3-close-btn-bg-color;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: var(--lb3-miniscoreboard-close-wrapper-border);
+  border: $lb3-miniscoreboard-close-wrapper-border;
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-information-close {
   float: left;
-  background: var(--lb3-miniscoreboard-close-btn-back);
+  background: $lb3-miniscoreboard-close-btn-back;
   width: 16px;
   height: 16px;
-  color: var(--lb3-miniscoreboard-close-btn-color);
+  color: $lb3-miniscoreboard-close-btn-color;
   text-decoration: none;
   text-align: center;
   border-radius: 100%;
   margin: 5px 0 0 5px;
   line-height: 14px;
-  font-size: var(--lb3-miniscoreboard-close-btn-font-size);
+  font-size: $lb3-miniscoreboard-close-btn-font-size;
 }
 
 
@@ -189,20 +188,20 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: var(--lb3-miniscoreboard-opt-btn-back);
+  background: $lb3-miniscoreboard-opt-btn-back;
   text-align: center;
   text-transform: uppercase;
-  color: var(--lb3-miniscoreboard-opt-btn-color);
+  color: $lb3-miniscoreboard-opt-btn-color;
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
   font-weight: 400;
   transition: all 0.3s ease;
-  border: var(--lb3-miniscoreboard-opt-btn-border);
+  border: $lb3-miniscoreboard-opt-btn-border;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-optin-wrapper .cl-widget-ms-optin-action:hover {
-  background: var(--lb3-miniscoreboard-opt-btn-back-hover);
+  background: $lb3-miniscoreboard-opt-btn-back-hover;
 }
 
 
@@ -230,7 +229,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-default-wrapper .cl-widget-ms-default-results-header-rank {
   float: left;
   width: 100px;
-  color: var(--lb3-widget-header-text-color);
+  color: $lb3-widget-header-text-color;
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -240,7 +239,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-default-wrapper .cl-widget-ms-default-results-header-points {
   float: left;
   width: 100px;
-  color: var(--lb3-widget-header-text-color);
+  color: $lb3-widget-header-text-color;
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -276,7 +275,7 @@
   float: left;
   width: 30%;
   text-align: center;
-  color: var(--lb3-miniscoreboard-date-color);
+  color: $lb3-miniscoreboard-date-color;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-default-mem-entry {
@@ -337,7 +336,7 @@
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-default-wrapper.cl-inverse .cl-widget-ms-default-date-only .cl-widget-ms-default-date {
-  color: var(--lb3-widget-date-text-color);
+  color: $lb3-widget-date-text-color;
   text-align: right;
   float: right;
   width: 58%;
@@ -398,7 +397,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: var(--lb3-miniscoreboard-rank-label-color);
+  color: $lb3-miniscoreboard-rank-label-color;
   text-transform: uppercase;
 }
 
@@ -411,7 +410,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: var(--lb3-miniscoreboard-points-label-color);
+  color: $lb3-miniscoreboard-points-label-color;
   text-transform: uppercase;
 }
 
@@ -465,7 +464,7 @@
   float: left;
   width: 30%;
   text-align: center;
-  color: var(--lb3-miniscoreboard-first-to-date-color);
+  color: $lb3-miniscoreboard-first-to-date-color;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-mem-entry {
@@ -526,7 +525,7 @@
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-wrapper.cl-inverse .cl-widget-ms-first-to-date-only .cl-widget-ms-first-to-date {
-  color: var(--lb3-miniscoreboard-inverse-first-to-date-only-color);
+  color: $lb3-miniscoreboard-inverse-first-to-date-only-color;
   text-align: right;
   float: right;
   width: 55%;
@@ -546,7 +545,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-wrapper .cl-widget-ms-first-to-results-header-rank {
   float: left;
   width: 100px;
-  color: var(--lb3-miniscoreboard-first-to-header-rank-color);
+  color: $lb3-miniscoreboard-first-to-header-rank-color;
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -556,7 +555,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-wrapper .cl-widget-ms-first-to-results-header-points {
   float: left;
   width: 100px;
-  color: var(--lb3-miniscoreboard-first-to-header-points-color);
+  color: $lb3-miniscoreboard-first-to-header-points-color;
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -620,7 +619,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: var(--lb3-miniscoreboard-vertical-first-to-rank-color);
+  color: $lb3-miniscoreboard-vertical-first-to-rank-color;
   text-transform: uppercase;
 }
 
@@ -633,7 +632,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: var(--lb3-miniscoreboard-vertical-first-to-points-color);
+  color: $lb3-miniscoreboard-vertical-first-to-points-color;
   text-transform: uppercase;
 }
 
@@ -715,7 +714,7 @@
   float: left;
   width: 40%;
   text-align: right;
-  color: #ffffff;
+  color: $light-font-color;
   font-size: 10px;
 }
 
@@ -794,10 +793,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #212121;
-  border: 2px solid #1f294a;
+  background: $darkest-color;
+  border: 2px solid $primary-color;
   border-radius: 10px 10px 10px 10px;
-  color: #ffffff;
+  color: $light-font-color;
   padding: 27px 5px 0 5px;
   height: 199px;
   transition: all 0.3s ease;
@@ -819,7 +818,7 @@
   right: 26px;
   top: unset;
   z-index: 1;
-  background: #212121;
+  background: $darkest-color;
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -883,7 +882,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #ffffff;
+  color: $light-font-color;
   font-size: 12px;
   padding: 3px 0 10px 0;
   line-height: 17px;
@@ -944,12 +943,12 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #1f294a;
+  background: $primary-color;
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $light-font-color;
   border-radius: 5px;
-  border: 1px solid #ffffff;
+  border: 1px solid $light-font-color;
   line-height: 16px;
   font-size: 9px;
   font-weight: 400;
@@ -972,7 +971,7 @@
   height: 100%;
   background: transparent;
   padding: 10px 20px;
-  font-family: var(--lb3-widget-font);
+  font-family: $lb3-widget-font;
   font-weight: 300;
   margin: 0;
   box-sizing: border-box;
@@ -1018,9 +1017,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
   margin: -3px -3px;
-  width: var(--lb3-widget-navigation-icon-width);
-  height: var(--lb3-widget-navigation-icon-height);
-  background-image: var(--lb3-tournament-icon-bg-image);
+  width: $lb3-widget-navigation-icon-width;
+  height: $lb3-widget-navigation-icon-height;
+  background-image: $lb3-tournament-icon-bg-image;
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1029,7 +1028,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-tournament-icon);
+  background-image: $lb3-tournament-icon;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 50%;
@@ -1038,9 +1037,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
   margin: -6px -3px;
-  width: var(--lb3-widget-navigation-icon-width);
-  height: var(--lb3-widget-navigation-icon-height);
-  background-image: var(--lb3-achievements-icon-bg-image);
+  width: $lb3-widget-navigation-icon-width;
+  height: $lb3-widget-navigation-icon-height;
+  background-image: $lb3-achievements-icon-bg-image;
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1049,7 +1048,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-achievements-icon);
+  background-image: $lb3-achievements-icon;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 45%;
@@ -1058,9 +1057,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
   margin: -6px -3px;
-  width: var(--lb3-widget-navigation-icon-width);
-  height: var(--lb3-widget-navigation-icon-height);
-  background-image: var(--lb3-rewards-icon-bg-image);
+  width: $lb3-widget-navigation-icon-width;
+  height: $lb3-widget-navigation-icon-height;
+  background-image: $lb3-rewards-icon-bg-image;
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1069,7 +1068,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-rewards-icon);
+  background-image: $lb3-rewards-icon;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 45%;
@@ -1078,9 +1077,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
   margin: -3px -3px;
-  width: var(--lb3-widget-navigation-icon-width);
-  height: var(--lb3-widget-navigation-icon-height);
-  background-image: var(--lb3-messages-icon-bg-image);
+  width: $lb3-widget-navigation-icon-width;
+  height: $lb3-widget-navigation-icon-height;
+  background-image: $lb3-messages-icon-bg-image;
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1089,7 +1088,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-messages-icon);
+  background-image: $lb3-messages-icon;
   background-repeat: no-repeat;
   background-position: 50% 42%;
   background-size: 45%;
@@ -1199,7 +1198,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #1f294a;
+  background: $primary-color;
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -1209,11 +1208,11 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: var(--lb3-tournament-header-back);
+  background: $lb3-tournament-header-back;
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
-  border-bottom: var(--lb3-tournament-header-border-bottom);
+  border-bottom: $lb3-tournament-header-border-bottom;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list {
@@ -1224,7 +1223,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-tournament-header-list-back-image);
+  background-image: $lb3-tournament-header-list-back-image;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 30px;
@@ -1239,7 +1238,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: var(--lb3-tournament-header-label-color);
+  color: $lb3-tournament-header-label-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -1252,7 +1251,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: var(--lb3-tournament-header-date-color);
+  color: $lb3-tournament-header-date-color;
   font-size: 12px;
   min-width: 125px;
 }
@@ -1260,7 +1259,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-close {
   position: absolute;
   display: block;
-  background-image: var(--lb3-tournament-header-close-back-image);
+  background-image: $lb3-tournament-header-close-back-image;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -1275,7 +1274,7 @@
   float: left;
   width: 100%;
   height: 42px;
-  background: var(--lb3-tournament-details-bg-color);
+  background: $lb3-tournament-details-bg-color;
   position: relative;
   z-index: 2;
 }
@@ -1295,7 +1294,7 @@
   text-align: center;
   padding: 0 40px;
   line-height: 32px;
-  color: var(--lb3-tournament-details-label-color);
+  color: $lb3-tournament-details-label-color;
   text-transform: uppercase;
   display: inline-block;
   position: relative;
@@ -1310,7 +1309,7 @@
   position: absolute;
   content: "";
   display: block;
-  background-image: url(../../images/info-icon.svg);
+  background-image: url(../../images/info-icon-dark.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -1332,10 +1331,10 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: var(--lb3-tournament-footer-bg-color);
+  background: $lb3-tournament-footer-bg-color;
   border-radius: 0 0 5px 5px;
   z-index: 2;
-  border-top: var(--lb3-tournament-footer-top-border);
+  border-top: $lb3-tournament-footer-top-border;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member {
@@ -1346,20 +1345,20 @@
   position: absolute;
   bottom: 22px;
   left: 0;
-  background: var(--lb3-tournament-lb-active-member-row-back);
+  background: $lb3-tournament-lb-active-member-row-back;
   z-index: 3;
-  color: var(--lb3-tournament-lb-active-member-row-color);
+  color: $lb3-tournament-lb-active-member-row-color;
   padding: 0 30px;
 }
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member .cl-col{
-  color: var(--lb3-tournament-lb-active-member-row-color);
+  color: $lb3-tournament-lb-active-member-row-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-footer-content {
   float: left;
   width: 100%;
   line-height: 22px;
-  color: var(--lb3-tournament-footer-text-color);
+  color: $lb3-tournament-footer-text-color;
   font-size: 11px;
   text-align: center;
 }
@@ -1372,7 +1371,7 @@
   height: 100%;
   z-index: 1;
   padding: 72px 0 22px 0;
-  background: var(--lb3-tournament-container-bg-color);
+  background: $lb3-tournament-container-bg-color;
   border-radius: 5px;
 }
 
@@ -1389,16 +1388,16 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-col {
   float: left;
-  color: var(--lb3-tournament-container-text-color);
-  font-size: var(--lb3-tournament-container-text-size);
-  line-height: var(--lb3-tournament-container-line-height);
+  color: $lb3-tournament-container-text-color;
+  font-size: $lb3-tournament-container-text-size;
+  line-height: $lb3-tournament-container-line-height;
   background: none;
-  height: var(--lb3-tournament-container-height);
+  height: $lb3-tournament-container-height;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header-labels .cl-col {
-  color: var(--lb3-tournament-header-text-color);
-  font-size: var(--lb3-tournament-header-text-size);
+  color: $lb3-tournament-header-text-color;
+  font-size: $lb3-tournament-header-text-size;
   line-height: 20px;
   height: 20px;
 }
@@ -1437,9 +1436,9 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header-top-res {
   float: left;
   width: 100%;
-  background: var(--lb3-tournament-top-results-bg-color);
+  background: $lb3-tournament-top-results-bg-color;
   padding: 0 30px;
-  box-shadow: var(--lb3-tournament-top-results-bg-box-shadow);
+  box-shadow: $lb3-tournament-top-results-bg-box-shadow;
   border-radius: 0 0 5px 5px;
 }
 
@@ -1492,7 +1491,7 @@
   background: #ffe500;
   border: 1px solid #e2d45f;
   border-radius: 100%;
-  color: #1f294a;
+  color: $primary-color;
   text-align: center;
   font-size: 11px;
   font-weight: 400;
@@ -1504,10 +1503,10 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-1 .cl-rank-col-value {
-  background-image: var(--lb3-tournament-lb-first-place-back);
+  background-image: $lb3-tournament-lb-first-place-back;
   background-repeat: no-repeat;
-  background-color: var(--lb3-tournament-lb-first-place-color);
-  border: var(--lb3-tournament-lb-first-place-border);
+  background-color: $lb3-tournament-lb-first-place-color;
+  border: $lb3-tournament-lb-first-place-border;
   height: 26px;
   width: 26px;
   font-size: 13px;
@@ -1515,10 +1514,10 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-2 .cl-rank-col-value {
-  background-image: var(--lb3-tournament-lb-second-place-back);
+  background-image: $lb3-tournament-lb-second-place-back;
   background-repeat: no-repeat;
-  background-color: var(--lb3-tournament-lb-second-place-color);
-  border: var(--lb3-tournament-lb-second-place-border);
+  background-color: $lb3-tournament-lb-second-place-color;
+  border: $lb3-tournament-lb-second-place-border;
   height: 26px;
   width: 26px;
   font-size: 13px;
@@ -1526,10 +1525,10 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-3 .cl-rank-col-value {
-  background-image: var(--lb3-tournament-lb-third-place-back);
+  background-image: $lb3-tournament-lb-third-place-back;
   background-repeat: no-repeat;
-  background-color: var(--lb3-tournament-lb-third-place-color);
-  border: var(--lb3-tournament-lb-third-place-border);
+  background-color: $lb3-tournament-lb-third-place-color;
+  border: $lb3-tournament-lb-third-place-border;
   height: 26px;
   width: 26px;
   font-size: 13px;
@@ -1577,12 +1576,12 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row {
   position: relative;
-  background: var(--lb3-tournament-lb-active-member-row-back);
-  color: var(--lb3-tournament-lb-active-member-row-color);
+  background: $lb3-tournament-lb-active-member-row-back;
+  color: $lb3-tournament-lb-active-member-row-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-col {
-  color:var(--lb3-tournament-lb-active-member-row-color);
+  color:$lb3-tournament-lb-active-member-row-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-name-col,
@@ -1596,9 +1595,9 @@
   left: -18px;
   top: 0;
   content: "";
-  background: var(--lb3-tournament-lb-active-member-row-back);
+  background: $lb3-tournament-lb-active-member-row-back;
   width: 18px;
-  height: var(--lb3-tournament-lb-active-member-row-height);
+  height: $lb3-tournament-lb-active-member-row-height;
   border-radius: 5px 0 0 5px;
 }
 
@@ -1607,9 +1606,9 @@
   right: -10px;
   top: 0;
   content: "";
-  background: var(--lb3-tournament-lb-active-member-row-back);
+  background: $lb3-tournament-lb-active-member-row-back;
   width: 10px;
-  height: var(--lb3-tournament-lb-active-member-row-height);
+  height: $lb3-tournament-lb-active-member-row-height;
   border-radius: 0 5px 5px 0;
 }
 
@@ -1629,7 +1628,7 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-growth-up {
   display: none;
-  background-image: url(../../images/growth-arrow-icon.svg);
+  background-image: url(./../images/growth-arrow-icon.svg)  ;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100%;
@@ -1652,7 +1651,7 @@
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: var(--lb3-tournament-details-container-bg-color);
+  background: $lb3-tournament-details-container-bg-color;
   top: 30px;
   left: -200px;
   width: 100%;
@@ -1678,7 +1677,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-tournament-details-header-color);
+  color: $lb3-tournament-details-header-color;
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -1693,7 +1692,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-tournament-details-date-color);
+  color: $lb3-tournament-details-date-color;
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -1706,7 +1705,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: $prev-btn-icon-bg;
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1726,7 +1725,7 @@
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-body {
   float: left;
   width: 100%;
-  color: var(--lb3-tournament-details-body-color);
+  color: $lb3-tournament-details-body-color;
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -1774,7 +1773,7 @@
   text-align: left;
   font-size: 12px;
   float: none;
-  color: var(--lb3-tournament-details-link-color);
+  color: $lb3-tournament-details-link-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-pre-loader {
@@ -1799,7 +1798,7 @@
   top: 30%;
   line-height: 30px;
   text-align: left;
-  color: #ffffff;
+  color: $light-font-color;
   font-size: 14px;
   font-weight: bold;
   display: inline-block;
@@ -1814,7 +1813,7 @@
   position: absolute;
   left: 8px;
   width: 16px;
-  background: #ffffff;
+  background: $light-font-color;
   animation: cl-main-widget-pre-loader-content 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 
@@ -1850,7 +1849,7 @@
 .cl-main-widget-tournaments-list {
   position: absolute;
   height: calc(100% - 63px);
-  background: var(--lb3-tournament-list-bg-color);
+  background: $lb3-tournament-list-bg-color;
   top: 40px;
   left: -200px;
   width: 100%;
@@ -1886,7 +1885,7 @@
   top: 13px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: $prev-btn-icon-bg;
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1909,7 +1908,7 @@
   height: auto;
   margin: 0;
   padding: 0;
-  border: 1px solid #ffffff;
+  border: 1px solid $light-font-color;
   border-collapse: collapse;
   border-spacing: 0;
   vertical-align: inherit;
@@ -1969,17 +1968,17 @@
   position: absolute;
   bottom: 0;
   padding: 10px 0;
-  background: var(--lb3-tournament-details-opt-in-back);
-  border-top: var(--lb3-tournament-details-opt-in-back-border-top);
+  background: $lb3-tournament-details-opt-in-back;
+  border-top: $lb3-tournament-details-opt-in-back-border-top;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action {
   width: auto;
   cursor: pointer;
-  background: var(--lb3-tournament-details-opt-in-btn-back);
+  background: $lb3-tournament-details-opt-in-btn-back;
   text-align: center;
   text-transform: uppercase;
-  color: var(--lb3-tournament-details-opt-in-color);
+  color: $lb3-tournament-details-opt-in-color;
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -1989,11 +1988,11 @@
   padding: 9px 28px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
-  border: var(--lb3-tournament-details-opt-in-border);
+  border: $lb3-tournament-details-opt-in-border;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action:hover {
-  background: var(--lb3-tournament-details-opt-in-btn-back-hover);
+  background: $lb3-tournament-details-opt-in-btn-back-hover;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action.cl-disabled {
@@ -2014,19 +2013,19 @@
   bottom: 22px;
   left: 0;
   z-index: 3;
-  color: #ffffff;
+  color: $light-font-color;
   padding: 10px 30px;
-  background: var(--lb3-tournament-lb-opt-in-back);
+  background: $lb3-tournament-lb-opt-in-back;
   text-align: center;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action {
   width: auto;
   cursor: pointer;
-  background: var(--lb3-tournament-lb-opt-in-btn-back);
+  background: $lb3-tournament-lb-opt-in-btn-back;
   text-align: center;
   text-transform: uppercase;
-  color: var(--lb3-tournament-lb-opt-in-btn-color);
+  color: $lb3-tournament-lb-opt-in-btn-color;
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -2036,11 +2035,11 @@
   padding: 9px 28px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
-  border: var(--lb3-tournament-lb-opt-in-border);
+  border: $lb3-tournament-lb-opt-in-border;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action:hover {
-  background: var(--lb3-tournament-lb-opt-in-btn-back-hover);
+  background: $lb3-tournament-lb-opt-in-btn-back-hover;
 }
 
 
@@ -2057,7 +2056,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: var(--lb3-achievements-header-bg-color);
+  background: $lb3-achievements-header-bg-color;
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -2067,11 +2066,11 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: var(--lb3-achievements-header-bg-color);
+  background: $lb3-achievements-header-bg-color;
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
-  border-bottom: var(--lb3-achievements-header-border-bottom);
+  border-bottom: $lb3-achievements-header-border-bottom;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-label {
@@ -2079,7 +2078,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: var(--lb3-achievements-header-label-color);
+  color: $lb3-achievements-header-label-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2093,7 +2092,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: var(--lb3-achievements-header-date-color);
+  color: $lb3-achievements-header-date-color;
   font-size: 11px;
   min-width: 125px;
 }
@@ -2101,7 +2100,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-close {
   position: absolute;
   display: block;
-  background-image: var(--lb3-achievements-header-close-image);
+  background-image: $lb3-achievements-header-close-image;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2115,7 +2114,7 @@
   float: left;
   width: 100%;
   height: 42px;
-  background: var(--lb3-achievements-details-bg-color);
+  background: $lb3-achievements-details-bg-color;
   position: relative;
   z-index: 2;
   display: none;
@@ -2129,7 +2128,7 @@
   height: 100%;
   z-index: 1;
   padding: 32px 0 22px 0;
-  background: var(--lb3-achievements-container-bg-color);
+  background: $lb3-achievements-container-bg-color;
   border-radius: 5px;
 }
 
@@ -2151,7 +2150,7 @@
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: var(--lb3-achievements-details-bg-color);
+  background: $lb3-achievements-details-bg-color;
   top: 30px;
   left: -200px;
   width: 100%;
@@ -2177,7 +2176,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-achievements-details-header-text-color);
+  color: $lb3-achievements-details-header-text-color;
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -2192,7 +2191,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-achievements-details-date-color);
+  color: $lb3-achievements-details-date-color;
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -2205,7 +2204,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: $prev-btn-icon-bg;
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2224,7 +2223,7 @@
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container .cl-main-widget-ach-details-body {
   float: left;
   width: 100%;
-  color: var(--lb3-achievements-details-body-color);
+  color: $lb3-achievements-details-body-color;
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -2260,7 +2259,7 @@
   text-align: left;
   font-size: 12px;
   float: none;
-  color: var(--lb3-achievements-details-link-color);
+  color: $lb3-achievements-details-link-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container .cl-main-widget-ach-details-body-image-cont {
@@ -2283,17 +2282,17 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: var(--lb3-achievements-footer-bg-color);
+  background: $lb3-achievements-footer-bg-color;
   border-radius: 0 0 5px 5px;
   z-index: 2;
-  border-top: var(--lb3-achievements-footer-top-border);
+  border-top: $lb3-achievements-footer-top-border;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-footer-content {
   float: left;
   width: 100%;
   line-height: 22px;
-  color: var(--lb3-achievements-footer-text-color);
+  color: $lb3-achievements-footer-text-color;
   font-size: 11px;
   text-align: center;
 }
@@ -2303,7 +2302,7 @@
   width: 100%;
   min-height: 70px;
   padding: 0 0 25px 0;
-  border-bottom: 1px solid var(--lb3-achievements-divider-color);
+  border-bottom: 1px solid $lb3-achievements-divider-color;
   margin: 0 0 10px 0;
 }
 
@@ -2331,7 +2330,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-label {
   float: left;
   width: 100%;
-  color: var(--lb3-achievements-item-label-color);
+  color: $lb3-achievements-item-label-color;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
@@ -2341,7 +2340,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-category {
   float: left;
   width: 100%;
-  color: var(--lb3-achievements-item-body-color);
+  color: $lb3-achievements-item-body-color;
   font-size: 14px;
   font-weight: 500;
 }
@@ -2363,16 +2362,17 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-cont {
   float: left;
   width: 100%;
-  background: var(--lb3-achievements-progress-bg-color);
+  background: $lb3-achievements-progress-bg-color;
   height: 13px;
   border-radius: 5px;
+  border: $lb3-achievements-progress-border ;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar {
   float: left;
   width: 0;
-  height: 13px;
-  background: var(--lb3-achievements-progress-fill-color);
+  height: 11px;
+  background: $lb3-achievements-progress-fill-color;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
@@ -2380,7 +2380,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar.cl-ach-complete {
   font-size: 10px;
   line-height: 13px;
-  color: var(--lb3-achievements-progress-text-color);
+  color: $lb3-achievements-progress-text-color;
   width: 100%;
   text-align: right;
   padding: 0 6px;
@@ -2390,12 +2390,12 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more {
   float: left;
   text-align: center;
-  color: #ffffff;
+  color: $light-font-color;
   position: absolute;
   top: -2px;
   right: 0;
   line-height: 25px;
-  background: var(--lb3-achievements-btn-bg-color);
+  background: $lb3-achievements-btn-bg-color;
   text-decoration: none;
   border-radius: 8px;
   box-shadow: 1px 3px 5px #666;
@@ -2403,11 +2403,11 @@
   padding: 4px 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: var(--lb3-achievements-btn-border);
+  border: $lb3-achievements-btn-border;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more:hover {
-  background: var(--lb3-achievements-btn-hover-color);
+  background: $lb3-achievements-btn-hover-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-item-img-wrapper {
@@ -2441,7 +2441,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: var(--lb3-rewards-header-bg-color);
+  background: $lb3-rewards-header-bg-color;
   border-radius: 5px;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -2451,7 +2451,7 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: var(--lb3-rewards-header-bg-color);
+  background: $lb3-rewards-header-bg-color;
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
@@ -2462,7 +2462,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: #ffffff;
+  color: $light-font-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2476,7 +2476,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: #ffffff;
+  color: $light-font-color;
   font-size: 11px;
   min-width: 125px;
 }
@@ -2484,7 +2484,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-header .cl-main-widget-reward-header-close {
   position: absolute;
   display: block;
-  background-image: var(--lb3-rewards-header-close-image);
+  background-image: $lb3-rewards-header-close-image;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2492,14 +2492,14 @@
   height: 30px;
   right: 3px;
   top: 0;
-  border-bottom: var(--lb3-rewards-header-border-bottom);
+  border-bottom: $lb3-rewards-header-border-bottom;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-details {
   float: left;
   width: 100%;
   height: 42px;
-  background: var(--lb3-rewards-bg-color);
+  background: $lb3-rewards-bg-color;
   position: relative;
   z-index: 2;
   display: none;
@@ -2513,7 +2513,7 @@
   height: 100%;
   z-index: 1;
   padding: 36px 0 22px 0;
-  background: var(--lb3-rewards-bg-color);
+  background: $lb3-rewards-bg-color;
   border-radius: 5px;
 }
 
@@ -2538,8 +2538,8 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: var(--lb3-rewards-footer-bg-color);
-  border-top: var(--lb3-rewards-footer-top-border);
+  background: $lb3-rewards-footer-bg-color;
+  border-top: $lb3-rewards-footer-top-border;
   border-radius: 0 0 5px 5px;
   z-index: 2;
 }
@@ -2548,7 +2548,7 @@
   float: left;
   width: 100%;
   line-height: 22px;
-  color: var(--lb3-rewards-footer-text-color);
+  color: $lb3-rewards-footer-text-color;
   font-size: 11px;
   text-align: center;
 }
@@ -2558,13 +2558,13 @@
   width: 100%;
   padding: 10px 15px 15px 15px;
   margin: 0;
-  border-bottom: 1px solid var(--lb3-rewards-divider-color);
+  border-bottom: 1px solid $lb3-rewards-divider-color;
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-item:hover {
-  background-color: var(--lb3-rewards-item-bg-color-hover);
+  background-color: $lb3-rewards-item-bg-color-hover;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-details-cont {
@@ -2580,7 +2580,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-details-label {
   float: left;
   width: 100%;
-  color: var(--lb3-rewards-item-label-color);
+  color: $lb3-rewards-item-label-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2592,7 +2592,7 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: var(--lb3-rewards-item-body-color);
+  color: $lb3-rewards-item-body-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container {
@@ -2613,23 +2613,23 @@
   line-height: 26px;
   font-size: 14px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $light-font-color;
   font-weight: bold;
   position: relative;
   z-index: 1;
-  background: var(--lb3-rewards-accordion-bg-color);
+  background: $lb3-rewards-accordion-bg-color;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-accordion-label:hover {
-  background: var(--lb3-rewards-accordion-hover-color);
+  background: $lb3-rewards-accordion-hover-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-accordion-label::after {
   content: "+";
-  color: var(--lb3-tournament-list-accordion-label-icon);
+  color: $lb3-tournament-list-accordion-label-icon;
   width: 20px;
   height: 26px;
   position: absolute;
@@ -2654,13 +2654,13 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-shown .cl-accordion-label {
-  background: var(--lb3-rewards-accordion-container-show-bg-color);
-  color: var(--lb3-rewards-accordion-container-show-color);
+  background: $lb3-rewards-accordion-container-show-bg-color;
+  color: $lb3-rewards-accordion-container-show-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-shown .cl-accordion-label::after {
   content: "-";
-  color: var(--lb3-tournament-list-accordion-label-icon-show);
+  color: $lb3-tournament-list-accordion-label-icon-show;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-shown .cl-accordion-entry {
@@ -2673,16 +2673,16 @@
 
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-accordion-label {
-  background: var(--lb3-tournament-list-accordion-label-back);
+  background: $lb3-tournament-list-accordion-label-back;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-accordion-label:hover {
-  background: var(--lb3-tournament-list-accordion-label-back-hover);
+  background: $lb3-tournament-list-accordion-label-back-hover;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-shown .cl-accordion-label {
-  background: var(--lb3-tournament-list-accordion-label-back-show);
-  color: var(--lb3-tournament-list-accordion-label-color-show);
+  background: $lb3-tournament-list-accordion-label-back-show;
+  color: $lb3-tournament-list-accordion-label-color-show;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-accordion-list {
@@ -2695,19 +2695,19 @@
   width: 100%;
   padding: 10px 15px 15px 15px;
   margin: 0;
-  border-bottom: var(--lb3-tournament-list-item-cont-border-bottom);
+  border-bottom: $lb3-tournament-list-item-cont-border-bottom;
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-tour-list-details-cont:hover {
-  background-color: var(--lb3-tournament-list-item-cont-back-hover);
+  background-color: $lb3-tournament-list-item-cont-back-hover;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-tour-list-details-label {
   float: left;
   width: 100%;
-  color: #ffffff;
+  color: $primary-font-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2719,14 +2719,14 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: #ffffff;
+  color: $primary-font-color;
 }
 
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: var(--lb3-rewards-details-bg-color);
+  background: $lb3-rewards-details-bg-color;
   top: 30px;
   left: -200px;
   width: 100%;
@@ -2752,7 +2752,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-rewards-details-title-color);
+  color: $lb3-rewards-details-title-color;
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -2767,7 +2767,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-rewards-details-date-color);
+  color: $lb3-rewards-details-date-color;
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -2780,7 +2780,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: $prev-btn-icon-bg;
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2799,7 +2799,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-details-body {
   float: left;
   width: 100%;
-  color: var(--lb3-rewards-details-body-color);
+  color: $lb3-rewards-details-body-color;
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -2821,7 +2821,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-winnings-container {
   float: left;
   width: 100%;
-  background: var(--lb3-rewards-winnings-bg-color);
+  background: $lb3-rewards-winnings-bg-color;
   position: relative;
   z-index: 1;
 }
@@ -2840,7 +2840,7 @@
   float: right;
   width: 100%;
   max-width: 84px;
-  background-color: var(--lb3-rewards-details-reward-bg-color);
+  background-color: $lb3-rewards-details-reward-bg-color;
   background-image: url(../../images/big-reward-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -2855,7 +2855,7 @@
   padding: 30px 0 30px 20px;
   font-size: 40px;
   line-height: 60px;
-  color: #ffffff;
+  color: $light-font-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-container {
@@ -2870,11 +2870,11 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn {
   display: inline-block;
   text-align: center;
-  color: #ffffff;
+  color: $light-font-color;
   right: 0;
   line-height: 22px;
-  background: var(--lb3-rewards-btn-bg-color);
-  border: var(--lb3-rewards-btn-border);
+  background: $lb3-rewards-btn-bg-color;
+  border: $lb3-rewards-btn-border;
   text-decoration: none;
   border-radius: 5px;
   box-shadow: 0 2px 3px #666;
@@ -2886,7 +2886,7 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn:hover {
-  background: var(--lb3-rewards-btn-hover-color);
+  background: $lb3-rewards-btn-hover-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn.cl-claimed {
@@ -2909,7 +2909,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: var(--lb3-messages-header-bg-color);
+  background: $lb3-messages-header-bg-color;
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -2919,7 +2919,7 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: var(--lb3-messages-header-bg-color);
+  background: $lb3-messages-header-bg-color;
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
@@ -2930,7 +2930,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: var(--lb3-messages-header-text-color);
+  color: $lb3-messages-header-text-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2944,7 +2944,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: var(--lb3-messages-header-date-color);
+  color: $lb3-messages-header-date-color;
   font-size: 11px;
   min-width: 125px;
 }
@@ -2952,7 +2952,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-header .cl-main-widget-inbox-header-close {
   position: absolute;
   display: block;
-  background-image: var(--lb3-messages-header-close-image);
+  background-image: $lb3-messages-header-close-image;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2960,14 +2960,14 @@
   height: 30px;
   right: 3px;
   top: 0;
-  border-bottom: var(--lb3-messages-header-border-bottom);
+  border-bottom: $lb3-messages-header-border-bottom;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-details {
   float: left;
   width: 100%;
   height: 42px;
-  background: var(--lb3-messages-item-bg-color);
+  background: $lb3-messages-item-bg-color;
   position: relative;
   z-index: 2;
   display: none;
@@ -2981,7 +2981,7 @@
   height: 100%;
   z-index: 1;
   padding: 30px 0 22px 0;
-  background: var(--lb3-messages-item-bg-color);
+  background: $lb3-messages-item-bg-color;
   border-radius: 5px;
 }
 
@@ -3005,13 +3005,13 @@
   width: 100%;
   padding: 10px 15px 15px 15px;
   margin: 0;
-  border-bottom: 1px solid var(--lb3-messages-item-divider-color);
+  border-bottom: 1px solid $lb3-messages-item-divider-color;
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-item:hover {
-  background-color: var(--lb3-messages-item-hover-color);
+  background-color: $lb3-messages-item-hover-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-cont {
@@ -3027,7 +3027,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-label {
   float: left;
   width: 100%;
-  color: var(--lb3-messages-item-label-color);
+  color: $lb3-messages-item-label-color;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -3039,13 +3039,13 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: var(--lb3-messages-item-text-color);
+  color: $lb3-messages-item-text-color;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-inbox-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: var(--lb3-messages-details-bg-color);
+  background: $lb3-messages-details-bg-color;
   top: 30px;
   left: -200px;
   width: 100%;
@@ -3071,7 +3071,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-messages-details-title-color);
+  color: $lb3-messages-details-title-color;
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -3086,7 +3086,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: var(--lb3-messages-details-date-color);
+  color: $lb3-messages-details-date-color;
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -3099,7 +3099,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: $prev-btn-icon-bg;
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -3118,7 +3118,7 @@
 .cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-body {
   float: left;
   width: 100%;
-  color: var(--lb3-messages-details-text-color);
+  color: $lb3-messages-details-text-color;
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -3133,8 +3133,8 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: var(--lb3-messages-footer-bg-color);
-  border-top: var(--lb3-messages-footer-top-border);
+  background: $lb3-messages-footer-bg-color;
+  border-top: $lb3-messages-footer-top-border;
   border-radius: 0 0 5px 5px;
   z-index: 2;
 }
@@ -3143,7 +3143,7 @@
   float: left;
   width: 100%;
   line-height: 22px;
-  color: var(--lb3-messages-footer-text-color);
+  color: $lb3-messages-footer-text-color;
   font-size: 11px;
   text-align: center;
 }
@@ -3190,7 +3190,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-icon-wrapper .cl-widget-notif-icon {
   display: block;
   min-height: 100%;
-  background-image: var(--lb3-notification-back-image);
+  background-image: $lb3-notification-back-image;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 80px;
@@ -3230,10 +3230,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #212121;
-  border: 2px solid #1f294a;
+  background: $darkest-color;
+  border: 2px solid $primary-color;
   border-radius: 10px 5px 5px 10px;
-  color: #ffffff;
+  color: $light-font-color;
   padding: 0 10px 0 42px;
   height: 63px;
   transition: all 0.3s ease;
@@ -3254,11 +3254,11 @@
   right: -10px;
   z-index: 1;
 
-  background: #212121;
+  background: $darkest-color;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 2px solid #1f294a;
+  border: 2px solid $primary-color;
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
@@ -3291,7 +3291,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-information-details-label {
   float: left;
   width: 100%;
-  color: #ffffff;
+  color: $light-font-color;
   font-size: 12px;
   line-height: 18px;
   text-transform: uppercase;
@@ -3301,7 +3301,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-information-details-description {
   float: left;
   width: 100%;
-  color: #ffffff;
+  color: $light-font-color;
   font-size: 10px;
   line-height: 16px;
 }
@@ -3529,22 +3529,22 @@ only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 
   .cl-widget-ms-wrapper .cl-widget-ms-icon-wrapper .cl-widget-ms-icon {
-    background-image: var(--lb3-widget-icon-2x);
+    background-image: $lb3-widget-icon-2x;
   }
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
-    background-image: var(--lb3-achievements-icon-bg-image-2x);
+    background-image: $lb3-achievements-icon-bg-image-2x;
   }
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
-    background-image: var(--lb3-tournament-icon-bg-image-2x);
+    background-image: $lb3-tournament-icon-bg-image-2x;
   }
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
-    background-image: var(--lb3-rewards-icon-bg-image-2x);
+    background-image: $lb3-rewards-icon-bg-image-2x;
   }
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
-    background-image: var(--lb3-messages-icon-bg-image-2x);
+    background-image: $lb3-messages-icon-bg-image-2x;
   }
   .cl-widget-notif-wrapper .cl-widget-notif-icon-wrapper .cl-widget-notif-icon {
-    background-image: var(--lb3-achievements-icon-bg-image-2x);
+    background-image: $lb3-achievements-icon-bg-image-2x;
   }
 }
 
