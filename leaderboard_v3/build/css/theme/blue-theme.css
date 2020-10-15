@@ -141,8 +141,10 @@
   --lb3-achievements-progress-fill-color: #fff;
   --lb3-achievements-progress-text-color: var(--primary-color);
   --lb3-achievements-progress-border: 1px solid var(--primary-color);
-  --lb3-achievements-btn-bg-color: linear-gradient(180deg,#6ecb86 0,#3caf59);
-  --lb3-achievements-btn-hover-color: linear-gradient(180deg,#6ecb86 0,#289a45);
+  --lb3-achievements-btn-bg-color: #1f294a;
+  --lb3-achievements-btn-hover-color: #28355f;
+  --lb3-achievements-btn-border-radius: 3px;
+  --lb3-achievements-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-achievements-btn-border: none;
   --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
   --lb3-rewards-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
@@ -166,9 +168,11 @@
   --lb3-rewards-details-body-color: var(--primary-font-color);
   --lb3-rewards-details-reward-bg-color: #173135;
   --lb3-rewards-winnings-bg-color: var(--primary-color);
-  --lb3-rewards-btn-bg-color: linear-gradient(180deg,#6ecb86 0,#3caf59);
+  --lb3-rewards-btn-bg-color: #1f294a;
   --lb3-rewards-btn-border: none;
-  --lb3-rewards-btn-hover-color: linear-gradient(180deg,#6ecb86 0,#289a45);
+  --lb3-rewards-btn-hover-color: #28355f;
+  --lb3-rewards-btn-border-radius: 3px;
+  --lb3-rewards-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-rewards-accordion-container-show-bg-color: var(--darkest-color);
   --lb3-rewards-accordion-container-show-color: #ffffff;
   --lb3-messages-icon: url(../../images/big-message-icon.svg);
@@ -2570,8 +2574,8 @@
   line-height: 25px;
   background: var(--lb3-achievements-btn-bg-color);
   text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 1px 3px 5px #666;
+  border-radius: var(--lb3-achievements-btn-border-radius);
+  box-shadow: var(--lb3-achievements-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 25px;
   cursor: pointer;
@@ -3046,8 +3050,8 @@
   background: var(--lb3-rewards-btn-bg-color);
   border: var(--lb3-rewards-btn-border);
   text-decoration: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 3px #666;
+  border-radius: var(--lb3-rewards-btn-border-radius);
+  box-shadow: var(--lb3-rewards-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 39px;
   cursor: pointer;

@@ -2400,8 +2400,8 @@
   line-height: 25px;
   background: var(--lb3-achievements-btn-bg-color);
   text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 1px 3px 5px #666;
+  border-radius: var(--lb3-achievements-btn-border-radius);
+  box-shadow: var(--lb3-achievements-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 25px;
   cursor: pointer;
@@ -2879,8 +2879,8 @@
   background: var(--lb3-rewards-btn-bg-color);
   border: var(--lb3-rewards-btn-border);
   text-decoration: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 3px #666;
+  border-radius: var(--lb3-rewards-btn-border-radius);
+  box-shadow: var(--lb3-rewards-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 39px;
   cursor: pointer;

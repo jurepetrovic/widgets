@@ -132,6 +132,8 @@
   --lb3-achievements-progress-fill-color: #ffffff;
   --lb3-achievements-btn-bg-color: #000000;
   --lb3-achievements-btn-hover-color: #3b3b3b;
+  --lb3-achievements-btn-border-radius: 3px;
+  --lb3-achievements-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-achievements-btn-border: 1px solid #ffffff;
   --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
   --lb3-rewards-icon-bg-image: url(../../cl-black-theme/images/big-black-btn-icon.png);
@@ -158,6 +160,8 @@
   --lb3-rewards-btn-bg-color: #000000;
   --lb3-rewards-btn-border: 1px solid #ffffff;
   --lb3-rewards-btn-hover-color: #4c4c4c;
+  --lb3-rewards-btn-border-radius: 3px;
+  --lb3-rewards-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-rewards-accordion-container-show-bg-color: #ffffff;
   --lb3-rewards-accordion-container-show-color: #000000;
   --lb3-messages-icon: url(../../images/big-message-icon.svg);
@@ -2561,8 +2565,8 @@
   line-height: 25px;
   background: var(--lb3-achievements-btn-bg-color);
   text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 1px 3px 5px #666;
+  border-radius: var(--lb3-achievements-btn-border-radius);
+  box-shadow: var(--lb3-achievements-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 25px;
   cursor: pointer;
@@ -3037,8 +3041,8 @@
   background: var(--lb3-rewards-btn-bg-color);
   border: var(--lb3-rewards-btn-border);
   text-decoration: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 3px #666;
+  border-radius: var(--lb3-rewards-btn-border-radius);
+  box-shadow: var(--lb3-rewards-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 39px;
   cursor: pointer;

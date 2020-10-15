@@ -150,8 +150,10 @@
   --lb3-achievements-progress-fill-color: #fff;
   --lb3-achievements-progress-text-color: var(--primary-color);
   --lb3-achievements-progress-border: 1px solid var(--primary-color);
-  --lb3-achievements-btn-bg-color: linear-gradient(180deg,#6ecb86 0,#3caf59);
-  --lb3-achievements-btn-hover-color: linear-gradient(180deg,#6ecb86 0,#289a45);
+  --lb3-achievements-btn-bg-color: #1f294a;
+  --lb3-achievements-btn-hover-color: #28355f;
+  --lb3-achievements-btn-border-radius: 3px;
+  --lb3-achievements-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-achievements-btn-border: none;
 
   // REWARDS
@@ -178,9 +180,11 @@
   --lb3-rewards-details-body-color: var(--primary-font-color);
   --lb3-rewards-details-reward-bg-color: #173135;
   --lb3-rewards-winnings-bg-color: var(--primary-color);
-  --lb3-rewards-btn-bg-color: linear-gradient(180deg,#6ecb86 0,#3caf59);
+  --lb3-rewards-btn-bg-color: #1f294a;
   --lb3-rewards-btn-border: none;
-  --lb3-rewards-btn-hover-color: linear-gradient(180deg,#6ecb86 0,#289a45);
+  --lb3-rewards-btn-hover-color: #28355f;
+  --lb3-rewards-btn-border-radius: 3px;
+  --lb3-rewards-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
 
   --lb3-rewards-accordion-container-show-bg-color: var(--darkest-color);
   --lb3-rewards-accordion-container-show-color: #ffffff;
