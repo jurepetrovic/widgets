@@ -19,6 +19,182 @@
   font-weight: 300;
   font-style: normal;
 }
+:root {
+  --primary-color:#1f294a;
+  --primary-color-darken: #222E54;
+  --primary-color-lighten: #2C3B6A;
+  --primary-font-color:#3a3a3a;
+  --primary-background-color:#F9F9F9;
+  --light-font-color:#FFFFFF;
+  --darkest-color: #212121;
+  --light-grey: #b4b4b4;
+  --lb3-widget-icon: url(../../images/logo-icon2.png);
+  --lb3-widget-icon-2x: url(../../images/logo-icon2-x2.png);
+  --lb3-widget-font: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
+  --lb3-widget-bg-color: var(--primary-color);
+  --lb3-widget-border-color: var(--primary-color);
+  --lb3-widget-text-color: #ffffff;
+  --lb3-widget-date-text-color: #ffffff;
+  --lb3-widget-header-text-color: var(--light-grey);
+  --lb3-widget-navigation-icon-width: 73px;
+  --lb3-widget-navigation-icon-height: 73px;
+  --lb3-close-btn-bg-color: var(--primary-color);
+  --lb3-miniscoreboard-close-wrapper-border: 2px solid #252525;
+  --lb3-miniscoreboard-close-btn-back: none;
+  --lb3-miniscoreboard-close-btn-color: #fff;
+  --lb3-miniscoreboard-close-btn-font-size: 18px;
+  --lb3-miniscoreboard-opt-btn-border: 1px solid var(--primary-font-color);
+  --lb3-miniscoreboard-opt-btn-back: var(--primary-color);
+  --lb3-miniscoreboard-opt-btn-back-hover: #292929;
+  --lb3-miniscoreboard-opt-btn-color: var(--primary-font-color);
+  --lb3-miniscoreboard-date-color: #7a7a7a;
+  --lb3-miniscoreboard-rank-label-color: #7a7a7a;
+  --lb3-miniscoreboard-points-label-color: #7a7a7a;
+  --lb3-miniscoreboard-inverse-first-to-date-color: #7a7a7a;
+  --lb3-miniscoreboard-inverse-first-to-date-only-color: var(--primary-font-color);
+  --lb3-miniscoreboard-first-to-header-rank-color: #7a7a7a;
+  --lb3-miniscoreboard-first-to-header-points-color: #7a7a7a;
+  --lb3-miniscoreboard-vertical-first-to-rank-color: #7a7a7a;
+  --lb3-miniscoreboard-vertical-first-to-points-color: #7a7a7a;
+  --lb3-miniscoreboard-first-to-date-color: #7a7a7a;
+  --lb3-tournament-icon: url(../../images/big-tournament-icon.svg);
+  --lb3-tournament-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-tournament-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-tournament-header-back: var(--primary-color);
+  --lb3-tournament-header-border-bottom: 1px solid #4c4c4c;
+  --lb3-tournament-header-label-color: var(--light-font-color);
+  --lb3-tournament-header-date-color: var(--light-font-color);
+  --lb3-tournament-header-close-back-image: url(../../cl-black-theme/images/close-icon.svg);
+  --lb3-tournament-header-list-back-image: url(../../cl-black-theme/images/menu.svg);
+  --lb3-tournament-details-bg-color: var(--primary-background-color);
+  --lb3-tournament-details-label-color: var(--primary-font-color);
+  --lb3-tournament-footer-bg-color: var(--primary-color);
+  --lb3-tournament-footer-top-border: 1px solid #4c4c4c;
+  --lb3-tournament-footer-text-color: var(--light-font-color);
+  --lb3-tournament-container-bg-color: var(--primary-background-color);
+  --lb3-tournament-container-text-color: var(--primary-font-color);
+  --lb3-tournament-container-text-size: 12px;
+  --lb3-tournament-container-height: 28px;
+  --lb3-tournament-container-line-height: 28px;
+  --lb3-tournament-lb-first-place-back: none;
+  --lb3-tournament-lb-first-place-color: #ffe500;
+  --lb3-tournament-lb-first-place-border: 1px solid #e2d45f;
+  --lb3-tournament-lb-second-place-back: none;
+  --lb3-tournament-lb-second-place-color: #d4d4d4;
+  --lb3-tournament-lb-second-place-border: 1px solid #c8c8c8;
+  --lb3-tournament-lb-third-place-back: none;
+  --lb3-tournament-lb-third-place-color: #ffa800;
+  --lb3-tournament-lb-third-place-border: 1px solid #e2b662;
+  --lb3-tournament-header-text-color: var(--primary-font-color);
+  --lb3-tournament-header-text-size: 11px;
+  --lb3-tournament-top-results-bg-color: #E4E3D6;
+  --lb3-tournament-top-results-bg-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+  --lb3-tournament-details-container-bg-color: var(--primary-background-color);
+  --lb3-tournament-details-header-color: #e4bc1f;
+  --lb3-tournament-details-date-color: var(--primary-font-color);
+  --lb3-tournament-details-body-color: var(--primary-font-color);
+  --lb3-tournament-details-link-color: #2c9ab7;
+  --lb3-tournament-list-bg-color: var(--primary-background-color);
+  --lb3-tournament-details-opt-in-back: var(--primary-background-color);
+  --lb3-tournament-details-opt-in-back-border-top: 1px solid var(--light-grey);
+  --lb3-tournament-details-opt-in-btn-back: var(--primary-background-color);
+  --lb3-tournament-details-opt-in-btn-back-hover: #292929;
+  --lb3-tournament-details-opt-in-color: var(--primary-font-color);
+  --lb3-tournament-details-opt-in-border: 1px solid var(--primary-font-color);
+  --lb3-tournament-list-accordion-label-back: var(--primary-color-darken);
+  --lb3-tournament-list-accordion-label-icon: var(--light-font-color);
+  --lb3-tournament-list-accordion-label-icon-show: var(--light-font-color);
+  --lb3-tournament-list-accordion-label-back-show: var(--darkest-color);
+  --lb3-tournament-list-accordion-label-back-hover: var(--primary-color-lighten);
+  --lb3-tournament-list-accordion-label-color-show: var(--light-font-color);
+  --lb3-tournament-list-item-cont-border-bottom: 1px solid var(--light-grey);
+  --lb3-tournament-list-item-cont-back-hover: #e5e2d5;
+  --lb3-tournament-lb-active-member-row-height: 28px;
+  --lb3-tournament-lb-active-member-row-back: #E4E3D6;
+  --lb3-tournament-lb-active-member-row-color: var(--primary-color);
+  --lb3-tournament-lb-opt-in-back: var(--primary-background-color);
+  --lb3-tournament-lb-opt-in-btn-back: var(--primary-background-color);
+  --lb3-tournament-lb-opt-in-btn-color: var(--primary-font-color);
+  --lb3-tournament-lb-opt-in-btn-back-hover: #292929;
+  --lb3-tournament-lb-opt-in-border: 1px solid var(--primary-font-color);
+  --lb3-achievements-icon: url(../../images/big-challenge-icon.svg);
+  --lb3-achievements-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-achievements-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-achievements-header-bg-color: var(--primary-color);
+  --lb3-achievements-header-label-color: var(--light-font-color);
+  --lb3-achievements-header-date-color: var(--light-grey);
+  --lb3-achievements-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
+  --lb3-achievements-header-border-bottom: 1px solid #4c4c4c;
+  --lb3-achievements-details-bg-color: var(--primary-background-color);
+  --lb3-achievements-container-bg-color: var(--primary-background-color);
+  --lb3-achievements-details-header-text-color: var(--primary-font-color);
+  --lb3-achievements-details-date-color: var(--primary-font-color);
+  --lb3-achievements-details-body-color: var(--primary-font-color);
+  --lb3-achievements-details-link-color: #2c9ab7;
+  --lb3-achievements-footer-bg-color: var(--primary-color);
+  --lb3-achievements-footer-top-border: 1px solid #4c4c4c;
+  --lb3-achievements-footer-text-color: var(--light-grey);
+  --lb3-achievements-divider-color: #e5e2d5;
+  --lb3-achievements-item-label-color: var(--primary-font-color);
+  --lb3-achievements-item-body-color: var(--primary-font-color);
+  --lb3-achievements-progress-bg-color: var(--primary-color);
+  --lb3-achievements-progress-fill-color: #fff;
+  --lb3-achievements-progress-text-color: var(--primary-color);
+  --lb3-achievements-progress-border: 1px solid var(--primary-color);
+  --lb3-achievements-btn-bg-color: linear-gradient(180deg,#6ecb86 0,#3caf59);
+  --lb3-achievements-btn-hover-color: linear-gradient(180deg,#6ecb86 0,#289a45);
+  --lb3-achievements-btn-border: none;
+  --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
+  --lb3-rewards-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-rewards-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-rewards-header-bg-color: var(--primary-color);
+  --lb3-rewards-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
+  --lb3-rewards-header-border-bottom: 1px solid #4c4c4c;
+  --lb3-rewards-footer-bg-color: var(--primary-color);
+  --lb3-rewards-footer-top-border: 1px solid #4c4c4c;
+  --lb3-rewards-footer-text-color: var(--light-grey);
+  --lb3-rewards-bg-color: var(--primary-background-color);
+  --lb3-rewards-divider-color: #e5e2d5;
+  --lb3-rewards-item-label-color: var(--primary-font-color);
+  --lb3-rewards-item-body-color: var(--primary-font-color);
+  --lb3-rewards-item-bg-color-hover: #e5e2d5;
+  --lb3-rewards-accordion-bg-color: var(--primary-color-darken);
+  --lb3-rewards-accordion-hover-color: var(--primary-color-lighten);
+  --lb3-rewards-details-bg-color: var(--primary-background-color);
+  --lb3-rewards-details-title-color: var(--primary-font-color);
+  --lb3-rewards-details-date-color: var(--primary-font-color);
+  --lb3-rewards-details-body-color: var(--primary-font-color);
+  --lb3-rewards-details-reward-bg-color: #173135;
+  --lb3-rewards-winnings-bg-color: var(--primary-color);
+  --lb3-rewards-btn-bg-color: linear-gradient(180deg,#6ecb86 0,#3caf59);
+  --lb3-rewards-btn-border: none;
+  --lb3-rewards-btn-hover-color: linear-gradient(180deg,#6ecb86 0,#289a45);
+  --lb3-rewards-accordion-container-show-bg-color: var(--darkest-color);
+  --lb3-rewards-accordion-container-show-color: #ffffff;
+  --lb3-messages-icon: url(../../images/big-message-icon.svg);
+  --lb3-messages-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-messages-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-messages-header-bg-color: var(--primary-color);
+  --lb3-messages-header-text-color: #fff;
+  --lb3-messages-header-date-color: var(--primary-font-color);
+  --lb3-messages-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
+  --lb3-messages-header-border-bottom: 1px solid #4c4c4c;
+  --lb3-messages-item-bg-color: var(--primary-background-color);
+  --lb3-messages-item-hover-color: #e5e2d5;
+  --lb3-messages-item-divider-color: #e5e2d5;
+  --lb3-messages-item-label-color: var(--primary-font-color);
+  --lb3-messages-item-text-color: var(--primary-font-color);
+  --lb3-messages-details-bg-color: var(--primary-background-color);
+  --lb3-messages-details-title-color: var(--primary-font-color);
+  --lb3-messages-details-date-color: var(--primary-font-color);
+  --lb3-messages-details-text-color: var(--primary-font-color);
+  --lb3-messages-footer-bg-color: var(--primary-color);
+  --lb3-messages-footer-text-color: #fff;
+  --lb3-messages-footer-top-border: 1px solid #4c4c4c;
+  --lb3-notification-back-image: url(../../images/big-blue-btn-icon2.png);
+  --prev-btn-icon-bg: url(../../images/prev-btn-icon-blue.svg);
+}
+
 .cl-widget-ms-wrapper, .cl-widget-notif-wrapper {
   float: left;
   width: 100%;
@@ -33,7 +209,7 @@
   overflow: unset;
   visibility: visible;
   outline: none;
-  font-family: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
+  font-family: var(--lb3-widget-font);
   font-weight: 300;
   border: none;
   display: block;
@@ -88,7 +264,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-icon-wrapper .cl-widget-ms-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../images/logo-icon2.png);
+  background-image: var(--lb3-widget-icon);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 62px;
@@ -117,10 +293,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #1f294a;
-  border: 2px solid #1f294a;
+  background: var(--lb3-widget-bg-color);
+  border: 2px solid var(--lb3-widget-border-color);
   border-radius: 10px 5px 5px 10px;
-  color: #ffffff;
+  color: var(--lb3-widget-text-color);
   padding: 0 10px 0 42px;
   height: 50px;
   transition: all 0.3s ease;
@@ -140,27 +316,27 @@
   top: -10px;
   right: -10px;
   z-index: 1;
-  background: #1f294a;
+  background: var(--lb3-close-btn-bg-color);
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 2px solid #252525;
+  border: var(--lb3-miniscoreboard-close-wrapper-border);
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-information-close {
   float: left;
-  background: none;
+  background: var(--lb3-miniscoreboard-close-btn-back);
   width: 16px;
   height: 16px;
-  color: #fff;
+  color: var(--lb3-miniscoreboard-close-btn-color);
   text-decoration: none;
   text-align: center;
   border-radius: 100%;
   margin: 5px 0 0 5px;
   line-height: 14px;
-  font-size: 18px;
+  font-size: var(--lb3-miniscoreboard-close-btn-font-size);
 }
 
 /**
@@ -204,20 +380,20 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #1f294a;
+  background: var(--lb3-miniscoreboard-opt-btn-back);
   text-align: center;
   text-transform: uppercase;
-  color: #3a3a3a;
+  color: var(--lb3-miniscoreboard-opt-btn-color);
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
   font-weight: 400;
   transition: all 0.3s ease;
-  border: 1px solid #3a3a3a;
+  border: var(--lb3-miniscoreboard-opt-btn-border);
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-optin-wrapper .cl-widget-ms-optin-action:hover {
-  background: #292929;
+  background: var(--lb3-miniscoreboard-opt-btn-back-hover);
 }
 
 /**
@@ -244,7 +420,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-default-wrapper .cl-widget-ms-default-results-header-rank {
   float: left;
   width: 100px;
-  color: #b4b4b4;
+  color: var(--lb3-widget-header-text-color);
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -254,7 +430,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-default-wrapper .cl-widget-ms-default-results-header-points {
   float: left;
   width: 100px;
-  color: #b4b4b4;
+  color: var(--lb3-widget-header-text-color);
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -290,7 +466,7 @@
   float: left;
   width: 30%;
   text-align: center;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-date-color);
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-default-mem-entry {
@@ -351,7 +527,7 @@
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-default-wrapper.cl-inverse .cl-widget-ms-default-date-only .cl-widget-ms-default-date {
-  color: #ffffff;
+  color: var(--lb3-widget-date-text-color);
   text-align: right;
   float: right;
   width: 58%;
@@ -412,7 +588,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-rank-label-color);
   text-transform: uppercase;
 }
 
@@ -425,7 +601,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-points-label-color);
   text-transform: uppercase;
 }
 
@@ -478,7 +654,7 @@
   float: left;
   width: 30%;
   text-align: center;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-first-to-date-color);
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-mem-entry {
@@ -539,7 +715,7 @@
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-wrapper.cl-inverse .cl-widget-ms-first-to-date-only .cl-widget-ms-first-to-date {
-  color: #3a3a3a;
+  color: var(--lb3-miniscoreboard-inverse-first-to-date-only-color);
   text-align: right;
   float: right;
   width: 55%;
@@ -559,7 +735,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-wrapper .cl-widget-ms-first-to-results-header-rank {
   float: left;
   width: 100px;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-first-to-header-rank-color);
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -569,7 +745,7 @@
 .cl-widget-ms-wrapper .cl-widget-ms-first-to-wrapper .cl-widget-ms-first-to-results-header-points {
   float: left;
   width: 100px;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-first-to-header-points-color);
   text-transform: uppercase;
   font-size: 11px;
   text-align: right;
@@ -633,7 +809,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-vertical-first-to-rank-color);
   text-transform: uppercase;
 }
 
@@ -646,7 +822,7 @@
   display: block;
   font-size: 11px;
   padding: 10px 0 0 0;
-  color: #7a7a7a;
+  color: var(--lb3-miniscoreboard-vertical-first-to-points-color);
   text-transform: uppercase;
 }
 
@@ -727,7 +903,7 @@
   float: left;
   width: 40%;
   text-align: right;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-size: 10px;
 }
 
@@ -803,10 +979,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #212121;
-  border: 2px solid #1f294a;
+  background: var(--darkest-color);
+  border: 2px solid var(--primary-color);
   border-radius: 10px 10px 10px 10px;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   padding: 27px 5px 0 5px;
   height: 199px;
   transition: all 0.3s ease;
@@ -828,7 +1004,7 @@
   right: 26px;
   top: unset;
   z-index: 1;
-  background: #212121;
+  background: var(--darkest-color);
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -892,7 +1068,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-size: 12px;
   padding: 3px 0 10px 0;
   line-height: 17px;
@@ -953,12 +1129,12 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #1f294a;
+  background: var(--primary-color);
   text-align: center;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   border-radius: 5px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid var(--light-font-color);
   line-height: 16px;
   font-size: 9px;
   font-weight: 400;
@@ -980,7 +1156,7 @@
   height: 100%;
   background: transparent;
   padding: 10px 20px;
-  font-family: "Gotham A", "Gotham B", "Gotham", Helvetica, Arial, serif;
+  font-family: var(--lb3-widget-font);
   font-weight: 300;
   margin: 0;
   box-sizing: border-box;
@@ -1027,9 +1203,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
   margin: -3px -3px;
-  width: 73px;
-  height: 73px;
-  background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  width: var(--lb3-widget-navigation-icon-width);
+  height: var(--lb3-widget-navigation-icon-height);
+  background-image: var(--lb3-tournament-icon-bg-image);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1038,7 +1214,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../images/big-tournament-icon.svg);
+  background-image: var(--lb3-tournament-icon);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 50%;
@@ -1047,9 +1223,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
   margin: -6px -3px;
-  width: 73px;
-  height: 73px;
-  background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  width: var(--lb3-widget-navigation-icon-width);
+  height: var(--lb3-widget-navigation-icon-height);
+  background-image: var(--lb3-achievements-icon-bg-image);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1058,7 +1234,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../images/big-challenge-icon.svg);
+  background-image: var(--lb3-achievements-icon);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 45%;
@@ -1067,9 +1243,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
   margin: -6px -3px;
-  width: 73px;
-  height: 73px;
-  background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  width: var(--lb3-widget-navigation-icon-width);
+  height: var(--lb3-widget-navigation-icon-height);
+  background-image: var(--lb3-rewards-icon-bg-image);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1078,7 +1254,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../images/big-reward-icon.svg);
+  background-image: var(--lb3-rewards-icon);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 45%;
@@ -1087,9 +1263,9 @@
 
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
   margin: -3px -3px;
-  width: 73px;
-  height: 73px;
-  background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  width: var(--lb3-widget-navigation-icon-width);
+  height: var(--lb3-widget-navigation-icon-height);
+  background-image: var(--lb3-messages-icon-bg-image);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: 100%;
@@ -1098,7 +1274,7 @@
 .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../images/big-message-icon.svg);
+  background-image: var(--lb3-messages-icon);
   background-repeat: no-repeat;
   background-position: 50% 42%;
   background-size: 45%;
@@ -1207,7 +1383,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #1f294a;
+  background: var(--primary-color);
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -1217,11 +1393,11 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: #1f294a;
+  background: var(--lb3-tournament-header-back);
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid #4c4c4c;
+  border-bottom: var(--lb3-tournament-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list {
@@ -1232,7 +1408,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-list-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../cl-black-theme/images/menu.svg);
+  background-image: var(--lb3-tournament-header-list-back-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 30px;
@@ -1247,7 +1423,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: #FFFFFF;
+  color: var(--lb3-tournament-header-label-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -1260,7 +1436,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: #FFFFFF;
+  color: var(--lb3-tournament-header-date-color);
   font-size: 12px;
   min-width: 125px;
 }
@@ -1268,7 +1444,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-header .cl-main-widget-lb-header-close {
   position: absolute;
   display: block;
-  background-image: url(../../cl-black-theme/images/close-icon.svg);
+  background-image: var(--lb3-tournament-header-close-back-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -1283,7 +1459,7 @@
   float: left;
   width: 100%;
   height: 42px;
-  background: #F9F9F9;
+  background: var(--lb3-tournament-details-bg-color);
   position: relative;
   z-index: 2;
 }
@@ -1299,7 +1475,7 @@
   text-align: center;
   padding: 0 40px;
   line-height: 32px;
-  color: #3a3a3a;
+  color: var(--lb3-tournament-details-label-color);
   text-transform: uppercase;
   display: inline-block;
   position: relative;
@@ -1332,10 +1508,10 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #1f294a;
+  background: var(--lb3-tournament-footer-bg-color);
   border-radius: 0 0 5px 5px;
   z-index: 2;
-  border-top: 1px solid #4c4c4c;
+  border-top: var(--lb3-tournament-footer-top-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member {
@@ -1346,21 +1522,21 @@
   position: absolute;
   bottom: 22px;
   left: 0;
-  background: #E4E3D6;
+  background: var(--lb3-tournament-lb-active-member-row-back);
   z-index: 3;
-  color: #1f294a;
+  color: var(--lb3-tournament-lb-active-member-row-color);
   padding: 0 30px;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-missing-member .cl-col {
-  color: #1f294a;
+  color: var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-footer-content {
   float: left;
   width: 100%;
   line-height: 22px;
-  color: #FFFFFF;
+  color: var(--lb3-tournament-footer-text-color);
   font-size: 11px;
   text-align: center;
 }
@@ -1373,7 +1549,7 @@
   height: 100%;
   z-index: 1;
   padding: 72px 0 22px 0;
-  background: #F9F9F9;
+  background: var(--lb3-tournament-container-bg-color);
   border-radius: 5px;
 }
 
@@ -1390,16 +1566,16 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-col {
   float: left;
-  color: #3a3a3a;
-  font-size: 12px;
-  line-height: 28px;
+  color: var(--lb3-tournament-container-text-color);
+  font-size: var(--lb3-tournament-container-text-size);
+  line-height: var(--lb3-tournament-container-line-height);
   background: none;
-  height: 28px;
+  height: var(--lb3-tournament-container-height);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header-labels .cl-col {
-  color: #3a3a3a;
-  font-size: 11px;
+  color: var(--lb3-tournament-header-text-color);
+  font-size: var(--lb3-tournament-header-text-size);
   line-height: 20px;
   height: 20px;
 }
@@ -1438,9 +1614,9 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard-header-top-res {
   float: left;
   width: 100%;
-  background: #E4E3D6;
+  background: var(--lb3-tournament-top-results-bg-color);
   padding: 0 30px;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--lb3-tournament-top-results-bg-box-shadow);
   border-radius: 0 0 5px 5px;
 }
 
@@ -1494,7 +1670,7 @@
   background: #ffe500;
   border: 1px solid #e2d45f;
   border-radius: 100%;
-  color: #1f294a;
+  color: var(--primary-color);
   text-align: center;
   font-size: 11px;
   font-weight: 400;
@@ -1506,10 +1682,10 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-1 .cl-rank-col-value {
-  background-image: none;
+  background-image: var(--lb3-tournament-lb-first-place-back);
   background-repeat: no-repeat;
-  background-color: #ffe500;
-  border: 1px solid #e2d45f;
+  background-color: var(--lb3-tournament-lb-first-place-color);
+  border: var(--lb3-tournament-lb-first-place-border);
   height: 26px;
   width: 26px;
   font-size: 13px;
@@ -1517,10 +1693,10 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-2 .cl-rank-col-value {
-  background-image: none;
+  background-image: var(--lb3-tournament-lb-second-place-back);
   background-repeat: no-repeat;
-  background-color: #d4d4d4;
-  border: 1px solid #c8c8c8;
+  background-color: var(--lb3-tournament-lb-second-place-color);
+  border: var(--lb3-tournament-lb-second-place-border);
   height: 26px;
   width: 26px;
   font-size: 13px;
@@ -1528,10 +1704,10 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-lb-rank-3 .cl-rank-col-value {
-  background-image: none;
+  background-image: var(--lb3-tournament-lb-third-place-back);
   background-repeat: no-repeat;
-  background-color: #ffa800;
-  border: 1px solid #e2b662;
+  background-color: var(--lb3-tournament-lb-third-place-color);
+  border: var(--lb3-tournament-lb-third-place-border);
   height: 26px;
   width: 26px;
   font-size: 13px;
@@ -1579,12 +1755,12 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row {
   position: relative;
-  background: #E4E3D6;
-  color: #1f294a;
+  background: var(--lb3-tournament-lb-active-member-row-back);
+  color: var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-col {
-  color: #1f294a;
+  color: var(--lb3-tournament-lb-active-member-row-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-leaderboard .cl-lb-member-row .cl-name-col,
@@ -1598,9 +1774,9 @@
   left: -18px;
   top: 0;
   content: "";
-  background: #E4E3D6;
+  background: var(--lb3-tournament-lb-active-member-row-back);
   width: 18px;
-  height: 28px;
+  height: var(--lb3-tournament-lb-active-member-row-height);
   border-radius: 5px 0 0 5px;
 }
 
@@ -1609,9 +1785,9 @@
   right: -10px;
   top: 0;
   content: "";
-  background: #E4E3D6;
+  background: var(--lb3-tournament-lb-active-member-row-back);
   width: 10px;
-  height: 28px;
+  height: var(--lb3-tournament-lb-active-member-row-height);
   border-radius: 0 5px 5px 0;
 }
 
@@ -1654,7 +1830,7 @@
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: #F9F9F9;
+  background: var(--lb3-tournament-details-container-bg-color);
   top: 30px;
   left: -200px;
   width: 100%;
@@ -1680,7 +1856,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #e4bc1f;
+  color: var(--lb3-tournament-details-header-color);
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -1695,7 +1871,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-tournament-details-date-color);
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -1708,7 +1884,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon-blue.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1728,7 +1904,7 @@
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-body {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-tournament-details-body-color);
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -1776,7 +1952,7 @@
   text-align: left;
   font-size: 12px;
   float: none;
-  color: #2c9ab7;
+  color: var(--lb3-tournament-details-link-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-pre-loader {
@@ -1802,7 +1978,7 @@
   top: 30%;
   line-height: 30px;
   text-align: left;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-size: 14px;
   font-weight: bold;
   display: inline-block;
@@ -1817,7 +1993,7 @@
   position: absolute;
   left: 8px;
   width: 16px;
-  background: #FFFFFF;
+  background: var(--light-font-color);
   animation: cl-main-widget-pre-loader-content 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 
@@ -1852,7 +2028,7 @@
 .cl-main-widget-tournaments-list {
   position: absolute;
   height: calc(100% - 63px);
-  background: #F9F9F9;
+  background: var(--lb3-tournament-list-bg-color);
   top: 40px;
   left: -200px;
   width: 100%;
@@ -1888,7 +2064,7 @@
   top: 13px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon-blue.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1910,7 +2086,7 @@
   height: auto;
   margin: 0;
   padding: 0;
-  border: 1px solid #FFFFFF;
+  border: 1px solid var(--light-font-color);
   border-collapse: collapse;
   border-spacing: 0;
   vertical-align: inherit;
@@ -1967,17 +2143,17 @@
   position: absolute;
   bottom: 0;
   padding: 10px 0;
-  background: #F9F9F9;
-  border-top: 1px solid #b4b4b4;
+  background: var(--lb3-tournament-details-opt-in-back);
+  border-top: var(--lb3-tournament-details-opt-in-back-border-top);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action {
   width: auto;
   cursor: pointer;
-  background: #F9F9F9;
+  background: var(--lb3-tournament-details-opt-in-btn-back);
   text-align: center;
   text-transform: uppercase;
-  color: #3a3a3a;
+  color: var(--lb3-tournament-details-opt-in-color);
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -1987,11 +2163,11 @@
   padding: 9px 28px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
-  border: 1px solid #3a3a3a;
+  border: var(--lb3-tournament-details-opt-in-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action:hover {
-  background: #292929;
+  background: var(--lb3-tournament-details-opt-in-btn-back-hover);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-details-container .cl-main-widget-lb-details-optin-action.cl-disabled {
@@ -2012,19 +2188,19 @@
   bottom: 22px;
   left: 0;
   z-index: 3;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   padding: 10px 30px;
-  background: #F9F9F9;
+  background: var(--lb3-tournament-lb-opt-in-back);
   text-align: center;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action {
   width: auto;
   cursor: pointer;
-  background: #F9F9F9;
+  background: var(--lb3-tournament-lb-opt-in-btn-back);
   text-align: center;
   text-transform: uppercase;
-  color: #3a3a3a;
+  color: var(--lb3-tournament-lb-opt-in-btn-color);
   border-radius: 5px;
   line-height: 24px;
   font-size: 15px;
@@ -2034,11 +2210,11 @@
   padding: 9px 28px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
-  border: 1px solid #3a3a3a;
+  border: var(--lb3-tournament-lb-opt-in-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-lb-optin-action:hover {
-  background: #292929;
+  background: var(--lb3-tournament-lb-opt-in-btn-back-hover);
 }
 
 /**
@@ -2054,7 +2230,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #1f294a;
+  background: var(--lb3-achievements-header-bg-color);
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -2064,11 +2240,11 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: #1f294a;
+  background: var(--lb3-achievements-header-bg-color);
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid #4c4c4c;
+  border-bottom: var(--lb3-achievements-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-label {
@@ -2076,7 +2252,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: #FFFFFF;
+  color: var(--lb3-achievements-header-label-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2090,7 +2266,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: #b4b4b4;
+  color: var(--lb3-achievements-header-date-color);
   font-size: 11px;
   min-width: 125px;
 }
@@ -2098,7 +2274,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-header .cl-main-widget-ach-header-close {
   position: absolute;
   display: block;
-  background-image: url(../../cl-black-theme/images/close-icon.svg);
+  background-image: var(--lb3-achievements-header-close-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2112,7 +2288,7 @@
   float: left;
   width: 100%;
   height: 42px;
-  background: #F9F9F9;
+  background: var(--lb3-achievements-details-bg-color);
   position: relative;
   z-index: 2;
   display: none;
@@ -2126,7 +2302,7 @@
   height: 100%;
   z-index: 1;
   padding: 32px 0 22px 0;
-  background: #F9F9F9;
+  background: var(--lb3-achievements-container-bg-color);
   border-radius: 5px;
 }
 
@@ -2148,7 +2324,7 @@
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: #F9F9F9;
+  background: var(--lb3-achievements-details-bg-color);
   top: 30px;
   left: -200px;
   width: 100%;
@@ -2174,7 +2350,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-achievements-details-header-text-color);
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -2189,7 +2365,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-achievements-details-date-color);
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -2202,7 +2378,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon-blue.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2221,7 +2397,7 @@
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container .cl-main-widget-ach-details-body {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-achievements-details-body-color);
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -2257,7 +2433,7 @@
   text-align: left;
   font-size: 12px;
   float: none;
-  color: #2c9ab7;
+  color: var(--lb3-achievements-details-link-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-ach-details-container .cl-main-widget-ach-details-body-image-cont {
@@ -2279,17 +2455,17 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #1f294a;
+  background: var(--lb3-achievements-footer-bg-color);
   border-radius: 0 0 5px 5px;
   z-index: 2;
-  border-top: 1px solid #4c4c4c;
+  border-top: var(--lb3-achievements-footer-top-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-ach-footer-content {
   float: left;
   width: 100%;
   line-height: 22px;
-  color: #b4b4b4;
+  color: var(--lb3-achievements-footer-text-color);
   font-size: 11px;
   text-align: center;
 }
@@ -2299,7 +2475,7 @@
   width: 100%;
   min-height: 70px;
   padding: 0 0 25px 0;
-  border-bottom: 1px solid #e5e2d5;
+  border-bottom: 1px solid var(--lb3-achievements-divider-color);
   margin: 0 0 10px 0;
 }
 
@@ -2327,7 +2503,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-label {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-achievements-item-label-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
@@ -2337,7 +2513,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-details-category {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-achievements-item-body-color);
   font-size: 14px;
   font-weight: 500;
 }
@@ -2359,17 +2535,17 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-cont {
   float: left;
   width: 100%;
-  background: #1f294a;
+  background: var(--lb3-achievements-progress-bg-color);
   height: 13px;
   border-radius: 5px;
-  border: 1px solid #1f294a;
+  border: var(--lb3-achievements-progress-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar {
   float: left;
   width: 0;
   height: 11px;
-  background: #fff;
+  background: var(--lb3-achievements-progress-fill-color);
   border-radius: 5px;
   transition: all 0.3s ease;
 }
@@ -2377,7 +2553,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar.cl-ach-complete {
   font-size: 10px;
   line-height: 13px;
-  color: #1f294a;
+  color: var(--lb3-achievements-progress-text-color);
   width: 100%;
   text-align: right;
   padding: 0 6px;
@@ -2387,12 +2563,12 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more {
   float: left;
   text-align: center;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   position: absolute;
   top: -2px;
   right: 0;
   line-height: 25px;
-  background: linear-gradient(180deg, #6ecb86 0, #3caf59);
+  background: var(--lb3-achievements-btn-bg-color);
   text-decoration: none;
   border-radius: 8px;
   box-shadow: 1px 3px 5px #666;
@@ -2400,11 +2576,11 @@
   padding: 4px 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: none;
+  border: var(--lb3-achievements-btn-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more:hover {
-  background: linear-gradient(180deg, #6ecb86 0, #289a45);
+  background: var(--lb3-achievements-btn-hover-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-item-img-wrapper {
@@ -2437,7 +2613,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #1f294a;
+  background: var(--lb3-rewards-header-bg-color);
   border-radius: 5px;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -2447,7 +2623,7 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: #1f294a;
+  background: var(--lb3-rewards-header-bg-color);
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
@@ -2458,7 +2634,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2472,7 +2648,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-size: 11px;
   min-width: 125px;
 }
@@ -2480,7 +2656,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-header .cl-main-widget-reward-header-close {
   position: absolute;
   display: block;
-  background-image: url(../../cl-black-theme/images/close-icon.svg);
+  background-image: var(--lb3-rewards-header-close-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2488,14 +2664,14 @@
   height: 30px;
   right: 3px;
   top: 0;
-  border-bottom: 1px solid #4c4c4c;
+  border-bottom: var(--lb3-rewards-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-details {
   float: left;
   width: 100%;
   height: 42px;
-  background: #F9F9F9;
+  background: var(--lb3-rewards-bg-color);
   position: relative;
   z-index: 2;
   display: none;
@@ -2509,7 +2685,7 @@
   height: 100%;
   z-index: 1;
   padding: 36px 0 22px 0;
-  background: #F9F9F9;
+  background: var(--lb3-rewards-bg-color);
   border-radius: 5px;
 }
 
@@ -2534,8 +2710,8 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #1f294a;
-  border-top: 1px solid #4c4c4c;
+  background: var(--lb3-rewards-footer-bg-color);
+  border-top: var(--lb3-rewards-footer-top-border);
   border-radius: 0 0 5px 5px;
   z-index: 2;
 }
@@ -2544,7 +2720,7 @@
   float: left;
   width: 100%;
   line-height: 22px;
-  color: #b4b4b4;
+  color: var(--lb3-rewards-footer-text-color);
   font-size: 11px;
   text-align: center;
 }
@@ -2554,13 +2730,13 @@
   width: 100%;
   padding: 10px 15px 15px 15px;
   margin: 0;
-  border-bottom: 1px solid #e5e2d5;
+  border-bottom: 1px solid var(--lb3-rewards-divider-color);
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-item:hover {
-  background-color: #e5e2d5;
+  background-color: var(--lb3-rewards-item-bg-color-hover);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-details-cont {
@@ -2576,7 +2752,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-reward-list-body-res .cl-rew-list-details-label {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-rewards-item-label-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2588,7 +2764,7 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: #3a3a3a;
+  color: var(--lb3-rewards-item-body-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container {
@@ -2609,23 +2785,23 @@
   line-height: 26px;
   font-size: 14px;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-weight: bold;
   position: relative;
   z-index: 1;
-  background: #222E54;
+  background: var(--lb3-rewards-accordion-bg-color);
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-accordion-label:hover {
-  background: #2C3B6A;
+  background: var(--lb3-rewards-accordion-hover-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-accordion-label::after {
   content: "+";
-  color: #FFFFFF;
+  color: var(--lb3-tournament-list-accordion-label-icon);
   width: 20px;
   height: 26px;
   position: absolute;
@@ -2650,13 +2826,13 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-shown .cl-accordion-label {
-  background: #212121;
-  color: #ffffff;
+  background: var(--lb3-rewards-accordion-container-show-bg-color);
+  color: var(--lb3-rewards-accordion-container-show-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-shown .cl-accordion-label::after {
   content: "-";
-  color: #FFFFFF;
+  color: var(--lb3-tournament-list-accordion-label-icon-show);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-accordion-container .cl-shown .cl-accordion-entry {
@@ -2668,16 +2844,16 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-accordion-label {
-  background: #222E54;
+  background: var(--lb3-tournament-list-accordion-label-back);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-accordion-label:hover {
-  background: #2C3B6A;
+  background: var(--lb3-tournament-list-accordion-label-back-hover);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-main-accordion-container .cl-shown .cl-accordion-label {
-  background: #212121;
-  color: #FFFFFF;
+  background: var(--lb3-tournament-list-accordion-label-back-show);
+  color: var(--lb3-tournament-list-accordion-label-color-show);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-accordion-list {
@@ -2690,19 +2866,19 @@
   width: 100%;
   padding: 10px 15px 15px 15px;
   margin: 0;
-  border-bottom: 1px solid #b4b4b4;
+  border-bottom: var(--lb3-tournament-list-item-cont-border-bottom);
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-tour-list-details-cont:hover {
-  background-color: #e5e2d5;
+  background-color: var(--lb3-tournament-list-item-cont-back-hover);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-tour-list-details-label {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--primary-font-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2714,13 +2890,13 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: #3a3a3a;
+  color: var(--primary-font-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: #F9F9F9;
+  background: var(--lb3-rewards-details-bg-color);
   top: 30px;
   left: -200px;
   width: 100%;
@@ -2746,7 +2922,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-rewards-details-title-color);
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -2761,7 +2937,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-rewards-details-date-color);
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -2774,7 +2950,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon-blue.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2793,7 +2969,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-details-body {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-rewards-details-body-color);
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -2815,7 +2991,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-winnings-container {
   float: left;
   width: 100%;
-  background: #1f294a;
+  background: var(--lb3-rewards-winnings-bg-color);
   position: relative;
   z-index: 1;
 }
@@ -2834,7 +3010,7 @@
   float: right;
   width: 100%;
   max-width: 84px;
-  background-color: #173135;
+  background-color: var(--lb3-rewards-details-reward-bg-color);
   background-image: url(../../images/big-reward-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -2849,7 +3025,7 @@
   padding: 30px 0 30px 20px;
   font-size: 40px;
   line-height: 60px;
-  color: #FFFFFF;
+  color: var(--light-font-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-container {
@@ -2864,11 +3040,11 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn {
   display: inline-block;
   text-align: center;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   right: 0;
   line-height: 22px;
-  background: linear-gradient(180deg, #6ecb86 0, #3caf59);
-  border: none;
+  background: var(--lb3-rewards-btn-bg-color);
+  border: var(--lb3-rewards-btn-border);
   text-decoration: none;
   border-radius: 5px;
   box-shadow: 0 2px 3px #666;
@@ -2880,7 +3056,7 @@
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn:hover {
-  background: linear-gradient(180deg, #6ecb86 0, #289a45);
+  background: var(--lb3-rewards-btn-hover-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn.cl-claimed {
@@ -2902,7 +3078,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #1f294a;
+  background: var(--lb3-messages-header-bg-color);
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -2912,7 +3088,7 @@
   float: left;
   width: 100%;
   height: 30px;
-  background: #1f294a;
+  background: var(--lb3-messages-header-bg-color);
   border-radius: 5px 5px 0 0;
   position: relative;
   z-index: 2;
@@ -2923,7 +3099,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: #fff;
+  color: var(--lb3-messages-header-text-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2937,7 +3113,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: #3a3a3a;
+  color: var(--lb3-messages-header-date-color);
   font-size: 11px;
   min-width: 125px;
 }
@@ -2945,7 +3121,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-header .cl-main-widget-inbox-header-close {
   position: absolute;
   display: block;
-  background-image: url(../../cl-black-theme/images/close-icon.svg);
+  background-image: var(--lb3-messages-header-close-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -2953,14 +3129,14 @@
   height: 30px;
   right: 3px;
   top: 0;
-  border-bottom: 1px solid #4c4c4c;
+  border-bottom: var(--lb3-messages-header-border-bottom);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-details {
   float: left;
   width: 100%;
   height: 42px;
-  background: #F9F9F9;
+  background: var(--lb3-messages-item-bg-color);
   position: relative;
   z-index: 2;
   display: none;
@@ -2974,7 +3150,7 @@
   height: 100%;
   z-index: 1;
   padding: 30px 0 22px 0;
-  background: #F9F9F9;
+  background: var(--lb3-messages-item-bg-color);
   border-radius: 5px;
 }
 
@@ -2998,13 +3174,13 @@
   width: 100%;
   padding: 10px 15px 15px 15px;
   margin: 0;
-  border-bottom: 1px solid #e5e2d5;
+  border-bottom: 1px solid var(--lb3-messages-item-divider-color);
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-item:hover {
-  background-color: #e5e2d5;
+  background-color: var(--lb3-messages-item-hover-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-cont {
@@ -3020,7 +3196,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-inbox-list-body-res .cl-inbox-list-details-label {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-messages-item-label-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -3032,13 +3208,13 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: #3a3a3a;
+  color: var(--lb3-messages-item-text-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-inbox-details-container {
   position: absolute;
   height: calc(100% - 52px);
-  background: #F9F9F9;
+  background: var(--lb3-messages-details-bg-color);
   top: 30px;
   left: -200px;
   width: 100%;
@@ -3064,7 +3240,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-messages-details-title-color);
   height: 30px;
   line-height: 30px;
   font-size: 24px;
@@ -3079,7 +3255,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #3a3a3a;
+  color: var(--lb3-messages-details-date-color);
   height: 30px;
   line-height: 30px;
   font-size: 18px;
@@ -3092,7 +3268,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon-blue.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -3111,7 +3287,7 @@
 .cl-main-widget-wrapper .cl-main-widget-inbox-details-container .cl-main-widget-inbox-details-body {
   float: left;
   width: 100%;
-  color: #3a3a3a;
+  color: var(--lb3-messages-details-text-color);
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -3125,8 +3301,8 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #1f294a;
-  border-top: 1px solid #4c4c4c;
+  background: var(--lb3-messages-footer-bg-color);
+  border-top: var(--lb3-messages-footer-top-border);
   border-radius: 0 0 5px 5px;
   z-index: 2;
 }
@@ -3135,7 +3311,7 @@
   float: left;
   width: 100%;
   line-height: 22px;
-  color: #fff;
+  color: var(--lb3-messages-footer-text-color);
   font-size: 11px;
   text-align: center;
 }
@@ -3179,7 +3355,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-icon-wrapper .cl-widget-notif-icon {
   display: block;
   min-height: 100%;
-  background-image: url(../../images/big-blue-btn-icon2.png);
+  background-image: var(--lb3-notification-back-image);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 80px;
@@ -3218,10 +3394,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #212121;
-  border: 2px solid #1f294a;
+  background: var(--darkest-color);
+  border: 2px solid var(--primary-color);
   border-radius: 10px 5px 5px 10px;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   padding: 0 10px 0 42px;
   height: 63px;
   transition: all 0.3s ease;
@@ -3241,11 +3417,11 @@
   top: -10px;
   right: -10px;
   z-index: 1;
-  background: #212121;
+  background: var(--darkest-color);
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 2px solid #1f294a;
+  border: 2px solid var(--primary-color);
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
@@ -3278,7 +3454,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-information-details-label {
   float: left;
   width: 100%;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-size: 12px;
   line-height: 18px;
   text-transform: uppercase;
@@ -3288,7 +3464,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-information-details-description {
   float: left;
   width: 100%;
-  color: #FFFFFF;
+  color: var(--light-font-color);
   font-size: 10px;
   line-height: 16px;
 }
@@ -3548,26 +3724,26 @@
  */
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   .cl-widget-ms-wrapper .cl-widget-ms-icon-wrapper .cl-widget-ms-icon {
-    background-image: url(../../images/logo-icon2-x2.png);
+    background-image: var(--lb3-widget-icon-2x);
   }
 
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-ach {
-    background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+    background-image: var(--lb3-achievements-icon-bg-image-2x);
   }
 
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-lb {
-    background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+    background-image: var(--lb3-tournament-icon-bg-image-2x);
   }
 
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-rewards {
-    background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+    background-image: var(--lb3-rewards-icon-bg-image-2x);
   }
 
   .cl-main-widget-wrapper .cl-main-widget-navigation-container .cl-main-widget-navigation-inbox {
-    background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+    background-image: var(--lb3-messages-icon-bg-image-2x);
   }
 
   .cl-widget-notif-wrapper .cl-widget-notif-icon-wrapper .cl-widget-notif-icon {
-    background-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+    background-image: var(--lb3-achievements-icon-bg-image-2x);
   }
 }
