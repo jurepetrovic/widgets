@@ -1,8 +1,8 @@
 :root {
   //Theme Colours
-  --primary-color:#1f294a;
-  --primary-color-darken: #222E54;
-  --primary-color-lighten: #2C3B6A;
+  --primary-color:#ff6600;
+  --primary-color-darken: #ee6103;
+  --primary-color-lighten: #ff7010;
 
   --primary-font-color:#3a3a3a;
   --primary-background-color:#F9F9F9;
@@ -55,8 +55,8 @@
 
   // TOURNAMENTS
   --lb3-tournament-icon: url(../../images/big-tournament-icon.svg);
-  --lb3-tournament-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
-  --lb3-tournament-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
+  --lb3-tournament-icon-bg-image: url(../../images/big-orange-btn-icon.png);
+  --lb3-tournament-icon-bg--image-2x: url(../../images/big-orange-btn-icon-2x.png);
   --lb3-tournament-header-back: var(--primary-color);
   --lb3-tournament-header-border-bottom: 1px solid #4c4c4c;
   --lb3-tournament-header-label-color: var(--light-font-color);
@@ -127,8 +127,8 @@
 
   // ACHIEVEMENTS
   --lb3-achievements-icon: url(../../images/big-challenge-icon.svg);
-  --lb3-achievements-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
-  --lb3-achievements-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
+  --lb3-achievements-icon-bg-image: url(../../images/big-orange-btn-icon.png);
+  --lb3-achievements-icon-bg--image-2x: url(../../images/big-orange-btn-icon-2x.png);
   --lb3-achievements-header-bg-color: var(--primary-color);
   --lb3-achievements-header-label-color: var(--light-font-color);
   --lb3-achievements-header-date-color: var(--light-grey);
@@ -159,8 +159,8 @@
   // REWARDS
 
   --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
-  --lb3-rewards-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
-  --lb3-rewards-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
+  --lb3-rewards-icon-bg-image: url(../../images/big-orange-btn-icon.png);
+  --lb3-rewards-icon-bg--image-2x: url(../../images/big-orange-btn-icon-2x.png);
   --lb3-rewards-header-bg-color: var(--primary-color);
   --lb3-rewards-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
   --lb3-rewards-header-border-bottom: 1px solid #4c4c4c;
@@ -192,8 +192,8 @@
   // MESSAGES
 
   --lb3-messages-icon: url(../../images/big-message-icon.svg);
-  --lb3-messages-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
-  --lb3-messages-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
+  --lb3-messages-icon-bg-image: url(../../images/big-orange-btn-icon.png);
+  --lb3-messages-icon-bg--image-2x: url(../../images/big-orange-btn-icon-2x.png);
   --lb3-messages-header-bg-color: var(--primary-color);
   --lb3-messages-header-text-color: #fff;
   --lb3-messages-header-date-color: var(--primary-font-color);
@@ -216,6 +216,6 @@
   --lb3-notification-back-image: url(../../images/big-blue-btn-icon2.png);
 
   //ASSETS
-  --prev-btn-icon-bg: url(../../images/prev-btn-icon-blue.svg);
+  --prev-btn-icon-bg: url(../../images/prev-btn-icon-orange.svg);
 
 }
