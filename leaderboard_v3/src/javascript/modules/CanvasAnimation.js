@@ -636,8 +636,6 @@ export const CanvasAnimation = function (options) {
       _this.settings.canvasWidthHalf = _this.settings.canvasWidth / 2; // center
       _this.settings.canvasHeightHalf = _this.settings.canvasHeight / 2;
 
-
-
       // trigger ACH
       // _this.settings.lbWidget.settings.canvasAnimation.settings.imageSrc = 'https://gateway.competitionlabs.com/alex/assets/Olp_TXUBp93_Cg_BQGsD/skull-animaiton.gif';
       // _this.settings.lbWidget.settings.canvasAnimation.init();
