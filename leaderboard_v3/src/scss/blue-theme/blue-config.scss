@@ -55,8 +55,8 @@
 
   // TOURNAMENTS
   --lb3-tournament-icon: url(../../images/big-tournament-icon.svg);
-  --lb3-tournament-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
-  --lb3-tournament-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-tournament-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
+  --lb3-tournament-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
   --lb3-tournament-header-back: var(--primary-color);
   --lb3-tournament-header-border-bottom: 1px solid #4c4c4c;
   --lb3-tournament-header-label-color: var(--light-font-color);
@@ -127,8 +127,8 @@
 
   // ACHIEVEMENTS
   --lb3-achievements-icon: url(../../images/big-challenge-icon.svg);
-  --lb3-achievements-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
-  --lb3-achievements-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-achievements-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
+  --lb3-achievements-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
   --lb3-achievements-header-bg-color: var(--primary-color);
   --lb3-achievements-header-label-color: var(--light-font-color);
   --lb3-achievements-header-date-color: var(--light-grey);
@@ -150,8 +150,8 @@
   --lb3-achievements-progress-fill-color: #fff;
   --lb3-achievements-progress-text-color: var(--primary-color);
   --lb3-achievements-progress-border: 1px solid var(--primary-color);
-  --lb3-achievements-btn-bg-color: #1f294a;
-  --lb3-achievements-btn-hover-color: #28355f;
+  --lb3-achievements-btn-bg-color:  var(--primary-color);;
+  --lb3-achievements-btn-hover-color:  var(--primary-color-lighten);
   --lb3-achievements-btn-border-radius: 3px;
   --lb3-achievements-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-achievements-btn-border: none;
@@ -159,8 +159,8 @@
   // REWARDS
 
   --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
-  --lb3-rewards-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
-  --lb3-rewards-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-rewards-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
+  --lb3-rewards-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
   --lb3-rewards-header-bg-color: var(--primary-color);
   --lb3-rewards-header-close-image: url(../../cl-black-theme/images/close-icon.svg);
   --lb3-rewards-header-border-bottom: 1px solid #4c4c4c;
@@ -180,9 +180,9 @@
   --lb3-rewards-details-body-color: var(--primary-font-color);
   --lb3-rewards-details-reward-bg-color: #173135;
   --lb3-rewards-winnings-bg-color: var(--primary-color);
-  --lb3-rewards-btn-bg-color: #1f294a;
+  --lb3-rewards-btn-bg-color:  var(--primary-color);;
   --lb3-rewards-btn-border: none;
-  --lb3-rewards-btn-hover-color: #28355f;
+  --lb3-rewards-btn-hover-color: var(--primary-color-lighten);
   --lb3-rewards-btn-border-radius: 3px;
   --lb3-rewards-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
 
@@ -192,8 +192,8 @@
   // MESSAGES
 
   --lb3-messages-icon: url(../../images/big-message-icon.svg);
-  --lb3-messages-icon-bg-image: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
-  --lb3-messages-icon-bg-image-2x: url(../../cl-black-theme/images/big-dark-blue-btn-icon.png);
+  --lb3-messages-icon-bg-image: url(../../images/big-dark-blue-btn-icon.png);
+  --lb3-messages-icon-bg-image-2x: url(../../images/big-dark-blue-btn-icon-2x.png);
   --lb3-messages-header-bg-color: var(--primary-color);
   --lb3-messages-header-text-color: #fff;
   --lb3-messages-header-date-color: var(--primary-font-color);
