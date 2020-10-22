@@ -132,6 +132,8 @@
   --lb3-achievements-progress-fill-color: #ffffff;
   --lb3-achievements-btn-bg-color: #23b3dd;
   --lb3-achievements-btn-hover-color: #29c2ef;
+  --lb3-achievements-btn-border-radius: 8px;
+  --lb3-achievements-btn-box-shadow: 1px 3px 5px #666;
   --lb3-achievements-btn-border: none;
   --lb3-rewards-icon: url(../../images/big-reward-icon.svg);
   --lb3-rewards-icon-bg-image: url(../../images/big-orange-btn-icon2.png);
@@ -159,6 +161,8 @@
   --lb3-rewards-btn-bg-color: #ff6d00;
   --lb3-rewards-btn-border: 1px solid #ffffff;
   --lb3-rewards-btn-hover-color: #ec6603;
+  --lb3-rewards-btn-border-radius: 3px;
+  --lb3-rewards-btn-box-shadow: 1px 3px 4px rgba(0,0,0,0.2);
   --lb3-rewards-accordion-container-show-bg-color: #212121;
   --lb3-rewards-accordion-container-show-color: #ffffff;
   --lb3-messages-icon: url(../../images/big-message-icon.svg);
@@ -2558,8 +2562,8 @@
   line-height: 25px;
   background: var(--lb3-achievements-btn-bg-color);
   text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 1px 3px 5px #666;
+  border-radius: var(--lb3-achievements-btn-border-radius);
+  box-shadow: var(--lb3-achievements-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 25px;
   cursor: pointer;
@@ -3034,8 +3038,8 @@
   background: var(--lb3-rewards-btn-bg-color);
   border: var(--lb3-rewards-btn-border);
   text-decoration: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 3px #666;
+  border-radius: var(--lb3-rewards-btn-border-radius);
+  box-shadow: var(--lb3-rewards-btn-box-shadow);
   text-transform: uppercase;
   padding: 4px 39px;
   cursor: pointer;
@@ -3455,6 +3459,48 @@
   color: #ffffff;
   font-size: 10px;
   line-height: 16px;
+}
+
+.cl-widget-canvas-overlay-wrapper {
+  display: none;
+  float: left;
+  width: 100%;
+  max-width: 100%;
+  min-width: 99%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1002;
+  overflow: hidden;
+  visibility: visible;
+  outline: none;
+  border: none;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.cl-widget-canvas-overlay-wrapper .cl-widget-canvas {
+  float: left;
+  width: 100%;
+  max-width: 100%;
+  min-width: 99%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  visibility: visible;
+  outline: none;
+  border: none;
+  left: 0;
+  top: 0;
 }
 
 /**

@@ -21,6 +21,7 @@ import './Ajax';
 import { Notifications } from './Notifications';
 import { MiniScoreBoard } from './MiniScoreBoard';
 import { MainWidget } from './MainWidget';
+import { CanvasAnimation } from './CanvasAnimation';
 
 const translation = require(`../../i18n/translation_${process.env.LANG}.json`);
 
@@ -44,6 +45,7 @@ export const LbWidget = function (options) {
     sseMessaging: null,
     notifications: null,
     miniScoreBoard: null,
+    canvasAnimation: null,
     enableNotifications: true,
     mainWidget: null,
     globalAjax: new cLabs.Ajax(),
@@ -1550,6 +1552,7 @@ export const LbWidget = function (options) {
       this.loadMember((member) => {
         this.loadWidgetTranslations(() => {
           if (this.settings.miniScoreBoard === null) {
+            this.settings.canvasAnimation = new CanvasAnimation();
             this.settings.notifications = new Notifications();
             this.settings.miniScoreBoard = new MiniScoreBoard({
               active: true
@@ -1559,6 +1562,7 @@ export const LbWidget = function (options) {
             this.settings.notifications.settings.lbWidget = this;
             this.settings.miniScoreBoard.settings.lbWidget = this;
             this.settings.mainWidget.settings.lbWidget = this;
+            this.settings.canvasAnimation.settings.lbWidget = this;
 
             this.startup();
             this.eventListeners();
