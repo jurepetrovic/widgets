@@ -1999,10 +1999,8 @@ export const MainWidget = function (options) {
     });
 
     setTimeout(function () {
-      setTimeout(function () {
-        if (typeof callback !== 'undefined') callback();
-      }, 30);
-    }, 40);
+      if (typeof callback !== 'undefined') callback();
+    }, 70);
   };
 
   this.initLayout = function (callback) {
@@ -2012,7 +2010,6 @@ export const MainWidget = function (options) {
 
     _this.loadLeaderboard();
 
-    _this.settings.container.style.display = 'block';
     _this.settings.container.style.display = 'block';
     setTimeout(function () {
       addClass(_this.settings.container, 'cl-show');
