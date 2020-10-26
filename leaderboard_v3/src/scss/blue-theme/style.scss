@@ -1,9 +1,5 @@
-@import "./dark-fonts";
-@import "./dark-config";
-
-.sometest {
-  border:1px solid #ffffff;
-}
+@import "./blue-fonts";
+@import "./blue-config";
 
 .cl-widget-ms-wrapper, .cl-widget-notif-wrapper {
   float: left;
@@ -718,7 +714,7 @@
   float: left;
   width: 40%;
   text-align: right;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-size: 10px;
 }
 
@@ -797,10 +793,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #212121;
-  border: 2px solid #000000;
+  background: var(--darkest-color);
+  border: 2px solid var(--primary-color);
   border-radius: 10px 10px 10px 10px;
-  color: #ffffff;
+  color: var(--light-font-color);
   padding: 27px 5px 0 5px;
   height: 199px;
   transition: all 0.3s ease;
@@ -822,7 +818,7 @@
   right: 26px;
   top: unset;
   z-index: 1;
-  background: #212121;
+  background: var(--darkest-color);
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -886,7 +882,7 @@
   float: left;
   width: 100%;
   text-align: center;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-size: 12px;
   padding: 3px 0 10px 0;
   line-height: 17px;
@@ -947,12 +943,12 @@
   float: left;
   width: 100%;
   cursor: pointer;
-  background: #000000;
+  background: var(--primary-color);
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--light-font-color);
   border-radius: 5px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--light-font-color);
   line-height: 16px;
   font-size: 9px;
   font-weight: 400;
@@ -1202,7 +1198,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background: #000000;
+  background: var(--primary-color);
   border-radius: 5px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -1283,9 +1279,9 @@
   z-index: 2;
 }
 
-.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info {
+// .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info {
 
-}
+// }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-content {
   float: left;
@@ -1313,7 +1309,7 @@
   position: absolute;
   content: "";
   display: block;
-  background-image: url(../../images/info-icon.svg);
+  background-image: url(../../images/info-icon-dark.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
@@ -1324,9 +1320,9 @@
   cursor: pointer;
 }
 
-.cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info-icon {
+// .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-details-info-icon {
 
-}
+// }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-lb-footer {
   float: left;
@@ -1495,7 +1491,7 @@
   background: #ffe500;
   border: 1px solid #e2d45f;
   border-radius: 100%;
-  color: #000000;
+  color: var(--primary-color);
   text-align: center;
   font-size: 11px;
   font-weight: 400;
@@ -1632,7 +1628,7 @@
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-growth-up {
   display: none;
-  background-image: url(../../images/growth-arrow-icon.svg);
+  background-image: url(./../images/growth-arrow-icon.svg)  ;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100%;
@@ -1709,7 +1705,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1802,7 +1798,7 @@
   top: 30%;
   line-height: 30px;
   text-align: left;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-size: 14px;
   font-weight: bold;
   display: inline-block;
@@ -1817,7 +1813,7 @@
   position: absolute;
   left: 8px;
   width: 16px;
-  background: #ffffff;
+  background: var(--light-font-color);
   animation: cl-main-widget-pre-loader-content 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 
@@ -1889,7 +1885,7 @@
   top: 13px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -1912,7 +1908,7 @@
   height: auto;
   margin: 0;
   padding: 0;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--light-font-color);
   border-collapse: collapse;
   border-spacing: 0;
   vertical-align: inherit;
@@ -2017,7 +2013,7 @@
   bottom: 22px;
   left: 0;
   z-index: 3;
-  color: #ffffff;
+  color: var(--light-font-color);
   padding: 10px 30px;
   background: var(--lb3-tournament-lb-opt-in-back);
   text-align: center;
@@ -2208,7 +2204,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2369,12 +2365,13 @@
   background: var(--lb3-achievements-progress-bg-color);
   height: 13px;
   border-radius: 5px;
+  border: var(--lb3-achievements-progress-border);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar {
   float: left;
   width: 0;
-  height: 13px;
+  height: 11px;
   background: var(--lb3-achievements-progress-fill-color);
   border-radius: 5px;
   transition: all 0.3s ease;
@@ -2383,7 +2380,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-progression-bar.cl-ach-complete {
   font-size: 10px;
   line-height: 13px;
-  color: #000000;
+  color: var(--lb3-achievements-progress-text-color);
   width: 100%;
   text-align: right;
   padding: 0 6px;
@@ -2393,7 +2390,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-section-ach .cl-ach-list-more {
   float: left;
   text-align: center;
-  color: #ffffff;
+  color: var(--light-font-color);
   position: absolute;
   top: -2px;
   right: 0;
@@ -2465,7 +2462,7 @@
   width: 60%;
   text-align: center;
   line-height: 30px;
-  color: #ffffff;
+  color: var(--light-font-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2479,7 +2476,7 @@
   top: 0;
   right: 50px;
   line-height: 30px;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-size: 11px;
   min-width: 125px;
 }
@@ -2616,7 +2613,7 @@
   line-height: 26px;
   font-size: 14px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-weight: bold;
   position: relative;
   z-index: 1;
@@ -2710,7 +2707,7 @@
 .cl-main-widget-wrapper .cl-main-widget-section-container .cl-main-widget-tournaments-list .cl-tour-list-details-label {
   float: left;
   width: 100%;
-  color: #ffffff;
+  color: var(--primary-font-color);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
@@ -2722,7 +2719,7 @@
   font-size: 11px;
   max-height: 40px;
   line-height: 16px;
-  color: #ffffff;
+  color: var(--primary-font-color);
 }
 
 
@@ -2783,7 +2780,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -2858,7 +2855,7 @@
   padding: 30px 0 30px 20px;
   font-size: 40px;
   line-height: 60px;
-  color: #ffffff;
+  color: var(--light-font-color);
 }
 
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-container {
@@ -2873,7 +2870,7 @@
 .cl-main-widget-wrapper .cl-main-widget-reward-details-container .cl-main-widget-reward-claim-btn {
   display: inline-block;
   text-align: center;
-  color: #ffffff;
+  color: var(--light-font-color);
   right: 0;
   line-height: 22px;
   background: var(--lb3-rewards-btn-bg-color);
@@ -3102,7 +3099,7 @@
   top: 16px;
   width: 30px;
   height: 26px;
-  background-image: url(../../images/prev-btn-icon.svg);
+  background-image: var(--prev-btn-icon-bg);
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -3233,10 +3230,10 @@
   display: block;
   float: left;
   width: 100%;
-  background: #212121;
-  border: 2px solid #000000;
+  background: var(--darkest-color);
+  border: 2px solid var(--primary-color);
   border-radius: 10px 5px 5px 10px;
-  color: #ffffff;
+  color: var(--light-font-color);
   padding: 0 10px 0 42px;
   height: 63px;
   transition: all 0.3s ease;
@@ -3257,11 +3254,11 @@
   right: -10px;
   z-index: 1;
 
-  background: #212121;
+  background: var(--darkest-color);
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 2px solid #000000;
+  border: 2px solid var(--primary-color);
   border-left: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
@@ -3294,7 +3291,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-information-details-label {
   float: left;
   width: 100%;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-size: 12px;
   line-height: 18px;
   text-transform: uppercase;
@@ -3304,7 +3301,7 @@
 .cl-widget-notif-wrapper .cl-widget-notif-information-details-description {
   float: left;
   width: 100%;
-  color: #ffffff;
+  color: var(--light-font-color);
   font-size: 10px;
   line-height: 16px;
 }

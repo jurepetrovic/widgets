@@ -2013,6 +2013,7 @@ export const MainWidget = function (options) {
     _this.loadLeaderboard();
 
     _this.settings.container.style.display = 'block';
+    _this.settings.container.style.display = 'block';
     setTimeout(function () {
       addClass(_this.settings.container, 'cl-show');
 
