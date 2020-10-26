@@ -9,7 +9,7 @@ import './modules/setTimeoutGlobal';
 import { LbWidget } from './modules/LbWidget';
 
 if (process.env.INLINE_CSS) {
-  require('../scss/style.scss');
+  // require('../scss/' + process.env.THEME + '/style.scss');
 }
 
 (function () {

@@ -9,7 +9,7 @@ module.exports = {
       './src/javascript/leaderboard.v3.js',
     ] : [
       './src/javascript/leaderboard.v3.js',
-      './src/scss/style.scss'
+      './src/scss/' + process.env.THEME + '/style.scss'
     ],
     'leaderboard.v3-selfinit.js': './src/javascript/leaderboard.v3-selfinit.js',
     'loader.js': './src/javascript/loader.js'
@@ -48,7 +48,7 @@ module.exports = {
               {
                 loader: 'file-loader',
                 options: {
-                  name: '../css/[name].css'
+                  name: '../css/theme/' + process.env.THEME + '.css'
                 }
               },
               'sass-loader'
@@ -75,6 +75,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.LANG': JSON.stringify(process.env.LANG),
       'process.env.INLINE_CSS': JSON.stringify(process.env.INLINE_CSS),
+      'process.env.THEME': JSON.stringify(process.env.THEME)
     }),
     new BundleAnalyzerPlugin(),
     new webpack.IgnorePlugin({
@@ -84,7 +85,8 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'src/i18n', to: '../i18n' },
-        { from: 'src/images', to: '../images' }
+        { from: 'src/images', to: '../images' },
+        { from: 'src/cl-black-theme/images', to: '../cl-black-theme/images' }
       ]
     })
   ]

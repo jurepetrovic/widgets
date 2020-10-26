@@ -1999,10 +1999,8 @@ export const MainWidget = function (options) {
     });
 
     setTimeout(function () {
-      setTimeout(function () {
-        if (typeof callback !== 'undefined') callback();
-      }, 30);
-    }, 40);
+      if (typeof callback !== 'undefined') callback();
+    }, 70);
   };
 
   this.initLayout = function (callback) {
