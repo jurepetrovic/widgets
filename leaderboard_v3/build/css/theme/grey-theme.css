@@ -25,6 +25,7 @@
   --primary-color-lighten: #999999;
   --primary-font-color:#3a3a3a;
   --primary-background-color:#F9F9F9;
+  --primary-background-color-hover: #d7d7d7;
   --light-font-color:#FFFFFF;
   --darkest-color: #212121;
   --light-grey: #b4b4b4;
@@ -44,9 +45,11 @@
   --lb3-miniscoreboard-close-btn-color: #fff;
   --lb3-miniscoreboard-close-btn-font-size: 18px;
   --lb3-miniscoreboard-opt-btn-border: 1px solid var(--primary-font-color);
-  --lb3-miniscoreboard-opt-btn-back: var(--primary-color);
-  --lb3-miniscoreboard-opt-btn-back-hover: #292929;
+  --lb3-miniscoreboard-opt-btn-back: var(--primary-background-color);
+  --lb3-miniscoreboard-opt-btn-back-hover: var(--light-grey);
   --lb3-miniscoreboard-opt-btn-color: var(--primary-font-color);
+  --lb3-miniscoreboard-opt-line-height: 22px;
+  --lb3-miniscoreboard-opt-font-size: 14px;
   --lb3-miniscoreboard-date-color: #7a7a7a;
   --lb3-miniscoreboard-rank-label-color: #7a7a7a;
   --lb3-miniscoreboard-points-label-color: #7a7a7a;
@@ -98,7 +101,7 @@
   --lb3-tournament-details-opt-in-back: var(--primary-background-color);
   --lb3-tournament-details-opt-in-back-border-top: 1px solid var(--light-grey);
   --lb3-tournament-details-opt-in-btn-back: var(--primary-background-color);
-  --lb3-tournament-details-opt-in-btn-back-hover: #292929;
+  --lb3-tournament-details-opt-in-btn-back-hover: #c2c1c1;
   --lb3-tournament-details-opt-in-color: var(--primary-font-color);
   --lb3-tournament-details-opt-in-border: 1px solid var(--primary-font-color);
   --lb3-tournament-list-accordion-label-back: var(--primary-color-darken);
@@ -115,7 +118,7 @@
   --lb3-tournament-lb-opt-in-back: var(--primary-background-color);
   --lb3-tournament-lb-opt-in-btn-back: var(--primary-background-color);
   --lb3-tournament-lb-opt-in-btn-color: var(--primary-font-color);
-  --lb3-tournament-lb-opt-in-btn-back-hover: #292929;
+  --lb3-tournament-lb-opt-in-btn-back-hover: var(--primary-background-color-hover);
   --lb3-tournament-lb-opt-in-border: 1px solid var(--primary-font-color);
   --lb3-achievements-icon: url(../../images/big-challenge-icon.svg);
   --lb3-achievements-icon-bg-image: url(../../images/big-grey-btn-icon.png);
@@ -325,8 +328,7 @@
   height: 30px;
   border-radius: 100%;
   border: var(--lb3-miniscoreboard-close-wrapper-border);
-  border-left: 2px solid transparent;
-  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
 }
 
 .cl-widget-ms-wrapper .cl-widget-ms-information-close {
@@ -389,8 +391,8 @@
   text-transform: uppercase;
   color: var(--lb3-miniscoreboard-opt-btn-color);
   border-radius: 5px;
-  line-height: 24px;
-  font-size: 15px;
+  line-height: var(--lb3-miniscoreboard-opt-line-height);
+  font-size: var(--lb3-miniscoreboard-opt-font-size);
   font-weight: 400;
   transition: all 0.3s ease;
   border: var(--lb3-miniscoreboard-opt-btn-border);

@@ -39,6 +39,8 @@
   --lb3-miniscoreboard-opt-btn-back: #33c334;
   --lb3-miniscoreboard-opt-btn-back-hover: #21a722;
   --lb3-miniscoreboard-opt-btn-color: #ffffff;
+  --lb3-miniscoreboard-opt-line-height: 24px;
+  --lb3-miniscoreboard-opt-font-size: 15px;
   --lb3-miniscoreboard-date-color: #7a7a7a;
   --lb3-miniscoreboard-rank-label-color: #7a7a7a;
   --lb3-miniscoreboard-points-label-color: #7a7a7a;
@@ -378,8 +380,8 @@
   text-transform: uppercase;
   color: var(--lb3-miniscoreboard-opt-btn-color);
   border-radius: 5px;
-  line-height: 24px;
-  font-size: 15px;
+  line-height: var(--lb3-miniscoreboard-opt-line-height);
+  font-size: var(--lb3-miniscoreboard-opt-font-size);
   font-weight: 400;
   transition: all 0.3s ease;
   border: var(--lb3-miniscoreboard-opt-btn-border);
