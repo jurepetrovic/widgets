@@ -269,7 +269,6 @@ const GIF = function () {
     }// if !waitTillDone the call onload now after first frame is loaded
   };
 
-  // **NOT** for commercial use.
   function finnished () { // called when the load has completed
     gif.loading = false;
     gif.frameCount = gif.frames.length;
